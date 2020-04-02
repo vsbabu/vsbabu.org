@@ -7,7 +7,7 @@ public/index.html: content/* sass/* templates/* static/* index.html *.css
 	zola build
 
 publish: public/index.html
-	rsync --recursive --verbose public/ vsbabu.org:~/www/twenties/
+	rsync --recursive --delete --verbose public/ vsbabu.org:~/www/twenties/
 	rsync --verbose `ls avatar.jpg index.html *.css` vsbabu.org:www/
 
 test:

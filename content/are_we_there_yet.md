@@ -13,7 +13,7 @@ What often starts as simple databases for simple solutions grow when business is
 
 <!-- more -->
 
-![are we there yet](../are_we_there_yet.png)
+![are we there yet](01.png)
 
 > Do this, when that...
 

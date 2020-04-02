@@ -45,7 +45,7 @@ echo “{‘n’:$n,’date’:’$d’}”
 
 ## Building your flow — 2 min
 
-![overall flow](../node_red_api_01.png)
+![overall flow](01.png)
 
 Overall flow
 
@@ -53,15 +53,15 @@ Drag and drop _http-in, function, exec and http-out_ components from left side b
 
 Now, double click on each of these to configure as below.
 
-![Get http-in; url is /dateafter/variable](../node_red_api_02.png)
+![Get http-in; url is /dateafter/variable](02.png)
 
 Get http-in; url is /dateafter/variable
 
-![Let us get the parameter n from request and set it as payload](../node_red_api_03.png)
+![Let us get the parameter n from request and set it as payload](03.png)
 
 Let us get the parameter n from request and set it as payload
 
-![Exec points to our shell script](../node_red_api_04.png)
+![Exec points to our shell script](04.png)
 
 Exec points to our shell script
 

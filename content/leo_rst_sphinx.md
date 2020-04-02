@@ -20,7 +20,7 @@ it very easily.
 <!-- more -->
 
 Teaser -> This is the sample output!
-![Sample generated doc](../leo_rst_sphinx_02.png)
+![Sample generated doc](02.png)
 
 Often, you might end up using markdown. While that is quite easy and convenient for
 single page documents and blogs, it is a [bit limiting when you want to make multipage
@@ -84,7 +84,7 @@ how to edit and navigate is going to be useful.
 - Put it into the project folder you created in the quickstart step before.
 - Open it in leo. This is how it should look.
 
-![How does it look?](../leo_rst_sphinx_01.png)
+![How does it look?](01.png)
 
 Just keep editing it. Note that whenever you add a new ``@rst`` node, you have to add it under the
 ``toctree`` in ``index`` also, so that it can come up in the sidebar.

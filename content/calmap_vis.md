@@ -23,7 +23,7 @@ generate those.
 Continue to see what we can make with our own data!
 
 <!-- more -->
-![desktop screenshot](../calmap_vis.png)
+![desktop screenshot](01.png)
 
 ## How?
 

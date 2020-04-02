@@ -24,7 +24,8 @@ myself have forgotten the _Babu_ and the whole thing is now compressed to _SV_.
 
 ## How is this built?
 * On [LG Gram 14Z980](https://www.amazon.in/gp/product/B07GXYYVZF/) laptop, bought on December 2018,  running 
-  [ElementaryOS Hera 5.1](https://blog.elementary.io/introducing-elementary-os-5-1-hera/). 
+  [ElementaryOS Hera 5.1](https://blog.elementary.io/introducing-elementary-os-5-1-hera/) with my
+  [post OS installation](../elementary_hera_postinstall) steps.
   Default dual-boot installation with Windows 10 that the laptop shipped with works flawlessly.
 * Content is written using [markdown](https://daringfireball.net/projects/markdown/).
 * Often typed using [Royal Kludge RK 61

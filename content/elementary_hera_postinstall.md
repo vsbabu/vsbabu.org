@@ -13,7 +13,7 @@ Quick snippets and utils that I use to get going once OS install is complete.
 
 <!-- more -->
 
-![desktop screenshot](../elementary_hera_postinstall.png)
+![desktop screenshot](01.png)
 
 - Check the official [Hera 5.1.2 release
   post](https://blog.elementary.io/5.1.2-hera-download/)

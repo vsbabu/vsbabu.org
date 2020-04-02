@@ -15,7 +15,7 @@ While I’ve used it for a long time, only recently did I know about support for
 [CTE](https://www.sqlite.org/lang_with.html) aka Common Table Expressions.
 <!-- more -->
 
-![sample session](../sqlite3-cte-tricks-for-time-series-analysis.png)
+![sample session](01.png)
 this has everything; or you just read below :)
 
 Quick (and overly simplified) definition of CTE? This is where you can park
