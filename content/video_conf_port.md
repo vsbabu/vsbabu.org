@@ -37,14 +37,15 @@ and installing it is very easy and instructions are on the site. It should work 
 experimented with these.
 
 ## Setup
-Start WebCamoid. Click on the gear icon for _Preferences_ and choose _Output_. Check the _Virtual Camera_
+
+1. Start WebCamoid. Click on the gear icon for _Preferences_ and choose _Output_. Check the _Virtual Camera_
 checkbox and add a new _Virtual Camera_ - give it an easy to remember name.
 
-Now, click on the _Play_ button on the left of the toolbar - it starts the video feed. Click on _Effects_
+2. Now, click on the _Play_ button on the left of the toolbar - it starts the video feed. Click on _Effects_
 and choose the desired effect. The one above is _Vignette_. Chosen effect has configurations on the 
 right side - play with it.
 
-Now, choose your VC. When you turn on the Video there, instead of regular camera, choose the virtual
+3. Now, choose your VC. When you turn on the Video there, instead of regular camera, choose the virtual
 camera you created. 
 
 Done!
