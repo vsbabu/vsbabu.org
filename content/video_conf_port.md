@@ -50,7 +50,7 @@ camera you created.
 
 Done!
 
-After that, whenever you change the effect in WebCamoid, it will be automaticlly applied. 
+After that, whenever you change the effect in WebCamoid, it will be automatically applied. 
 
 Like below :)
 ![pixelate](02.png)
