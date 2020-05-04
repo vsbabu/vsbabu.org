@@ -6,7 +6,7 @@ weight = 1
 draft = false
 in_search_index = true
 [taxonomies]
-categories = ["snippet"]
+categories = ["article"]
 tags = [ "work", "productivity", "git"]
 +++
 
