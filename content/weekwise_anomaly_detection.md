@@ -23,7 +23,7 @@ not used `jq` and `xsv`, you can see how cool those are too.
 ![result](01.png)
 <!-- more -->
 
-## Getting the Data
+## Sample Data
 [covid19india](https://www.covid19india.org/) is a crowd sourced website that shows a lot of visualizations
 about the state of COVID-19 in India. They've nicely available JSON APIs that gives the data by day. 
 
@@ -67,7 +67,7 @@ can just extract the date and the 3 daily metrics to a csv.
   *01-January-2020*. Not exactly safe for turn of the year, but that is how current json data is given.
 
 
-## Getting Specific Timeseries
+## Extract Specific Timeseries
 
 The data I am interested in processing has only two columns, viz., *date* and *value*. So, if I
 need to get daily numbers of *confirmed* cases from this csv, multiple options are available:
