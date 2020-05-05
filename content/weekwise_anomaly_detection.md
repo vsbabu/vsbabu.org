@@ -156,9 +156,15 @@ last 8 weeks, but out of turn dates too.
 
 The real meat is in this file, `weeklies.py`.
 
-Instead of keeping it here, I've added to a gist.
+Instead of keeping it here, I've added to a [public gist](https://gist.github.com/vsbabu/9f9bcfbbba12bc988cc71cb53d5c1418).
 
-{{gist(url="https://gist.github.com/vsbabu/9f9bcfbbba12bc988cc71cb53d5c1418", class="gist")}}
+Some examples that you might find useful in that code outside of *fbprophet* are below.
+
+1. [argparser](https://docs.python.org/3/library/argparse.html) module to easily handle command line arguments
+1. Find nth Monday before this week `today - datetime.timedelta(days=today.weekday(), weeks = n)`
+1. Make a date range in pandas `dates = pd.date_range(start_date, periods=((days))`
+1. Adding a mask to a dataframe for some columns, based on values in other columns
+1. Apply html style and hide columns to render a dataframe.
 
 ## Final Setup
 
