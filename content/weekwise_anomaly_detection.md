@@ -106,6 +106,9 @@ data.json :
 
 clean :
 	rm -f *.html *.csv
+
+.PHONY : data.json
+
 ```
 
 Just run `make all` and open *dashboard.html* in a browser. That's it.
