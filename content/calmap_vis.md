@@ -20,7 +20,9 @@ points over same time axis to see any trends,
 [Calmap](https://pythonhosted.org/calmap/) is a super simple library that can
 generate those.
 
-Continue to see what we can make with our own data!
+Continue to see what we can make with our own data! 
+
+*Update May 28, 2020* - code using this is added to my [covid 19 tracker repo](https://github.com/vsbabu/covid19_fb_ts) with [actual output](https://vsbabu.github.io/covid19_fb_ts/)
 
 <!-- more -->
 ![desktop screenshot](01.png)

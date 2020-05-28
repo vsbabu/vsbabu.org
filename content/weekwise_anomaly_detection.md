@@ -9,6 +9,9 @@ in_search_index = true
 categories = ["article"]
 tags = [ "datascience", "visualization", "pandas", "anomaly"]
 +++
+
+*Update May 28, 2020* - code using this is added to my [covid 19 tracker repo](https://github.com/vsbabu/covid19_fb_ts) with [actual output](https://vsbabu.github.io/covid19_fb_ts/)
+
 I find looking at daily numbers folded by week (ie. Mon to Sun in one row) for last 8
 weeks a good way to look at the data. Especially if multiple tables are put one below
 the other for the same period, it is easy to identify patterns. Sample tables in a typical
