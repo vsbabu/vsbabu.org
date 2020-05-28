@@ -105,7 +105,7 @@ connect to our database using *psql* command above. From the *psql* prompt, we c
 load up the database with following scripts.
 
 ```sql
-\i pagila-schama.sql
+\i pagila-schema.sql
 \i pagila-insert-data.sql
 ```
 
