@@ -35,4 +35,6 @@ myself have forgotten the _Babu_ and the whole thing is now compressed to _SV_.
   _[tmux.conf](https://github.com/vsbabu/configs/tree/master/tmux)_.
 * Static site is generated using [Zola](https://www.getzola.org/) with
   [Even](https://www.getzola.org/themes/even/) theme customized with my colors.
+*  #PureContent => No Javascript / Cookies / Tracking. TODO: Need to 
+   autolink to tweet and linked.in so that someone can discuss if there is a need.
 
