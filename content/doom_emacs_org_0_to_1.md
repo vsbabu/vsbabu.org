@@ -174,6 +174,52 @@ type in *3/6* or *0%* - org did it automatically; I just had to tell it that I n
       - [-] Pay million$ during super-bowl
   ```
 
+## Recap
+
+#### Keys/Commands
+
+| Key/Cmd                   | Meaning                                                      |
+| ---                       | ---                                                          |
+| C                         | Ctrl                                                         |
+| S                         | Shift                                                        |
+| M                         | Meta. Alt usually; Command (⌘) in Apple Mac                  |
+| M-x                       | Run a command with auto complete (TAB, Arrow, ENTER to pick) |
+| SPC-X                     | Org capture start                                            |
+| C-Enter                   | Org, append sibling                                          |
+| C-S-Enter                 | Org, insert sibling above                                    |
+| TAB                       | Org, fold/unfold at headline                                 |
+| S-TAB                     | Org, fold all                                                |
+| M-x load-theme            | Switch appearance                                            |
+| M-x doom/reload           | Reload environment after changing `config.el`                |
+| M-x org-insert-link       | Create a link.                                               |
+| M-x org-narrow-to-subtree | Focus only on current headline                               |
+| M-x org-mark-ring-goto    | Go back in link navigation                                   |
+| SPC m q                   | Add tag to headline                                          |
+| :vs                       | Vertical split                                               |
+| :sp                       | Horizontal split                                             |
+| :e <filepath>             | Edit a file                                                  |
+| :w <filepath>             | Save file                                                    |
+| :x                        | Save and Exit                                                |
+| >, >>, <, <<              | Shift. If folded headline, entire sub-tree too               |
+| dd                        | delete line. If folded headline, entire sub-tree too         |
+| o, O                      | Insert line below (or above)                                 |
+| yy                        | Yank line. If folded headline, entire sub-tree too           |
+| p                         | Paste. Paste works on outside clipboard content too.         |
+
+
+
+#### Default files
+Under your `org-directory`
+
+```
+ ├── org
+ │   ├── journal.org
+ │   ├── notes.org
+ │   └── projects.org
+ │   └── todo.org
+```
+
+
 ## Closing thoughts
 
 - To extract data from org-mode files, [python orgparse](https://orgparse.readthedocs.io/en/latest/) is quite nice. 
