@@ -103,20 +103,42 @@ unless you want to encrypt some notes.
   list of roam files will pop up. Choose as many as you want and you can see those
   links getting added automatically.
 * Next time when you open the note, you will see possible back links to this on the
-  side window to get the context. Makes navigation very easy.
+  side window to get the context. Makes navigation very easy. That buffer can be toggled
+  by `SPC n r r`
+* For example, I have two notes below, viz., *Org Roam* and *Zettelkasten System*. From 
+  the latter, I interlinked to former. You can see that when I am on *Org Roam*, the side
+  buffer shows what other content links to this.
+
+  ![screenshot](01.png)
 
 
-To summarize:
+## Deft - file navigation
+We also installed `deft` which can be invoked by `SPC n d`. Gives a nice list of all org
+files sorted by modified timestamp in descending order. You can navigate using arrow keys
+and open the file.
+
+  ```
+  Deft: 
+
+  Zettelkasten System                                              2020-08-02 07:52
+  Org Roam                                                         2020-08-02 07:50
+  SV                                                               2020-06-07 17:29
+  ```
+
+Note that `deft` is for navigating an file tree; not particularly linked to org-mode and roam. I find
+it very useful to check the recently modified notes.
+
+## Key Combos to Remember
 
    ```
    SPC n r f => Type a topic name and edit note. Just like Notational Velocity.
    SPC n r i => Inside the note, use this to add links to possibly related topics.
+   SPC n r r => Toggle the org-roam buffer. Shows backlinks.
+   SPC n d   => Deft
    ```
 
-That's it. You just need to remember two key combinations.
+That's it. You just need to remember first two key combinations. Other two are useful as well.
 
-We also installed `deft` which can be invoked by `SPC n d`. Gives a nice list of all org
-files sorted by modified timestamp in descending order.
 
 ## Encryption
 Here is my sample org file.
@@ -177,3 +199,9 @@ but I didn't try it.
 * [Deft Emacs package](https://jblevins.org/projects/deft/)
 * [Keeping Secrets in Emacs with GPG](https://www.masteringemacs.org/article/keeping-secrets-in-emacs-gnupg-auth-sources)
 * [Part 1 of this series](/twenties/doom_emacs_org_0_to_1/)
+
+## Other Points
+* If you manually rename or delete any roam file, you need to run `M-x org-roam-db-build-cache`
+* You need to do this if you change the title outside emacs as well.
+* `M-x org-roam-doctor` is a nice command you might want to run once in a while when you really get going with notes.
+
