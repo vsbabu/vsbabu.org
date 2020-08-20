@@ -67,7 +67,7 @@ Note - I am not going into what all can be done using [Org Mode](https://orgmode
     ```
 6. `org-directory` is set to *~/org/*. I changed it to *~/Dropbox/org/* to not worry about backups. This is where all your default org files will go to. We will get to what is *default* files later.
 7. Save it. `:w` will work just like in VI.
-8. Let us see if you want to change the default theme from `doom-one`. Type **M-x (ie meta-x which is Alt-x in Win/Linux and Cmd-x in Mac)**. Whole bunch of commands show up. Type *load-theme* and you can see that auto-complete is in action. This command has a menu which lists all the themes. *doom-one-light* is a neat light theme. It will ask you to run that lisp code and mark it as safe for later too - you can answer y.
+8. Let us see if you want to change the default theme from `doom-one`. Type **M-x (ie., meta-x which is Alt-x in Win/Linux and Opt-x in Mac - *Cmd-x works as well in doom-emacs most of the time* )**. Whole bunch of commands show up. Type *load-theme* and you can see that auto-complete is in action. This command has a menu which lists all the themes. *doom-one-light* is a neat light theme. It will ask you to run that lisp code and mark it as safe for later too - you can answer y.
 9. If you liked this theme and want to make it permanent, edit *doom-theme* in *config.el* to set this value.
 10. If you are new to emacs, perhaps it is good to enable menus. Add `(menu-bar-mode 1)` to *config.el*.
 11. Exit! Yeah - `:x`.
