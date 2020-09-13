@@ -4,7 +4,7 @@ path = "about"
 template = "about.html"
 +++
 <img
-  src="https://pbs.twimg.com/profile_images/1173249453328723969/1oNk34o3_400x400.jpg"
+  src="me_half.jpg"
   style="border-radius: 50%; margin: 5px 5px 5px 5px; float:right;" alt="vsbabu" />
 
 I am _Satheesh Vattekkat_, online at:
