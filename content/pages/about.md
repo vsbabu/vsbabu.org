@@ -4,7 +4,7 @@ path = "about"
 template = "about.html"
 +++
 <img
-  src="me_half.jpg"
+  src="me_half.jpg" width="200" height="200"
   style="border-radius: 50%; margin: 5px 5px 5px 5px; float:right;" alt="vsbabu" />
 
 I am _Satheesh Vattekkat_, online at:
