@@ -82,6 +82,7 @@ Let us create two files.
 We can load these into two database tables viz., `customer` and `customer_order`, each with an auto-incremented integer
 id as primary key. One benefit with this is that we don't need to keep looking at customer file to identify a valid customer id to fill in order, but can simply take an integer between 1 and max number of records in the customer file.
 
+#### **`order_data_faker.py`**
 ```python
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
@@ -122,7 +123,7 @@ with open(_CUSTOMER.filename, "wt") as csvf:
         writer.writerow(
             [
                 fake.name(),
-                fake.free_email(),
+                fake.free_email().replace("@", f""".{i}@"""), #ensure unique email
                 fake.phone_number(),
                 fake.city(),
                 fake.state(),
@@ -157,6 +158,22 @@ Let us setup a database using `docker-compose`.
 
 Create a file `stack.mariadb.yml` with content like below.
 
+Note that if you move this to a different folder and run, another new database container will be created.
+So, please decide on a folder structure first. My structure is below and I `cd` into *dbsetup* folder before executing
+commands.
+
+```
+.
+└── dbsetup
+    ├── data
+    │   ├── customer_data.csv
+    │   └── order_data.csv
+    ├── order_data_faker.py
+    ├── order_data_loader.sql
+    └── stack.mariadb.yml
+```
+
+#### **`stack.mariadb.yml`**
 ```yml
 version: '3.1'
 
@@ -203,8 +220,11 @@ You should get the database prompt.
 
 ## Load Data
 
+#### **`order_data_loader.sql`**
 ```sql
--- basic tables; no indexes
+-- basic tables; no indexes other than those created by primary keys and constraints.
+drop table if exists customer_order;
+drop table if exists customer;
 create table customer (
   id int not null auto_increment primary key,
   full_name varchar(100) not null,
@@ -212,7 +232,8 @@ create table customer (
   telephone varchar(20),
   city varchar(32) not null,
   state varchar(32) not null,
-  join_date datetime not null
+  join_date datetime not null,
+  constraint uc_email unique(email)
 ) engine = innodb;
 
 create table customer_order (
@@ -221,32 +242,37 @@ create table customer_order (
   order_date datetime not null,
   product varchar(16) not null,
   constraint fk_customer foreign key (customer_id) references customer(id) on update cascade on delete cascade
-  -- this contraint will create an index on this column too
 ) engine = innodb;
 
 -- load the files generated. we need to mask
 --  date field to right format for correct load.
-load data infile '/tmp/data/customer_data.csv'
-into table customer
-fields terminated by ','
-optionally enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(full_name, email, telephone, city, state, @join_date)
-set join_date = str_to_date(@join_date, '%Y-%m-%d %H:%i');
+load data infile '/tmp/data/customer_data.csv' ignore
+  into table customer
+  fields terminated by ','
+  optionally enclosed by '"'
+  lines terminated by '\n'
+  ignore 1 rows
+  (full_name, email, telephone, city, state, @join_date)
+  set join_date = str_to_date(@join_date, '%Y-%m-%d %H:%i');
 
-load data infile '/tmp/data/order_data.csv'
-into table customer_order
-fields terminated by ','
-optionally enclosed by '"'
-lines terminated by '\n'
-ignore 1 rows
-(customer_id, @order_date, product)
-set order_date = str_to_date(@order_date, '%Y-%m-%d %H:%i');
+load data infile '/tmp/data/order_data.csv' ignore
+  into table customer_order
+  fields terminated by ','
+  optionally enclosed by '"'
+  lines terminated by '\n'
+  ignore 1 rows
+  (customer_id, @order_date, product)
+  set order_date = str_to_date(@order_date, '%Y-%m-%d %H:%i');
 
 -- -- let us try some queries
 -- who are the customers who ordered most items in what duration?
 select customer_id, count(1), min(order_date), max(order_date) from customer_order group by 1 order by 2 desc limit 10;
+```
+
+You can load it from within `usql` prompt or like below.
+
+```sh
+usql my://root:changeme@localhost:3306/mariadbtest -f order_data_loader.sql
 ```
 
 On a docker container to which I allocated 2GB memory, it took about 5 minutes to load these files.
