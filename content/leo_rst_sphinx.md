@@ -80,7 +80,7 @@ html_theme_options = {
 Let us create a leo outliner. Reading the [leo tutorial](http://leoeditor.com/tutorial-basics.html) on 
 how to edit and navigate is going to be useful.
 
-- **Download [sample outline - leo_rst_sphinx.leo](../leo_rst_sphinx.leo)** I created.
+- **Download [sample outline - leo_rst_sphinx.leo](leo_rst_sphinx.leo)** I created.
 - Put it into the project folder you created in the quickstart step before.
 - Open it in leo. This is how it should look.
 
