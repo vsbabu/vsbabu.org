@@ -17,7 +17,7 @@ It comes with an extensive man page and website also has great documentation. St
 <!-- more -->
 First, download from the tool's [site](https://github.com/BurntSushi/xsv) at  or `brew install xsv`
 
-#### Inspect file
+### Inspect file
 
 ```bash
 #field type, statistics
@@ -39,7 +39,7 @@ xsv stats sample.csv|xsv table
 xsv index sample.csv
 ```
 
-#### File format conversion
+### File format conversion
 
 Best part is that you don't have to worry about header rows, escaping characters etc.
 
@@ -54,7 +54,7 @@ xsv fmt -d \| -t "^I" sample.psv
 
 Note that `"^I"` indicates a TAB character - you can type that in terminal by CTRL-V-I. 
 
-#### Split & Merge files
+### Split & Merge files
 
 ```bash
 # split file into multiple files by a column - aka partition
@@ -68,7 +68,7 @@ xsv split -s 1000 t/ employees.csv
 xsv cat rows t/*.csv 
 ```
 
-#### Select Data
+### Select Data
 
 ```bash
 #random select 4 records
@@ -97,7 +97,7 @@ xsv search -i "galore" employees.csv
 xsv search -i -v "galore" employees.csv
 ```
 
-#### Joins
+### Joins
 
 ```bash
 # inner join on cities.city = employees.office
