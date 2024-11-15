@@ -11,10 +11,6 @@
 
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
-      {% if config.generate_rss %}
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") | safe }}">
-      {% endif %}
-
       {% block js %}
           <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
           {% if config.extra.katex_enable %}
@@ -37,6 +33,35 @@
       {% endblock css %}
 
       {% block extra_head %}
+<style>
+.logo-description {
+  background-image: url(moss_0.jpg);
+  background-repeat: no-repeat; 
+  display: block;
+  font-size: 2em;
+  font-style: italic;
+  color: white;
+  line-height: 4em;
+  padding-left: 25px;
+  background-size: cover;
+} 
+.post-tags a {
+  background-color: #f9c440;
+  border-radius: 0.25em;
+  color: #ad5f00;
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 2em;
+  margin: 0.125em;
+  padding: 0 0.5em;
+  text-decoration: none
+}
+        
+.post-nav a {
+   font-size: 0.85rem; 
+}
+
+</style>
       {% endblock extra_head %}
     </head>
 

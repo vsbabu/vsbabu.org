@@ -9,7 +9,6 @@ in_search_index = true
 categories = ["snippet"]
 tags = [ "datascience", "visualization", "pandas", "snippet"]
 +++
-![sample](https://help.github.com/assets/images/help/profile/contributions_graph.png)
 
 _[Github contrib
 map](https://help.github.com/en/github/setting-up-and-managing-your-github-profile/viewing-contributions-on-your-profile#contributions-calendar)_

@@ -1,19 +1,10 @@
-# The URL the site will be built for
 base_url = "http://vsbabu.org/twenties"
 title = "SV@2020"
 description = "before the moss covers the thoughts..."
 
-# Whether to automatically compile all Sass files in the sass directory
-compile_sass = true
+compile_sass = false
+generate_feeds = true
 
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = true
-highlight_theme = "base16-ocean-dark"
-
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = true
-generate_rss = true
 taxonomies = [
     # You can enable/disable RSS
     {name = "categories", rss = true},
@@ -22,6 +13,13 @@ taxonomies = [
 
 theme = "even"
 
+[markdown]
+highlight_code = true
+highlight_theme = "base16-ocean-dark"
+
+build_search_index = true
+
+
 [slugify]
 paths = "safe"
 taxonomies = "safe"
@@ -29,15 +27,6 @@ anchors = "safe"
 
 
 [extra]
-# Put all your custom variables here
-#hyde_theme = "theme-base-0f"
-#hyde_links = [
-#    {url = "https://www.linkedin.com/in/vsbabu/", name = "linked.in", fa = "linkedin"},
-#    {url = "https://twitter.com/vsbabu", name = "twitter", fa = "twitter"},
-#    {url = "https://medium.com/@vsbabu", name = "medium", fa = "medium"},
-#    {url = "https://github.com/vsbabu/", name = "github", fa = "github"},
-#]
-#hyde_reverse = false
 even_title = "SV@2020"
 katex_enable = false
 author = "Satheesh Vattekkat"
