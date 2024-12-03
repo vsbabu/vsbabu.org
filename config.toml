@@ -1,24 +1,36 @@
 base_url = "http://vsbabu.org/twenties"
-title = "SV@2020"
+title = "~sv"
 description = "before the moss covers the thoughts..."
+author = "Satheesh Vattekkat"
+default_language = "en"
 
-compile_sass = false
+compile_sass = true
 generate_feeds = true
+build_search_index = true
+
+
 
 taxonomies = [
-    # You can enable/disable RSS
-    {name = "categories", rss = true},
-    {name = "tags", rss = true},
+    {name = "categories", feed = true},
+    {name = "tags", feed = true},
 ]
 
-theme = "even"
+theme = "tabi"
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+# At which character to truncate the content to. Useful if you have a lot of pages and the index would
+# become too big to load on the site. Defaults to not being set.
+# truncate_content_length = 100
+index_format = "elasticlunr_json"
 
 [markdown]
 highlight_code = true
-highlight_theme = "base16-ocean-dark"
-
-build_search_index = true
-
+bottom_footnotes = true
+highlight_theme = "css"
+smart_punctuation = true
 
 [slugify]
 paths = "safe"
@@ -27,12 +39,26 @@ anchors = "safe"
 
 
 [extra]
-even_title = "SV@2020"
-katex_enable = false
-author = "Satheesh Vattekkat"
-even_menu = [
-    {url = "$BASE_URL/..", name = "home"},
-    {url = "$BASE_URL/", name = "blog"},
-    {url = "$BASE_URL/about/", name = "about"},
+header = {title = "Hello! I'm vsbabu~", img = "about/me_half.jpg", img_alt = "Satheesh Vattekkat" }
+skin = "lavender"
+menu = [
+    { name = "home", url = "/..", trailing_slash = true },
+    { name = "blog", url = "blog", trailing_slash = true },
+    { name = "archive", url = "archive", trailing_slash = true },
+    { name = "tags", url = "tags", trailing_slash = true },
+    { name = "about", url = "about", trailing_slash = true },
 ]
+quick_navigation_buttons = true
+
+socials = [
+    { name = "github", url = "https://github.com/vsbabu/", icon = "github" },
+    { name = "linkedin", url = "https://www.linkedin.com/in/vsbabu", icon = "linkedin" },
+    { name = "x", url = "https://x.com/vsbabu", icon = "x" },
+    { name = "reddit", url = "https://reddit.com/u/vsbabu", icon = "reddit" },
+]
+
+katex = false
+mermaid = false
 date_format = "%a %b %e, %Y"
+
+favicon = "favicon.ico"
