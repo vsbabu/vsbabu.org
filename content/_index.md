@@ -1,7 +1,13 @@
 +++
-title = "Writings & Snippets"
-paginate_by = 20
+title = "Posts"
 sort_by = "date"
+
+[extra]
+header = {title="", img = "me_circle.png", img_alt = "Satheesh Vattekkat" }
+section_path = "blog/_index.md"
+max_posts = 7
 +++
 
-This is supposed to be my new front page.
+I am a CTO, Engineering Leader, Learner & Coder. If you need to know more, visit [my linked.in profile](https://www.linkedin.com/in/vsbabu/). 
+
+<div style="clear:both;"></div>

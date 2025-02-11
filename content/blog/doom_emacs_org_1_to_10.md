@@ -11,7 +11,7 @@ tags = [ "emacs", "org-mode", "productivity", "0to1"]
 +++
 
 Already setup `doom-emacs` and started with `org-mode`? If not, read my
-previous article on [0to1: doom-emacs and org-mode](/twenties/doom_emacs_org_0_to_1/).
+previous article on [0to1: doom-emacs and org-mode](/blog/doom_emacs_org_0_to_1/).
 
 Since then, I've also started using `org-roam`, which is an emacs implementation
 of roamresearch.com's note taking tool. Following are my notes on how to get this going.
