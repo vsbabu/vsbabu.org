@@ -7,6 +7,7 @@ default_language = "en"
 compile_sass = true
 generate_feeds = true
 build_search_index = true
+preserve_dotfiles_in_output = true
 
 
 
@@ -16,6 +17,8 @@ taxonomies = [
 ]
 
 theme = "tabi"
+output_dir = "docs"
+
 [search]
 include_title = true
 include_description = true
@@ -63,3 +66,4 @@ mermaid = false
 date_format = "%a %b %e, %Y"
 
 favicon = "favicon.ico"
+

@@ -5,11 +5,12 @@ default: docs/index.html
 
 docs/index.html: content/* templates/* static/*
 	git submodule update --init --recursive
-	zola build --force --output-dir docs/
+	zola build 
+	rm -f /tmp/docs.tar
 	tar -cvf /tmp/docs.tar docs/
 
 test:
-	zola serve --force --output-dir docs/
+	zola serve 
 
 clean:
 	rm -fR docs/
