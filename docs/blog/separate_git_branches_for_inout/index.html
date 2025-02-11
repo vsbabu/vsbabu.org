@@ -147,13 +147,10 @@ content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#
         </h1>
 
         <ul class="meta">
-                <li>6th Feb 2025</li><li title="417 words"><span class='separator' aria-hidden='true'>•</span>3 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/tools/">tools</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/publish/">publish</a></li>
+                <li>6th Feb 2025</li><li title="427 words"><span class='separator' aria-hidden='true'>•</span>3 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/tools/">tools</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/publish/">publish</a></li>
         </ul>
 
         <section class="body"><p><a href="https://www.github.com/">Github</a> supports static website publishing of gh-pages branch in your repository. It can even support CNAME entries to point your domain to it. This idea is pretty good if you want to maintain content and output in two separate branches. The following note explains the flow of commands to set this up in a local repository. You will need to add a <em>push to remote step</em> for Github repositories.</p>
-<blockquote>
-<p><a href="https://www.linkedin.com/pulse/git-branches-content-output-satheesh-babu-vattekkat-7mmvc/">linked.in copy</a></p>
-</blockquote>
 <span id="continue-reading"></span>
 <p>Essentially, the steps are:</p>
 <ol>
@@ -242,6 +239,14 @@ Issues</h3>
 <p>If you want to add assets like <em>css</em> to support generated content, you can add that to <em>gh-pages</em> individually - however, this will require switching to that branch to fully test generated output. I prefer it that way because then <em>main</em> branch will have pure generated pages only which is much easier to debug without added styles.</p>
 <p><strong>Additional branching and merging</strong></p>
 <p>These are parallel branches without overlapping files. So, if you want to support multiple authors and their branches with their own merging, it is little bit easier to manage merges to main branch only and one person generates gh-pages.</p>
+<div class="admonition info">
+    <div class="admonition-icon admonition-icon-info"></div>
+    <div class="admonition-content">
+        <strong class="admonition-title">INFO</strong>
+        <p>This article was <a href="https://www.linkedin.com/pulse/git-branches-content-output-satheesh-babu-vattekkat-7mmvc/">published on linked.in</a> as well.</p>
+
+    </div>
+</div>
 
         </section>
 

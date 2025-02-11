@@ -28,9 +28,6 @@
         <link rel="alternate" href="https://vsbabu.org/blog/separate_git_branches_for_inout/" type="text/html"/>
         <id>https://vsbabu.org/blog/separate_git_branches_for_inout/</id>
         <summary type="html">Github supports static website publishing of gh-pages branch in your repository. It can even support CNAME entries to point your domain to it. This idea is pretty good if you want to maintain content and output in two separate branches. The following note explains the flow of commands to set this up in a local repository. You will need to add a push to remote step for Github repositories.
-
-linked.in copy
-
 …</summary>
         </entry><entry xml:lang="en">
         <title>Amazon Prime Video - Buy Movie UX</title>
@@ -42,9 +39,6 @@ linked.in copy
         <link rel="alternate" href="https://vsbabu.org/blog/amazon_primevideo_buy_ux/" type="text/html"/>
         <id>https://vsbabu.org/blog/amazon_primevideo_buy_ux/</id>
         <summary type="html">#FeatureRequest #lessdistraction - Family rented a movie on Amazon Primevideo TV app on Friday. Request came to me as the resident techsupport - the flow is complex like below. On iOS, this flow is like the movie Inception when it jumps between UPI app and browser. A regular UPI payment by scanning QR code on TV would have been nice. Perhaps a quick fix is to open Amazon app from Scan QR to remove login + OTP steps.
-
-linked.in copy
-
 …</summary>
         </entry><entry xml:lang="en">
         <title>XSV Cookbook</title>
