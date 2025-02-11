@@ -46,15 +46,15 @@ git checkout -b gh-pages
 #setup complementary gitignores
 git checkout -b main
 cat > .gitignore <<EOF
-\*.html
-\*\*/\*.html
+*.html
+**/*.html
 EOF
 git add .gitgnore
 git commit -m "Content gitignore"
 git checkout -b gh-pages
 cat > .gitignore <<EOF
-\*.md
-\*\*/\*.md
+*.md
+**/*.md
 EOF
 git add .gitignore
 git commit -m "Output gitignore"
