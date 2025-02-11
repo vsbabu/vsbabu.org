@@ -3,7 +3,8 @@
 # 
 default: public/index.html
 
-public/index.html: content/* sass/* templates/* static/* index.html *.css
+public/index.html: content/* templates/* static/*
+	git submodule update --init --recursive
 	zola build
 
 test:
