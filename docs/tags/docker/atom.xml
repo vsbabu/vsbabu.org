@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="http://vsbabu.org/feed_style.xsl" type="text/xsl"?>
+<?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
         <tabi:separator>
@@ -12,21 +12,21 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>docker</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="http://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - docker</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - docker</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
-    <link href="http://vsbabu.org/tags/docker/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="http://vsbabu.org/tags/docker/" rel="alternate" type="text/html"/>
+    <link href="https://vsbabu.org/tags/docker/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://vsbabu.org/tags/docker/" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2020-09-21T08:00:00+05:30</updated>
-    <id>http://vsbabu.org/tags/docker/atom.xml</id><entry xml:lang="en">
+    <id>https://vsbabu.org/tags/docker/atom.xml</id><entry xml:lang="en">
         <title>Generate fake data to test performance</title>
         <published>2020-09-21T08:00:00+05:30</published>
         <updated>2020-09-21T08:00:00+05:30</updated>
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/docker_mysql_data/" type="text/html"/>
-        <id>http://vsbabu.org/blog/docker_mysql_data/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/docker_mysql_data/" type="text/html"/>
+        <id>https://vsbabu.org/blog/docker_mysql_data/</id>
         <summary type="html">Often when we develop, we end up testing on our local machines with very few records
 in the database. Performance testing, re-architecting your solution for scale etc needs lot of data
 already present in the db - concurrently adding or updating 1000 records to an empty table is very different
@@ -43,8 +43,8 @@ Read below to see snippet code on how to do the first part - getting a database 
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/quick-dev-env-with-docker/" type="text/html"/>
-        <id>http://vsbabu.org/blog/quick-dev-env-with-docker/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/quick-dev-env-with-docker/" type="text/html"/>
+        <id>https://vsbabu.org/blog/quick-dev-env-with-docker/</id>
         <summary type="html">Before moving production envs to Docker, use it for making new dev setup painless.</summary>
         </entry>
 </feed>

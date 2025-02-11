@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="http://vsbabu.org/feed_style.xsl" type="text/xsl"?>
+<?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
         <tabi:separator>
@@ -12,21 +12,21 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>snippet</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="http://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - snippet</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - snippet</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
-    <link href="http://vsbabu.org/categories/snippet/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="http://vsbabu.org/categories/snippet/" rel="alternate" type="text/html"/>
+    <link href="https://vsbabu.org/categories/snippet/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://vsbabu.org/categories/snippet/" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2021-07-03T08:00:00+05:30</updated>
-    <id>http://vsbabu.org/categories/snippet/atom.xml</id><entry xml:lang="en">
+    <id>https://vsbabu.org/categories/snippet/atom.xml</id><entry xml:lang="en">
         <title>XSV Cookbook</title>
         <published>2021-07-03T08:00:00+05:30</published>
         <updated>2021-07-03T08:00:00+05:30</updated>
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/xsv_cookbook/" type="text/html"/>
-        <id>http://vsbabu.org/blog/xsv_cookbook/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/xsv_cookbook/" type="text/html"/>
+        <id>https://vsbabu.org/blog/xsv_cookbook/</id>
         <summary type="html">XSV is an extremely fast CLI utility to process csv/tsv/psv files. Extremely helpful to automate data extraction, format conversions, filters etc.
 It comes with an extensive man page and website also has great documentation. Still, noting down some of the common ways I use it below.
 …</summary>
@@ -37,8 +37,8 @@ It comes with an extensive man page and website also has great documentation. St
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/docker_mysql_data/" type="text/html"/>
-        <id>http://vsbabu.org/blog/docker_mysql_data/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/docker_mysql_data/" type="text/html"/>
+        <id>https://vsbabu.org/blog/docker_mysql_data/</id>
         <summary type="html">Often when we develop, we end up testing on our local machines with very few records
 in the database. Performance testing, re-architecting your solution for scale etc needs lot of data
 already present in the db - concurrently adding or updating 1000 records to an empty table is very different
@@ -55,8 +55,8 @@ Read below to see snippet code on how to do the first part - getting a database 
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/doom_emacs_org_1_to_10/" type="text/html"/>
-        <id>http://vsbabu.org/blog/doom_emacs_org_1_to_10/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/doom_emacs_org_1_to_10/" type="text/html"/>
+        <id>https://vsbabu.org/blog/doom_emacs_org_1_to_10/</id>
         <summary type="html">Already setup doom-emacs and started with org-mode? If not, read my
 previous article on 0to1: doom-emacs and org-mode.
 Since then, I’ve also started using org-roam, which is an emacs implementation
@@ -70,8 +70,8 @@ Also, how to encrypt part of your notes using gpg.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/gen_docs_unix_way/" type="text/html"/>
-        <id>http://vsbabu.org/blog/gen_docs_unix_way/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/gen_docs_unix_way/" type="text/html"/>
+        <id>https://vsbabu.org/blog/gen_docs_unix_way/</id>
         <summary type="html">As programmers, lot of us find it easier to just type content using text based formats
 like markdown. However, we need to often share these as pdf, Word etc to our colleagues.
 Quite often, we may need to create several documents that have same content across the documents. A
@@ -85,8 +85,8 @@ A short walkthrough using venerable tools like make, m4 and pandoc to get this d
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/doom_emacs_org_0_to_1/" type="text/html"/>
-        <id>http://vsbabu.org/blog/doom_emacs_org_0_to_1/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/doom_emacs_org_0_to_1/" type="text/html"/>
+        <id>https://vsbabu.org/blog/doom_emacs_org_0_to_1/</id>
         <summary type="html">Are you like me?
 
 Know VIM/VI enough
@@ -110,8 +110,8 @@ Following is a 0to1 guide that  ideally should’ve been more interesting with s
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/video_conf_port/" type="text/html"/>
-        <id>http://vsbabu.org/blog/video_conf_port/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/video_conf_port/" type="text/html"/>
+        <id>https://vsbabu.org/blog/video_conf_port/</id>
         <summary type="html">For the last few weeks, whole world has been under various measures of lockdown. WFH (Working from home)
 and VC (Video Calls) have been the norm. One of the pet peeves I had with various VC tools used (Google
 Meet, Zoom etc) is that there is zero customization offered on choosing the output feed from your camera.
@@ -128,8 +128,8 @@ This is what I got my feed to be - read below on how to set it up.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/leo_rst_sphinx/" type="text/html"/>
-        <id>http://vsbabu.org/blog/leo_rst_sphinx/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/leo_rst_sphinx/" type="text/html"/>
+        <id>https://vsbabu.org/blog/leo_rst_sphinx/</id>
         <summary type="html">Writing documentation, be it for your user manual or for design, is a black and white
 task. Either you love it or you hate it!
 If you love it, chances are that you prefer coding it in a distraction free environment
@@ -143,8 +143,8 @@ it very easily.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/gmail_fetchproc/" type="text/html"/>
-        <id>http://vsbabu.org/blog/gmail_fetchproc/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/gmail_fetchproc/" type="text/html"/>
+        <id>https://vsbabu.org/blog/gmail_fetchproc/</id>
         <summary type="html">Often, we have a need to collect data from customers. Immediate thinking is to
 make an app change, push it up to store, get people to upgrade (doesn’t
 happen!) and then pray. A little more savvy version of this is making a web app
@@ -159,8 +159,8 @@ it is to automate fetching the data and then sending to a script to process.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/calmap_vis/" type="text/html"/>
-        <id>http://vsbabu.org/blog/calmap_vis/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/calmap_vis/" type="text/html"/>
+        <id>https://vsbabu.org/blog/calmap_vis/</id>
         <summary type="html">Github contrib
 map
 is such a great visualization to see the activity over a year. There are several
@@ -179,8 +179,8 @@ Update May 28, 2020 - code using this is added to my covid 19 tracker repo with 
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/elementary_hera_postinstall/" type="text/html"/>
-        <id>http://vsbabu.org/blog/elementary_hera_postinstall/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/elementary_hera_postinstall/" type="text/html"/>
+        <id>https://vsbabu.org/blog/elementary_hera_postinstall/</id>
         <summary type="html">Quick snippets and utils that I use to get going once OS install is complete.
 …</summary>
         </entry>

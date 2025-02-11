@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="http://vsbabu.org/feed_style.xsl" type="text/xsl"?>
+<?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
         <tabi:separator>
@@ -12,21 +12,21 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>api</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="http://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - api</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - api</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
-    <link href="http://vsbabu.org/tags/api/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="http://vsbabu.org/tags/api/" rel="alternate" type="text/html"/>
+    <link href="https://vsbabu.org/tags/api/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://vsbabu.org/tags/api/" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2020-05-13T14:00:00+05:30</updated>
-    <id>http://vsbabu.org/tags/api/atom.xml</id><entry xml:lang="en">
+    <id>https://vsbabu.org/tags/api/atom.xml</id><entry xml:lang="en">
         <title>Generate JSON from PostgreSQL</title>
         <published>2020-05-13T14:00:00+05:30</published>
         <updated>2020-05-13T14:00:00+05:30</updated>
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/sql_to_json_with_psql/" type="text/html"/>
-        <id>http://vsbabu.org/blog/sql_to_json_with_psql/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/sql_to_json_with_psql/" type="text/html"/>
+        <id>https://vsbabu.org/blog/sql_to_json_with_psql/</id>
         <summary type="html">So, you have a postgresql production database with a
 slave instance being used for reports and ad-hoc queries. Every
 now and then you get the same kind of data requests, but for
@@ -44,8 +44,8 @@ finally hooking up script to be an API.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/are_we_there_yet/" type="text/html"/>
-        <id>http://vsbabu.org/blog/are_we_there_yet/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/are_we_there_yet/" type="text/html"/>
+        <id>https://vsbabu.org/blog/are_we_there_yet/</id>
         <summary type="html">What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations.
 …</summary>
         </entry><entry xml:lang="en">
@@ -55,8 +55,8 @@ finally hooking up script to be an API.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/node_red_api/" type="text/html"/>
-        <id>http://vsbabu.org/blog/node_red_api/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/node_red_api/" type="text/html"/>
+        <id>https://vsbabu.org/blog/node_red_api/</id>
         <summary type="html">node-red can be used to quickly convert your shell scripts
 into functioning APIs.
 …</summary>

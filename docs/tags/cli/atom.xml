@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="http://vsbabu.org/feed_style.xsl" type="text/xsl"?>
+<?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
         <tabi:separator>
@@ -12,21 +12,21 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>cli</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="http://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - cli</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - cli</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
-    <link href="http://vsbabu.org/tags/cli/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="http://vsbabu.org/tags/cli/" rel="alternate" type="text/html"/>
+    <link href="https://vsbabu.org/tags/cli/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://vsbabu.org/tags/cli/" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2020-03-03T06:00:00+05:30</updated>
-    <id>http://vsbabu.org/tags/cli/atom.xml</id><entry xml:lang="en">
+    <id>https://vsbabu.org/tags/cli/atom.xml</id><entry xml:lang="en">
         <title>Remind - it does what it&#x27;s name says!</title>
         <published>2020-03-03T06:00:00+05:30</published>
         <updated>2020-03-03T06:00:00+05:30</updated>
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/remind/" type="text/html"/>
-        <id>http://vsbabu.org/blog/remind/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/remind/" type="text/html"/>
+        <id>https://vsbabu.org/blog/remind/</id>
         <summary type="html">remind is a classic command line unix utility. A very simple collection of text
 files hold all your reminders in a readable format. Let us make a quick cron job
 using this to send daily notification emails.
@@ -38,8 +38,8 @@ using this to send daily notification emails.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/" type="text/html"/>
-        <id>http://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/" type="text/html"/>
+        <id>https://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/</id>
         <summary type="html">SQL has been there for ages. sqlite3 gives you a
 phenomenal tool to quickly load and analyse data in a  language meant for that.
 While I’ve used it for a long time, only recently did I know about support for
@@ -52,8 +52,8 @@ CTE aka Common Table Expressions.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/quick-dev-env-with-docker/" type="text/html"/>
-        <id>http://vsbabu.org/blog/quick-dev-env-with-docker/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/quick-dev-env-with-docker/" type="text/html"/>
+        <id>https://vsbabu.org/blog/quick-dev-env-with-docker/</id>
         <summary type="html">Before moving production envs to Docker, use it for making new dev setup painless.</summary>
         </entry>
 </feed>

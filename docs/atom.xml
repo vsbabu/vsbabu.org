@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="http://vsbabu.org/feed_style.xsl" type="text/xsl"?>
+<?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
         <tabi:separator>
@@ -12,21 +12,21 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>~sv</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="http://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
-    <link href="http://vsbabu.org/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="http://vsbabu.org" rel="alternate" type="text/html"/>
+    <link href="https://vsbabu.org/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://vsbabu.org" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2025-02-06T08:00:00+05:30</updated>
-    <id>http://vsbabu.org/atom.xml</id><entry xml:lang="en">
+    <id>https://vsbabu.org/atom.xml</id><entry xml:lang="en">
         <title>Git branches for content and output</title>
         <published>2025-02-06T08:00:00+05:30</published>
         <updated>2025-02-06T08:00:00+05:30</updated>
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/separate_git_branches_for_inout/" type="text/html"/>
-        <id>http://vsbabu.org/blog/separate_git_branches_for_inout/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/separate_git_branches_for_inout/" type="text/html"/>
+        <id>https://vsbabu.org/blog/separate_git_branches_for_inout/</id>
         <summary type="html">Github supports static website publishing of gh-pages branch in your repository. It can even support CNAME entries to point your domain to it. This idea is pretty good if you want to maintain content and output in two separate branches. The following note explains the flow of commands to set this up in a local repository. You will need to add a push to remote step for Github repositories.
 
 linked.in copy
@@ -39,8 +39,8 @@ linked.in copy
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/amazon_primevideo_buy_ux/" type="text/html"/>
-        <id>http://vsbabu.org/blog/amazon_primevideo_buy_ux/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/amazon_primevideo_buy_ux/" type="text/html"/>
+        <id>https://vsbabu.org/blog/amazon_primevideo_buy_ux/</id>
         <summary type="html">#FeatureRequest #lessdistraction - Family rented a movie on Amazon Primevideo TV app on Friday. Request came to me as the resident techsupport - the flow is complex like below. On iOS, this flow is like the movie Inception when it jumps between UPI app and browser. A regular UPI payment by scanning QR code on TV would have been nice. Perhaps a quick fix is to open Amazon app from Scan QR to remove login + OTP steps.
 
 linked.in copy
@@ -53,8 +53,8 @@ linked.in copy
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/xsv_cookbook/" type="text/html"/>
-        <id>http://vsbabu.org/blog/xsv_cookbook/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/xsv_cookbook/" type="text/html"/>
+        <id>https://vsbabu.org/blog/xsv_cookbook/</id>
         <summary type="html">XSV is an extremely fast CLI utility to process csv/tsv/psv files. Extremely helpful to automate data extraction, format conversions, filters etc.
 It comes with an extensive man page and website also has great documentation. Still, noting down some of the common ways I use it below.
 …</summary>
@@ -65,8 +65,8 @@ It comes with an extensive man page and website also has great documentation. St
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/docker_mysql_data/" type="text/html"/>
-        <id>http://vsbabu.org/blog/docker_mysql_data/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/docker_mysql_data/" type="text/html"/>
+        <id>https://vsbabu.org/blog/docker_mysql_data/</id>
         <summary type="html">Often when we develop, we end up testing on our local machines with very few records
 in the database. Performance testing, re-architecting your solution for scale etc needs lot of data
 already present in the db - concurrently adding or updating 1000 records to an empty table is very different
@@ -83,8 +83,8 @@ Read below to see snippet code on how to do the first part - getting a database 
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/doom_emacs_org_1_to_10/" type="text/html"/>
-        <id>http://vsbabu.org/blog/doom_emacs_org_1_to_10/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/doom_emacs_org_1_to_10/" type="text/html"/>
+        <id>https://vsbabu.org/blog/doom_emacs_org_1_to_10/</id>
         <summary type="html">Already setup doom-emacs and started with org-mode? If not, read my
 previous article on 0to1: doom-emacs and org-mode.
 Since then, I’ve also started using org-roam, which is an emacs implementation
@@ -98,8 +98,8 @@ Also, how to encrypt part of your notes using gpg.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/gen_docs_unix_way/" type="text/html"/>
-        <id>http://vsbabu.org/blog/gen_docs_unix_way/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/gen_docs_unix_way/" type="text/html"/>
+        <id>https://vsbabu.org/blog/gen_docs_unix_way/</id>
         <summary type="html">As programmers, lot of us find it easier to just type content using text based formats
 like markdown. However, we need to often share these as pdf, Word etc to our colleagues.
 Quite often, we may need to create several documents that have same content across the documents. A
@@ -113,8 +113,8 @@ A short walkthrough using venerable tools like make, m4 and pandoc to get this d
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/doom_emacs_org_0_to_1/" type="text/html"/>
-        <id>http://vsbabu.org/blog/doom_emacs_org_0_to_1/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/doom_emacs_org_0_to_1/" type="text/html"/>
+        <id>https://vsbabu.org/blog/doom_emacs_org_0_to_1/</id>
         <summary type="html">Are you like me?
 
 Know VIM/VI enough
@@ -138,8 +138,8 @@ Following is a 0to1 guide that  ideally should’ve been more interesting with s
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/sql_to_json_with_psql/" type="text/html"/>
-        <id>http://vsbabu.org/blog/sql_to_json_with_psql/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/sql_to_json_with_psql/" type="text/html"/>
+        <id>https://vsbabu.org/blog/sql_to_json_with_psql/</id>
         <summary type="html">So, you have a postgresql production database with a
 slave instance being used for reports and ad-hoc queries. Every
 now and then you get the same kind of data requests, but for
@@ -157,8 +157,8 @@ finally hooking up script to be an API.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/weekwise_anomaly_detection/" type="text/html"/>
-        <id>http://vsbabu.org/blog/weekwise_anomaly_detection/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/weekwise_anomaly_detection/" type="text/html"/>
+        <id>https://vsbabu.org/blog/weekwise_anomaly_detection/</id>
         <summary type="html">Update May 28, 2020 - code using this is added to my covid 19 tracker repo with actual output
 I find looking at daily numbers folded by week (ie. Mon to Sun in one row) for last 8
 weeks a good way to look at the data. Especially if multiple tables are put one below
@@ -177,8 +177,8 @@ not used jq and xsv, you can see how cool those are too.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/vscode_git/" type="text/html"/>
-        <id>http://vsbabu.org/blog/vscode_git/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/vscode_git/" type="text/html"/>
+        <id>https://vsbabu.org/blog/vscode_git/</id>
         <summary type="html">Though I prefer VIM, I’ve been using Visual Studio Code also a lot for a year. It is quite fast,
 has a great python code/debug environment and has beautiful font rendering on linux. I also use git
 a lot and often look for different UIs to deal with it rather than remember all the commands. gitk, gitg,
@@ -194,8 +194,8 @@ Following is a quick screenshot tour that explains various features.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/video_conf_port/" type="text/html"/>
-        <id>http://vsbabu.org/blog/video_conf_port/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/video_conf_port/" type="text/html"/>
+        <id>https://vsbabu.org/blog/video_conf_port/</id>
         <summary type="html">For the last few weeks, whole world has been under various measures of lockdown. WFH (Working from home)
 and VC (Video Calls) have been the norm. One of the pet peeves I had with various VC tools used (Google
 Meet, Zoom etc) is that there is zero customization offered on choosing the output feed from your camera.
@@ -212,8 +212,8 @@ This is what I got my feed to be - read below on how to set it up.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/leo_rst_sphinx/" type="text/html"/>
-        <id>http://vsbabu.org/blog/leo_rst_sphinx/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/leo_rst_sphinx/" type="text/html"/>
+        <id>https://vsbabu.org/blog/leo_rst_sphinx/</id>
         <summary type="html">Writing documentation, be it for your user manual or for design, is a black and white
 task. Either you love it or you hate it!
 If you love it, chances are that you prefer coding it in a distraction free environment
@@ -227,8 +227,8 @@ it very easily.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/gmail_fetchproc/" type="text/html"/>
-        <id>http://vsbabu.org/blog/gmail_fetchproc/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/gmail_fetchproc/" type="text/html"/>
+        <id>https://vsbabu.org/blog/gmail_fetchproc/</id>
         <summary type="html">Often, we have a need to collect data from customers. Immediate thinking is to
 make an app change, push it up to store, get people to upgrade (doesn’t
 happen!) and then pray. A little more savvy version of this is making a web app
@@ -243,8 +243,8 @@ it is to automate fetching the data and then sending to a script to process.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/calmap_vis/" type="text/html"/>
-        <id>http://vsbabu.org/blog/calmap_vis/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/calmap_vis/" type="text/html"/>
+        <id>https://vsbabu.org/blog/calmap_vis/</id>
         <summary type="html">Github contrib
 map
 is such a great visualization to see the activity over a year. There are several
@@ -263,8 +263,8 @@ Update May 28, 2020 - code using this is added to my covid 19 tracker repo with 
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/elementary_hera_postinstall/" type="text/html"/>
-        <id>http://vsbabu.org/blog/elementary_hera_postinstall/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/elementary_hera_postinstall/" type="text/html"/>
+        <id>https://vsbabu.org/blog/elementary_hera_postinstall/</id>
         <summary type="html">Quick snippets and utils that I use to get going once OS install is complete.
 …</summary>
         </entry><entry xml:lang="en">
@@ -274,8 +274,8 @@ Update May 28, 2020 - code using this is added to my covid 19 tracker repo with 
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/remind/" type="text/html"/>
-        <id>http://vsbabu.org/blog/remind/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/remind/" type="text/html"/>
+        <id>https://vsbabu.org/blog/remind/</id>
         <summary type="html">remind is a classic command line unix utility. A very simple collection of text
 files hold all your reminders in a readable format. Let us make a quick cron job
 using this to send daily notification emails.
@@ -287,8 +287,8 @@ using this to send daily notification emails.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/are_we_there_yet/" type="text/html"/>
-        <id>http://vsbabu.org/blog/are_we_there_yet/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/are_we_there_yet/" type="text/html"/>
+        <id>https://vsbabu.org/blog/are_we_there_yet/</id>
         <summary type="html">What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations.
 …</summary>
         </entry><entry xml:lang="en">
@@ -298,8 +298,8 @@ using this to send daily notification emails.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/node_red_api/" type="text/html"/>
-        <id>http://vsbabu.org/blog/node_red_api/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/node_red_api/" type="text/html"/>
+        <id>https://vsbabu.org/blog/node_red_api/</id>
         <summary type="html">node-red can be used to quickly convert your shell scripts
 into functioning APIs.
 …</summary>
@@ -310,8 +310,8 @@ into functioning APIs.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/" type="text/html"/>
-        <id>http://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/" type="text/html"/>
+        <id>https://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/</id>
         <summary type="html">SQL has been there for ages. sqlite3 gives you a
 phenomenal tool to quickly load and analyse data in a  language meant for that.
 While I’ve used it for a long time, only recently did I know about support for
@@ -324,8 +324,8 @@ CTE aka Common Table Expressions.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/quick-dev-env-with-docker/" type="text/html"/>
-        <id>http://vsbabu.org/blog/quick-dev-env-with-docker/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/quick-dev-env-with-docker/" type="text/html"/>
+        <id>https://vsbabu.org/blog/quick-dev-env-with-docker/</id>
         <summary type="html">Before moving production envs to Docker, use it for making new dev setup painless.</summary>
         </entry>
 </feed>

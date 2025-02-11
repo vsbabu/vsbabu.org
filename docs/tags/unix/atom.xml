@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="http://vsbabu.org/feed_style.xsl" type="text/xsl"?>
+<?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
         <tabi:separator>
@@ -12,21 +12,21 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>unix</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="http://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - unix</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - unix</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
-    <link href="http://vsbabu.org/tags/unix/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="http://vsbabu.org/tags/unix/" rel="alternate" type="text/html"/>
+    <link href="https://vsbabu.org/tags/unix/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://vsbabu.org/tags/unix/" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2021-07-03T08:00:00+05:30</updated>
-    <id>http://vsbabu.org/tags/unix/atom.xml</id><entry xml:lang="en">
+    <id>https://vsbabu.org/tags/unix/atom.xml</id><entry xml:lang="en">
         <title>XSV Cookbook</title>
         <published>2021-07-03T08:00:00+05:30</published>
         <updated>2021-07-03T08:00:00+05:30</updated>
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/xsv_cookbook/" type="text/html"/>
-        <id>http://vsbabu.org/blog/xsv_cookbook/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/xsv_cookbook/" type="text/html"/>
+        <id>https://vsbabu.org/blog/xsv_cookbook/</id>
         <summary type="html">XSV is an extremely fast CLI utility to process csv/tsv/psv files. Extremely helpful to automate data extraction, format conversions, filters etc.
 It comes with an extensive man page and website also has great documentation. Still, noting down some of the common ways I use it below.
 …</summary>
@@ -37,8 +37,8 @@ It comes with an extensive man page and website also has great documentation. St
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/gen_docs_unix_way/" type="text/html"/>
-        <id>http://vsbabu.org/blog/gen_docs_unix_way/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/gen_docs_unix_way/" type="text/html"/>
+        <id>https://vsbabu.org/blog/gen_docs_unix_way/</id>
         <summary type="html">As programmers, lot of us find it easier to just type content using text based formats
 like markdown. However, we need to often share these as pdf, Word etc to our colleagues.
 Quite often, we may need to create several documents that have same content across the documents. A
@@ -52,8 +52,8 @@ A short walkthrough using venerable tools like make, m4 and pandoc to get this d
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/leo_rst_sphinx/" type="text/html"/>
-        <id>http://vsbabu.org/blog/leo_rst_sphinx/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/leo_rst_sphinx/" type="text/html"/>
+        <id>https://vsbabu.org/blog/leo_rst_sphinx/</id>
         <summary type="html">Writing documentation, be it for your user manual or for design, is a black and white
 task. Either you love it or you hate it!
 If you love it, chances are that you prefer coding it in a distraction free environment
@@ -67,8 +67,8 @@ it very easily.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/blog/gmail_fetchproc/" type="text/html"/>
-        <id>http://vsbabu.org/blog/gmail_fetchproc/</id>
+        <link rel="alternate" href="https://vsbabu.org/blog/gmail_fetchproc/" type="text/html"/>
+        <id>https://vsbabu.org/blog/gmail_fetchproc/</id>
         <summary type="html">Often, we have a need to collect data from customers. Immediate thinking is to
 make an app change, push it up to store, get people to upgrade (doesn’t
 happen!) and then pray. A little more savvy version of this is making a web app
