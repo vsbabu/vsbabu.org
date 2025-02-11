@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="http://vsbabu.org/twenties/feed_style.xsl" type="text/xsl"?>
+<?xml-stylesheet href="http://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
         <tabi:separator>
@@ -12,21 +12,21 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>org-mode</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="http://vsbabu.org/twenties/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - org-mode</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="http://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - org-mode</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
-    <link href="http://vsbabu.org/twenties/tags/org-mode/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="http://vsbabu.org/twenties/tags/org-mode/" rel="alternate" type="text/html"/>
+    <link href="http://vsbabu.org/tags/org-mode/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="http://vsbabu.org/tags/org-mode/" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2020-08-02T08:00:00+05:30</updated>
-    <id>http://vsbabu.org/twenties/tags/org-mode/atom.xml</id><entry xml:lang="en">
+    <id>http://vsbabu.org/tags/org-mode/atom.xml</id><entry xml:lang="en">
         <title>1to10: doom-emacs and org-roam, gpg</title>
         <published>2020-08-02T08:00:00+05:30</published>
         <updated>2020-08-02T08:00:00+05:30</updated>
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/" type="text/html"/>
-        <id>http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/</id>
+        <link rel="alternate" href="http://vsbabu.org/blog/doom_emacs_org_1_to_10/" type="text/html"/>
+        <id>http://vsbabu.org/blog/doom_emacs_org_1_to_10/</id>
         <summary type="html">Already setup doom-emacs and started with org-mode? If not, read my
 previous article on 0to1: doom-emacs and org-mode.
 Since then, I’ve also started using org-roam, which is an emacs implementation
@@ -40,8 +40,8 @@ Also, how to encrypt part of your notes using gpg.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/" type="text/html"/>
-        <id>http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/</id>
+        <link rel="alternate" href="http://vsbabu.org/blog/doom_emacs_org_0_to_1/" type="text/html"/>
+        <id>http://vsbabu.org/blog/doom_emacs_org_0_to_1/</id>
         <summary type="html">Are you like me?
 
 Know VIM/VI enough

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="http://vsbabu.org/twenties/feed_style.xsl" type="text/xsl"?>
+<?xml-stylesheet href="http://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
         <tabi:separator>
@@ -12,21 +12,21 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>article</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="http://vsbabu.org/twenties/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - article</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="http://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - article</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
-    <link href="http://vsbabu.org/twenties/categories/article/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="http://vsbabu.org/twenties/categories/article/" rel="alternate" type="text/html"/>
+    <link href="http://vsbabu.org/categories/article/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="http://vsbabu.org/categories/article/" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2020-05-13T14:00:00+05:30</updated>
-    <id>http://vsbabu.org/twenties/categories/article/atom.xml</id><entry xml:lang="en">
+    <id>http://vsbabu.org/categories/article/atom.xml</id><entry xml:lang="en">
         <title>Generate JSON from PostgreSQL</title>
         <published>2020-05-13T14:00:00+05:30</published>
         <updated>2020-05-13T14:00:00+05:30</updated>
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/twenties/blog/sql_to_json_with_psql/" type="text/html"/>
-        <id>http://vsbabu.org/twenties/blog/sql_to_json_with_psql/</id>
+        <link rel="alternate" href="http://vsbabu.org/blog/sql_to_json_with_psql/" type="text/html"/>
+        <id>http://vsbabu.org/blog/sql_to_json_with_psql/</id>
         <summary type="html">So, you have a postgresql production database with a
 slave instance being used for reports and ad-hoc queries. Every
 now and then you get the same kind of data requests, but for
@@ -44,8 +44,8 @@ finally hooking up script to be an API.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/" type="text/html"/>
-        <id>http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/</id>
+        <link rel="alternate" href="http://vsbabu.org/blog/weekwise_anomaly_detection/" type="text/html"/>
+        <id>http://vsbabu.org/blog/weekwise_anomaly_detection/</id>
         <summary type="html">Update May 28, 2020 - code using this is added to my covid 19 tracker repo with actual output
 I find looking at daily numbers folded by week (ie. Mon to Sun in one row) for last 8
 weeks a good way to look at the data. Especially if multiple tables are put one below
@@ -64,8 +64,8 @@ not used jq and xsv, you can see how cool those are too.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/twenties/blog/vscode_git/" type="text/html"/>
-        <id>http://vsbabu.org/twenties/blog/vscode_git/</id>
+        <link rel="alternate" href="http://vsbabu.org/blog/vscode_git/" type="text/html"/>
+        <id>http://vsbabu.org/blog/vscode_git/</id>
         <summary type="html">Though I prefer VIM, I’ve been using Visual Studio Code also a lot for a year. It is quite fast,
 has a great python code/debug environment and has beautiful font rendering on linux. I also use git
 a lot and often look for different UIs to deal with it rather than remember all the commands. gitk, gitg,
@@ -81,8 +81,8 @@ Following is a quick screenshot tour that explains various features.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/twenties/blog/remind/" type="text/html"/>
-        <id>http://vsbabu.org/twenties/blog/remind/</id>
+        <link rel="alternate" href="http://vsbabu.org/blog/remind/" type="text/html"/>
+        <id>http://vsbabu.org/blog/remind/</id>
         <summary type="html">remind is a classic command line unix utility. A very simple collection of text
 files hold all your reminders in a readable format. Let us make a quick cron job
 using this to send daily notification emails.
@@ -94,8 +94,8 @@ using this to send daily notification emails.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/twenties/blog/are_we_there_yet/" type="text/html"/>
-        <id>http://vsbabu.org/twenties/blog/are_we_there_yet/</id>
+        <link rel="alternate" href="http://vsbabu.org/blog/are_we_there_yet/" type="text/html"/>
+        <id>http://vsbabu.org/blog/are_we_there_yet/</id>
         <summary type="html">What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations.
 …</summary>
         </entry><entry xml:lang="en">
@@ -105,8 +105,8 @@ using this to send daily notification emails.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/twenties/blog/node_red_api/" type="text/html"/>
-        <id>http://vsbabu.org/twenties/blog/node_red_api/</id>
+        <link rel="alternate" href="http://vsbabu.org/blog/node_red_api/" type="text/html"/>
+        <id>http://vsbabu.org/blog/node_red_api/</id>
         <summary type="html">node-red can be used to quickly convert your shell scripts
 into functioning APIs.
 …</summary>
@@ -117,8 +117,8 @@ into functioning APIs.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/twenties/blog/sqlite3-cte-tricks-for-time-series-analysis/" type="text/html"/>
-        <id>http://vsbabu.org/twenties/blog/sqlite3-cte-tricks-for-time-series-analysis/</id>
+        <link rel="alternate" href="http://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/" type="text/html"/>
+        <id>http://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/</id>
         <summary type="html">SQL has been there for ages. sqlite3 gives you a
 phenomenal tool to quickly load and analyse data in a  language meant for that.
 While I’ve used it for a long time, only recently did I know about support for
@@ -131,8 +131,8 @@ CTE aka Common Table Expressions.
         <author>
             <name>Satheesh Vattekkat</name>
         </author>
-        <link rel="alternate" href="http://vsbabu.org/twenties/blog/quick-dev-env-with-docker/" type="text/html"/>
-        <id>http://vsbabu.org/twenties/blog/quick-dev-env-with-docker/</id>
+        <link rel="alternate" href="http://vsbabu.org/blog/quick-dev-env-with-docker/" type="text/html"/>
+        <id>http://vsbabu.org/blog/quick-dev-env-with-docker/</id>
         <summary type="html">Before moving production envs to Docker, use it for making new dev setup painless.</summary>
         </entry>
 </feed>

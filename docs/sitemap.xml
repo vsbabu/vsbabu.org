@@ -1,198 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="http://vsbabu.org/twenties/sitemap_style.xsl" type="text/xsl"?>
+<?xml-stylesheet href="http://vsbabu.org/sitemap_style.xsl" type="text/xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://vsbabu.org/twenties/</loc>
+        <loc>http://vsbabu.org/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/about/</loc>
+        <loc>http://vsbabu.org/about/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/archive/</loc>
+        <loc>http://vsbabu.org/archive/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/</loc>
+        <loc>http://vsbabu.org/blog/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/amazon_primevideo_buy_ux/</loc>
+        <loc>http://vsbabu.org/blog/amazon_primevideo_buy_ux/</loc>
         <lastmod>2024-11-02T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/are_we_there_yet/</loc>
+        <loc>http://vsbabu.org/blog/are_we_there_yet/</loc>
         <lastmod>2019-09-09T06:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/calmap_vis/</loc>
+        <loc>http://vsbabu.org/blog/calmap_vis/</loc>
         <lastmod>2020-03-18T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/docker_mysql_data/</loc>
+        <loc>http://vsbabu.org/blog/docker_mysql_data/</loc>
         <lastmod>2020-09-21T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/</loc>
+        <loc>http://vsbabu.org/blog/doom_emacs_org_0_to_1/</loc>
         <lastmod>2020-06-15T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/</loc>
+        <loc>http://vsbabu.org/blog/doom_emacs_org_1_to_10/</loc>
         <lastmod>2020-08-02T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/elementary_hera_postinstall/</loc>
+        <loc>http://vsbabu.org/blog/elementary_hera_postinstall/</loc>
         <lastmod>2020-03-08T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/gen_docs_unix_way/</loc>
+        <loc>http://vsbabu.org/blog/gen_docs_unix_way/</loc>
         <lastmod>2020-06-22T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/gmail_fetchproc/</loc>
+        <loc>http://vsbabu.org/blog/gmail_fetchproc/</loc>
         <lastmod>2020-03-27T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/leo_rst_sphinx/</loc>
+        <loc>http://vsbabu.org/blog/leo_rst_sphinx/</loc>
         <lastmod>2020-03-31T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/node_red_api/</loc>
+        <loc>http://vsbabu.org/blog/node_red_api/</loc>
         <lastmod>2019-08-27T06:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/page/1/</loc>
+        <loc>http://vsbabu.org/blog/page/1/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/page/2/</loc>
+        <loc>http://vsbabu.org/blog/page/2/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/quick-dev-env-with-docker/</loc>
+        <loc>http://vsbabu.org/blog/quick-dev-env-with-docker/</loc>
         <lastmod>2018-06-06T06:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/remind/</loc>
+        <loc>http://vsbabu.org/blog/remind/</loc>
         <lastmod>2020-03-03T06:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/separate_git_branches_for_inout/</loc>
+        <loc>http://vsbabu.org/blog/separate_git_branches_for_inout/</loc>
         <lastmod>2025-02-06T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/sql_to_json_with_psql/</loc>
+        <loc>http://vsbabu.org/blog/sql_to_json_with_psql/</loc>
         <lastmod>2020-05-13T14:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/sqlite3-cte-tricks-for-time-series-analysis/</loc>
+        <loc>http://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/</loc>
         <lastmod>2018-10-25T06:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/video_conf_port/</loc>
+        <loc>http://vsbabu.org/blog/video_conf_port/</loc>
         <lastmod>2020-04-12T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/vscode_git/</loc>
+        <loc>http://vsbabu.org/blog/vscode_git/</loc>
         <lastmod>2020-04-29T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/</loc>
+        <loc>http://vsbabu.org/blog/weekwise_anomaly_detection/</loc>
         <lastmod>2020-05-04T21:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/blog/xsv_cookbook/</loc>
+        <loc>http://vsbabu.org/blog/xsv_cookbook/</loc>
         <lastmod>2021-07-03T08:00:00+05:30</lastmod>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/categories/</loc>
+        <loc>http://vsbabu.org/categories/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/categories/article/</loc>
+        <loc>http://vsbabu.org/categories/article/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/categories/snippet/</loc>
+        <loc>http://vsbabu.org/categories/snippet/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/categories/tools/</loc>
+        <loc>http://vsbabu.org/categories/tools/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/categories/ux/</loc>
+        <loc>http://vsbabu.org/categories/ux/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/</loc>
+        <loc>http://vsbabu.org/tags/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/0to1/</loc>
+        <loc>http://vsbabu.org/tags/0to1/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/anomaly/</loc>
+        <loc>http://vsbabu.org/tags/anomaly/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/api/</loc>
+        <loc>http://vsbabu.org/tags/api/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/cli/</loc>
+        <loc>http://vsbabu.org/tags/cli/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/database/</loc>
+        <loc>http://vsbabu.org/tags/database/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/datascience/</loc>
+        <loc>http://vsbabu.org/tags/datascience/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/docker/</loc>
+        <loc>http://vsbabu.org/tags/docker/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/elementary/</loc>
+        <loc>http://vsbabu.org/tags/elementary/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/emacs/</loc>
+        <loc>http://vsbabu.org/tags/emacs/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/git/</loc>
+        <loc>http://vsbabu.org/tags/git/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/linux/</loc>
+        <loc>http://vsbabu.org/tags/linux/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/mysql/</loc>
+        <loc>http://vsbabu.org/tags/mysql/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/org-mode/</loc>
+        <loc>http://vsbabu.org/tags/org-mode/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/pandas/</loc>
+        <loc>http://vsbabu.org/tags/pandas/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/payment/</loc>
+        <loc>http://vsbabu.org/tags/payment/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/performance/</loc>
+        <loc>http://vsbabu.org/tags/performance/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/productivity/</loc>
+        <loc>http://vsbabu.org/tags/productivity/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/publish/</loc>
+        <loc>http://vsbabu.org/tags/publish/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/server/</loc>
+        <loc>http://vsbabu.org/tags/server/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/snippet/</loc>
+        <loc>http://vsbabu.org/tags/snippet/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/tools/</loc>
+        <loc>http://vsbabu.org/tags/tools/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/unix/</loc>
+        <loc>http://vsbabu.org/tags/unix/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/utilities/</loc>
+        <loc>http://vsbabu.org/tags/utilities/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/ux/</loc>
+        <loc>http://vsbabu.org/tags/ux/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/visualization/</loc>
+        <loc>http://vsbabu.org/tags/visualization/</loc>
     </url>
     <url>
-        <loc>http://vsbabu.org/twenties/tags/work/</loc>
+        <loc>http://vsbabu.org/tags/work/</loc>
     </url>
 </urlset>
