@@ -3,21 +3,6 @@ title = "About"
 path = "about"
 template = "info-page.html"
 +++
-<img
-  src="me_half.png" width="200" height="200"
-  style="border-radius: 50%; margin: 5px 5px 5px 5px; float:right;" alt="vsbabu" />
-
-I am _Satheesh Vattekkat_, online at:
-
-* [linked.in](https://www.linkedin.com/in/vsbabu)
-* [twitter](https://twitter.com/vsbabu)
-* [medium](https://medium.com/@vsbabu)
-* [github](https://github.com/vsbabu)
-* [reddit](https://reddit.com/u/vsbabu)
-
-<div style="clear:both;"></div>
-
-If you like my writing, subscribe to the [Atom feed](../atom.xml).
 
 My full name is _Satheesh Babu Vattekkat_, but since 2010, most people including 
 myself have forgotten the _Babu_ and the whole thing is now compressed to _SV_.

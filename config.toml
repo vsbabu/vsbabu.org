@@ -53,6 +53,7 @@ quick_navigation_buttons = true
 socials = [
     { name = "github", url = "https://github.com/vsbabu/", icon = "github" },
     { name = "linkedin", url = "https://www.linkedin.com/in/vsbabu", icon = "linkedin" },
+    { name = "medium", url = "https://www.medium.com/@vsbabu", icon = "matrix" },
     { name = "x", url = "https://x.com/vsbabu", icon = "x" },
     { name = "reddit", url = "https://reddit.com/u/vsbabu", icon = "reddit" },
 ]
