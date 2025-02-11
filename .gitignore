@@ -1,0 +1,9 @@
+content/*
+static/*
+templates/*
+themes/*
+LICENSE
+Makefile
+README.md
+config.toml
+
