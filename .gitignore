@@ -1,4 +1,5 @@
 *.bak
 public/**
+docs/**
 themes/even/**
 themes/even

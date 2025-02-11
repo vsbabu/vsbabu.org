@@ -5,11 +5,11 @@ default: public/index.html
 
 public/index.html: content/* templates/* static/*
 	git submodule update --init --recursive
-	zola build
+	zola build --output-dir docs/
 
 test:
-	zola serve
+	zola serve --output-dir docs/
 
 clean:
-	rm -fR public/
+	rm -fR docs/
 
