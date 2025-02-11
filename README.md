@@ -1,10 +1,5 @@
-# http://vsbabu.org/twenties/
+# http://vsbabu.org/
 
-Source for the site. Theme used is "even" currently; probably will change it
-later. The custom versions of the files changed in that theme are in _sass_ and
-_templates_ dirs.
+Source for the site. Theme used is "tabi" currently
 
 _Makefile_ is there to automate stuff.
-
-Homepage is a view-source copy from Hugo-Coder theme's demo site, with its
-associated css files.
