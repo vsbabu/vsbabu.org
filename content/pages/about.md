@@ -14,5 +14,5 @@ myself have forgotten the _Babu_ and the whole thing is now compressed to _SV_.
 * Often typed using [AmazonBasics Pro Mechanical keyboard](https://www.amazon.in/gp/product/B0D5HKHBFW/) 
 * Edited using [neovim](https://neovim.io/), with [LazyVim](https://github.com/LazyVim/LazyVim) _([config](https://github.com/vsbabu/configs/tree/master/lazyvim/lua/plugins))_ on [WezTerm](https://wezfurlong.org/wezterm/) _([config](https://github.com/vsbabu/configs/tree/master/wezterm))_.
 * Static site is generated using [Zola](https://www.getzola.org/) with [tabi](https://welpo.github.io/tabi/) theme.
-* #PureContent => No Javascript / Cookies / Tracking. TODO: Need to autolink to tweet and linked.in so that someone can discuss if there is a need.
+* Objective is to have #PureContent => No Javascript / Cookies / Tracking. Current theme has cookies and javascript though.
 
