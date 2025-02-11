@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="http://vsbabu.org/twenties">
+
+    
+    <title>~sv • Calendar Heatmaps from Dataframes</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="http://vsbabu.org/twenties/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="http://vsbabu.org/twenties/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="http://vsbabu.org/twenties/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/main.css?h=e38cfa6902d00356cd66" />
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/skins/lavender.css?h=31ee0a710ed660d122f6" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="GitHub popularized this form contrib heatmaps. Calmap makes it easy to make!" />
+        <meta property="og:description" content="GitHub popularized this form contrib heatmaps. Calmap makes it easy to make!" />
+
+    
+
+    <meta property="og:title" content="Calendar Heatmaps from Dataframes" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="http:&#x2F;&#x2F;vsbabu.org&#x2F;twenties&#x2F;blog&#x2F;calmap_vis&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="http://vsbabu.org/twenties/no_js.css"/></noscript>
+        <script type="text/javascript" src="http://vsbabu.org/twenties/js/initializeTheme.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/themeSwitcher.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="http://vsbabu.org/twenties">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Calendar Heatmaps from Dataframes
+        </h1>
+
+        <ul class="meta">
+                <li>18th Mar 2020</li><li title="251 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/datascience/">datascience</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/visualization/">visualization</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/pandas/">pandas</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/snippet/">snippet</a></li>
+        </ul>
+
+        <section class="body"><p><em><a href="https://help.github.com/en/github/setting-up-and-managing-your-github-profile/viewing-contributions-on-your-profile#contributions-calendar">Github contrib
+map</a></em>
+is such a great visualization to see the activity over a year. There are several
+javascript versions of this that provide interactive visualizations on the data;
+but when you <em>don’t need interactivity</em> and want to just visualize multiple data
+points over same time axis to see any trends,
+<a href="https://pythonhosted.org/calmap/">Calmap</a> is a super simple library that can
+generate those.</p>
+<p>Continue to see what we can make with our own data!</p>
+<p><em>Update May 28, 2020</em> - code using this is added to my <a href="https://github.com/vsbabu/covid19_fb_ts">covid 19 tracker repo</a> with <a href="https://vsbabu.github.io/covid19_fb_ts/">actual output</a></p>
+<span id="continue-reading"></span>
+<p><img src="http://vsbabu.org/twenties/blog/calmap_vis/01.png" alt="desktop screenshot" /></p>
+<h2 id="How?"><a class="header-anchor no-hover-padding" href="#How?" aria-label="Anchor link for: How?"><span class="link-icon" aria-hidden="true"></span></a>
+How?</h2>
+<p>Let us say our data is in a <em>csv</em> file that has 3 columns viz., <em>dt</em>, <em>cat</em> and
+<em>y</em> which respectively indicate date, category and the actual value. For now,
+assume <em>date</em> is in <em>yymmdd</em> format.</p>
+<p>I made this in an <a href="https://www.sqlite.org">sqlite</a> database and queried into a
+file. Hence no header row; and the default field separator is a pipe symbol.</p>
+<h2 id="Sample_Data"><a class="header-anchor no-hover-padding" href="#Sample_Data" aria-label="Anchor link for: Sample_Data"><span class="link-icon" aria-hidden="true"></span></a>
+Sample Data</h2>
+<pre data-lang="databydate.csv" class="language-databydate.csv z-code"><code class="language-databydate.csv" data-lang="databydate.csv"><span class="z-text z-plain">190518|carts|1223
+</span><span class="z-text z-plain">190411|carts|1447
+</span><span class="z-text z-plain">191111|orders|204
+</span><span class="z-text z-plain">190524|carts|1181
+</span><span class="z-text z-plain">181111|gtv|332
+</span><span class="z-text z-plain">...
+</span></code></pre>
+<ul>
+<li><em>cart</em> = how many shopping carts were opened up</li>
+<li><em>orders</em> = how many actual orders were placed</li>
+<li><em>gtv</em> = what was the order amount</li>
+</ul>
+<p>All grouped up by dates.</p>
+<h2 id="Code"><a class="header-anchor no-hover-padding" href="#Code" aria-label="Anchor link for: Code"><span class="link-icon" aria-hidden="true"></span></a>
+Code</h2>
+<p>I am assuming that you’ve a <em>python3</em> environment with <em>pandas</em>, <em>numpy</em>, <em>matplotlib</em> etc and <em>calmap</em> installed.</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-statement z-import z-python"><span class="z-keyword z-control z-import z-python">import</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">numpy</span></span> <span class="z-keyword z-control z-import z-as z-python">as</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">np</span></span></span>
+</span><span class="z-source z-python"><span class="z-meta z-statement z-import z-python"><span class="z-keyword z-control z-import z-python">import</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">pandas</span></span> <span class="z-keyword z-control z-import z-as z-python">as</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">pd</span></span></span>
+</span><span class="z-source z-python"><span class="z-meta z-statement z-import z-python"><span class="z-keyword z-control z-import z-python">import</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">calmap</span></span></span>
+</span><span class="z-source z-python"><span class="z-meta z-statement z-import z-python"><span class="z-keyword z-control z-import z-from z-python">from</span></span><span class="z-meta z-statement z-import z-python"><span class="z-meta z-import-source z-python"> <span class="z-meta z-import-path z-python"><span class="z-meta z-import-name z-python">matplotlib</span></span> <span class="z-meta z-statement z-import z-python"><span class="z-keyword z-control z-import z-python">import</span></span></span></span><span class="z-meta z-statement z-import z-python"></span><span class="z-meta z-statement z-import z-python"> <span class="z-meta z-generic-name z-python">pyplot</span> <span class="z-keyword z-control z-import z-as z-python">as</span> <span class="z-meta z-generic-name z-python">plt</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-meta z-function z-python"><span class="z-storage z-type z-function z-python"><span class="z-keyword z-declaration z-function z-python">def</span></span> <span class="z-entity z-name z-function z-python"><span class="z-meta z-generic-name z-python">parser</span></span></span><span class="z-meta z-function z-parameters z-python"><span class="z-punctuation z-section z-parameters z-begin z-python">(</span></span><span class="z-meta z-function z-parameters z-python"><span class="z-variable z-parameter z-python">x</span><span class="z-punctuation z-section z-parameters z-end z-python">)</span></span><span class="z-meta z-function z-python"><span class="z-punctuation z-section z-function z-begin z-python">:</span></span>
+</span><span class="z-source z-python">  <span class="z-comment z-block z-documentation z-python"><span class="z-punctuation z-definition z-comment z-begin z-python">&quot;&quot;&quot;</span>
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">  parse yymmdd into DateTime. Used in read_csv
+</span></span><span class="z-source z-python"><span class="z-comment z-block z-documentation z-python">  <span class="z-punctuation z-definition z-comment z-end z-python">&quot;&quot;&quot;</span></span>
+</span><span class="z-source z-python">	<span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">pd</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">datetime</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">strptime</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">x</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-constant z-other z-placeholder z-python">%y</span><span class="z-constant z-other z-placeholder z-python">%m</span><span class="z-constant z-other z-placeholder z-python">%d</span><span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> pipe sep, no header row, custom date parser, trim column values
+</span></span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">df</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">pd</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">read_csv</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">databydate.csv<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span><span class="z-punctuation z-separator z-arguments z-python">,</span>      <span class="z-punctuation z-separator z-continuation z-line z-python">\</span>
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-arguments z-python">        <span class="z-variable z-parameter z-python">sep</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">|<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span> <span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-variable z-parameter z-python">header</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-constant z-language z-python">None</span><span class="z-punctuation z-separator z-arguments z-python">,</span>           <span class="z-punctuation z-separator z-continuation z-line z-python">\</span>
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-arguments z-python">        <span class="z-variable z-parameter z-python">parse_dates</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-sequence z-list z-python"><span class="z-punctuation z-section z-sequence z-begin z-python">[</span><span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-section z-sequence z-end z-python">]</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span>  <span class="z-variable z-parameter z-python">squeeze</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-constant z-language z-python">True</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-punctuation z-separator z-continuation z-line z-python">\</span>
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-arguments z-python">        <span class="z-variable z-parameter z-python">date_parser</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">parser</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> since there isn&#39;t a header, let us name the columns thus. _ds_ and _y_ are conventions followed by
+</span></span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> facebook&#39;s nice prophet library - so using it here as well
+</span></span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">df</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">columns</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-sequence z-list z-python"><span class="z-punctuation z-section z-sequence z-begin z-python">[</span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">ds<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">cat<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">y<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span><span class="z-punctuation z-section z-sequence z-end z-python">]</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> let us set ds as datetime index
+</span></span><span class="z-source z-python"><span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">df</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">ds<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">pd</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">to_datetime</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">df</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">ds</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">format</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-constant z-other z-placeholder z-python">%y</span><span class="z-constant z-other z-placeholder z-python">%m</span><span class="z-constant z-other z-placeholder z-python">%d</span><span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">df</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">df</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">set_index</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">ds<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span># -- now comes the main part of making visualizations
+</span></span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">ax</span></span><span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-mapping z-empty z-python"><span class="z-punctuation z-section z-mapping z-begin z-python">{</span><span class="z-punctuation z-section z-mapping z-end z-python">}</span></span><span class="z-punctuation z-terminator z-statement z-python">;</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">fig</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-mapping z-empty z-python"><span class="z-punctuation z-section z-mapping z-begin z-python">{</span><span class="z-punctuation z-section z-mapping z-end z-python">}</span></span> <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span>each plot is a different figure - keep those and axes separately
+</span></span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> if you have more kinds of data, get more colormaps from
+</span></span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> https://matplotlib.org/3.1.0/tutorials/colors/colormaps.html
+</span></span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cmaps</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-block z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;&quot;&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-block z-python"><span class="z-meta z-string z-python"></span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-block z-python">Greens Oranges Reds<span class="z-punctuation z-definition z-string z-end z-python">&quot;&quot;&quot;</span></span></span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">split</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">
+</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> I want to print 2019 and 2020 data only and for 3 categories one below the other
+</span></span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> to see how this year is trending compared to last.
+</span></span><span class="z-source z-python"><span class="z-meta z-statement z-loop z-for z-python"><span class="z-keyword z-control z-loop z-for z-python">for</span> <span class="z-meta z-generic-name z-python">i</span><span class="z-punctuation z-separator z-target-list z-python">,</span> <span class="z-meta z-generic-name z-python">yr</span> <span class="z-keyword z-control z-loop z-for z-in z-python">in</span></span><span class="z-meta z-statement z-loop z-for z-python"> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">enumerate</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-sequence z-tuple z-python"><span class="z-punctuation z-section z-sequence z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">2019</span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">2020</span><span class="z-punctuation z-section z-sequence z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span><span class="z-meta z-statement z-loop z-for z-python"><span class="z-punctuation z-section z-block z-loop z-for z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-statement z-loop z-for z-python"><span class="z-keyword z-control z-loop z-for z-python">for</span> <span class="z-meta z-generic-name z-python">j</span><span class="z-punctuation z-separator z-target-list z-python">,</span><span class="z-meta z-generic-name z-python">cat</span> <span class="z-keyword z-control z-loop z-for z-in z-python">in</span></span><span class="z-meta z-statement z-loop z-for z-python"> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-support z-function z-builtin z-python">enumerate</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">carts orders gtv<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">split</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span><span class="z-meta z-statement z-loop z-for z-python"><span class="z-punctuation z-section z-block z-loop z-for z-python">:</span></span>
+</span><span class="z-source z-python">        <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span>we take the events as a series; and fill dates for which
+</span></span><span class="z-source z-python">        <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span>there is no data available with 0
+</span></span><span class="z-source z-python">        <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">events</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">df</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">df</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">cat</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cat</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">y</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">resample</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">D<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">asfreq</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">fillna</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">        <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> make the plot and set title
+</span></span><span class="z-source z-python">        <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">k</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-constant z-other z-placeholder z-python"><span class="z-punctuation z-definition z-placeholder z-begin z-python">{</span>0<span class="z-punctuation z-definition z-placeholder z-end z-python">}</span></span>_<span class="z-constant z-other z-placeholder z-python"><span class="z-punctuation z-definition z-placeholder z-begin z-python">{</span>1<span class="z-punctuation z-definition z-placeholder z-end z-python">}</span></span><span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">format</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">yr</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cat</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">        <span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">fig</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">k</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span>, <span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">ax</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">k</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">plt</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">subplots</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">1</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">1</span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">figsize</span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-sequence z-tuple z-python"><span class="z-punctuation z-section z-sequence z-begin z-python">(</span><span class="z-constant z-numeric z-integer z-decimal z-python">18</span><span class="z-punctuation z-separator z-sequence z-python">,</span> <span class="z-constant z-numeric z-integer z-decimal z-python">2</span><span class="z-punctuation z-section z-sequence z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span>tweak figsize x,y
+</span></span><span class="z-source z-python">        <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">calmap</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">yearplot</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">events</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">year</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">yr</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span> <span class="z-variable z-parameter z-python">cmap</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">cmaps</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">j</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span>
+</span></span><span class="z-source z-python"><span class="z-meta z-function-call z-arguments z-python">                  <span class="z-variable z-parameter z-python">daylabels</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">MTWTFSS<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-variable z-parameter z-python">linewidth</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-constant z-numeric z-integer z-decimal z-python">1</span><span class="z-punctuation z-separator z-arguments z-python">,</span>  <span class="z-variable z-parameter z-python">ax</span><span class="z-keyword z-operator z-assignment z-python">=</span><span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">ax</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">k</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">        <span class="z-meta z-item-access z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">fig</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-begin z-python">[</span></span><span class="z-meta z-item-access z-arguments z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">k</span></span></span><span class="z-meta z-item-access z-python"><span class="z-punctuation z-section z-brackets z-end z-python">]</span></span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">suptitle</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">k</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span> 
+</span><span class="z-source z-python">        <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span>up to here is enough to plot in Jupyter notebook
+</span></span><span class="z-source z-python">        <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span>I wanted to save the plot as pngs too so that those can be
+</span></span><span class="z-source z-python">        <span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span>embedded in an html page/email -- the next line saves those
+</span></span><span class="z-source z-python">        <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">plt</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">savefig</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&quot;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-double z-python">/tmp/<span class="z-constant z-other z-placeholder z-python"><span class="z-punctuation z-definition z-placeholder z-begin z-python">{</span>0<span class="z-punctuation z-definition z-placeholder z-end z-python">}</span></span>_<span class="z-constant z-other z-placeholder z-python"><span class="z-punctuation z-definition z-placeholder z-begin z-python">{</span>1<span class="z-punctuation z-definition z-placeholder z-end z-python">}</span></span>_<span class="z-constant z-other z-placeholder z-python"><span class="z-punctuation z-definition z-placeholder z-begin z-python">{</span>2<span class="z-punctuation z-definition z-placeholder z-end z-python">}</span></span>.png<span class="z-punctuation z-definition z-string z-end z-python">&quot;</span></span></span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">format</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">i</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">j</span></span><span class="z-punctuation z-separator z-arguments z-python">,</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">k</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span></code></pre>
+<p>Done! Works very well for comparative visualizations.</p>
+<p>Note - Calmap documentation has examples on how to make random timeseries data.</p>
+
+        </section>
+
+        
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="http://vsbabu.org/twenties/blog/gmail_fetchproc/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Gmail : GUI for your backend!</p></div>
+                <div><a href="http://vsbabu.org/twenties/blog/elementary_hera_postinstall/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Elementary OS - Hera 5.1 post install</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/calmap_vis/#How?">How?</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/calmap_vis/#Sample_Data">Sample Data</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/calmap_vis/#Code">Code</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="http://vsbabu.org/twenties/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href="http://vsbabu.org/twenties/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="http://vsbabu.org/twenties/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="http://vsbabu.org/twenties/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="http://vsbabu.org/twenties/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="http://vsbabu.org/twenties/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="http://vsbabu.org/twenties/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="http://vsbabu.org/twenties/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

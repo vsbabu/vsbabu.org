@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="http://vsbabu.org/twenties">
+
+    
+    <title>~sv • Cook your Scripts to APIs in 5 minutes</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="http://vsbabu.org/twenties/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="http://vsbabu.org/twenties/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="http://vsbabu.org/twenties/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/main.css?h=e38cfa6902d00356cd66" />
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/skins/lavender.css?h=31ee0a710ed660d122f6" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="node-red is a fantastic tool for various stuff; here a super useful unconventional usecase for it." />
+        <meta property="og:description" content="node-red is a fantastic tool for various stuff; here a super useful unconventional usecase for it." />
+
+    
+
+    <meta property="og:title" content="Cook your Scripts to APIs in 5 minutes" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="http:&#x2F;&#x2F;vsbabu.org&#x2F;twenties&#x2F;blog&#x2F;node_red_api&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="http://vsbabu.org/twenties/no_js.css"/></noscript>
+        <script type="text/javascript" src="http://vsbabu.org/twenties/js/initializeTheme.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/themeSwitcher.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="http://vsbabu.org/twenties">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Cook your Scripts to APIs in 5 minutes
+        </h1>
+
+        <ul class="meta">
+                <li>27th Aug 2019</li><li title="635 words"><span class='separator' aria-hidden='true'>•</span>4 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/api/">api</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/productivity/">productivity</a></li>
+        </ul>
+
+        <section class="body"><p><a href="https://nodered.org/"><code>node-red</code></a> can be used to quickly convert your shell scripts
+into functioning APIs.</p>
+<span id="continue-reading"></span>
+<p>We all have those scripts that grow over time and does incredibly useful things
+for internal use. Often, more than the core logic of those, we end up spending
+time to make emails, batch processing etc.</p>
+<p>Useful things usually get to a point where people want to build additional
+systems on top of these.</p>
+<p>APIs that generate JSON are pretty much the default standard for consuming
+reusable microservices. When concurrent load is controllable like in an
+intranet, node-red makes it very easy to build APIs. What started as fun project
+has been proving incredibly powerful and useful for various use cases.</p>
+<p>Following is a screenshot tour on how to make a simple bash script that adds n
+days to current date and gives the new date; to a JSON API.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell"><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">cat</span></span></span></span><span class="z-meta z-function-call z-arguments z-shell"> /tmp/responder.sh</span>
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">!/bin/bash</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">n</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell"><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-expansion z-parameter z-begin z-shell">{</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-variable z-other z-readwrite z-shell">1</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-keyword z-operator z-assignment z-shell">:-</span></span><span class="z-meta z-group z-expansion z-parameter z-shell">0</span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-section z-expansion z-parameter z-end z-shell">}</span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">d</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-meta z-function-call z-shell"></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-meta z-group z-expansion z-command z-backticks z-shell"><span class="z-punctuation z-section z-group z-begin z-shell">`</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">date</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>d</span> “+<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">n</span></span> days”</span><span class="z-punctuation z-section z-group z-end z-shell">`</span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> “<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>‘n’:<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">n</span></span><span class="z-punctuation z-separator z-shell">,</span>’date’:’<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">d</span></span>’<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span>”</span>
+</span></code></pre>
+<h2 id="Getting_setup_-_2_min"><a class="header-anchor no-hover-padding" href="#Getting_setup_-_2_min" aria-label="Anchor link for: Getting_setup_-_2_min"><span class="link-icon" aria-hidden="true"></span></a>
+Getting setup - 2 min</h2>
+<ol>
+<li>Install <a href="https://nodered.org/">node-red</a></li>
+<li>Start node-red server and login to http://localhost:1880/admin/</li>
+<li>Read up a bit about <a href="https://cookbook.nodered.org/http/create-an-http-endpoint">creating http end point from cookbook</a>.</li>
+</ol>
+<h2 id="Building_your_flow_—_2_min"><a class="header-anchor no-hover-padding" href="#Building_your_flow_—_2_min" aria-label="Anchor link for: Building_your_flow_—_2_min"><span class="link-icon" aria-hidden="true"></span></a>
+Building your flow — 2 min</h2>
+<p><img src="http://vsbabu.org/twenties/blog/node_red_api/01.png" alt="overall flow" /></p>
+<p>Overall flow</p>
+<p>Drag and drop <em>http-in, function, exec and http-out</em> components from left side bar. Connect these. Note that for <em>exec</em>, it has 3 outputs and the top one is the <em>stdout</em>. Use that to connect out.</p>
+<p>Now, double click on each of these to configure as below.</p>
+<p><img src="http://vsbabu.org/twenties/blog/node_red_api/02.png" alt="Get http-in; url is /dateafter/variable" /></p>
+<p>Get http-in; url is /dateafter/variable</p>
+<p><img src="http://vsbabu.org/twenties/blog/node_red_api/03.png" alt="Let us get the parameter n from request and set it as payload" /></p>
+<p>Let us get the parameter n from request and set it as payload</p>
+<p><img src="http://vsbabu.org/twenties/blog/node_red_api/04.png" alt="Exec points to our shell script" /></p>
+<p>Exec points to our shell script</p>
+<p>Just hit that red button on top right called <em>“Deploy”</em> and you are done! You don’t need to configure <em>http-out</em> node at all.</p>
+<h2 id="Let_us_test_drive_—_1_min"><a class="header-anchor no-hover-padding" href="#Let_us_test_drive_—_1_min" aria-label="Anchor link for: Let_us_test_drive_—_1_min"><span class="link-icon" aria-hidden="true"></span></a>
+Let us test drive — 1 min</h2>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">$</span></span><span class="z-meta z-function-call z-arguments z-shell"> curl http://127.0.0.1:1880/dateafter/6</span>
+</span><span class="z-source z-shell z-bash">  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">{‘n’:6,’date’:’Mon</span></span><span class="z-meta z-function-call z-arguments z-shell"> Sep 2 07:27:36 IST 2019<span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>}
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-quoted z-single z-shell">$ curl http://127.0.0.1:1880/dateafter/-1
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-quoted z-single z-shell">  {‘n’:-1,’date’:’Mon Aug 26 07:27:39 IST 2019<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span><span class="z-meta z-function-call z-shell"></span>}
+</span></code></pre>
+<p>Isn’t it easy? Easier than cooking instant noodles :)</p>
+<h2 id="Ok_so_what,_we_don’t_need_to_have_a_service_to_compute_dates!"><a class="header-anchor no-hover-padding" href="#Ok_so_what,_we_don’t_need_to_have_a_service_to_compute_dates!" aria-label="Anchor link for: Ok_so_what,_we_don’t_need_to_have_a_service_to_compute_dates!"><span class="link-icon" aria-hidden="true"></span></a>
+Ok so what, we don’t need to have a service to compute dates!</h2>
+<p>Come on, imagine what all you can do:</p>
+<ol>
+<li>For fun, change the script to call psql/mysql with a parameterized SQL that
+fetches data in JSON format from a db. PostgreSQL comes with JSON functions
+to convert a query output to json by simply wrapping your query into a
+sub-query with a function. Do that and give the URL to your super-duper web
+programmer to build a front end to your APIs!</li>
+<li>Let us say you are an architect who needs to design complex flows
+(“orchestration” — if you want a complex word for this) and get engineers to
+understand the componentry. Just draw it up here and using the <em>function</em>
+component, you can even code the pseudo-code inside. Guess what, while proper
+code is getting built, front-end engineers can use your little node-red
+server to code the UX assuming you are giving mocked responses.</li>
+<li>You want to parse parts of log files and load it into a analytics db from a
+production server; and you don’t have time to invest in kafka or other such
+things. Just do a regular cron that greps for patterns in the log files and
+send it to a node-red API as a post that simply reads the input and a script
+that appends to the analytics db.</li>
+</ol>
+<p>If you go through various components available on default palette on the left;
+or node-red site, I am sure you can come up with many different use cases for
+helping your customers and colleagues.</p>
+<p>PS: This article was <a href="https://medium.com/@vsbabu/cook-your-scripts-to-apis-in-5-minutes-26844957193b">posted in medium.com</a> as well.</p>
+
+        </section>
+
+        
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="http://vsbabu.org/twenties/blog/are_we_there_yet/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Are we there yet?</p></div>
+                <div><a href="http://vsbabu.org/twenties/blog/sqlite3-cte-tricks-for-time-series-analysis/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">SQLite3 CTE tricks for time series analysis</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/node_red_api/#Getting_setup_-_2_min">Getting setup - 2 min</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/node_red_api/#Building_your_flow_—_2_min">Building your flow — 2 min</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/node_red_api/#Let_us_test_drive_—_1_min">Let us test drive — 1 min</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/node_red_api/#Ok_so_what,_we_don’t_need_to_have_a_service_to_compute_dates!">Ok so what, we don’t need to have a service to compute dates!</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="http://vsbabu.org/twenties/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href="http://vsbabu.org/twenties/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="http://vsbabu.org/twenties/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="http://vsbabu.org/twenties/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="http://vsbabu.org/twenties/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="http://vsbabu.org/twenties/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="http://vsbabu.org/twenties/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="http://vsbabu.org/twenties/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="http://vsbabu.org/twenties">
+
+    
+    <title>~sv • Are we there yet?</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="http://vsbabu.org/twenties/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="http://vsbabu.org/twenties/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="http://vsbabu.org/twenties/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/main.css?h=e38cfa6902d00356cd66" />
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/skins/lavender.css?h=31ee0a710ed660d122f6" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Scaling time triggered checks without crons crawling all over!" />
+        <meta property="og:description" content="Scaling time triggered checks without crons crawling all over!" />
+
+    
+
+    <meta property="og:title" content="Are we there yet?" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="http:&#x2F;&#x2F;vsbabu.org&#x2F;twenties&#x2F;blog&#x2F;are_we_there_yet&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="http://vsbabu.org/twenties/no_js.css"/></noscript>
+        <script type="text/javascript" src="http://vsbabu.org/twenties/js/initializeTheme.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/themeSwitcher.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="http://vsbabu.org/twenties">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Are we there yet?
+        </h1>
+
+        <ul class="meta">
+                <li>9th Sep 2019</li><li title="1595 words"><span class='separator' aria-hidden='true'>•</span>8 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/api/">api</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/server/">server</a></li>
+        </ul>
+
+        <section class="body"><p>What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations.</p>
+<span id="continue-reading"></span>
+<p><img src="http://vsbabu.org/twenties/blog/are_we_there_yet/01.png" alt="are we there yet" /></p>
+<blockquote>
+<p>Do this, when that…</p>
+</blockquote>
+<p>is a very easy problem to solve. For example, sending an
+email when the order has been placed is perhaps few lines of code. Of course,
+that too gets into issues when you’ve large number of concurrent orders that
+choke the processing due to email being sent. Solution is easy enough to simply
+<em>raise an event at core processing</em> and <em>add asynchronous</em> listeners to do
+auxiliary processing like emailing.</p>
+<p>What about this?</p>
+<blockquote>
+<p>Do this, when that hasn’t happened for 1 hour</p>
+</blockquote>
+<p>Let us look at how this problem gets solved in stages :)</p>
+<h2 id="CRON"><a class="header-anchor no-hover-padding" href="#CRON" aria-label="Anchor link for: CRON"><span class="link-icon" aria-hidden="true"></span></a>
+CRON</h2>
+<blockquote>
+<p>Hustle ye all! Keep checking. You have nothing to lose but your CPU and Memory utilization!</p>
+</blockquote>
+<p>Let us consider the problem in the top image. Send an email if the order hasn’t
+been shipped even after X hours of placing the order.</p>
+<p>Your data structure conceptually may be like this:</p>
+<pre data-lang="sql" class="language-sql z-code"><code class="language-sql" data-lang="sql"><span class="z-source z-sql"><span class="z-meta z-create z-sql"><span class="z-keyword z-other z-create z-sql">create</span> <span class="z-keyword z-other z-sql">table</span> </span><span class="z-meta z-toc-list z-full-identifier z-sql"><span class="z-entity z-name z-function z-sql">order</span></span>(id, order_date, status, status_date,...);
+</span><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">select</span> <span class="z-variable z-language z-star z-sql">*</span> <span class="z-keyword z-other z-DML z-sql">from</span> order <span class="z-keyword z-other z-DML z-sql">where</span> status<span class="z-keyword z-operator z-comparison z-sql">=</span><span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>UNSHIPPED<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span> <span class="z-keyword z-operator z-logical z-sql">and</span> 
+</span><span class="z-source z-sql">                    now<span class="z-meta z-block z-sql"><span class="z-punctuation z-section z-scope z-begin z-sql">(</span><span class="z-punctuation z-section z-scope z-end z-sql">)</span></span> <span class="z-keyword z-operator z-comparison z-sql">&gt;</span> order_date <span class="z-keyword z-operator z-math z-sql">+</span><span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>x hours<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>::interval
+</span></code></pre>
+<p>So what are the problems with this?</p>
+<ol>
+<li>Same orders will get picked up at each run of the cron; and notification will
+fire each time. To solve it, you will end up recording previous notification
+and doing a not exists from that in your query.</li>
+<li>As data grows, the query will run slower and slower. At some point, it will
+become slower enough to have previous run of the cron still running when the
+next one comes.</li>
+<li>“Let us add an index on <em>status</em> column” — sure, it will help in the beginning;
+but when the data gets larger and larger, index on a column that will’ve some
+less than 10 distinct values won’t make magical performance gains.</li>
+<li>“Let us archive the closed orders into another table” — this, along with the
+index above will make things faster.</li>
+<li>“Let us add a combined index on <em>order_date</em> and <em>status</em> and change the query to
+use it” — yes, will make things a lot faster.</li>
+</ol>
+<p>This pattern of solution and patches will spread for other such requirements and
+your application server will be a melee of crons.</p>
+<p>Business will certainly come back later saying if order hasn’t been shipped even
+after y hours <em>(where y &gt; x)</em>, then raise even more alerts. And so on…</p>
+<p>Scaling by adding more crons is going to quickly become more servers; and then
+more databases.</p>
+<h2 id="at"><a class="header-anchor no-hover-padding" href="#at" aria-label="Anchor link for: at"><span class="link-icon" aria-hidden="true"></span></a>
+at</h2>
+<blockquote>
+<p>You don’t call me. I will call you.</p>
+</blockquote>
+<p>Now, while most of us are familiar with <code>cron</code>, unix systems also have a nice
+job queue command called <code>at</code>. It executes a given command at a particular time.
+That’s it.</p>
+<p>Let us flip the problem around from constantly scanning data into scan specific
+data to  see if something need to be done, at specific times.</p>
+<p>Syntax is only representational — don’t assume at command works with what is
+given here :)</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">order.created</span></span><span class="z-meta z-function-call z-arguments z-shell"> -<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> at <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>now() + x<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> primary_order_alert id</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">order.created</span></span><span class="z-meta z-function-call z-arguments z-shell"> -<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> at <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>now() + y<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> escalated_order_alert id</span>
+</span></code></pre>
+<p>Something like above. When an order is created, you add two jobs at specific
+times to check and raise events. Add listeners to these events to do whatever
+processing you need to do.</p>
+<p>Broadly, the jobs’ logic will be like below:</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">get_order_by_id</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span>:<span class="z-meta z-qualified-name z-python"><span class="z-support z-function z-builtin z-python">id</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-statement z-conditional z-if z-python"><span class="z-keyword z-control z-conditional z-if z-python">if</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span></span> <span class="z-keyword z-operator z-logical z-python">is</span> <span class="z-keyword z-operator z-logical z-python">not</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">null</span></span><span class="z-punctuation z-section z-block z-conditional z-if z-python">:</span></span>
+</span><span class="z-source z-python">  <span class="z-meta z-statement z-conditional z-if z-python"><span class="z-keyword z-control z-conditional z-if z-python">if</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">status</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">UNSHIPPED<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span><span class="z-punctuation z-section z-block z-conditional z-if z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-statement z-raise z-python"><span class="z-keyword z-control z-flow z-raise z-python">raise</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">event</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span>
+</span></code></pre>
+<p>The access by primary key is going to be as fast as it can get.</p>
+<p>To reduce the future load on the system, we can even add a simple processing for
+clearing future queues.</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">get_order_by_id</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span>:<span class="z-meta z-qualified-name z-python"><span class="z-support z-function z-builtin z-python">id</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-statement z-conditional z-if z-python"><span class="z-keyword z-control z-conditional z-if z-python">if</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span></span> <span class="z-keyword z-operator z-logical z-python">is</span> <span class="z-keyword z-operator z-logical z-python">not</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">null</span></span><span class="z-punctuation z-section z-block z-conditional z-if z-python">:</span></span>
+</span><span class="z-source z-python">  <span class="z-meta z-statement z-conditional z-if z-python"><span class="z-keyword z-control z-conditional z-if z-python">if</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">status</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">UNSHIPPED<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span><span class="z-punctuation z-section z-block z-conditional z-if z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-statement z-raise z-python"><span class="z-keyword z-control z-flow z-raise z-python">raise</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">event</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span>
+</span><span class="z-source z-python">  <span class="z-meta z-statement z-conditional z-else z-python"><span class="z-keyword z-control z-conditional z-else z-python">else</span><span class="z-punctuation z-section z-block z-conditional z-else z-python">:</span></span>
+</span><span class="z-source z-python">    <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">delete_at_jobs</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span>:<span class="z-meta z-qualified-name z-python"><span class="z-support z-function z-builtin z-python">id</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span></code></pre>
+<p>An additional takeaway from <code>at</code> is also the fact that it doesn’t maintain any
+audit. Your job is fired, that is cleared from the queue. Its job is to do one
+thing and it does it well — like all unix utilities. A good philosophy!</p>
+<h2 id="A.W.T.Y_—_I_:_inspired_by_at"><a class="header-anchor no-hover-padding" href="#A.W.T.Y_—_I_:_inspired_by_at" aria-label="Anchor link for: A.W.T.Y_—_I_:_inspired_by_at"><span class="link-icon" aria-hidden="true"></span></a>
+A.W.T.Y — I : inspired by <code>at</code></h2>
+<blockquote>
+<p>Are.We.There.Yet? at is fine, but my servers use Java/Python/…</p>
+</blockquote>
+<p>The concept from at can be taken to a generalized database solution easily.</p>
+<pre data-lang="sql" class="language-sql z-code"><code class="language-sql" data-lang="sql"><span class="z-source z-sql"><span class="z-meta z-create z-sql"><span class="z-keyword z-other z-create z-sql">create</span> <span class="z-keyword z-other z-sql">table</span> </span><span class="z-meta z-toc-list z-full-identifier z-sql"><span class="z-entity z-name z-function z-sql">future_job</span></span> (
+</span><span class="z-source z-sql"> entity_name,    <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> whichever table that the job should access
+</span></span><span class="z-source z-sql"> entity_key,     <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> and its key
+</span></span><span class="z-source z-sql"> first_check_at, <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> when is the first check due? immutable
+</span></span><span class="z-source z-sql"> next_check_at,  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> next check? defaults to first check
+</span></span><span class="z-source z-sql"> check_count,    <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> how many times has the check been done
+</span></span><span class="z-source z-sql"> job_exec        <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> the class/job that needs to execute
+</span></span><span class="z-source z-sql">)
+</span></code></pre>
+<p>The <code>job_exec</code> follows an interface like below:</p>
+<pre data-lang="java" class="language-java z-code"><code class="language-java" data-lang="java"><span class="z-source z-java"><span class="z-support z-class z-java">Date</span> <span class="z-meta z-function-call z-java"><span class="z-variable z-function z-java">job_exec</span><span class="z-punctuation z-section z-parens z-begin z-java">(</span><span class="z-support z-class z-java">FutureJob</span> j<span class="z-punctuation z-section z-parens z-end z-java">)</span></span><span class="z-punctuation z-terminator z-java">;</span> 
+</span></code></pre>
+<p>The job returns a time stamp if a check needs to be done again. In case it does
+return a value, the <code>check_count</code> is incremented and the <code>next_check_at</code> is set to
+that value.</p>
+<p>If it is null, simply delete the record from this table. That keeps
+this table a simple cache of <code>pending</code> jobs. No old data here.</p>
+<p>And your cron?</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-statement z-loop z-for z-python"><span class="z-keyword z-control z-loop z-for z-python">for</span> <span class="z-meta z-generic-name z-python">j</span> <span class="z-keyword z-control z-loop z-for z-in z-python">in</span></span><span class="z-meta z-statement z-loop z-for z-python"> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">get_future_job</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">next_check_at</span></span> <span class="z-keyword z-operator z-comparison z-python">&lt;</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">now</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span><span class="z-meta z-statement z-loop z-for z-python"><span class="z-punctuation z-section z-block z-loop z-for z-python">:</span></span>
+</span><span class="z-source z-python">   <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">r</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">j</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">job_exec</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">j</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">   <span class="z-meta z-statement z-conditional z-if z-python"><span class="z-keyword z-control z-conditional z-if z-python">if</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">r</span></span> <span class="z-keyword z-operator z-logical z-python">is</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">null</span></span><span class="z-punctuation z-section z-block z-conditional z-if z-python">:</span></span>
+</span><span class="z-source z-python">     <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">j</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">delete</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python">   <span class="z-meta z-statement z-conditional z-else z-python"><span class="z-keyword z-control z-conditional z-else z-python">else</span><span class="z-punctuation z-section z-block z-conditional z-else z-python">:</span></span>
+</span><span class="z-source z-python">     <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">j</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">next_check_at</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">r</span></span>
+</span><span class="z-source z-python">     <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">j</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">check_count</span></span> <span class="z-keyword z-operator z-assignment z-augmented z-python">+=</span> <span class="z-constant z-numeric z-integer z-decimal z-python">1</span>
+</span><span class="z-source z-python">     <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">j</span></span><span class="z-meta z-qualified-name z-python"><span class="z-punctuation z-accessor z-dot z-python">.</span></span><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">save</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span></code></pre>
+<p>Sample <code>job_exec</code> for the above use case could look like:</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">get_order_by_id</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">j</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">entityKey</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-statement z-conditional z-if z-python"><span class="z-keyword z-control z-conditional z-if z-python">if</span> <span class="z-meta z-group z-python"><span class="z-punctuation z-section z-group z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span></span> <span class="z-keyword z-operator z-logical z-python">is</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">null</span></span><span class="z-punctuation z-section z-group z-end z-python">)</span></span> <span class="z-keyword z-operator z-logical z-python">or</span> <span class="z-meta z-group z-python"><span class="z-punctuation z-section z-group z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">status</span></span> <span class="z-keyword z-operator z-comparison z-python">!=</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">UNSHIPPED):<span class="z-invalid z-illegal z-unclosed-string z-python">
+</span></span></span></span></span></span><span class="z-source z-python"><span class="z-meta z-statement z-conditional z-if z-python"><span class="z-meta z-group z-python">  <span class="z-invalid z-illegal z-name z-python">return</span></span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">null</span></span></span>
+</span><span class="z-source z-python"><span class="z-meta z-statement z-conditional z-if z-python"><span class="z-keyword z-control z-conditional z-if z-python">if</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">j</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">check_count</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-constant z-numeric z-integer z-decimal z-python">0</span><span class="z-punctuation z-section z-block z-conditional z-if z-python">:</span></span>
+</span><span class="z-source z-python">  <span class="z-meta z-statement z-raise z-python"><span class="z-keyword z-control z-flow z-raise z-python">raise</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">primary_alert</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span>
+</span><span class="z-source z-python">  <span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span><span class="z-punctuation z-accessor z-dot z-python">.</span><span class="z-meta z-generic-name z-python">order_date</span></span> <span class="z-keyword z-operator z-arithmetic z-python">+</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">y</span></span><span class="z-punctuation z-separator z-annotation z-variable z-python">:</span><span class="z-punctuation z-separator z-annotation z-variable z-python">:</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">interval</span></span>
+</span><span class="z-source z-python"><span class="z-meta z-statement z-raise z-python"><span class="z-keyword z-control z-flow z-raise z-python">raise</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">final_alert</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">o</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span>
+</span><span class="z-source z-python"><span class="z-keyword z-control z-flow z-return z-python">return</span> <span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">null</span></span>
+</span></code></pre>
+<h2 id="A.W.T.Y_—_II_:_Cops_&amp;_History"><a class="header-anchor no-hover-padding" href="#A.W.T.Y_—_II_:_Cops_&amp;_History" aria-label="Anchor link for: A.W.T.Y_—_II_:_Cops_&amp;_History"><span class="link-icon" aria-hidden="true"></span></a>
+A.W.T.Y — II : Cops &amp; History</h2>
+<p>This has bunch of issues still.</p>
+<ol>
+<li><code>job_exec</code> can be written in a poor way that it takes a lot of time. So, having
+a timeout guard becomes necessary.</li>
+<li><code>job_exec</code> can be written to keep on adding X interval to current time to
+effectively make it a while loop. Having a <em>check_count</em> guard in the container
+will solve this. ie., you can add a configuration that says one entry can go
+up to max 5 — if the job returns a future date more than these many times, it
+is deleted.</li>
+<li>Adding things way too much into the future is not in the spirit of this.
+Guard against it by deleting the job if the return value is in the past or if
+it is beyond X interval into future.</li>
+<li>You will want to know the time taken for each job, how many times it was
+attempted etc. Easy solution is to insert into a <em>future_job_history</em> table
+when we delete from our table.</li>
+<li>You will still’ve issues when previous cron is running when the current run
+starts. You will have jobs being fired twice. Then we get into same old
+nuisance solutions like locking a job record with some status; or adding a
+flag that previous one is still running then exit the current cron etc. The
+second option will prevent you from having crons running in multiple servers
+unless you add cron lock also into some single source of truth.</li>
+</ol>
+<h2 id="A.W.T.Y_—_III_:_Slots_&amp;_Deterministic"><a class="header-anchor no-hover-padding" href="#A.W.T.Y_—_III_:_Slots_&amp;_Deterministic" aria-label="Anchor link for: A.W.T.Y_—_III_:_Slots_&amp;_Deterministic"><span class="link-icon" aria-hidden="true"></span></a>
+A.W.T.Y — III : Slots &amp; Deterministic</h2>
+<p>So, how do we solve point #5 above?</p>
+<p>Let us go back to requirements. Unless the system is intended to be used in
+extremely mission critical stuff like warfare, air traffic control etc, <em>“do this
+after X interval”</em> does not really mean <em>“do this EXACTLY after X interval”</em>. In
+most cases, we can rewrite this to <em>“do this NOT BEFORE X interval, but within an
+SLA”</em>.</p>
+<p>That opens up a whole set of possibilities. Let us say we add a constraint that
+our job resolution to the nearest 15th minute. ie., Events, if applicable, will
+be fired after 0th, 15th, 30th and 45th minutes of every hour</p>
+<p>ie., if your order was placed at 10:05am, and X is 3 hours, it will be picked up
+for checking only at 1:15pm.</p>
+<p>In other words, there is a configuration for this, and setters for <em>next_check_at</em>
+and <em>first_check_at</em> rounds up the value to the slot according to the
+configuration.</p>
+<p>Now, your cron is firing at exactly these slots and your logic to pick the job changes like:</p>
+<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> for j in get_future_job(next_check_at &lt; now()): 
+</span></span><span class="z-source z-python"><span class="z-meta z-statement z-loop z-for z-python"><span class="z-keyword z-control z-loop z-for z-python">for</span> <span class="z-meta z-generic-name z-python">j</span> <span class="z-keyword z-control z-loop z-for z-in z-python">in</span></span><span class="z-meta z-statement z-loop z-for z-python"> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">get_future_job</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">next_check_at</span></span> <span class="z-keyword z-operator z-comparison z-python">==</span> <span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">next_slot</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-meta z-function-call z-python"><span class="z-meta z-qualified-name z-python"><span class="z-variable z-function z-python"><span class="z-meta z-generic-name z-python">now</span></span></span></span><span class="z-meta z-function-call z-arguments z-python"><span class="z-punctuation z-section z-arguments z-begin z-python">(</span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span><span class="z-punctuation z-section z-arguments z-end z-python">)</span></span></span><span class="z-meta z-statement z-loop z-for z-python"><span class="z-punctuation z-section z-block z-loop z-for z-python">:</span></span>
+</span></code></pre>
+<p>Solves two problems:</p>
+<ol>
+<li>There is no question of two crons picking same record.</li>
+<li>You can easily split this into two servers. One serves 0th and 30th minute
+runs and the other fires at 15th and 45th minutes.</li>
+</ol>
+<p>Still has a problem though :) What if the cron servers were down for a while?
+Past jobs will never get picked up.</p>
+<p>Two solutions, depending upon the kind of data you have.</p>
+<ol>
+<li>Before you start the servers again, update next_check_at for ALL jobs to next
+rounded up time slot.</li>
+<li>OR, you have a special cron that runs once in a while that has the condition
+for “&lt;” instead of “==”.</li>
+</ol>
+<hr />
+<p>This started as a 5 min conversation about an annoying problem with my colleague <a href="https://www.linkedin.com/in/ganesh-hegde-92748427/">Ganesh Hegde</a>. The abundance of crons for little things that had accumulated over time had led us to do multiple rounds of refactoring to make it easier to maintain; but we had to break the pattern.</p>
+<p>We had a similar trigger to be added as part of a quick 2 day sprint and it was done using this. Working well so far. We specifically didn’t want to go looking for 3rd party solutions for this; remember — it was in between a 2 day sprint.</p>
+<p>Neither of us could come up with a package/table name for this module that we liked. As luck would have it while we were arguing, <a href="https://medium.com/u/4dfd8b31b78e?source=post_page-----90778c61176f----------------------">Sadiyah Lasania</a>, our content overlord walked by and in about 3 minutes, suggested <em>“prescient”</em>. So there, we named it that — mainly because it is a word seldom used by engineers :)</p>
+<hr />
+<p>For large and complicated systems, the trick is going to be in computing
+<em>next_check_at</em> as fast as possible so that it is sufficiently in future and not
+just a static +y interval. In fact, it should be so good that your job never
+hits the guard on <em>check_count</em>. And when you have such implementations, there is
+nothing stopping you to make the resolution of these jobs to every minute.</p>
+<hr />
+<p>Making slots using jobs lined up in file system as a quick proof-of-concept is also a great way to test it out. Simply have a folder like <em>yymmddhhmi</em> as a folder name for a slot and in your cron script, you convert the date to this format, cd to that directory and then do a for loop on all the files there and simply execute these.</p>
+<p>PS: This article was <a href="https://medium.com/the-moneytap-blog/are-we-there-yet-90778c61176f">posted in medium.com</a> as well.</p>
+
+        </section>
+
+        
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="http://vsbabu.org/twenties/blog/remind/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Remind - it does what it&#x27;s name says!</p></div>
+                <div><a href="http://vsbabu.org/twenties/blog/node_red_api/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Cook your Scripts to APIs in 5 minutes</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/are_we_there_yet/#CRON">CRON</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/are_we_there_yet/#at">at</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/are_we_there_yet/#A.W.T.Y_—_I_:_inspired_by_at">A.W.T.Y — I : inspired by at</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/are_we_there_yet/#A.W.T.Y_—_II_:_Cops_&_History">A.W.T.Y — II : Cops &amp; History</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/are_we_there_yet/#A.W.T.Y_—_III_:_Slots_&_Deterministic">A.W.T.Y — III : Slots &amp; Deterministic</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="http://vsbabu.org/twenties/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href="http://vsbabu.org/twenties/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="http://vsbabu.org/twenties/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="http://vsbabu.org/twenties/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="http://vsbabu.org/twenties/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="http://vsbabu.org/twenties/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="http://vsbabu.org/twenties/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="http://vsbabu.org/twenties/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

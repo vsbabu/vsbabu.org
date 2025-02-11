@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="http://vsbabu.org/twenties">
+
+    
+    <title>~sv • 1to10: doom-emacs and org-roam, gpg</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="http://vsbabu.org/twenties/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="http://vsbabu.org/twenties/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="http://vsbabu.org/twenties/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/main.css?h=e38cfa6902d00356cd66" />
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/skins/lavender.css?h=31ee0a710ed660d122f6" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Note your thoughts with least friction!" />
+        <meta property="og:description" content="Note your thoughts with least friction!" />
+
+    
+
+    <meta property="og:title" content="1to10: doom-emacs and org-roam, gpg" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="http:&#x2F;&#x2F;vsbabu.org&#x2F;twenties&#x2F;blog&#x2F;doom_emacs_org_1_to_10&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="http://vsbabu.org/twenties/no_js.css"/></noscript>
+        <script type="text/javascript" src="http://vsbabu.org/twenties/js/initializeTheme.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/themeSwitcher.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="http://vsbabu.org/twenties">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            1to10: doom-emacs and org-roam, gpg
+        </h1>
+
+        <ul class="meta">
+                <li>2nd Aug 2020</li><li title="843 words"><span class='separator' aria-hidden='true'>•</span>5 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/emacs/">emacs</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/org-mode/">org-mode</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/productivity/">productivity</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/0to1/">0to1</a></li>
+        </ul>
+
+        <section class="body"><p>Already setup <code>doom-emacs</code> and started with <code>org-mode</code>? If not, read my
+previous article on <a href="/blog/doom_emacs_org_0_to_1/">0to1: doom-emacs and org-mode</a>.</p>
+<p>Since then, I’ve also started using <code>org-roam</code>, which is an emacs implementation
+of roamresearch.com’s note taking tool. Following are my notes on how to get this going.
+Also, how to encrypt part of your notes using <code>gpg</code>.</p>
+<span id="continue-reading"></span><h2 id="Installation"><a class="header-anchor no-hover-padding" href="#Installation" aria-label="Anchor link for: Installation"><span class="link-icon" aria-hidden="true"></span></a>
+Installation</h2>
+<p>Once you’ve <code>doom-emacs</code> setup, next steps are as below. Note that <code>gpg</code> or <code>crypt</code> are optional
+unless you want to encrypt some notes.</p>
+<ol>
+<li>In <code>~/.doom.d/init.el</code>:
+<ol>
+<li>Uncomment <code>deft</code> package. That gives a nice way to navigate notes.</li>
+<li>Scroll down to <code>org</code> package and change it to <code>(org +roam +crypt)</code></li>
+<li>Run <code>~/.emacs.d/bin/doom sync</code></li>
+</ol>
+</li>
+<li>Install <code>gpg</code> command line.  <code>brew install gpg</code> will do in Mac and <code>sudo apt install gpg</code> in Ubuntu based Linux.</li>
+</ol>
+<h2 id="Setup"><a class="header-anchor no-hover-padding" href="#Setup" aria-label="Anchor link for: Setup"><span class="link-icon" aria-hidden="true"></span></a>
+Setup</h2>
+<ol>
+<li>
+<p>Let us setup our <code>gpg</code> key for encryption.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gpg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>full-generate-key</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Follow the prompts; you should give a passphrase you can remember.</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> I gave my name as &quot;Satheesh Vattekkat&quot; for key name - use your own name. </span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> That is what you should put in next step &quot;YOUR KEY NAME HERE&quot;</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Now let us test if key is there. You should see it with the name</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gpg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>list-secret-keys</span></span>
+</span></code></pre>
+<p>Now, I get an output like below.</p>
+<pre class="z-code"><code><span class="z-text z-plain">/home/*****/.gnupg/pubring.kbx
+</span><span class="z-text z-plain">-------------------------------
+</span><span class="z-text z-plain">pub   rsa2048 2020-??-?? [SC]
+</span><span class="z-text z-plain">      ***********************************
+</span><span class="z-text z-plain">uid           [ unknown] Satheesh Vattekkat (SV) &lt;vsbabu@********.***&gt;
+</span><span class="z-text z-plain">sub   rsa2048 2020-??-?? [E]
+</span></code></pre>
+</li>
+<li>
+<p>In <code>~/.doom.d/config.el</code>:</p>
+<pre data-lang="lisp" class="language-lisp z-code"><code class="language-lisp" data-lang="lisp"><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span><span class="z-support z-function z-lisp">setq</span> org<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>crypt<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>key <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>YOUR KEY NAME HERE<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
+</span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span>setenv <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>GPG_AGENT_INFO<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span> <span class="z-constant z-language z-lisp">nil</span><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
+</span><span class="z-source z-lisp">
+</span><span class="z-source z-lisp"><span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; I keep my files under ~/Dropbox/org. Roam files, I will put in 
+</span></span><span class="z-source z-lisp"><span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; a directory under that.
+</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span><span class="z-support z-function z-lisp">setq</span> org<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>roam<span class="z-keyword z-operator z-arithmetic z-lisp">-</span><span class="z-support z-function z-lisp">directory</span> <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>~/Dropbox/org/roam<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
+</span><span class="z-source z-lisp"><span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; Let deft search files under root org directory.
+</span></span><span class="z-source z-lisp"><span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; We could use the org-directory variable instead of duplicating values
+</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span><span class="z-support z-function z-lisp">setq</span> deft<span class="z-keyword z-operator z-arithmetic z-lisp">-</span><span class="z-support z-function z-lisp">directory</span> <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>~/Dropbox/org/<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span>
+</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp">   deft<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>recursive <span class="z-constant z-language z-lisp">t</span>
+</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp">   <span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; I don&#39;t like any summary, hence catch-all regexp. need to see if
+</span></span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp">   <span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; an option to hide summary is there instead of this one.
+</span></span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp">   deft<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>strip<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>summary<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>regexp <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>.*$<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span>
+</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
+</span></code></pre>
+</li>
+<li>
+<p>That is it. If you want to take this key and deploy it in other machines, just export it and import it.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gpg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>armor</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>export-secret-keys</span> YOUR KEY NAME HERE <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> /tmp/mykey.asc</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">scp</span></span><span class="z-meta z-function-call z-arguments z-shell"> /tmp/mykey.asc someothermachine:/tmp/mykey.asc</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ssh</span></span><span class="z-meta z-function-call z-arguments z-shell"> someothermachine</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gpg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>import</span> /tmp/mykey.asc</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gpg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>edit-key</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>YOUR KEY NAME HERE<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+<p>Reminder -&gt; You lose the passphrase, you lose the key and stuff encrypted with that.</p>
+</li>
+</ol>
+<h2 id="Note_Taking_Workflow"><a class="header-anchor no-hover-padding" href="#Note_Taking_Workflow" aria-label="Anchor link for: Note_Taking_Workflow"><span class="link-icon" aria-hidden="true"></span></a>
+Note Taking Workflow</h2>
+<blockquote>
+<p>“Notes aren’t a record of my thinking process. They are my thinking process”.
+– Richard Feynman.</p>
+</blockquote>
+<ul>
+<li><code>M-x org-roam-find-file</code> or <code>M-x org-roam-capture</code> can be used to just start noting things down.
+<code>SPC n r f</code> will work too. It will show a list of file topic and will filter according to the name.
+As you type the name, if no file is there, a new one will be created with this as the title.</li>
+<li>Let us give file name as <em>Org Roam</em> and hit enter.</li>
+<li>You have a <em>Capture</em> buffer opened up. Just keep typing your content and when you are done, <code>C-c C-c</code></li>
+<li>Now the file will open up in the main window.</li>
+<li>Let us try <code>SPC n r f</code> again. You can see the entry <em>Org Roam</em>. Select it to edit it. Or, type
+in another name and create another one.</li>
+</ul>
+<h2 id="Interlinking"><a class="header-anchor no-hover-padding" href="#Interlinking" aria-label="Anchor link for: Interlinking"><span class="link-icon" aria-hidden="true"></span></a>
+Interlinking</h2>
+<ul>
+<li>
+<p>Ideally, each note should have self contained info about one topic only.
+<a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten method</a> is a good
+read about this.</p>
+</li>
+<li>
+<p>Now, how do you make sense of the notes like that? Interlinking. Whenever you
+open a note or edit a note, search for other notes that are possibily related to it.</p>
+</li>
+<li>
+<p>Go to the end of your new note and do <code>SPC n r i</code> (yes, i for insert) and again the
+list of roam files will pop up. Choose as many as you want and you can see those
+links getting added automatically.</p>
+</li>
+<li>
+<p>Next time when you open the note, you will see possible back links to this on the
+side window to get the context. Makes navigation very easy. That buffer can be toggled
+by <code>SPC n r r</code></p>
+</li>
+<li>
+<p>For example, I have two notes below, viz., <em>Org Roam</em> and <em>Zettelkasten System</em>. From
+the latter, I interlinked to former. You can see that when I am on <em>Org Roam</em>, the side
+buffer shows what other content links to this.</p>
+<p><img src="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/01.png" alt="screenshot" /></p>
+</li>
+</ul>
+<h2 id="Deft_-_file_navigation"><a class="header-anchor no-hover-padding" href="#Deft_-_file_navigation" aria-label="Anchor link for: Deft_-_file_navigation"><span class="link-icon" aria-hidden="true"></span></a>
+Deft - file navigation</h2>
+<p>We also installed <code>deft</code> which can be invoked by <code>SPC n d</code>. Gives a nice list of all org
+files sorted by modified timestamp in descending order. You can navigate using arrow keys
+and open the file.</p>
+<pre class="z-code"><code><span class="z-text z-plain">Deft: 
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">Zettelkasten System                                              2020-08-02 07:52
+</span><span class="z-text z-plain">Org Roam                                                         2020-08-02 07:50
+</span><span class="z-text z-plain">SV                                                               2020-06-07 17:29
+</span></code></pre>
+<p>Note that <code>deft</code> is for navigating an file tree; not particularly linked to org-mode and roam. I find
+it very useful to check the recently modified notes.</p>
+<h2 id="Key_Combos_to_Remember"><a class="header-anchor no-hover-padding" href="#Key_Combos_to_Remember" aria-label="Anchor link for: Key_Combos_to_Remember"><span class="link-icon" aria-hidden="true"></span></a>
+Key Combos to Remember</h2>
+<pre class="z-code"><code><span class="z-text z-plain">SPC n r f =&gt; Type a topic name and edit note. Just like Notational Velocity.
+</span><span class="z-text z-plain">SPC n r i =&gt; Inside the note, use this to add links to possibly related topics.
+</span><span class="z-text z-plain">SPC n r r =&gt; Toggle the org-roam buffer. Shows backlinks.
+</span><span class="z-text z-plain">SPC n d   =&gt; Deft
+</span></code></pre>
+<p>That’s it. You just need to remember first two key combinations. Other two are useful as well.</p>
+<h2 id="Encryption"><a class="header-anchor no-hover-padding" href="#Encryption" aria-label="Anchor link for: Encryption"><span class="link-icon" aria-hidden="true"></span></a>
+Encryption</h2>
+<p>Here is my sample org file.</p>
+<pre class="z-code"><code><span class="z-text z-plain">#+title: Org Roam
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">This is my notes about Org Roam.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">* Encrypted Section
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">Now, this is a super secret sensitive topic I don&#39;t
+</span><span class="z-text z-plain">want others to see!
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">** Subheading As Well
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">This is also sensitive
+</span></code></pre>
+<p>Now, let us encrypt the entire section under <em>Encrypted Section</em>. Navigate to that and
+run <code>M-x org-encrypt-entry</code>. That’s it and our document changed to this below!</p>
+<pre class="z-code"><code><span class="z-text z-plain">#+title: Org Roam
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">This is my notes about Org Roam.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">* Encrypted Section
+</span><span class="z-text z-plain">-----BEGIN PGP MESSAGE-----
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">hQEMA96l+q9aMVDXAQf/dUC28z9qATyfH9zxJJPcM0/3qn7/wCAA4LnpmkPW0nMn
+</span><span class="z-text z-plain">hRNqTQlwOIuKK1ULT7Ls6/zZtPCMS3i97LF0gEB+n9MrcokVnUV5bIeGYzR0rIXX
+</span><span class="z-text z-plain">Fs7BJPaEV63VfLFxGvkXBqnCpjb8bYyX7yrmhfkEehNcY/3yE3LMpMArIeh1vH1/
+</span><span class="z-text z-plain">F6nfdOSXdNgo9tIkGxs/mHpglZswsB/P7+Ygeuv/92ibR8x7v8+6nmVcuO8fJ6HZ
+</span><span class="z-text z-plain">G+isYTJxosADox+nX8RLC8BKIKH3aZjqb+xSpbl3boV6EzItDg8hsJ4Hf/+CUSzf
+</span><span class="z-text z-plain">NzuohJ53HSSD23USjjgdFIY/o4IQLMacECxkPl9u8tKlAcIWt0Fv8WCVsrrtWyLr
+</span><span class="z-text z-plain">KSsc/1fK4y81J5mXxIQ2mqUbiLBnOn1eK8Az0PdCvH8ms1ch78wCZX7ktEgVicDf
+</span><span class="z-text z-plain">ZPc0f+WAHjzjptybnb4aK/unuLkmps6ao1CwcwIbkBJCVLO8ifMvefAkjCznnKOZ
+</span><span class="z-text z-plain">c3j/gzn1Ey0sk1KL2q7F1f3AzCKd+7LXjox4m0mhGBjDnhbkIkX9tKgeG6yaIcyP
+</span><span class="z-text z-plain">Natf9E0L
+</span><span class="z-text z-plain">=ITjw
+</span><span class="z-text z-plain">-----END PGP MESSAGE-----
+</span><span class="z-text z-plain">
+</span></code></pre>
+<p>How to decrypt? Couldn’t be simpler. Navigate to the heading and run
+<code>M-x org-decrypt-entry</code>. Now it will ask for the passphrase for your
+key though.</p>
+<p>Note that you’ve to save it (<code>:w</code>) manually. You can do
+tricks like file-save hook to automatically encrypt sections that has
+a particular tag, but I am not an emacs expert to do that. <a href="https://www.gnu.org/software/emacs/manual/html_node/org/org_002dcrypt.html">Org mode documentation</a> explains how to do that,
+but I didn’t try it.</p>
+<h2 id="References"><a class="header-anchor no-hover-padding" href="#References" aria-label="Anchor link for: References"><span class="link-icon" aria-hidden="true"></span></a>
+References</h2>
+<ul>
+<li><a href="https://org-roam.readthedocs.io/en/master/">Org Roam documentation</a></li>
+<li><a href="https://jblevins.org/projects/deft/">Deft Emacs package</a></li>
+<li><a href="https://www.masteringemacs.org/article/keeping-secrets-in-emacs-gnupg-auth-sources">Keeping Secrets in Emacs with GPG</a></li>
+<li><a href="/twenties/doom_emacs_org_0_to_1/">Part 1 of this series</a></li>
+</ul>
+<h2 id="Other_Points"><a class="header-anchor no-hover-padding" href="#Other_Points" aria-label="Anchor link for: Other_Points"><span class="link-icon" aria-hidden="true"></span></a>
+Other Points</h2>
+<ul>
+<li>If you manually rename or delete any roam file, you need to run <code>M-x org-roam-db-build-cache</code></li>
+<li>You need to do this if you change the title outside emacs as well.</li>
+<li><code>M-x org-roam-doctor</code> is a nice command you might want to run once in a while when you really get going with notes.</li>
+</ul>
+
+        </section>
+
+        
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="http://vsbabu.org/twenties/blog/docker_mysql_data/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Generate fake data to test performance</p></div>
+                <div><a href="http://vsbabu.org/twenties/blog/gen_docs_unix_way/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Generate docs - the unix way</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/#Installation">Installation</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/#Setup">Setup</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/#Note_Taking_Workflow">Note Taking Workflow</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/#Interlinking">Interlinking</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/#Deft_-_file_navigation">Deft - file navigation</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/#Key_Combos_to_Remember">Key Combos to Remember</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/#Encryption">Encryption</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/#References">References</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/#Other_Points">Other Points</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="http://vsbabu.org/twenties/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href="http://vsbabu.org/twenties/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="http://vsbabu.org/twenties/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="http://vsbabu.org/twenties/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="http://vsbabu.org/twenties/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="http://vsbabu.org/twenties/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="http://vsbabu.org/twenties/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="http://vsbabu.org/twenties/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

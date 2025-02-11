@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="http://vsbabu.org/twenties">
+
+    
+    <title>~sv • Weekwise Anomaly Visualization</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="http://vsbabu.org/twenties/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="http://vsbabu.org/twenties/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="http://vsbabu.org/twenties/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/main.css?h=e38cfa6902d00356cd66" />
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/skins/lavender.css?h=31ee0a710ed660d122f6" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Many metrics are easier to visualize as a weekly table. Add anomaly highlights to that as well!" />
+        <meta property="og:description" content="Many metrics are easier to visualize as a weekly table. Add anomaly highlights to that as well!" />
+
+    
+
+    <meta property="og:title" content="Weekwise Anomaly Visualization" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="http:&#x2F;&#x2F;vsbabu.org&#x2F;twenties&#x2F;blog&#x2F;weekwise_anomaly_detection&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="http://vsbabu.org/twenties/no_js.css"/></noscript>
+        <script type="text/javascript" src="http://vsbabu.org/twenties/js/initializeTheme.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/themeSwitcher.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="http://vsbabu.org/twenties">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Weekwise Anomaly Visualization
+        </h1>
+
+        <ul class="meta">
+                <li>4th May 2020</li><li title="792 words"><span class='separator' aria-hidden='true'>•</span>4 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/datascience/">datascience</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/visualization/">visualization</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/pandas/">pandas</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/anomaly/">anomaly</a></li>
+        </ul>
+
+        <section class="body"><p><em>Update May 28, 2020</em> - code using this is added to my <a href="https://github.com/vsbabu/covid19_fb_ts">covid 19 tracker repo</a> with <a href="https://vsbabu.github.io/covid19_fb_ts/">actual output</a></p>
+<p>I find looking at daily numbers folded by week (ie. Mon to Sun in one row) for last 8
+weeks a good way to look at the data. Especially if multiple tables are put one below
+the other for the same period, it is easy to identify patterns. Sample tables in a typical
+e-Commerce system could be <em>orders</em>, <em>shipments</em>, <em>payment_failures</em> etc.</p>
+<p>Instead of looking at this manually, why not use ML to automatically highlight anomalies? I tried
+various things with hand coded models first, then ARIMA and finally settled on FBProphet library.</p>
+<p>Read below to see how a simple system can be built with publicly available data. Bonus - if you have
+not used <code>jq</code> and <code>xsv</code>, you can see how cool those are too.</p>
+<p><img src="http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/01.png" alt="result" /></p>
+<span id="continue-reading"></span><h2 id="Sample_Data"><a class="header-anchor no-hover-padding" href="#Sample_Data" aria-label="Anchor link for: Sample_Data"><span class="link-icon" aria-hidden="true"></span></a>
+Sample Data</h2>
+<p><a href="https://www.covid19india.org/">covid19india</a> is a crowd sourced website that shows a lot of visualizations
+about the state of COVID-19 in India. They’ve nicely available JSON APIs that gives the data by day.</p>
+<p><code>curl</code> with <em>-z</em> will download the data if the server has newer data.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">curl</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>o</span> data.json<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>z</span> data.json https://api.covid19india.org/data.json</span>
+</span></code></pre>
+<p>The data has multiple lists. The one we need is right at the top.</p>
+<pre data-lang="json" class="language-json z-code"><code class="language-json" data-lang="json"><span class="z-source z-json">  <span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>cases_time_series<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span>: <span class="z-meta z-sequence z-json"><span class="z-punctuation z-section z-sequence z-begin z-json">[</span>
+</span></span><span class="z-source z-json"><span class="z-meta z-sequence z-json">    <span class="z-meta z-mapping z-json"><span class="z-punctuation z-section z-mapping z-begin z-json">{</span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-sequence z-json"><span class="z-meta z-mapping z-json">      </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>dailyconfirmed<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>1<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-sequence z-json"><span class="z-meta z-mapping z-value z-json">      </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>dailydeceased<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>0<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-sequence z-json"><span class="z-meta z-mapping z-value z-json">      </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>dailyrecovered<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>0<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-sequence z-json"><span class="z-meta z-mapping z-value z-json">      </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>date<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>30 January <span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-sequence z-json"><span class="z-meta z-mapping z-value z-json">      </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>totalconfirmed<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>1<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-sequence z-json"><span class="z-meta z-mapping z-value z-json">      </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>totaldeceased<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>0<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span><span class="z-punctuation z-separator z-mapping z-pair z-json">,</span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-sequence z-json"><span class="z-meta z-mapping z-value z-json">      </span><span class="z-meta z-mapping z-key z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>totalrecovered<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span></span><span class="z-meta z-mapping z-value z-json"><span class="z-punctuation z-separator z-mapping z-key-value z-json">:</span> </span><span class="z-meta z-mapping z-value z-json"><span class="z-string z-quoted z-double z-json"><span class="z-punctuation z-definition z-string z-begin z-json">&quot;</span>0<span class="z-punctuation z-definition z-string z-end z-json">&quot;</span></span>
+</span></span></span><span class="z-source z-json"><span class="z-meta z-sequence z-json"><span class="z-meta z-mapping z-value z-json">    <span class="z-punctuation z-section z-mapping z-end z-json">}</span></span><span class="z-punctuation z-separator z-sequence z-json">,</span><span class="z-invalid z-illegal z-expected-sequence-separator z-json">.</span><span class="z-invalid z-illegal z-expected-sequence-separator z-json">.</span><span class="z-invalid z-illegal z-expected-sequence-separator z-json">.</span>
+</span></span></code></pre>
+<h2 id="JSON_to_CSV"><a class="header-anchor no-hover-padding" href="#JSON_to_CSV" aria-label="Anchor link for: JSON_to_CSV"><span class="link-icon" aria-hidden="true"></span></a>
+JSON to CSV</h2>
+<p>Pretty much all data science stuff starts with CSV. Using <a href="https://stedolan.github.io/jq/">jq</a>, we
+can just extract the date and the 3 daily metrics to a csv.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash">  <span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>dt,confirmed,recovered,deceased<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> daily.csv</span>
+</span><span class="z-source z-shell z-bash">  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">jq</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>r</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>.cases_time_series[]|[.date, .dailyconfirmed, .dailyrecovered, .dailydeceased]|@csv<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> data.json <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"></span>       <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sed</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>e</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/&quot;//g<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>e</span>  <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/^\(..\) \(.*\) \(.*\)/\1-\2-2020\3/g<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;&gt;</span> daily.csv</span>
+</span></code></pre>
+<ul>
+<li>First <code>echo</code> is a cheap way to add header to a new <em>daily.csv</em> file.</li>
+<li><code>jq</code> is a bit more complex. <em>-r</em> is to get raw output and the filter following it
+is to get the <em>case_time_series</em> child as an array or arrays with only four keys
+we need; and then the whole thing is given to <em>@csv</em> which simply converts an array to csv.</li>
+<li><code>sed</code> removes double quotes first and then makes the input date format from *01 January * to
+<em>01-January-2020</em>. Not exactly safe for turn of the year, but that is how current json data is given.</li>
+</ul>
+<h2 id="Extract_Specific_Timeseries"><a class="header-anchor no-hover-padding" href="#Extract_Specific_Timeseries" aria-label="Anchor link for: Extract_Specific_Timeseries"><span class="link-icon" aria-hidden="true"></span></a>
+Extract Specific Timeseries</h2>
+<p>The data I am interested in processing has only two columns, viz., <em>date</em> and <em>value</em>. So, if I
+need to get daily numbers of <em>confirmed</em> cases from this csv, multiple options are available:</p>
+<ul>
+<li>use <code>cut -f1-2 -d,</code> to get first two columns</li>
+<li>load data into a <code>sqlite3</code> database and extract what I need</li>
+<li>write another python+pandas script to load to a df, make another df with what I need and write to csv.</li>
+</ul>
+<p>All will work. But an amazing tool exists for this <a href="https://github.com/BurntSushi/xsv">xsv</a>.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">xsv</span></span><span class="z-meta z-function-call z-arguments z-shell"> select dt,confirmed daily.csv</span>
+</span></code></pre>
+<p>That’s it. Very easy. Admittedly, this data is very small - but <code>xsv</code> is extremely fast when your data file
+is very large with lot of columns and lot of rows. It is worth investing to know what all options this
+brilliant utility has.</p>
+<h2 id="Makefile_-_integration!"><a class="header-anchor no-hover-padding" href="#Makefile_-_integration!" aria-label="Anchor link for: Makefile_-_integration!"><span class="link-icon" aria-hidden="true"></span></a>
+<code>Makefile</code> - integration!</h2>
+<p><code>GNU Make</code> is brilliant for such things. Here is my <code>Makefile</code>.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">all:</span></span><span class="z-meta z-function-call z-arguments z-shell">  data.json dashboard.html</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">dashboard.html</span></span><span class="z-meta z-function-call z-arguments z-shell"> : daily.csv</span>
+</span><span class="z-source z-shell z-bash">	<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">./csv2dashboard.sh</span></span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">daily.csv</span></span><span class="z-meta z-function-call z-arguments z-shell"> : data.json</span>
+</span><span class="z-source z-shell z-bash">	<span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>dt,confirmed,recovered,deceased<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> daily.csv</span>
+</span><span class="z-source z-shell z-bash">	<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">jq</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>r</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>.cases_time_series[]|[.date, .dailyconfirmed, .dailyrecovered, .dailydeceased]|@csv<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> data.json <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"></span>      <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sed</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>e</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/&quot;//g<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>e</span>  <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/^\(..\) \(.*\) \(.*\)/\1-\2-2020\3/g<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;&gt;</span> daily.csv</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">data.json</span></span><span class="z-meta z-function-call z-arguments z-shell"> :</span>
+</span><span class="z-source z-shell z-bash">	<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">curl</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>o</span> data.json<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>z</span> data.json https://api.covid19india.org/data.json</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">clean</span></span><span class="z-meta z-function-call z-arguments z-shell"> :</span>
+</span><span class="z-source z-shell z-bash">	<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">rm</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> <span class="z-keyword z-operator z-regexp z-quantifier z-shell">*</span>.html <span class="z-keyword z-operator z-regexp z-quantifier z-shell">*</span>.csv</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">.PHONY</span></span><span class="z-meta z-function-call z-arguments z-shell"> : data.json</span>
+</span><span class="z-source z-shell z-bash">
+</span></code></pre>
+<p>Just run <code>make all</code> and open <em>dashboard.html</em> in a browser. That’s it.</p>
+<p>Oh wait, what is there in this <em>csv2dashboard.sh</em>?</p>
+<h2 id="csv2dashboard.sh_-_combined_html"><a class="header-anchor no-hover-padding" href="#csv2dashboard.sh_-_combined_html" aria-label="Anchor link for: csv2dashboard.sh_-_combined_html"><span class="link-icon" aria-hidden="true"></span></a>
+<code>csv2dashboard.sh</code> - combined html</h2>
+<p>This is just a wrapper script to call the main python one multiple times.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">!/bin/bash</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">NUMWEEKS</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell">8</span>
+</span><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">startdt</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-meta z-function-call z-shell"></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-meta z-group z-expansion z-command z-backticks z-shell"><span class="z-punctuation z-section z-group z-begin z-shell">`</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">date</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>d</span><span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>monday-<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-expansion z-parameter z-begin z-shell">{</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-variable z-other z-readwrite z-shell">NUMWEEKS</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-section z-expansion z-parameter z-end z-shell">}</span></span> weeks<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> +<span class="z-meta z-group z-expansion z-job z-shell"><span class="z-punctuation z-definition z-variable z-job z-shell">%</span><span class="z-variable z-other z-readwrite z-shell">Y</span></span><span class="z-meta z-group z-expansion z-job z-shell"><span class="z-punctuation z-definition z-variable z-job z-shell">%</span><span class="z-variable z-other z-readwrite z-shell">m</span></span><span class="z-meta z-group z-expansion z-job z-shell"><span class="z-punctuation z-definition z-variable z-job z-shell">%</span><span class="z-variable z-other z-readwrite z-shell">d</span></span></span><span class="z-punctuation z-section z-group z-end z-shell">`</span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">OUTPUT_FILE</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell"><span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>dashboard.html<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">rm</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> o.html</span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-control z-loop z-for z-shell">for</span><span class="z-meta z-group z-for z-shell"> CATEGORY <span class="z-keyword z-control z-in z-shell">in</span> confirmed recovered deceased</span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-keyword z-control z-loop z-do z-shell">do</span>
+</span><span class="z-source z-shell z-bash">  <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">https://github.com/BurntSushi/xsv</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash">  <span class="z-keyword z-control z-conditional z-if z-shell">if</span> <span class="z-support z-function z-test z-begin z-shell">[</span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">CATEGORY</span></span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> <span class="z-keyword z-operator z-logical z-shell">==</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>recovered<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> <span class="z-support z-function z-test z-end z-shell">]</span></span><span class="z-keyword z-operator z-logical z-continue z-shell">;</span> <span class="z-keyword z-control z-conditional z-then z-shell">then</span>
+</span><span class="z-source z-shell z-bash">    <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">we should highlight recoveries over anomaly as green</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash">    <span class="z-variable z-other z-readwrite z-assignment z-shell">COLOR_ARGS</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell"><span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>-p lightgreen -n orange<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span><span class="z-source z-shell z-bash">  <span class="z-keyword z-control z-conditional z-else z-shell">else</span>
+</span><span class="z-source z-shell z-bash">    <span class="z-variable z-other z-readwrite z-assignment z-shell">COLOR_ARGS</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell"><span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>-n lightgreen -p orange<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span><span class="z-source z-shell z-bash">  <span class="z-keyword z-control z-conditional z-end z-shell">fi</span>
+</span><span class="z-source z-shell z-bash">  <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">make the csv with two columns and don&#39;t print the header</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash">  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">xsv</span></span><span class="z-meta z-function-call z-arguments z-shell"> select dt,<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">CATEGORY</span></span> daily.csv</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tail</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>n</span> +2  <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"></span>     <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">python3</span></span><span class="z-meta z-function-call z-arguments z-shell"> weeklies.py<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>s</span> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">startdt</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>k</span> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">NUMWEEKS</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>o</span> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-expansion z-parameter z-begin z-shell">{</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-variable z-other z-readwrite z-shell">CATEGORY</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-section z-expansion z-parameter z-end z-shell">}</span></span>.html<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>t</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>%d-%B-%Y<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">COLOR_ARGS</span></span></span>
+</span><span class="z-source z-shell z-bash">  <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">cleanup the html generated to remove time component, nan etc; and add a header to the table</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash">  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cat</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-expansion z-parameter z-begin z-shell">{</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-variable z-other z-readwrite z-shell">CATEGORY</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-section z-expansion z-parameter z-end z-shell">}</span></span>.html</span><span class="z-keyword z-operator z-logical z-pipe z-shell">|</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sed</span></span><span class="z-meta z-function-call z-arguments z-shell">  <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell">     -</span>e</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/ 00:00:00//g<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell">     -</span>e</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/&lt;table /&lt;table border=&quot;0&quot; cellspacing=&quot;2&quot; cellpadding=&quot;2&quot; /g<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell">     -</span>e</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>s/&lt;thead&gt;/&lt;caption style=&#39;font-weight:bold;background-color:#99ccff;&#39;&gt;<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-expansion z-parameter z-begin z-shell">{</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-variable z-other z-readwrite z-shell">CATEGORY</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-section z-expansion z-parameter z-end z-shell">}</span></span>&lt;\/caption&gt;&lt;thead&gt;/g<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span> <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell">     -</span>e</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/&lt;td /&lt;td width=&quot;60&quot; align=&quot;right&quot; /g<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell">     -</span>e</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/&lt;tr&gt; *&lt;th class=&quot;index_name level0&quot; &gt;.*&lt;\/tr&gt;//g<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell">     -</span>e</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/nan//g<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell">     -</span>e</span> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>s/&lt;thead&gt;.*&lt;\/thead&gt;//g<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;&gt;</span> o.html</span>
+</span><span class="z-source z-shell z-bash">  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">rm</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-expansion z-parameter z-begin z-shell">{</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-variable z-other z-readwrite z-shell">CATEGORY</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-section z-expansion z-parameter z-end z-shell">}</span></span>.html</span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-control z-loop z-end z-shell">done</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">mv</span></span><span class="z-meta z-function-call z-arguments z-shell"> o.html <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">OUTPUT_FILE</span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> this is a bad html; so force an exit code of 0</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tidy</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>m</span> <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">OUTPUT_FILE</span></span></span> <span class="z-keyword z-operator z-logical z-or z-shell">||</span> <span class="z-meta z-function-call z-shell"><span class="z-support z-function z-exit z-shell">exit</span></span><span class="z-meta z-function-call z-arguments z-shell"> 0</span>
+</span></code></pre>
+<p>Before you ask why do I need <em>startwk</em> and <em>number_of_weeks</em>, I plan to use the python script for not just
+last 8 weeks, but out of turn dates too.</p>
+<h2 id="weeklies.py_-_pandas_&amp;_fbprophet"><a class="header-anchor no-hover-padding" href="#weeklies.py_-_pandas_&amp;_fbprophet" aria-label="Anchor link for: weeklies.py_-_pandas_&amp;_fbprophet"><span class="link-icon" aria-hidden="true"></span></a>
+<code>weeklies.py</code> - pandas &amp; fbprophet</h2>
+<p>The real meat is in this file, <code>weeklies.py</code>.</p>
+<p>Instead of keeping it here, I’ve added to a <a href="https://gist.github.com/vsbabu/9f9bcfbbba12bc988cc71cb53d5c1418">public gist</a>.</p>
+<p>Some examples that you might find useful in that code outside of <em>fbprophet</em> are below.</p>
+<ol>
+<li><a href="https://docs.python.org/3/library/argparse.html">argparser</a> module to easily handle command line arguments</li>
+<li>Find nth Monday before this week <code>today - datetime.timedelta(days=today.weekday(), weeks = n)</code></li>
+<li>Make a date range in pandas <code>dates = pd.date_range(start_date, periods=((days))</code></li>
+<li>Adding a mask to a dataframe for some columns, based on values in other columns</li>
+<li>Apply html style and hide columns to render a dataframe.</li>
+</ol>
+<h2 id="Final_Setup"><a class="header-anchor no-hover-padding" href="#Final_Setup" aria-label="Anchor link for: Final_Setup"><span class="link-icon" aria-hidden="true"></span></a>
+Final Setup</h2>
+<ul>
+<li>Get a modern bash shell with GNU utilities</li>
+<li>Install python3</li>
+<li>Install <em>pandas</em> and <em>numpy</em></li>
+<li>Install <a href="https://facebook.github.io/prophet/docs/installation.html">fbprophet</a></li>
+<li>Install <a href="https://stedolan.github.io/jq/">jq</a>, <a href="https://github.com/BurntSushi/xsv">xsv</a> and <a href="https://www.html-tidy.org/">tidy</a></li>
+<li>Add a <code>Makefile</code> as per the content above</li>
+<li>Add a <code>csv2dashboard.sh</code> from above. <code>chmod +x csv2dashboard.sh</code> to make it executable.</li>
+<li>Get <code>weeklies.py</code> from the gist above.</li>
+<li>Run <code>make all</code></li>
+</ul>
+<h2 id="Gotchas"><a class="header-anchor no-hover-padding" href="#Gotchas" aria-label="Anchor link for: Gotchas"><span class="link-icon" aria-hidden="true"></span></a>
+Gotchas</h2>
+<ol>
+<li>Without changing source data, I get different anomaly detections at different runs some times. Could be
+some <em>seed</em> issue that I’ve missed. I have not looked into how <em>fbprophet</em> actually implements their
+algorithms.</li>
+<li>Weekly folding has a bug in that it doesn’t consider current day’s data, if it is run on a Monday.</li>
+</ol>
+
+        </section>
+
+        
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="http://vsbabu.org/twenties/blog/sql_to_json_with_psql/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Generate JSON from PostgreSQL</p></div>
+                <div><a href="http://vsbabu.org/twenties/blog/vscode_git/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">VS Code as Git GUI</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/#Sample_Data">Sample Data</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/#JSON_to_CSV">JSON to CSV</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/#Extract_Specific_Timeseries">Extract Specific Timeseries</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/#Makefile_-_integration!">Makefile - integration!</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/#csv2dashboard.sh_-_combined_html">csv2dashboard.sh - combined html</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/#weeklies.py_-_pandas_&_fbprophet">weeklies.py - pandas &amp; fbprophet</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/#Final_Setup">Final Setup</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/weekwise_anomaly_detection/#Gotchas">Gotchas</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="http://vsbabu.org/twenties/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href="http://vsbabu.org/twenties/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="http://vsbabu.org/twenties/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="http://vsbabu.org/twenties/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="http://vsbabu.org/twenties/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="http://vsbabu.org/twenties/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="http://vsbabu.org/twenties/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="http://vsbabu.org/twenties/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="http://vsbabu.org/twenties">
+
+    
+    <title>~sv • 0to1: doom-emacs and org-mode</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="http://vsbabu.org/twenties/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="http://vsbabu.org/twenties/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="http://vsbabu.org/twenties/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/main.css?h=e38cfa6902d00356cd66" />
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/skins/lavender.css?h=31ee0a710ed660d122f6" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Heard about org-mode, but afraid of emacs? I was. Here is how to get going!" />
+        <meta property="og:description" content="Heard about org-mode, but afraid of emacs? I was. Here is how to get going!" />
+
+    
+
+    <meta property="og:title" content="0to1: doom-emacs and org-mode" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="http:&#x2F;&#x2F;vsbabu.org&#x2F;twenties&#x2F;blog&#x2F;doom_emacs_org_0_to_1&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="http://vsbabu.org/twenties/no_js.css"/></noscript>
+        <script type="text/javascript" src="http://vsbabu.org/twenties/js/initializeTheme.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/themeSwitcher.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="http://vsbabu.org/twenties">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            0to1: doom-emacs and org-mode
+        </h1>
+
+        <ul class="meta">
+                <li>15th Jun 2020</li><li title="1936 words"><span class='separator' aria-hidden='true'>•</span>10 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/emacs/">emacs</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/org-mode/">org-mode</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/productivity/">productivity</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/0to1/">0to1</a></li>
+        </ul>
+
+        <section class="body"><p>Are you like me?</p>
+<ul>
+<li>Know VIM/VI enough</li>
+<li>Heard about emacs and org-mode</li>
+<li>Tried it and got turned off by so many commands</li>
+<li>Read too much documentation</li>
+<li>Spent hours configuring these :)</li>
+<li>Thumb started aching with C and M multi-key combinations</li>
+<li>Tried <a href="https://www.spacemacs.org/">Spacemacs</a></li>
+<li>Went back to VIM</li>
+</ul>
+<p>If yes, this is how I crossed over to actually using org-mode productively to maintain my notes, projects and todo.
+<a href="https://github.com/hlissner/doom-emacs">doom-emacs</a> is the framework I used. It is superfast, has sane keys and UX
+and configuration does not need you to read and practice emacs.</p>
+<p>Following is a 0to1 guide that  ideally should’ve been more interesting with screenshots, but keeping it as copy-pastable text!</p>
+<span id="continue-reading"></span>
+<p>Note - I am not going into what all can be done using <a href="https://orgmode.org/">Org Mode</a>!</p>
+<h2 id="Installation"><a class="header-anchor no-hover-padding" href="#Installation" aria-label="Anchor link for: Installation"><span class="link-icon" aria-hidden="true"></span></a>
+Installation</h2>
+<ol>
+<li>Get <code>Emacs 26+</code>. For Ubuntu, follow this <a href="http://ubuntuhandbook.org/index.php/2019/02/install-gnu-emacs-26-1-ubuntu-18-04-16-04-18-10/">write up to use kelleyk/emacs</a> repository. <em>Note that there is a good chance that emacs will not start
+under GTK; so make a shortcut to a script that has the following content</em>.<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/usr/bin/env</span></span><span class="z-meta z-function-call z-arguments z-shell">  XLIB_SKIP_ARGB_VISUALS=1 /usr/bin/emacs26 <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-language z-shell">@</span></span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
+</span></code></pre>
+</li>
+<li>Install <code>git</code> command line.</li>
+<li>Follow <a href="https://github.com/hlissner/doom-emacs#prerequisites">instructions to install doom-emacs</a>. This will take some time
+to download and install the packages.<pre class="z-code"><code><span class="z-text z-plain">Say &quot;Y&quot; when it asks to create an ENV file
+</span><span class="z-text z-plain">Say &quot;Y&quot; when it asks to install additional fonts 
+</span><span class="z-text z-plain">  this makes your config quite nice
+</span></code></pre>
+</li>
+</ol>
+<h2 id="Setup"><a class="header-anchor no-hover-padding" href="#Setup" aria-label="Anchor link for: Setup"><span class="link-icon" aria-hidden="true"></span></a>
+Setup</h2>
+<ol>
+<li>Start <code>emacs</code></li>
+<li>On the first page, you will see some options. Use arrow keys (or j/k like VI) to navigate and Choose <em>Open private configuration</em>. You can see that it says <em>SPC f p</em> next to it. That is the short cut to go to that option later.</li>
+<li>Now you can see that configuration is all in <code>~/.doom.d/</code>. You really need to edit only <em>config.el</em>. Use mouse or arrow keys to select. Or just start typing <em>con</em> followed by <em><strong>TAB</strong> to autocomplete and <strong>ENTER</strong></em>. This is a common pattern in doom-emacs world. This kind of command windows all support autocompletion.<pre class="z-code"><code><span class="z-text z-plain">Find file: ~/.doom.d/
+</span><span class="z-text z-plain">--------------------------------------------------------------
+</span><span class="z-text z-plain">./
+</span><span class="z-text z-plain">../
+</span><span class="z-text z-plain">config.el
+</span><span class="z-text z-plain">init.el
+</span><span class="z-text z-plain">packages.el
+</span></code></pre>
+</li>
+<li>Now that <code>config.el</code> is open, edit it. It is good to update your name and email address at the top.</li>
+<li>Scroll down (arrow keys or j) and edit the value for <em>doom-font</em>. I’ve tried this in 3 different laptops and default size is always too small for me. Increase it. This is how mine looks - I really liked <a href="https://github.com/be5invis/Iosevka">Iosevka fonts</a> and had installed it.<pre data-lang="lisp" class="language-lisp z-code"><code class="language-lisp" data-lang="lisp"><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span><span class="z-support z-function z-lisp">setq</span> doom<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>font <span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span>font<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>spec :family <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>Iosevka Term SS04 Extended<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span> :size <span class="z-constant z-numeric z-lisp">18</span> <span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
+</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp">   doom<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>variable<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>pitch<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>font <span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span>font<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>spec :family <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>sans<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span> :size <span class="z-constant z-numeric z-lisp">15</span><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
+</span></code></pre>
+</li>
+<li><code>org-directory</code> is set to <em>~/org/</em>. I changed it to <em>~/Dropbox/org/</em> to not worry about backups. This is where all your default org files will go to. We will get to what is <em>default</em> files later.</li>
+<li>Save it. <code>:w</code> will work just like in VI.</li>
+<li>Let us see if you want to change the default theme from <code>doom-one</code>. Type <strong>M-x (ie., meta-x which is Alt-x in Win/Linux and Opt-x in Mac - <em>Cmd-x works as well in doom-emacs most of the time</em> )</strong>. Whole bunch of commands show up. Type <em>load-theme</em> and you can see that auto-complete is in action. This command has a menu which lists all the themes. <em>doom-one-light</em> is a neat light theme. It will ask you to run that lisp code and mark it as safe for later too - you can answer y.</li>
+<li>If you liked this theme and want to make it permanent, edit <em>doom-theme</em> in <em>config.el</em> to set this value.</li>
+<li>If you are new to emacs, perhaps it is good to enable menus. Add <code>(menu-bar-mode 1)</code> to <em>config.el</em>.</li>
+<li>Exit! Yeah - <code>:x</code>.</li>
+</ol>
+<h2 id="Basic_org-mode_bindings"><a class="header-anchor no-hover-padding" href="#Basic_org-mode_bindings" aria-label="Anchor link for: Basic_org-mode_bindings"><span class="link-icon" aria-hidden="true"></span></a>
+Basic org-mode bindings</h2>
+<ol>
+<li>Open <em>emacs</em></li>
+<li>Let us create a <em>/tmp/scratch.org</em> to play with it. Yes, <code>:e /tmp/scratch.org</code> will work like in VI.</li>
+<li>I am not going into org-mode basics here, but suffice it to say that lines prefixed with one asterisk is top level headline; with two is second level and so on.</li>
+<li>Add a line <code>* headline 1</code></li>
+<li>Let us add another top level headline. Just hit <code>Ctrl-Enter</code> and type <code> headline 2</code>. You got it!<pre class="z-code"><code><span class="z-text z-plain">Ctrl-Enter =&gt; Create a sibling below
+</span><span class="z-text z-plain">Ctrl-Shift-Enter =&gt; Create a sibling above
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">Ctrl is usually referred to as C only
+</span></code></pre>
+This is a great key to remember. Works for all semantic levels.</li>
+<li>Now let us add some content to <em>headline 1</em>. Navigate to that and do <em>O</em>. Just like VI, <em>O</em>, it adds a new line. Edit away!</li>
+<li>Let us navigate back to the headline.<pre class="z-code"><code><span class="z-text z-plain">TAB - collapses (fold) and expands (unfold) the headline. Try it!
+</span><span class="z-text z-plain">Shift-TAB - will collapse all headlines
+</span></code></pre>
+</li>
+<li>You want to focus on one headline and work on that? Something like workflowy.com navigation? Following commands will toggle the visibility like that. Very useful and it is useful to remember the shortcut for this.<pre class="z-code"><code><span class="z-text z-plain">M-x org-narrow-to-subtree
+</span><span class="z-text z-plain">M-x widen
+</span></code></pre>
+</li>
+<li>By the way, did you notice that <strong><code>M-x</code> remembers your command history</strong> too!</li>
+<li>How do you rearrange headlines with their content? There are commands for that, but what I find easier to do is to fold the headline and then use cut (<em>dd</em>) and paste (<em>p</em>) if I need to move it to some other area; or indent (<em>&gt;</em>) or dedent (<em>&lt;</em>) to promote and demote. VIM keys are more familiar to me!</li>
+<li>Note that if you want to use these VIM commands, you’ve to keep the headline collapsed. If it is not, then those commands work only on that headline line and not on the entire content under that - which is usually what you don’t want.</li>
+<li>VIM’s split buffer (<em>:sp</em> or <em>:vs</em>) also works just the same.</li>
+</ol>
+<h2 id="Org_capture"><a class="header-anchor no-hover-padding" href="#Org_capture" aria-label="Anchor link for: Org_capture"><span class="link-icon" aria-hidden="true"></span></a>
+Org capture</h2>
+<p>This is similar to <a href="https://gettingthingsdone.com/insights/step-1-capture/">GTD Capture</a>.</p>
+<ol>
+<li>
+<p>Hit <code>SPC X</code> (that is Space bar and capital X). You get a menu.</p>
+<pre class="z-code"><code><span class="z-text z-plain">Select a capture template
+</span><span class="z-text z-plain">=========================
+</span><span class="z-text z-plain">[t] Personal todo
+</span><span class="z-text z-plain">[n] Personal note
+</span><span class="z-text z-plain">[j] Journal
+</span><span class="z-text z-plain">...
+</span></code></pre>
+</li>
+<li>
+<p>Let us add a <em>note</em>. Hit <code>n</code>. A split opens up and you can nicely start typing your
+headline and content there. Once done <code>C-c</code> will close it. These go to your <em>org-directory</em> under a file <code>notes.org</code>.</p>
+</li>
+<li>
+<p>Similarly, <em>Journal</em> goes to <code>journal.org</code> and <em>Personal todo</em> goes to <code>todo.org</code>.</p>
+</li>
+<li>
+<p>I use <em>Journal</em> a lot. One nice thing about using these files is that when you want to
+open another org file, you can simply do <code>:e notes.org</code> for example and it will open it up without you needing to enter full path.</p>
+</li>
+<li>
+<p>The <code>SPC X</code> menu also gives an option for project based templates in <code>o</code>. If you are
+doing multiple projects, those are all in <code>projects.org</code> with each Project as a top level headline.</p>
+</li>
+<li>
+<p>When you enter a todo/note/journal, you also get an option to <code>refile</code>. This will give you a list of org files plus their headlines to move this captured content to. Makes it very easy to just capture first and file after.</p>
+</li>
+<li>
+<p><code>projects.org</code> has a default project called “-”. If you want to add another project so that you can file things under that, create it as a sibling to this one. Sample below.</p>
+<pre class="z-code"><code><span class="z-text z-plain">* -
+</span><span class="z-text z-plain">** Notes
+</span><span class="z-text z-plain">*** [yyyy-mm-dd day hh:mi] what i typed as note headline
+</span><span class="z-text z-plain">* My Project 1
+</span></code></pre>
+</li>
+<li>
+<p><strong>Tagging</strong> is very easy. Navigate to a section/headline and do <code>SPC m q</code>. Type in one tag. If that org file had other tags before you get a picklist to choose from too!</p>
+</li>
+<li>
+<p><strong>Linking</strong> is a bit painful with the command <code>M-x org-insert-link</code>. I simply type in content like <code>[[link url][link text]]</code>. If you want to edit an existing link, navigate to that and do <code>M-x org-insert-link</code>.</p>
+<p>To link to another org doc and it’s headline, chose url like <code>file:notes.org::*heading text</code> - in this example, this is for <em>notes.org</em>.</p>
+<p>To follow the link, just place your cursor there and <em>Enter</em>. To navigate back, <code>M-x org-mark-ring-goto</code>. I need to figure out how to map this to <code>Alt left-arrow</code>.</p>
+</li>
+<li>
+<p>Pasting will work with <em>p</em> like in VI. If you’ve copied text from another application and wants to paste here, <em>p</em> works in normal mode.</p>
+</li>
+</ol>
+<h2 id="Checklists"><a class="header-anchor no-hover-padding" href="#Checklists" aria-label="Anchor link for: Checklists"><span class="link-icon" aria-hidden="true"></span></a>
+Checklists</h2>
+<p>While org-mode has a very elaborate system using <em>TODO</em> prefix’ed headlines for tracking your todos and even build agenda from it,
+I find quick checklists a great way to ensure things are thought through.</p>
+<pre class="z-code"><code><span class="z-text z-plain">- [ ] Write an Article
+</span><span class="z-text z-plain">  - [ ] Make an outline
+</span><span class="z-text z-plain">  - [ ] Add content
+</span><span class="z-text z-plain">  - [ ] Add tags
+</span><span class="z-text z-plain">  - [ ] Preview and edit
+</span><span class="z-text z-plain">  - [ ] Publish
+</span><span class="z-text z-plain">  - [ ] Tweet about it with link
+</span></code></pre>
+<p>That’s it. Checklist items are simply list items with an empty <strong>[ ]</strong> square brackets. Once you add one, to quickly keep adding
+siblings, <em>C-Enter</em> will work too!</p>
+<p>To mark each one as in progress or done, just go to the item and hit <strong>ENTER</strong>. Each hit will cycle through <em>-, X, blank</em>.</p>
+<p>If you want to add a progress status to the outline, just add <strong>[/]</strong> to the headline after your text. It will automatically get
+updated to <strong>[n/m]</strong> when you check off each item inside it. If you want to recompute manually, there is a command. Do <code>M-x</code> and type <code>stat</code> and find out the right one :)</p>
+<p>Naturally, if you prefer <code>%</code>, you can add <strong>[%]</strong> instead. Here is how it looks after I did some ENTERs. Again, I didn’t
+type in <em>3/6</em> or <em>0%</em> - org did it automatically; I just had to tell it that I need n/m and % by adding an empty [/] and [%].</p>
+<pre class="z-code"><code><span class="z-text z-plain">- [-] Write an Article [3/6]
+</span><span class="z-text z-plain">   - [X] Make an outline
+</span><span class="z-text z-plain">   - [X] Add content
+</span><span class="z-text z-plain">   - [X] Add tags
+</span><span class="z-text z-plain">   - [-] Preview and edit
+</span><span class="z-text z-plain">   - [ ] Publish
+</span><span class="z-text z-plain">   - [ ] Tweet about it with link
+</span><span class="z-text z-plain">- [-] Viral campaign [0%]
+</span><span class="z-text z-plain">   - [-] Pay million$ during super-bowl
+</span></code></pre>
+<h2 id="Recap"><a class="header-anchor no-hover-padding" href="#Recap" aria-label="Anchor link for: Recap"><span class="link-icon" aria-hidden="true"></span></a>
+Recap</h2>
+<h4 id="Keys/Commands"><a class="header-anchor no-hover-padding" href="#Keys&#x2F;Commands" aria-label="Anchor link for: Keys&#x2F;Commands"><span class="link-icon" aria-hidden="true"></span></a>
+Keys/Commands</h4>
+<table><thead><tr><th>Key/Cmd</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>C</td><td>Ctrl</td></tr>
+<tr><td>S</td><td>Shift</td></tr>
+<tr><td>M</td><td>Meta. Alt usually; Command (⌘) in Apple Mac</td></tr>
+<tr><td>M-x</td><td>Run a command with auto complete (TAB, Arrow, ENTER to pick)</td></tr>
+<tr><td>SPC-X</td><td>Org capture start</td></tr>
+<tr><td>C-Enter</td><td>Org, append sibling</td></tr>
+<tr><td>C-S-Enter</td><td>Org, insert sibling above</td></tr>
+<tr><td>TAB</td><td>Org, fold/unfold at headline</td></tr>
+<tr><td>S-TAB</td><td>Org, fold all</td></tr>
+<tr><td>M-x load-theme</td><td>Switch appearance</td></tr>
+<tr><td>M-x doom/reload</td><td>Reload environment after changing <code>config.el</code></td></tr>
+<tr><td>M-x org-insert-link</td><td>Create a link.</td></tr>
+<tr><td>M-x org-narrow-to-subtree</td><td>Focus only on current headline</td></tr>
+<tr><td>M-x org-mark-ring-goto</td><td>Go back in link navigation</td></tr>
+<tr><td>SPC m q</td><td>Add tag to headline</td></tr>
+<tr><td>:vs</td><td>Vertical split</td></tr>
+<tr><td>:sp</td><td>Horizontal split</td></tr>
+<tr><td>:e <filepath></td><td>Edit a file</td></tr>
+<tr><td>:w <filepath></td><td>Save file</td></tr>
+<tr><td>:x</td><td>Save and Exit</td></tr>
+<tr><td>&gt;, &gt;&gt;, &lt;, &lt;&lt;</td><td>Shift. If folded headline, entire sub-tree too</td></tr>
+<tr><td>dd</td><td>delete line. If folded headline, entire sub-tree too</td></tr>
+<tr><td>o, O</td><td>Insert line below (or above)</td></tr>
+<tr><td>yy</td><td>Yank line. If folded headline, entire sub-tree too</td></tr>
+<tr><td>p</td><td>Paste. Paste works on outside clipboard content too.</td></tr>
+</tbody></table>
+<h4 id="Default_files"><a class="header-anchor no-hover-padding" href="#Default_files" aria-label="Anchor link for: Default_files"><span class="link-icon" aria-hidden="true"></span></a>
+Default files</h4>
+<p>Under your <code>org-directory</code></p>
+<pre class="z-code"><code><span class="z-text z-plain"> ├── org
+</span><span class="z-text z-plain"> │   ├── journal.org
+</span><span class="z-text z-plain"> │   ├── notes.org
+</span><span class="z-text z-plain"> │   └── projects.org
+</span><span class="z-text z-plain"> │   └── todo.org
+</span></code></pre>
+<h2 id="Closing_thoughts"><a class="header-anchor no-hover-padding" href="#Closing_thoughts" aria-label="Anchor link for: Closing_thoughts"><span class="link-icon" aria-hidden="true"></span></a>
+Closing thoughts</h2>
+<ul>
+<li>To extract data from org-mode files, <a href="https://orgparse.readthedocs.io/en/latest/">python orgparse</a> is quite nice.</li>
+<li>Since this is all text, emacs doesn’t even break a sweat to load up 100K lines org files. ie., Really, you don’t
+need to make things like <code>project1.org</code>, <code>project2.org</code> etc (unless you want to keep it in different folders). Another advantage
+in maintaining one large file each is that usual search (<em>/</em>) in VIM works just as well!</li>
+<li>Creating <a href="https://orgmode.org/manual/Built_002din-Table-Editor.html">ascii tables</a> is too good. You get perfect alignment and you can
+even have formula for computed fields if you must. Of course, there is a command to convert a selected region to tables (paste csv and use it
+to see what I mean. Which command? Try <code>M-x org-table</code> and auto-complete a guess.</li>
+<li><code>M-x doom/reload</code> helps you re-init the environment if you change some config; I usually just exit and restart emacs.</li>
+<li>If you prefer video tutorialss, I found <a href="https://www.youtube.com/playlist?list=PLhXZp00uXBk4np17N39WvB80zgxlZfVwj">Doomcasts</a> by
+<em>Zaiste Programming</em> on youtube.com as the best resource on the topic. E09 to E17 covers org-mode; If you choose to use this,
+my advice is to start from E01. The content and presentation is brilliant and each episode is only 10 minutes long.</li>
+<li>org-agenda is also fantastic; but I found it a bit difficult to focus and learn. Keeping notes, todos and journal in split windows
+is good enough for me. See a sample for <a href="https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html">maintaining an agenda for your life</a>!</li>
+</ul>
+
+        </section>
+
+        
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="http://vsbabu.org/twenties/blog/gen_docs_unix_way/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Generate docs - the unix way</p></div>
+                <div><a href="http://vsbabu.org/twenties/blog/sql_to_json_with_psql/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Generate JSON from PostgreSQL</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/#Installation">Installation</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/#Setup">Setup</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/#Basic_org-mode_bindings">Basic org-mode bindings</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/#Org_capture">Org capture</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/#Checklists">Checklists</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/#Recap">Recap</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/#Keys/Commands">Keys&#x2F;Commands</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/#Default_files">Default files</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/#Closing_thoughts">Closing thoughts</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="http://vsbabu.org/twenties/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href="http://vsbabu.org/twenties/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="http://vsbabu.org/twenties/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="http://vsbabu.org/twenties/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="http://vsbabu.org/twenties/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="http://vsbabu.org/twenties/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="http://vsbabu.org/twenties/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="http://vsbabu.org/twenties/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

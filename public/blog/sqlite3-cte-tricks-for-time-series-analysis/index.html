@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="http://vsbabu.org/twenties">
+
+    
+    <title>~sv • SQLite3 CTE tricks for time series analysis</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="http://vsbabu.org/twenties/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="http://vsbabu.org/twenties/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="http://vsbabu.org/twenties/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/main.css?h=e38cfa6902d00356cd66" />
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/skins/lavender.css?h=31ee0a710ed660d122f6" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Hands on analyze git log data with SQLite3 CTEs!" />
+        <meta property="og:description" content="Hands on analyze git log data with SQLite3 CTEs!" />
+
+    
+
+    <meta property="og:title" content="SQLite3 CTE tricks for time series analysis" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="http:&#x2F;&#x2F;vsbabu.org&#x2F;twenties&#x2F;blog&#x2F;sqlite3-cte-tricks-for-time-series-analysis&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="http://vsbabu.org/twenties/no_js.css"/></noscript>
+        <script type="text/javascript" src="http://vsbabu.org/twenties/js/initializeTheme.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/themeSwitcher.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="http://vsbabu.org/twenties">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            SQLite3 CTE tricks for time series analysis
+        </h1>
+
+        <ul class="meta">
+                <li>25th Oct 2018</li><li title="603 words"><span class='separator' aria-hidden='true'>•</span>4 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/cli/">cli</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/productivity/">productivity</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/database/">database</a></li>
+        </ul>
+
+        <section class="body"><p>SQL has been there for ages. <a href="https://www.sqlite.org">sqlite3</a> gives you a
+phenomenal tool to quickly load and analyse data in a  language meant for that.
+While I’ve used it for a long time, only recently did I know about support for
+<a href="https://www.sqlite.org/lang_with.html">CTE</a> aka Common Table Expressions.</p>
+<span id="continue-reading"></span>
+<p><img src="http://vsbabu.org/twenties/blog/sqlite3-cte-tricks-for-time-series-analysis/01.png" alt="sample session" />
+this has everything; or you just read below :)</p>
+<p>Quick (and overly simplified) definition of CTE? This is where you can park
+sub-queries  into expressions and use those expressions in your query. Kind of
+like defining views on the fly.</p>
+<h2 id="Basics"><a class="header-anchor no-hover-padding" href="#Basics" aria-label="Anchor link for: Basics"><span class="link-icon" aria-hidden="true"></span></a>
+Basics</h2>
+<ul>
+<li>Go to the site and download the executable; put it somewhere in the path.</li>
+<li>Read the <a href="https://www.sqlite.org/cli.html">CLI manual</a>.</li>
+</ul>
+<p>Let us create a new database and add a table that has just two columns, one for date and one for some entry.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sqlite3</span></span><span class="z-meta z-function-call z-arguments z-shell"> log.db</span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> create <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">table</span></span><span class="z-meta z-function-call z-arguments z-shell"> journal (dt text, tx text</span><span class="z-meta z-function-call z-shell"></span>)<span class="z-keyword z-operator z-logical z-continue z-shell">;</span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> <span class="z-punctuation z-terminator z-file-descriptor z-shell">-</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">-</span></span><span class="z-meta z-function-call z-arguments z-shell"> exit</span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>.q
+</span></code></pre>
+<p>Let us prepare some data first. I’ve chosen to generate a two column tab
+separated file from <em>git log</em> output of <a href="https://github.com/vsbabu/configs">one of my personal
+repositories</a>.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> log<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>date</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>format:<span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>%Y-%m-%d<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>pretty</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>format:<span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>%ad%x09%s<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span>  <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> git.log</span>
+</span></code></pre>
+<p>If you are wondering, that <em>%x09</em> is the tab character.
+To load this into our <em>journal</em> table is a piece of cake.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sqlite3</span></span><span class="z-meta z-function-call z-arguments z-shell"> log.db</span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>.mode <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tabs</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>.import <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git.log</span></span><span class="z-meta z-function-call z-arguments z-shell"> journal</span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>.q
+</span></code></pre>
+<p><code>.import</code> is extremely good that if table is not there, it creates one using the
+first row’s columns as field names. Since I didn’t massage the <code>git log</code> output
+to add a header column, I pre-created the table. Here is an easy way to add a
+header row.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> log<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell">  --</span>date</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>format:<span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>%Y-%m-%d<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>pretty</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>format:<span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>%ad%x09%s<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span>  <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sed</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>1 i\dt\ttx<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> git.log</span>
+</span></code></pre>
+<p>Let us say we want to make a
+<a href="https://24ways.org/2013/project-hubs/">project-hub</a> from a time-series data;
+well not as pretty as it is there in the article. This is a fairly simple thing
+to just query for date and text and displaying it.</p>
+<pre data-lang="sql" class="language-sql z-code"><code class="language-sql" data-lang="sql"><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">select</span> dt, tx <span class="z-keyword z-other z-DML z-sql">from</span> journal <span class="z-keyword z-other z-DML z-sql">order by</span> dt <span class="z-keyword z-other z-order z-sql">desc</span>;
+</span></code></pre>
+<p>Now, let us say we can also print the date as “how many days” ago. Even that is equally simple.</p>
+<pre data-lang="sql" class="language-sql z-code"><code class="language-sql" data-lang="sql"><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">select</span> dt, tx, julianday(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>now<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>, dt) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> ago <span class="z-keyword z-other z-DML z-sql">from</span> journal <span class="z-keyword z-other z-DML z-sql">order by</span> dt <span class="z-keyword z-other z-order z-sql">desc</span>;
+</span></code></pre>
+<h2 id="How_do_I_compare_with_previous_record?"><a class="header-anchor no-hover-padding" href="#How_do_I_compare_with_previous_record?" aria-label="Anchor link for: How_do_I_compare_with_previous_record?"><span class="link-icon" aria-hidden="true"></span></a>
+How do I compare with previous record?</h2>
+<p>Making things harder, I also want another column called <em>gap</em>, which shows how
+many days elapsed between current record’s date and previous record’s date. This
+is so useful to quickly give an idea about how many days have elapsed with no
+work.</p>
+<p>Now, let us make a CTE to hold the output.</p>
+<pre data-lang="sql" class="language-sql z-code"><code class="language-sql" data-lang="sql"><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">with</span> cte <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> (<span class="z-keyword z-other z-DML z-sql">select</span> row_number<span class="z-meta z-block z-sql"><span class="z-punctuation z-section z-scope z-begin z-sql">(</span><span class="z-punctuation z-section z-scope z-end z-sql">)</span></span> over (<span class="z-keyword z-other z-DML z-sql">order by</span> dt) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> rownum, dt, tx <span class="z-keyword z-other z-DML z-sql">from</span> journal)
+</span></code></pre>
+<p>Joining this with itself gives us exactly what we need. I’ve added some cast and
+round functions as illustrations to reduce the floating points to integers.</p>
+<pre data-lang="sql" class="language-sql z-code"><code class="language-sql" data-lang="sql"><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">with</span> cte <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> (<span class="z-keyword z-other z-DML z-sql">select</span> row_number<span class="z-meta z-block z-sql"><span class="z-punctuation z-section z-scope z-begin z-sql">(</span><span class="z-punctuation z-section z-scope z-end z-sql">)</span></span> over (<span class="z-keyword z-other z-DML z-sql">order by</span> dt) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> rownum, dt, tx <span class="z-keyword z-other z-DML z-sql">from</span> journal)
+</span><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">select</span>
+</span><span class="z-source z-sql">  <span class="z-constant z-other z-database-name z-sql">cur</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>, 
+</span><span class="z-source z-sql">  cast(round(julianday(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>now<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>, <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>start of day<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>)
+</span><span class="z-source z-sql">            <span class="z-keyword z-operator z-math z-sql">-</span>julianday(<span class="z-constant z-other z-database-name z-sql">cur</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>),<span class="z-constant z-numeric z-sql">0</span>) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> <span class="z-storage z-type z-sql">integer</span>) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> ago,
+</span><span class="z-source z-sql">  cast(round(julianday(<span class="z-constant z-other z-database-name z-sql">cur</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>)
+</span><span class="z-source z-sql">            <span class="z-keyword z-operator z-math z-sql">-</span>julianday(<span class="z-constant z-other z-database-name z-sql">prev</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>),<span class="z-constant z-numeric z-sql">0</span>) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> <span class="z-storage z-type z-sql">integer</span>) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> gap,
+</span><span class="z-source z-sql">  <span class="z-constant z-other z-database-name z-sql">cur</span>.<span class="z-constant z-other z-table-name z-sql">tx</span>
+</span><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">from</span> cte cur
+</span><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">inner join</span> cte prev on <span class="z-constant z-other z-database-name z-sql">prev</span>.<span class="z-constant z-other z-table-name z-sql">rownum</span> <span class="z-keyword z-operator z-comparison z-sql">=</span> <span class="z-constant z-other z-database-name z-sql">cur</span>.<span class="z-constant z-other z-table-name z-sql">rownum</span> <span class="z-keyword z-operator z-math z-sql">-</span> <span class="z-constant z-numeric z-sql">1</span>
+</span><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">order by</span> <span class="z-constant z-numeric z-sql">1</span> <span class="z-keyword z-other z-order z-sql">desc</span>;
+</span></code></pre>
+<p>And the output is exactly what I need!</p>
+<pre class="z-code"><code><span class="z-text z-plain">dt          ago         gap         tx                  
+</span><span class="z-text z-plain">----------  ----------  ----------  --------------------
+</span><span class="z-text z-plain">2018-10-21  4           114         Added Basil-X-Darker
+</span><span class="z-text z-plain">2018-06-29  118         473         Steps post installat
+</span><span class="z-text z-plain">2017-03-13  591         70          Added tmux config   
+</span><span class="z-text z-plain">2017-01-02  661         13          Simple script to che
+</span><span class="z-text z-plain">2016-12-20  674         27          Added post install s
+</span><span class="z-text z-plain">2016-11-23  701         8           Split into mint-x an
+</span><span class="z-text z-plain">2016-11-15  709         0           Create README.md    
+</span><span class="z-text z-plain">2016-11-15  709         0           Initial commit      
+</span><span class="z-text z-plain">2016-11-15  709         0           Initial commit
+</span></code></pre>
+<p>As you can see, if you take the 2nd row from top, it says that was 118 days ago
+as of this writing; and it was 473 days AFTER the commit before that. Looks like
+I didn’t play with configs for pretty much of 2017 :)</p>
+<p>Add a <code>.mode html</code> before running the SQL, and you get the output as an html
+table that can be viewed in a browser or emailed.</p>
+<p>Every single thing that worked in the <code>sqlite3</code> shell can be put into a file and
+piped in to easily make this as a script.</p>
+<p>SQLite also supports subqueries in <code>from</code> clause; this gives you even more power
+to make CTEs that hold just latest/max values etc from some queries with group
+by, and then compare it against others. For example, if you are taking your
+cloud hosting provider’s bill 3 times a day; and you just want to take the
+latest value in that for a day and compare with latest value in a previous day,
+this becomes quite useful.</p>
+<p>More to learn… and more to post as I discover :)</p>
+<p>PS: This was <a href="https://medium.com/@vsbabu/sqlite3-cte-tricks-for-time-series-analysis-196dbf3ffdf9">posted in
+medium.com</a>
+as well.</p>
+
+        </section>
+
+        
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="http://vsbabu.org/twenties/blog/node_red_api/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Cook your Scripts to APIs in 5 minutes</p></div>
+                <div><a href="http://vsbabu.org/twenties/blog/quick-dev-env-with-docker/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Quick development envs with Docker</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/sqlite3-cte-tricks-for-time-series-analysis/#Basics">Basics</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/sqlite3-cte-tricks-for-time-series-analysis/#How_do_I_compare_with_previous_record?">How do I compare with previous record?</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="http://vsbabu.org/twenties/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href="http://vsbabu.org/twenties/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="http://vsbabu.org/twenties/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="http://vsbabu.org/twenties/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="http://vsbabu.org/twenties/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="http://vsbabu.org/twenties/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="http://vsbabu.org/twenties/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="http://vsbabu.org/twenties/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

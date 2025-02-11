@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="http://vsbabu.org/twenties">
+
+    
+    <title>~sv • Generate docs - the unix way</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="http://vsbabu.org/twenties/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="http://vsbabu.org/twenties/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="http://vsbabu.org/twenties/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/main.css?h=e38cfa6902d00356cd66" />
+        <link rel="stylesheet" href="http://vsbabu.org/twenties/skins/lavender.css?h=31ee0a710ed660d122f6" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Or connecting tools with make" />
+        <meta property="og:description" content="Or connecting tools with make" />
+
+    
+
+    <meta property="og:title" content="Generate docs - the unix way" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="http:&#x2F;&#x2F;vsbabu.org&#x2F;twenties&#x2F;blog&#x2F;gen_docs_unix_way&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="http://vsbabu.org/twenties/no_js.css"/></noscript>
+        <script type="text/javascript" src="http://vsbabu.org/twenties/js/initializeTheme.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/themeSwitcher.min.js"></script>
+        <script defer src="http://vsbabu.org/twenties/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="http://vsbabu.org/twenties">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="http://vsbabu.org/twenties/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Generate docs - the unix way
+        </h1>
+
+        <ul class="meta">
+                <li>22nd Jun 2020</li><li title="595 words"><span class='separator' aria-hidden='true'>•</span>3 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/unix/">unix</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/utilities/">utilities</a>,&nbsp;</li><li class="tag"><a href="http://vsbabu.org/twenties/tags/snippet/">snippet</a></li>
+        </ul>
+
+        <section class="body"><p>As programmers, lot of us find it easier to just type content using text based formats
+like <code>markdown</code>. However, we need to often share these as <em>pdf</em>, <em>Word</em> etc to our colleagues.</p>
+<p>Quite often, we may need to create several documents that have same content across the documents. A
+simple example is a <em>copyright footer</em> or even an <em>intro paragraph about your work</em>.</p>
+<p>A short walkthrough using venerable tools like <code>make</code>, <code>m4</code> and <code>pandoc</code> to get this done follows.</p>
+<span id="continue-reading"></span><h2 id="Tools"><a class="header-anchor no-hover-padding" href="#Tools" aria-label="Anchor link for: Tools"><span class="link-icon" aria-hidden="true"></span></a>
+Tools</h2>
+<ul>
+<li>
+<p><a href="https://www.gnu.org/software/m4/manual/m4-1.4.15/html_node/index.html">m4</a> is a macro
+processor. It reads text, parses it for <em>macros</em> and expands macros and outputs the mix. A cheap
+way to think about this is considering this as expanding abbreviations. However, <code>m4</code> is lot more
+than that and gives you lot of flexibilities. What we need really for current problem is only
+one built-in macro called <a href="https://www.gnu.org/software/m4/manual/m4-1.4.15/html_node/Include.html">include</a> which helps us include contents from other files into ours.</p>
+<pre class="z-code"><code><span class="z-text z-plain">include(`header.txt&#39;)
+</span><span class="z-text z-plain">blah blah my content
+</span><span class="z-text z-plain">include(`footer.txt&#39;)
+</span></code></pre>
+<p>Will replace the contents of <em>header.txt</em> and <em>footer.txt</em> to the output.</p>
+</li>
+<li>
+<p><a href="https://www.gnu.org/software/make/">make</a> is a classic graph based automator.</p>
+</li>
+<li>
+<p><a href="https://pandoc.org/">pandoc</a> is a swiss-army knife for converting documents from one format to another.</p>
+</li>
+</ul>
+<p>All of these packages can be installed using regular package managers or <em>homebrew</em>.</p>
+<h2 id="Project_Structure"><a class="header-anchor no-hover-padding" href="#Project_Structure" aria-label="Anchor link for: Project_Structure"><span class="link-icon" aria-hidden="true"></span></a>
+Project Structure</h2>
+<pre class="z-code"><code><span class="z-text z-plain">.
+</span><span class="z-text z-plain">├── Makefile
+</span><span class="z-text z-plain">└── src
+</span><span class="z-text z-plain">    ├── inc_footer.md
+</span><span class="z-text z-plain">    ├── inc_header.md
+</span><span class="z-text z-plain">    ├── intro_chapter_one.md
+</span><span class="z-text z-plain">    └── intro_chapter_two.md
+</span></code></pre>
+<p>Let us look at <code>inc_header.md</code>. Just straight forward markdown.</p>
+<pre data-lang="markdown" class="language-markdown z-code"><code class="language-markdown" data-lang="markdown"><span class="z-text z-html z-markdown"><span class="z-meta z-block-level z-markdown"><span class="z-markup z-heading z-2 z-markdown"><span class="z-punctuation z-definition z-heading z-begin z-markdown">##</span> </span><span class="z-markup z-heading z-2 z-markdown"><span class="z-entity z-name z-section z-markdown">About us</span><span class="z-meta z-whitespace z-newline z-markdown">
+</span></span></span></span><span class="z-text z-html z-markdown">
+</span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">We are the kindest souls in the universe!
+</span></span></code></pre>
+<p>Now, if we look at <code>intro_chapter_one.md</code>:</p>
+<pre data-lang="markdown" class="language-markdown z-code"><code class="language-markdown" data-lang="markdown"><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">changequote(<span class="z-markup z-raw z-inline z-markdown"><span class="z-punctuation z-definition z-raw z-begin z-markdown">`</span>{{&#39;, <span class="z-punctuation z-definition z-raw z-end z-markdown">`</span></span>}}&#39;)
+</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">
+</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">include({{inc_header.md}})
+</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">
+</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-block-level z-markdown"><span class="z-markup z-heading z-1 z-markdown"><span class="z-punctuation z-definition z-heading z-begin z-markdown">#</span> </span><span class="z-markup z-heading z-1 z-markdown"><span class="z-entity z-name z-section z-markdown">Chapter 01 - The Great Story</span><span class="z-meta z-whitespace z-newline z-markdown">
+</span></span></span></span><span class="z-text z-html z-markdown">
+</span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">LA la la..
+</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">
+</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">include({{inc_footer.md}})
+</span></span></code></pre>
+<p>All it is doing is including the files. Note that I’ve also <a href="https://www.gnu.org/software/m4/manual/m4-1.4.15/html_node/Changequote.html">changed the quoting</a>
+structure from back-tick and straight-tick to double flowery braces. This helps
+in markdown where back-tick means something when it comes to syntax highlighting
+editors.</p>
+<h2 id="Makefile"><a class="header-anchor no-hover-padding" href="#Makefile" aria-label="Anchor link for: Makefile"><span class="link-icon" aria-hidden="true"></span></a>
+Makefile</h2>
+<pre data-lang="make" class="language-make z-code"><code class="language-make" data-lang="make"><span class="z-source z-makefile"><span class="z-variable z-other z-makefile">SRCDIR</span> <span class="z-keyword z-operator z-assignment z-makefile">=</span></span> <span class="z-source z-makefile"><span class="z-meta z-string z-makefile"><span class="z-string z-unquoted z-makefile">src</span></span>
+</span><span class="z-source z-makefile"><span class="z-variable z-other z-makefile">OUTDIR</span> <span class="z-keyword z-operator z-assignment z-makefile">=</span></span> <span class="z-source z-makefile"><span class="z-meta z-string z-makefile"><span class="z-string z-unquoted z-makefile">share</span></span>
+</span><span class="z-source z-makefile"><span class="z-variable z-other z-makefile">SRCF</span>  <span class="z-keyword z-operator z-assignment z-makefile">=</span></span> <span class="z-source z-makefile"><span class="z-meta z-string z-makefile"><span class="z-string z-unquoted z-makefile"><span class="z-meta z-function-call z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span><span class="z-support z-function z-builtin z-makefile">wildcard</span> </span><span class="z-meta z-function-call z-arguments z-makefile"><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span>/intro_<span class="z-variable z-language z-wildcard z-makefile">*</span>.md</span><span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span>
+</span><span class="z-source z-makefile"><span class="z-variable z-other z-makefile">DEPF</span>  <span class="z-keyword z-operator z-assignment z-makefile">=</span></span> <span class="z-source z-makefile"><span class="z-meta z-string z-makefile"><span class="z-string z-unquoted z-makefile"><span class="z-meta z-function-call z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span><span class="z-support z-function z-builtin z-makefile">wildcard</span> </span><span class="z-meta z-function-call z-arguments z-makefile"><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span>/inc_<span class="z-variable z-language z-wildcard z-makefile">*</span>.md</span><span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span>
+</span><span class="z-source z-makefile"><span class="z-variable z-other z-makefile">DOCX</span> <span class="z-keyword z-operator z-assignment z-makefile">=</span></span> <span class="z-source z-makefile"><span class="z-meta z-string z-makefile"><span class="z-string z-unquoted z-makefile"><span class="z-meta z-function-call z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span><span class="z-support z-function z-builtin z-makefile">subst</span> </span><span class="z-meta z-function-call z-arguments z-makefile"><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span><span class="z-punctuation z-separator z-makefile">,</span><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>OUTDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span><span class="z-punctuation z-separator z-makefile">,</span><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCF<span class="z-punctuation z-definition z-substitution z-makefile">:</span>.md<span class="z-punctuation z-definition z-assignment z-makefile">=</span>.docx<span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span><span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span>
+</span><span class="z-source z-makefile">
+</span><span class="z-source z-makefile"><span class="z-meta z-function z-makefile"><span class="z-entity z-name z-function z-makefile">.PHONY</span></span><span class="z-keyword z-operator z-assignment z-makefile">:</span> <span class="z-meta z-function z-arguments z-makefile"><span class="z-string z-unquoted z-makefile">all clean</span></span><span class="z-meta z-function z-body z-makefile">
+</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span>
+</span><span class="z-source z-makefile"><span class="z-meta z-function z-makefile"><span class="z-entity z-name z-function z-makefile">all</span></span><span class="z-keyword z-operator z-assignment z-makefile">:</span> <span class="z-meta z-function z-arguments z-makefile"><span class="z-string z-unquoted z-makefile">directories <span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>DOCX<span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span></span><span class="z-meta z-function z-body z-makefile">
+</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span>
+</span><span class="z-source z-makefile"><span class="z-meta z-function z-makefile"><span class="z-entity z-name z-function z-makefile">directories</span></span><span class="z-keyword z-operator z-assignment z-makefile">:</span>
+<span class="z-meta z-function z-arguments z-makefile"></span><span class="z-meta z-function z-body z-makefile"></span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-meta z-function z-body z-makefile">	<span class="z-source z-shell"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">mkdir</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>p</span> <span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>OUTDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span></span>
+</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile">
+</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-meta z-function z-makefile"><span class="z-entity z-name z-function z-makefile"><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>OUTDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span>/<span class="z-variable z-language z-makefile">%</span>.docx</span></span><span class="z-keyword z-operator z-assignment z-makefile">:</span> <span class="z-meta z-function z-arguments z-makefile"><span class="z-string z-unquoted z-makefile"><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span>/<span class="z-variable z-language z-makefile">%</span>.md <span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>DEPF<span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span></span><span class="z-meta z-function z-body z-makefile">
+</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-meta z-function z-body z-makefile">	<span class="z-source z-shell"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span><span class="z-support z-function z-builtin z-makefile">shell</span> <span class="z-source z-shell"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">m4</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>I</span> <span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span> <span class="z-variable z-language z-automatic z-makefile">$&lt;</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">pandoc</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>s</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>quiet</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> markdown<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>o</span> <span class="z-variable z-language z-automatic z-makefile">$@</span> -</span></span><span class="z-keyword z-other z-block z-end z-makefile">)</span></span>
+</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile">	<span class="z-constant z-language z-makefile">@</span><span class="z-source z-shell"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span><span class="z-variable z-language z-automatic z-makefile">$&lt;</span> ==&gt; <span class="z-variable z-language z-automatic z-makefile">$@</span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span></span>
+</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile">
+</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-meta z-function z-makefile"><span class="z-entity z-name z-function z-makefile">clean</span></span><span class="z-keyword z-operator z-assignment z-makefile">:</span>
+<span class="z-meta z-function z-arguments z-makefile"></span><span class="z-meta z-function z-body z-makefile"></span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-meta z-function z-body z-makefile">	<span class="z-source z-shell"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">rm</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>fR</span> <span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>OUTDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span></span>
+</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile">
+</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-comment z-line z-number-sign z-makefile"><span class="z-punctuation z-definition z-comment z-makefile">#</span> vim: set noexpandtab:
+</span></span></code></pre>
+<ul>
+<li>First two lines set the source and output directories</li>
+<li><code>SRCF</code> is a list of markdown files we want to convert to MS Word formats. (Wildcard)[https://www.gnu.org/software/make/manual/html_node/Wildcard-Function.html] function helps in getting the list.</li>
+<li><code>DEPF</code> is similar and I follow a convention that all files starting with <em>inc_</em> are for includes.</li>
+<li><code>DOCX</code> is generating a list of output file names in <em>OUTDIR</em> from <em>SRCF</em>. The inner one makes filename
+extension from <em>.md</em> to <em>.docx</em> and the <code>subst</code> function replaces source directory name with output directory name.</li>
+<li><code>$(DOCX)</code> in <em>all</em> target expands to this list of output docs.</li>
+<li>The main action is in the generic target that says to generate a <em>.docx</em>, you need a similarly named
+<em>.md</em> (in appropriate directories of course) and the include files.</li>
+<li><code>$&lt;</code> variable has the first dependency (the <em>src/intro_whatever.md</em> file) and <code>$@</code> has the output file.</li>
+<li>The <code>$(shell...)</code> line runs <code>m4</code> with include file path as <em>source</em> directory and output is piped to
+<code>pandoc</code> (- says read from stdin) as forced <em>markdown</em> format and output is written to the desired output
+file name (<code>$@</code>).</li>
+</ul>
+<p>Go ahead and run <code>make</code>.</p>
+<pre class="z-code"><code><span class="z-text z-plain">mkdir -p share
+</span><span class="z-text z-plain">src/intro_chapter_one.md ==&gt; share/intro_chapter_one.docx
+</span><span class="z-text z-plain">src/intro_chapter_two.md ==&gt; share/intro_chapter_two.docx
+</span></code></pre>
+<p>Let us also see how <code>make</code> is efficient. If we change only one file, it should
+build only the docx corresponding to that.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">touch</span></span><span class="z-meta z-function-call z-arguments z-shell"> src/intro_chapter_one.md </span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">make</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">  mkdir -p share</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">  src/intro_chapter_one.md ==&gt; share/intro_chapter_one.docx</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></code></pre>
+<p>Well, if we modify an include file, then all files need to be regenerated.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">touch</span></span><span class="z-meta z-function-call z-arguments z-shell"> src/inc_header.md </span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">make</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">  mkdir -p share</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">  src/intro_chapter_one.md ==&gt; share/intro_chapter_one.docx</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">  src/intro_chapter_two.md ==&gt; share/intro_chapter_two.docx</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></code></pre>
+<p>Objective of this short article was to demonstrate how command line tools are
+much easier when we’ve to generate stuff. Things like <a href="https://kislyuk.github.io/yq/">yq</a>
+coupled with these kind of tools even give you ability to have a database of
+<code>yml</code> files which can generate say question papers, resume, job descriptions etc!</p>
+<p>And if you keep your layout and common boiler plate text in <code>m4</code> files, it is a
+simple job when you want to make changes and re-generate content again.</p>
+
+        </section>
+
+        
+                
+                
+                    
+                        
+                        
+                        
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_1_to_10/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">1to10: doom-emacs and org-roam, gpg</p></div>
+                <div><a href="http://vsbabu.org/twenties/blog/doom_emacs_org_0_to_1/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">0to1: doom-emacs and org-mode</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/gen_docs_unix_way/#Tools">Tools</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/gen_docs_unix_way/#Project_Structure">Project Structure</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="http://vsbabu.org/twenties/blog/gen_docs_unix_way/#Makefile">Makefile</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="http://vsbabu.org/twenties/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href="http://vsbabu.org/twenties/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="http://vsbabu.org/twenties/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="http://vsbabu.org/twenties/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="http://vsbabu.org/twenties/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="http://vsbabu.org/twenties/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="http://vsbabu.org/twenties/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="http://vsbabu.org/twenties/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>
