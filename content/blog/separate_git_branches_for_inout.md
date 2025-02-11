@@ -13,7 +13,6 @@ tags = [ "tools","publish"]
 
 [Github](https://www.github.com/) supports static website publishing of gh-pages branch in your repository. It can even support CNAME entries to point your domain to it. This idea is pretty good if you want to maintain content and output in two separate branches. The following note explains the flow of commands to set this up in a local repository. You will need to add a _push to remote step_ for Github repositories.
 
-> [linked.in copy](https://www.linkedin.com/pulse/git-branches-content-output-satheesh-babu-vattekkat-7mmvc/) 
 <!-- more -->
 
 Essentially, the steps are:
@@ -119,3 +118,5 @@ If you want to add assets like _css_ to support generated content, you can add t
 **Additional branching and merging**
 
 These are parallel branches without overlapping files. So, if you want to support multiple authors and their branches with their own merging, it is little bit easier to manage merges to main branch only and one person generates gh-pages.
+
+{{ admonition(type="info", text="This article was [published on linked.in](https://www.linkedin.com/pulse/git-branches-content-output-satheesh-babu-vattekkat-7mmvc/) as well.") }}
