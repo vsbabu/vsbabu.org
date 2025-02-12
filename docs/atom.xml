@@ -30,6 +30,17 @@
         <summary type="html">Github supports static website publishing of gh-pages branch in your repository. It can even support CNAME entries to point your domain to it. This idea is pretty good if you want to maintain content and output in two separate branches. The following note explains the flow of commands to set this up in a local repository. You will need to add a push to remote step for Github repositories.
 …</summary>
         </entry><entry xml:lang="en">
+        <title>Engineering Leadership - checklist mindmap</title>
+        <published>2024-12-06T08:00:00+05:30</published>
+        <updated>2024-12-06T08:00:00+05:30</updated>
+        <author>
+            <name>Satheesh Vattekkat</name>
+        </author>
+        <link rel="alternate" href="https://vsbabu.org/blog/eng_leader_checklist/" type="text/html"/>
+        <id>https://vsbabu.org/blog/eng_leader_checklist/</id>
+        <summary type="html">This is generally the mindmap I follow when leading a team/org. Sharing, if it helps any others building/leading an engineering team. Depending upon where the team, product are and how my own skills fit into the mix, I used to assign different priorities to these leaf nodes and then track on a weekly basis to reflect and re-assign priorities and identify next actions/goals.
+…</summary>
+        </entry><entry xml:lang="en">
         <title>Amazon Prime Video - Buy Movie UX</title>
         <published>2024-11-02T08:00:00+05:30</published>
         <updated>2024-11-02T08:00:00+05:30</updated>

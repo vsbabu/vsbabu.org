@@ -42,6 +42,10 @@
         <lastmod>2020-03-08T08:00:00+05:30</lastmod>
     </url>
     <url>
+        <loc>https://vsbabu.org/blog/eng_leader_checklist/</loc>
+        <lastmod>2024-12-06T08:00:00+05:30</lastmod>
+    </url>
+    <url>
         <loc>https://vsbabu.org/blog/gen_docs_unix_way/</loc>
         <lastmod>2020-06-22T08:00:00+05:30</lastmod>
     </url>
@@ -62,6 +66,9 @@
     </url>
     <url>
         <loc>https://vsbabu.org/blog/page/2/</loc>
+    </url>
+    <url>
+        <loc>https://vsbabu.org/blog/page/3/</loc>
     </url>
     <url>
         <loc>https://vsbabu.org/blog/quick-dev-env-with-docker/</loc>
@@ -104,6 +111,9 @@
     </url>
     <url>
         <loc>https://vsbabu.org/categories/article/</loc>
+    </url>
+    <url>
+        <loc>https://vsbabu.org/categories/engineering/</loc>
     </url>
     <url>
         <loc>https://vsbabu.org/categories/snippet/</loc>
@@ -151,7 +161,13 @@
         <loc>https://vsbabu.org/tags/linux/</loc>
     </url>
     <url>
+        <loc>https://vsbabu.org/tags/mindmap/</loc>
+    </url>
+    <url>
         <loc>https://vsbabu.org/tags/mysql/</loc>
+    </url>
+    <url>
+        <loc>https://vsbabu.org/tags/nanagement/</loc>
     </url>
     <url>
         <loc>https://vsbabu.org/tags/org-mode/</loc>
