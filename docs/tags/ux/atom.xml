@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>ux</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - ux</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - ux</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/tags/ux/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/tags/ux/" rel="alternate" type="text/html"/>
@@ -27,7 +27,6 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/amazon_primevideo_buy_ux/" type="text/html"/>
         <id>https://vsbabu.org/blog/amazon_primevideo_buy_ux/</id>
-        <summary type="html">#FeatureRequest #lessdistraction - Family rented a movie on Amazon Primevideo TV app on Friday. Request came to me as the resident techsupport - the flow is complex like below. On iOS, this flow is like the movie Inception when it jumps between UPI app and browser. A regular UPI payment by scanning QR code on TV would have been nice. Perhaps a quick fix is to open Amazon app from Scan QR to remove login + OTP steps.
-…</summary>
+        <summary type="html">#FeatureRequest #lessdistraction - Family rented a movie on Amazon Primevideo TV app on Friday. Request came to me as the resident techsupport - the flow is complex like below. On iOS, this flow is like the movie Inception when it jumps between UPI app and browser. A regular UPI payment by scanning QR code on TV would have been nice. Perhaps a quick fix is to open Amazon app from Scan QR to remove login + OTP steps…</summary>
         </entry>
 </feed>

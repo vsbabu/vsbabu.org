@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>snippet</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - snippet</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - snippet</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/categories/snippet/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/categories/snippet/" rel="alternate" type="text/html"/>
@@ -28,8 +28,7 @@
         <link rel="alternate" href="https://vsbabu.org/blog/xsv_cookbook/" type="text/html"/>
         <id>https://vsbabu.org/blog/xsv_cookbook/</id>
         <summary type="html">XSV is an extremely fast CLI utility to process csv/tsv/psv files. Extremely helpful to automate data extraction, format conversions, filters etc.
-It comes with an extensive man page and website also has great documentation. Still, noting down some of the common ways I use it below.
-…</summary>
+It comes with an extensive man page and website also has great documentation. Still, noting down some of the common ways I use it below…</summary>
         </entry><entry xml:lang="en">
         <title>Generate fake data to test performance</title>
         <published>2020-09-21T08:00:00+05:30</published>
@@ -46,8 +45,7 @@ from doing it when table already has few million records.
 It is actually quite simple to generate fake data and load it into a database. To simulate
 extreme stress, you don’t need to generate obscene loads - you can reduce your available capacity
 to small CPU/RAM and get the same effect with moderate loads.
-Read below to see snippet code on how to do the first part - getting a database up (docker + mariadb), generating data (python), loading it (usql) and then changing database capacity  (docker) to see what you need to tune.
-…</summary>
+Read below to see snippet code on how to do the first part - getting a database up (docker + mariadb), generating data (python), loading it (usql) and then changing database capacity  (docker) to see what you need to tune…</summary>
         </entry><entry xml:lang="en">
         <title>1to10: doom-emacs and org-roam, gpg</title>
         <published>2020-08-02T08:00:00+05:30</published>
@@ -61,8 +59,7 @@ Read below to see snippet code on how to do the first part - getting a database 
 previous article on 0to1: doom-emacs and org-mode.
 Since then, I’ve also started using org-roam, which is an emacs implementation
 of roamresearch.com’s note taking tool. Following are my notes on how to get this going.
-Also, how to encrypt part of your notes using gpg.
-…</summary>
+Also, how to encrypt part of your notes using gpg…</summary>
         </entry><entry xml:lang="en">
         <title>Generate docs - the unix way</title>
         <published>2020-06-22T08:00:00+05:30</published>
@@ -76,8 +73,7 @@ Also, how to encrypt part of your notes using gpg.
 like markdown. However, we need to often share these as pdf, Word etc to our colleagues.
 Quite often, we may need to create several documents that have same content across the documents. A
 simple example is a copyright footer or even an intro paragraph about your work.
-A short walkthrough using venerable tools like make, m4 and pandoc to get this done follows.
-…</summary>
+A short walkthrough using venerable tools like make, m4 and pandoc to get this done follows…</summary>
         </entry><entry xml:lang="en">
         <title>0to1: doom-emacs and org-mode</title>
         <published>2020-06-15T08:00:00+05:30</published>
@@ -101,8 +97,7 @@ Went back to VIM
 If yes, this is how I crossed over to actually using org-mode productively to maintain my notes, projects and todo.
 doom-emacs is the framework I used. It is superfast, has sane keys and UX
 and configuration does not need you to read and practice emacs.
-Following is a 0to1 guide that  ideally should’ve been more interesting with screenshots, but keeping it as copy-pastable text!
-…</summary>
+Following is a 0to1 guide that  ideally should’ve been more interesting with screenshots, but keeping it as copy-pastable text!…</summary>
         </entry><entry xml:lang="en">
         <title>Customize your Video on Conferencing</title>
         <published>2020-04-12T08:00:00+05:30</published>
@@ -119,7 +114,6 @@ For most video calls, just face is enough - why bother with rest of the image? I
 to be little more relaxed with informal clothing; plus cute moments like children running into video feed
 can be avoided.
 This is what I got my feed to be - read below on how to set it up.
-
 …</summary>
         </entry><entry xml:lang="en">
         <title>Leo + Sphinx = painless documentation</title>
@@ -134,8 +128,7 @@ This is what I got my feed to be - read below on how to set it up.
 task. Either you love it or you hate it!
 If you love it, chances are that you prefer coding it in a distraction free environment
 with simple markup, rather than using Word processing tools. Here is how you can do
-it very easily.
-…</summary>
+it very easily…</summary>
         </entry><entry xml:lang="en">
         <title>Gmail : GUI for your backend!</title>
         <published>2020-03-27T08:00:00+05:30</published>
@@ -150,8 +143,7 @@ make an app change, push it up to store, get people to upgrade (doesn’t
 happen!) and then pray. A little more savvy version of this is making a web app
 and then send the links with a uuid based customer identification.
 Why not just ask users to email you the data? People know how to use email! Following snippet shows  how easy
-it is to automate fetching the data and then sending to a script to process.
-…</summary>
+it is to automate fetching the data and then sending to a script to process…</summary>
         </entry><entry xml:lang="en">
         <title>Calendar Heatmaps from Dataframes</title>
         <published>2020-03-18T08:00:00+05:30</published>
@@ -170,8 +162,7 @@ points over same time axis to see any trends,
 Calmap is a super simple library that can
 generate those.
 Continue to see what we can make with our own data!
-Update May 28, 2020 - code using this is added to my covid 19 tracker repo with actual output
-…</summary>
+Update May 28, 2020 - code using this is added to my covid 19 tracker repo with actual output…</summary>
         </entry><entry xml:lang="en">
         <title>Elementary OS - Hera 5.1 post install</title>
         <published>2020-03-08T08:00:00+05:30</published>
@@ -181,7 +172,6 @@ Update May 28, 2020 - code using this is added to my covid 19 tracker repo with 
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/elementary_hera_postinstall/" type="text/html"/>
         <id>https://vsbabu.org/blog/elementary_hera_postinstall/</id>
-        <summary type="html">Quick snippets and utils that I use to get going once OS install is complete.
-…</summary>
+        <summary type="html">Quick snippets and utils that I use to get going once OS install is complete…</summary>
         </entry>
 </feed>

@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>cli</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - cli</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - cli</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/tags/cli/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/tags/cli/" rel="alternate" type="text/html"/>
@@ -29,8 +29,7 @@
         <id>https://vsbabu.org/blog/remind/</id>
         <summary type="html">remind is a classic command line unix utility. A very simple collection of text
 files hold all your reminders in a readable format. Let us make a quick cron job
-using this to send daily notification emails.
-…</summary>
+using this to send daily notification emails…</summary>
         </entry><entry xml:lang="en">
         <title>SQLite3 CTE tricks for time series analysis</title>
         <published>2018-10-25T06:00:00+05:30</published>
@@ -43,8 +42,7 @@ using this to send daily notification emails.
         <summary type="html">SQL has been there for ages. sqlite3 gives you a
 phenomenal tool to quickly load and analyse data in a  language meant for that.
 While I’ve used it for a long time, only recently did I know about support for
-CTE aka Common Table Expressions.
-…</summary>
+CTE aka Common Table Expressions…</summary>
         </entry><entry xml:lang="en">
         <title>Quick development envs with Docker</title>
         <published>2018-06-06T06:00:00+05:30</published>

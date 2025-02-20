@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>mysql</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - mysql</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - mysql</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/tags/mysql/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/tags/mysql/" rel="alternate" type="text/html"/>
@@ -34,7 +34,6 @@ from doing it when table already has few million records.
 It is actually quite simple to generate fake data and load it into a database. To simulate
 extreme stress, you don’t need to generate obscene loads - you can reduce your available capacity
 to small CPU/RAM and get the same effect with moderate loads.
-Read below to see snippet code on how to do the first part - getting a database up (docker + mariadb), generating data (python), loading it (usql) and then changing database capacity  (docker) to see what you need to tune.
-…</summary>
+Read below to see snippet code on how to do the first part - getting a database up (docker + mariadb), generating data (python), loading it (usql) and then changing database capacity  (docker) to see what you need to tune…</summary>
         </entry>
 </feed>

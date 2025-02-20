@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>publish</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - publish</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - publish</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/tags/publish/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/tags/publish/" rel="alternate" type="text/html"/>
@@ -27,7 +27,6 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/separate_git_branches_for_inout/" type="text/html"/>
         <id>https://vsbabu.org/blog/separate_git_branches_for_inout/</id>
-        <summary type="html">Github supports static website publishing of gh-pages branch in your repository. It can even support CNAME entries to point your domain to it. This idea is pretty good if you want to maintain content and output in two separate branches. The following note explains the flow of commands to set this up in a local repository. You will need to add a push to remote step for Github repositories.
-…</summary>
+        <summary type="html">Github supports static website publishing of gh-pages branch in your repository. It can even support CNAME entries to point your domain to it. This idea is pretty good if you want to maintain content and output in two separate branches. The following note explains the flow of commands to set this up in a local repository. You will need to add a push to remote step for Github repositories…</summary>
         </entry>
 </feed>

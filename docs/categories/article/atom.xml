@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>article</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - article</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - article</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/categories/article/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/categories/article/" rel="alternate" type="text/html"/>
@@ -35,8 +35,7 @@ to different users and  getting them setup to query, it is very
 easy to make quick shell scripts that output JSON formatted data.  Then, you can easily have your web developers build UI for search and display.
 Read on to install local database using docker, fill it up with sample
 data, script psql, then enhance it to wrap with JSONification and
-finally hooking up script to be an API.
-…</summary>
+finally hooking up script to be an API…</summary>
         </entry><entry xml:lang="en">
         <title>Weekwise Anomaly Visualization</title>
         <published>2020-05-04T21:00:00+05:30</published>
@@ -55,7 +54,6 @@ Instead of looking at this manually, why not use ML to automatically highlight a
 various things with hand coded models first, then ARIMA and finally settled on FBProphet library.
 Read below to see how a simple system can be built with publicly available data. Bonus - if you have
 not used jq and xsv, you can see how cool those are too.
-
 …</summary>
         </entry><entry xml:lang="en">
         <title>VS Code as Git GUI</title>
@@ -72,7 +70,6 @@ a lot and often look for different UIs to deal with it rather than remember all 
 tig, git-cola etc are some of the things I’ve used before. However, VSCode supports a very useful environment
 right out of the box. Add a small extension git-graph, and I am all set.
 Following is a quick screenshot tour that explains various features.
-
 …</summary>
         </entry><entry xml:lang="en">
         <title>Remind - it does what it&#x27;s name says!</title>
@@ -85,8 +82,7 @@ Following is a quick screenshot tour that explains various features.
         <id>https://vsbabu.org/blog/remind/</id>
         <summary type="html">remind is a classic command line unix utility. A very simple collection of text
 files hold all your reminders in a readable format. Let us make a quick cron job
-using this to send daily notification emails.
-…</summary>
+using this to send daily notification emails…</summary>
         </entry><entry xml:lang="en">
         <title>Are we there yet?</title>
         <published>2019-09-09T06:00:00+05:30</published>
@@ -96,8 +92,7 @@ using this to send daily notification emails.
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/are_we_there_yet/" type="text/html"/>
         <id>https://vsbabu.org/blog/are_we_there_yet/</id>
-        <summary type="html">What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations.
-…</summary>
+        <summary type="html">What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations…</summary>
         </entry><entry xml:lang="en">
         <title>Cook your Scripts to APIs in 5 minutes</title>
         <published>2019-08-27T06:00:00+05:30</published>
@@ -108,8 +103,7 @@ using this to send daily notification emails.
         <link rel="alternate" href="https://vsbabu.org/blog/node_red_api/" type="text/html"/>
         <id>https://vsbabu.org/blog/node_red_api/</id>
         <summary type="html">node-red can be used to quickly convert your shell scripts
-into functioning APIs.
-…</summary>
+into functioning APIs…</summary>
         </entry><entry xml:lang="en">
         <title>SQLite3 CTE tricks for time series analysis</title>
         <published>2018-10-25T06:00:00+05:30</published>
@@ -122,8 +116,7 @@ into functioning APIs.
         <summary type="html">SQL has been there for ages. sqlite3 gives you a
 phenomenal tool to quickly load and analyse data in a  language meant for that.
 While I’ve used it for a long time, only recently did I know about support for
-CTE aka Common Table Expressions.
-…</summary>
+CTE aka Common Table Expressions…</summary>
         </entry><entry xml:lang="en">
         <title>Quick development envs with Docker</title>
         <published>2018-06-06T06:00:00+05:30</published>

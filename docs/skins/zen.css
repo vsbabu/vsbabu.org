@@ -1,0 +1,1 @@
+:root{--primary-color: #087e96;--background-color: #f2f0e3}[data-theme=dark]{--primary-color: #91e0ee;--background-color: #1f1f1f}@media (prefers-color-scheme: dark){:root:not([data-theme=light]){--primary-color: #91e0ee;--background-color: #1f1f1f}}a.tag,a.readmore{font-size:smaller;text-transform:lowercase !important}a.tag:before{content:"#"}

@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>emacs</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - emacs</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - emacs</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/tags/emacs/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/tags/emacs/" rel="alternate" type="text/html"/>
@@ -31,8 +31,7 @@
 previous article on 0to1: doom-emacs and org-mode.
 Since then, I’ve also started using org-roam, which is an emacs implementation
 of roamresearch.com’s note taking tool. Following are my notes on how to get this going.
-Also, how to encrypt part of your notes using gpg.
-…</summary>
+Also, how to encrypt part of your notes using gpg…</summary>
         </entry><entry xml:lang="en">
         <title>0to1: doom-emacs and org-mode</title>
         <published>2020-06-15T08:00:00+05:30</published>
@@ -56,7 +55,6 @@ Went back to VIM
 If yes, this is how I crossed over to actually using org-mode productively to maintain my notes, projects and todo.
 doom-emacs is the framework I used. It is superfast, has sane keys and UX
 and configuration does not need you to read and practice emacs.
-Following is a 0to1 guide that  ideally should’ve been more interesting with screenshots, but keeping it as copy-pastable text!
-…</summary>
+Following is a 0to1 guide that  ideally should’ve been more interesting with screenshots, but keeping it as copy-pastable text!…</summary>
         </entry>
 </feed>

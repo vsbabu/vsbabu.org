@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>server</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - server</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - server</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/tags/server/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/tags/server/" rel="alternate" type="text/html"/>
@@ -27,7 +27,6 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/are_we_there_yet/" type="text/html"/>
         <id>https://vsbabu.org/blog/are_we_there_yet/</id>
-        <summary type="html">What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations.
-…</summary>
+        <summary type="html">What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations…</summary>
         </entry>
 </feed>

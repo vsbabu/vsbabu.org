@@ -11,14 +11,14 @@
         <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
-        <tabi:current_section>mindmap</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - mindmap</title>
+        <tabi:current_section>management</tabi:current_section>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - management</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
-    <link href="https://vsbabu.org/tags/mindmap/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="https://vsbabu.org/tags/mindmap/" rel="alternate" type="text/html"/>
+    <link href="https://vsbabu.org/tags/management/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://vsbabu.org/tags/management/" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2024-12-06T08:00:00+05:30</updated>
-    <id>https://vsbabu.org/tags/mindmap/atom.xml</id><entry xml:lang="en">
+    <id>https://vsbabu.org/tags/management/atom.xml</id><entry xml:lang="en">
         <title>Engineering Leadership - checklist mindmap</title>
         <published>2024-12-06T08:00:00+05:30</published>
         <updated>2024-12-06T08:00:00+05:30</updated>

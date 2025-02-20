@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>engineering</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - engineering</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - engineering</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/categories/engineering/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/categories/engineering/" rel="alternate" type="text/html"/>
@@ -27,7 +27,6 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/eng_leader_checklist/" type="text/html"/>
         <id>https://vsbabu.org/blog/eng_leader_checklist/</id>
-        <summary type="html">This is generally the mindmap I follow when leading a team/org. Sharing, if it helps any others building/leading an engineering team. Depending upon where the team, product are and how my own skills fit into the mix, I used to assign different priorities to these leaf nodes and then track on a weekly basis to reflect and re-assign priorities and identify next actions/goals.
-…</summary>
+        <summary type="html">This is generally the mindmap I follow when leading a team/org. Sharing, if it helps any others building/leading an engineering team. Depending upon where the team, product are and how my own skills fit into the mix, I used to assign different priorities to these leaf nodes and then track on a weekly basis to reflect and re-assign priorities and identify next actions/goals…</summary>
         </entry>
 </feed>

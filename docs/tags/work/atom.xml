@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>work</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - work</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - work</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/tags/work/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/tags/work/" rel="alternate" type="text/html"/>
@@ -33,7 +33,6 @@ a lot and often look for different UIs to deal with it rather than remember all 
 tig, git-cola etc are some of the things I’ve used before. However, VSCode supports a very useful environment
 right out of the box. Add a small extension git-graph, and I am all set.
 Following is a quick screenshot tour that explains various features.
-
 …</summary>
         </entry><entry xml:lang="en">
         <title>Customize your Video on Conferencing</title>
@@ -51,7 +50,6 @@ For most video calls, just face is enough - why bother with rest of the image? I
 to be little more relaxed with informal clothing; plus cute moments like children running into video feed
 can be avoided.
 This is what I got my feed to be - read below on how to set it up.
-
 …</summary>
         </entry>
 </feed>

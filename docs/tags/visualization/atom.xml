@@ -12,7 +12,7 @@
         <tabi:default_theme></tabi:default_theme>
         <tabi:post_listing_date>date</tabi:post_listing_date>
         <tabi:current_section>visualization</tabi:current_section>
-    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/lavender.css?h=31ee0a710ed660d122f6" /><title>~sv - visualization</title>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - visualization</title>
         <subtitle>before the moss covers the thoughts...</subtitle>
     <link href="https://vsbabu.org/tags/visualization/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/tags/visualization/" rel="alternate" type="text/html"/>
@@ -36,7 +36,6 @@ Instead of looking at this manually, why not use ML to automatically highlight a
 various things with hand coded models first, then ARIMA and finally settled on FBProphet library.
 Read below to see how a simple system can be built with publicly available data. Bonus - if you have
 not used jq and xsv, you can see how cool those are too.
-
 …</summary>
         </entry><entry xml:lang="en">
         <title>Calendar Heatmaps from Dataframes</title>
@@ -56,7 +55,6 @@ points over same time axis to see any trends,
 Calmap is a super simple library that can
 generate those.
 Continue to see what we can make with our own data!
-Update May 28, 2020 - code using this is added to my covid 19 tracker repo with actual output
-…</summary>
+Update May 28, 2020 - code using this is added to my covid 19 tracker repo with actual output…</summary>
         </entry>
 </feed>
