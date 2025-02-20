@@ -265,7 +265,7 @@ This is now very easy
 - Write a `getcustomer.sh` that takes customer_id as a command line argument.
 - It then generates a SQL file which is passed to `jcsql` which simply prints the JSON output.
 - To make this shell script to an API, read about 
-  [cooking your scripts to APIs in 5 minutes](http://vsbabu.org/twenties/node_red_api/)!
+  [cooking your scripts to APIs in 5 minutes](/blog/node_red_api/)!
 - If you want authentication to your company employees only, proxy node-red with
   [oauth2_proxy](https://oauth2-proxy.github.io/oauth2-proxy/)
 - Now build a web UI using this!

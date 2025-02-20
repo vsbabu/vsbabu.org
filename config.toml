@@ -43,7 +43,7 @@ anchors = "safe"
 
 [extra]
 header = {title = "Hello! I'm vsbabu~", img = "about/me_half.jpg", img_alt = "Satheesh Vattekkat" }
-skin = "lavender"
+skin = "zen"
 menu = [
     { name = "home", url = "/..", trailing_slash = true },
     { name = "blog", url = "blog", trailing_slash = true },

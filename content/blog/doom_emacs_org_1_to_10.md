@@ -198,7 +198,7 @@ but I didn't try it.
 * [Org Roam documentation](https://org-roam.readthedocs.io/en/master/)
 * [Deft Emacs package](https://jblevins.org/projects/deft/)
 * [Keeping Secrets in Emacs with GPG](https://www.masteringemacs.org/article/keeping-secrets-in-emacs-gnupg-auth-sources)
-* [Part 1 of this series](/twenties/doom_emacs_org_0_to_1/)
+* [Part 1 of this series](/blog/doom_emacs_org_0_to_1/)
 
 ## Other Points
 * If you manually rename or delete any roam file, you need to run `M-x org-roam-db-build-cache`

@@ -1,0 +1,43 @@
+// When creating your own skin, you can use https://webaim.org/resources/contrastchecker/
+// to verify the accessibility and readability of your colourscheme.
+// The default light background is #fff and the dark background is #1f1f1f.
+
+// This defines theme-specific variables.
+@mixin theme-variables($theme) {
+    @if $theme =='light' {
+        // Light theme colours.
+        --primary-color: #087e96; 
+        --background-color: #f2f0e3;
+    }
+    @else if $theme == 'dark' {
+        // Dark theme colours.
+        --primary-color: #91e0ee;  // Contrast ratio: 11.06:1
+        --background-color: #1f1f1f;
+    }
+}
+
+// Apply light theme variables by default.
+:root {
+    @include theme-variables('light');
+}
+
+// Apply dark theme variables when dark theme is explicitly set.
+[data-theme='dark'] {
+    @include theme-variables('dark');
+}
+
+// Apply dark theme variables when user's system prefers dark mode
+// and the theme is not explicitly set to light.
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+        @include theme-variables('dark');
+    }
+}
+
+a.tag, a.readmore {
+  font-size: smaller;
+  text-transform: lowercase !important;
+}
+a.tag:before {
+  content: "#";
+}

@@ -7,7 +7,7 @@ draft = false
 in_search_index = true
 [taxonomies]
 categories = ["engineering"]
-tags = [ "mindmap","nanagement"]
+tags = [ "mindmap","management"]
 +++
 
 This is generally the mindmap I follow when leading a team/org. Sharing, if it helps any others building/leading an engineering team. Depending upon where the team, product are and how my own skills fit into the mix, I used to assign different priorities to these leaf nodes and then track on a weekly basis to reflect and re-assign priorities and identify next actions/goals. 
