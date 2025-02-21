@@ -7,7 +7,7 @@ draft = false
 in_search_index = true
 [taxonomies]
 categories = ["tools"]
-tags = [ "tools","publish"]
+tags = [ "tools","publish", "snippet"]
 +++
 
 
