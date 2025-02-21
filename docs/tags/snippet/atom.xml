@@ -17,8 +17,18 @@
     <link href="https://vsbabu.org/tags/snippet/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/tags/snippet/" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2021-07-03T08:00:00+05:30</updated>
+    <updated>2025-02-06T08:00:00+05:30</updated>
     <id>https://vsbabu.org/tags/snippet/atom.xml</id><entry xml:lang="en">
+        <title>Git branches for content and output</title>
+        <published>2025-02-06T08:00:00+05:30</published>
+        <updated>2025-02-06T08:00:00+05:30</updated>
+        <author>
+            <name>Satheesh Vattekkat</name>
+        </author>
+        <link rel="alternate" href="https://vsbabu.org/blog/separate_git_branches_for_inout/" type="text/html"/>
+        <id>https://vsbabu.org/blog/separate_git_branches_for_inout/</id>
+        <summary type="html">Github supports static website publishing of gh-pages branch in your repository. It can even support CNAME entries to point your domain to it. This idea is pretty good if you want to maintain content and output in two separate branches. The following note explains the flow of commands to set this up in a local repository. You will need to add a push to remote step for Github repositories…</summary>
+        </entry><entry xml:lang="en">
         <title>XSV Cookbook</title>
         <published>2021-07-03T08:00:00+05:30</published>
         <updated>2021-07-03T08:00:00+05:30</updated>

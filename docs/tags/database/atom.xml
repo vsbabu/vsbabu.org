@@ -17,8 +17,20 @@
     <link href="https://vsbabu.org/tags/database/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org/tags/database/" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2020-05-13T14:00:00+05:30</updated>
+    <updated>2025-02-21T06:00:00+05:30</updated>
     <id>https://vsbabu.org/tags/database/atom.xml</id><entry xml:lang="en">
+        <title>SQLite3 CTE for Calmap visualization</title>
+        <published>2025-02-21T06:00:00+05:30</published>
+        <updated>2025-02-21T06:00:00+05:30</updated>
+        <author>
+            <name>Satheesh Vattekkat</name>
+        </author>
+        <link rel="alternate" href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/" type="text/html"/>
+        <id>https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/</id>
+        <summary type="html">If you are new to sqlite3 or to CTEs, check the first part, timeseries analysis with CTEs.
+Now, let us assume that you’ve a table that has some metrics. If you don’t have one, you can checkout meterite, my project to log
+metrics into a sqlite3 table :). For this article, we will assume a simple one…</summary>
+        </entry><entry xml:lang="en">
         <title>Generate JSON from PostgreSQL</title>
         <published>2020-05-13T14:00:00+05:30</published>
         <updated>2020-05-13T14:00:00+05:30</updated>

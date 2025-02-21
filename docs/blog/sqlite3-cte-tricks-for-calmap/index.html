@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://vsbabu.org/">
+
+    
+    <title>~sv • SQLite3 CTE for Calmap visualization</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://vsbabu.org/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="https://vsbabu.org/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://vsbabu.org/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://vsbabu.org/main.css?h=e38cfa6902d00356cd66" />
+        <link rel="stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Data grouped by dates can easily be printed like GitHup contribution maps by weeks." />
+        <meta property="og:description" content="Data grouped by dates can easily be printed like GitHup contribution maps by weeks." />
+
+    
+
+    <meta property="og:title" content="SQLite3 CTE for Calmap visualization" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;vsbabu.org&#x2F;blog&#x2F;sqlite3-cte-tricks-for-calmap&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="https://vsbabu.org/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://vsbabu.org/js/initializeTheme.min.js"></script>
+        <script defer src="https://vsbabu.org/js/themeSwitcher.min.js"></script>
+        <script defer src="https://vsbabu.org/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://vsbabu.org">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            SQLite3 CTE for Calmap visualization
+        </h1>
+
+        <ul class="meta">
+                <li>21st Feb 2025</li><li title="255 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/visualization/">visualization</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/database/">database</a></li>
+        </ul>
+
+        <section class="body"><p>If you are new to <a href="https://www.sqlite.org">sqlite3</a> or to CTEs, check the <a href="/blog/sqlite3-cte-tricks-for-time-series-analysis/">first part, timeseries analysis with CTEs</a>.
+Now, let us assume that you’ve a table that has some metrics. If you don’t have one, you can checkout <a href="https://github.com/vsbabu/meterite">meterite</a>, my project to log
+metrics into a sqlite3 table :). For this article, we will assume a simple one.</p>
+<span id="continue-reading"></span><h2 id="Basics"><a class="header-anchor no-hover-padding" href="#Basics" aria-label="Anchor link for: Basics"><span class="link-icon" aria-hidden="true"></span></a>
+Basics</h2>
+<p>Let us create a new database and add a table that has just three columns, viz., a primary key, a date in yyyy-mm-dd format and some meter value.</p>
+<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sqlite3</span></span><span class="z-meta z-function-call z-arguments z-shell"> metrics.db</span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> CREATE <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">TABLE</span></span><span class="z-meta z-function-call z-arguments z-shell"> metric (id TEXT NOT NULL PRIMARY KEY,  dt TEXT, meter NUMERIC</span><span class="z-meta z-function-call z-shell"></span>)<span class="z-keyword z-operator z-logical z-continue z-shell">;</span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> CREATE <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">INDEX</span></span><span class="z-meta z-function-call z-arguments z-shell"> idx_dt ON meter(dt</span><span class="z-meta z-function-call z-shell"></span>)<span class="z-keyword z-operator z-logical z-continue z-shell">;</span>
+</span><span class="z-source z-shell z-bash"><span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>.q
+</span></code></pre>
+<p>Fill it up with some fake data. There are many ways to do it. Here is one from my blog about <a href="/blog/docker_mysql_data">generating large fake datasets</a>.</p>
+<h2 id="Querying_with_CTEs"><a class="header-anchor no-hover-padding" href="#Querying_with_CTEs" aria-label="Anchor link for: Querying_with_CTEs"><span class="link-icon" aria-hidden="true"></span></a>
+Querying with CTEs</h2>
+<p>Now, let us build a CTE query. See below how different CTEs are below step-by-step.</p>
+<pre data-lang="sql" class="language-sql z-code"><code class="language-sql" data-lang="sql"><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">WITH</span> RECURSIVE
+</span><span class="z-source z-sql">  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> [1] ideally, these parameters come from some form to 
+</span></span><span class="z-source z-sql">  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span>     define a date range
+</span></span><span class="z-source z-sql">  params <span class="z-keyword z-operator z-assignment z-alias z-sql">AS</span> (<span class="z-keyword z-other z-DML z-sql">SELECT</span> <span class="z-storage z-type z-sql">date</span>(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>2024-07-04<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> begin_cal, 
+</span><span class="z-source z-sql">                    <span class="z-storage z-type z-sql">date</span>(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>2024-08-10<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> end_cal),
+</span><span class="z-source z-sql">  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> [2] now expand the range to include preceding sunday
+</span></span><span class="z-source z-sql">  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span>     and ending saturday
+</span></span><span class="z-source z-sql">  bounds <span class="z-keyword z-operator z-assignment z-alias z-sql">AS</span> (<span class="z-keyword z-other z-DML z-sql">SELECT</span> begin_cal, end_cal,
+</span><span class="z-source z-sql">              <span class="z-storage z-type z-sql">date</span>(begin_cal, <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>weekday 0<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>, <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>-7 days<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>) begin_sun,
+</span><span class="z-source z-sql">              <span class="z-storage z-type z-sql">date</span>(end_cal, <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>weekday 6<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>) end_sat <span class="z-keyword z-other z-DML z-sql">FROM</span> params),
+</span><span class="z-source z-sql">  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> [3] This is the recursive CTE to generate all dates between bounds 
+</span></span><span class="z-source z-sql">  all_dates <span class="z-keyword z-operator z-assignment z-alias z-sql">AS</span> (
+</span><span class="z-source z-sql">    <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> week is formatted as yyyy-week_number
+</span></span><span class="z-source z-sql">    <span class="z-keyword z-other z-DML z-sql">SELECT</span> strftime(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>%Y-%U<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>, begin_sun) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> week, begin_sun dt
+</span><span class="z-source z-sql">    <span class="z-keyword z-other z-DML z-sql">FROM</span> bounds
+</span><span class="z-source z-sql">     <span class="z-keyword z-other z-DML z-sql">UNION ALL</span>
+</span><span class="z-source z-sql">    <span class="z-keyword z-other z-DML z-sql">SELECT</span>
+</span><span class="z-source z-sql">        <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> recursively add 1 day to generate dates
+</span></span><span class="z-source z-sql">        strftime(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>%Y-%U<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>, <span class="z-storage z-type z-sql">date</span>(dt, <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>+1 day<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>)) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> week,
+</span><span class="z-source z-sql">        <span class="z-storage z-type z-sql">date</span>(dt, <span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>+1 day<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>) dt
+</span><span class="z-source z-sql">  <span class="z-keyword z-other z-DML z-sql">FROM</span> bounds, all_dates <span class="z-keyword z-other z-DML z-sql">where</span>  dt <span class="z-keyword z-operator z-comparison z-sql">&lt;</span> <span class="z-constant z-other z-database-name z-sql">bounds</span>.<span class="z-constant z-other z-table-name z-sql">end_sat</span>
+</span><span class="z-source z-sql">  ),
+</span><span class="z-source z-sql">  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> [4] THIS IS YOUR CTE FOR GETTING METRICS 
+</span></span><span class="z-source z-sql">  metric <span class="z-keyword z-operator z-assignment z-alias z-sql">AS</span> (
+</span><span class="z-source z-sql">    <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> In this one, I am grouping meter by day into daily values as sums.
+</span></span><span class="z-source z-sql">    <span class="z-keyword z-other z-DML z-sql">SELECT</span>
+</span><span class="z-source z-sql">    <span class="z-storage z-type z-sql">date</span>(<span class="z-constant z-other z-database-name z-sql">x</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>) <span class="z-keyword z-operator z-assignment z-alias z-sql">AS</span> dt, <span class="z-support z-function z-aggregate z-sql">SUM</span>(<span class="z-constant z-other z-database-name z-sql">x</span>.<span class="z-constant z-other z-table-name z-sql">meter</span>) val <span class="z-keyword z-other z-DML z-sql">FROM</span> params p, metric x
+</span><span class="z-source z-sql">    <span class="z-keyword z-other z-DML z-sql">WHERE</span> <span class="z-storage z-type z-sql">date</span>(<span class="z-constant z-other z-database-name z-sql">x</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>) <span class="z-keyword z-operator z-logical z-sql">BETWEEN</span> <span class="z-constant z-other z-database-name z-sql">p</span>.<span class="z-constant z-other z-table-name z-sql">begin_cal</span> <span class="z-keyword z-operator z-logical z-sql">AND</span> <span class="z-constant z-other z-database-name z-sql">p</span>.<span class="z-constant z-other z-table-name z-sql">end_cal</span>
+</span><span class="z-source z-sql">    <span class="z-keyword z-other z-DML z-sql">GROUP BY</span> <span class="z-constant z-other z-database-name z-sql">x</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>
+</span><span class="z-source z-sql">  ),
+</span><span class="z-source z-sql">  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> [5] This CTE fills up dates with corresponding metric data if it exists
+</span></span><span class="z-source z-sql">  all_dates_metric <span class="z-keyword z-operator z-assignment z-alias z-sql">AS</span> (
+</span><span class="z-source z-sql">    <span class="z-keyword z-other z-DML z-sql">SELECT</span> <span class="z-constant z-other z-database-name z-sql">ad</span>.<span class="z-constant z-other z-table-name z-sql">week</span>, <span class="z-constant z-other z-database-name z-sql">ad</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>, <span class="z-constant z-other z-database-name z-sql">m</span>.<span class="z-constant z-other z-table-name z-sql">val</span> <span class="z-keyword z-other z-DML z-sql">from</span> all_dates ad <span class="z-keyword z-other z-DML z-sql">LEFT JOIN</span> metric  m
+</span><span class="z-source z-sql">    ON <span class="z-constant z-other z-database-name z-sql">ad</span>.<span class="z-constant z-other z-table-name z-sql">dt</span> <span class="z-keyword z-operator z-comparison z-sql">=</span> <span class="z-constant z-other z-database-name z-sql">m</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>
+</span><span class="z-source z-sql">  )
+</span><span class="z-source z-sql">  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span> [6] Now fold the metrics by date into weeks as calendar visualization
+</span></span><span class="z-source z-sql">  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span>     Note: this max is just to remove repetition of rows. You can use min also 
+</span></span><span class="z-source z-sql">  <span class="z-comment z-line z-double-dash z-sql"><span class="z-punctuation z-definition z-comment z-sql">--</span>     to get the same values.
+</span></span><span class="z-source z-sql">  <span class="z-keyword z-other z-DML z-sql">SELECT</span> <span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">week</span>, <span class="z-support z-function z-aggregate z-sql">min</span>(<span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>) <span class="z-keyword z-operator z-assignment z-alias z-sql">as</span> starting,
+</span><span class="z-source z-sql">    <span class="z-support z-function z-aggregate z-sql">max</span>(iif(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>0<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span><span class="z-keyword z-operator z-comparison z-sql">=</span>strftime(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>%w<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>,<span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>), <span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">val</span>, <span class="z-constant z-language z-sql">null</span>)) sun,
+</span><span class="z-source z-sql">    <span class="z-support z-function z-aggregate z-sql">max</span>(iif(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>1<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span><span class="z-keyword z-operator z-comparison z-sql">=</span>strftime(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>%w<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>,<span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>), <span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">val</span>, <span class="z-constant z-language z-sql">null</span>)) mon,
+</span><span class="z-source z-sql">    <span class="z-support z-function z-aggregate z-sql">max</span>(iif(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>2<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span><span class="z-keyword z-operator z-comparison z-sql">=</span>strftime(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>%w<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>,<span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>), <span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">val</span>, <span class="z-constant z-language z-sql">null</span>)) tue,
+</span><span class="z-source z-sql">    <span class="z-support z-function z-aggregate z-sql">max</span>(iif(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>3<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span><span class="z-keyword z-operator z-comparison z-sql">=</span>strftime(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>%w<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>,<span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>), <span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">val</span>, <span class="z-constant z-language z-sql">null</span>)) wed,
+</span><span class="z-source z-sql">    <span class="z-support z-function z-aggregate z-sql">max</span>(iif(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>4<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span><span class="z-keyword z-operator z-comparison z-sql">=</span>strftime(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>%w<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>,<span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>), <span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">val</span>, <span class="z-constant z-language z-sql">null</span>)) thu,
+</span><span class="z-source z-sql">    <span class="z-support z-function z-aggregate z-sql">max</span>(iif(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>5<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span><span class="z-keyword z-operator z-comparison z-sql">=</span>strftime(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>%w<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>,<span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>), <span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">val</span>, <span class="z-constant z-language z-sql">null</span>)) fri,
+</span><span class="z-source z-sql">    <span class="z-support z-function z-aggregate z-sql">max</span>(iif(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>6<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span><span class="z-keyword z-operator z-comparison z-sql">=</span>strftime(<span class="z-string z-quoted z-single z-sql"><span class="z-punctuation z-definition z-string z-begin z-sql">&#39;</span>%w<span class="z-punctuation z-definition z-string z-end z-sql">&#39;</span></span>,<span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">dt</span>), <span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">val</span>, <span class="z-constant z-language z-sql">null</span>)) sat
+</span><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">FROM</span> bounds, all_dates_metric adm
+</span><span class="z-source z-sql"><span class="z-keyword z-other z-DML z-sql">GROUP BY</span> <span class="z-constant z-other z-database-name z-sql">adm</span>.<span class="z-constant z-other z-table-name z-sql">week</span>
+</span><span class="z-source z-sql">;
+</span></code></pre>
+<p>And the output is exactly what I need!</p>
+<table><thead><tr><th style="text-align: right">week</th><th style="text-align: right">starting</th><th style="text-align: right">sun</th><th style="text-align: right">mon</th><th style="text-align: right">tue</th><th style="text-align: right">wed</th><th style="text-align: right">thu</th><th style="text-align: right">fri</th><th style="text-align: right">sat</th></tr></thead><tbody>
+<tr><td style="text-align: right">2024-26</td><td style="text-align: right">2024-06-30</td><td style="text-align: right"></td><td style="text-align: right"></td><td style="text-align: right"></td><td style="text-align: right"></td><td style="text-align: right">1270</td><td style="text-align: right">1024</td><td style="text-align: right">1292</td></tr>
+<tr><td style="text-align: right">2024-27</td><td style="text-align: right">2024-07-07</td><td style="text-align: right">2426</td><td style="text-align: right">1303</td><td style="text-align: right">680</td><td style="text-align: right">529</td><td style="text-align: right">1648</td><td style="text-align: right">3459</td><td style="text-align: right">2538</td></tr>
+<tr><td style="text-align: right">2024-28</td><td style="text-align: right">2024-07-14</td><td style="text-align: right">1145</td><td style="text-align: right"></td><td style="text-align: right">640</td><td style="text-align: right"></td><td style="text-align: right">7694</td><td style="text-align: right">5693</td><td style="text-align: right">3277</td></tr>
+<tr><td style="text-align: right">2024-29</td><td style="text-align: right">2024-07-21</td><td style="text-align: right">7504</td><td style="text-align: right">1559</td><td style="text-align: right">1000</td><td style="text-align: right">4181</td><td style="text-align: right">2972</td><td style="text-align: right">1888</td><td style="text-align: right">480</td></tr>
+<tr><td style="text-align: right">2024-30</td><td style="text-align: right">2024-07-28</td><td style="text-align: right">1778</td><td style="text-align: right">7850</td><td style="text-align: right">2643</td><td style="text-align: right">1700</td><td style="text-align: right">3767</td><td style="text-align: right">2111</td><td style="text-align: right">5596</td></tr>
+<tr><td style="text-align: right">2024-31</td><td style="text-align: right">2024-08-04</td><td style="text-align: right">6533</td><td style="text-align: right">6608</td><td style="text-align: right">1464</td><td style="text-align: right">830</td><td style="text-align: right">5405</td><td style="text-align: right">6502</td><td style="text-align: right">6875</td></tr>
+</tbody></table>
+<div class="admonition info">
+    <div class="admonition-icon admonition-icon-info"></div>
+    <div class="admonition-content">
+        <strong class="admonition-title">INFO</strong>
+        <p>Calmap usually have weekdays as rows. Fixed columns are much easier in SQL - hence my choice of query above.</p>
+
+    </div>
+</div>
+
+        </section>
+
+        
+                
+                
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div></div>
+                <div><a href="https://vsbabu.org/blog/separate_git_branches_for_inout/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Git branches for content and output</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/#Basics">Basics</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/#Querying_with_CTEs">Querying with CTEs</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://vsbabu.org/js/copyCodeToClipboard.min.js"></script>
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel=""  href="https://vsbabu.org/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://vsbabu.org/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="https://vsbabu.org/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://vsbabu.org/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="https://vsbabu.org/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="https://vsbabu.org/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me"  href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="https://vsbabu.org/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel=""  href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel=""  href="https://github.com/welpo/tabi">tabi</a>
+
+                </small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>
