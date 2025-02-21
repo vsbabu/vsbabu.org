@@ -21,7 +21,7 @@ Let us create a new database and add a table that has just three columns, viz., 
 
 ```sh
 sqlite3 metrics.db
-> CREATE TABLE metric (id TEXT NOT NULL PRIMARY KEY,  dt TEXT, meter NUMERIC);
+> CREATE TABLE meter (id TEXT NOT NULL PRIMARY KEY,  dt TEXT, metric NUMERIC);
 > CREATE INDEX idx_dt ON meter(dt);
 >.q
 ```
@@ -58,13 +58,13 @@ WITH RECURSIVE
   metric AS (
     -- In this one, I am grouping meter by day into daily values as sums.
     SELECT
-    date(x.dt) AS dt, SUM(x.meter) val FROM params p, metric x
+    date(x.dt) AS dt, SUM(x.metric) val FROM params p, meter x
     WHERE date(x.dt) BETWEEN p.begin_cal AND p.end_cal
     GROUP BY x.dt
   ),
   -- [5] This CTE fills up dates with corresponding metric data if it exists
   all_dates_metric AS (
-    SELECT ad.week, ad.dt, m.val from all_dates ad LEFT JOIN metric  m
+    SELECT ad.week, ad.dt, m.val from all_dates ad LEFT JOIN meter  m
     ON ad.dt = m.dt
   )
   -- [6] Now fold the metrics by date into weeks as calendar visualization
