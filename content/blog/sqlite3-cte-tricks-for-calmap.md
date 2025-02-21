@@ -55,7 +55,7 @@ WITH RECURSIVE
   FROM bounds, all_dates where  dt < bounds.end_sat
   ),
   -- [4] THIS IS YOUR CTE FOR GETTING METRICS 
-  metric AS (
+  meter_summary AS (
     -- In this one, I am grouping meter by day into daily values as sums.
     SELECT
     date(x.dt) AS dt, SUM(x.metric) val FROM params p, meter x
@@ -64,7 +64,7 @@ WITH RECURSIVE
   ),
   -- [5] This CTE fills up dates with corresponding metric data if it exists
   all_dates_metric AS (
-    SELECT ad.week, ad.dt, m.val from all_dates ad LEFT JOIN meter  m
+    SELECT ad.week, ad.dt, m.val from all_dates ad LEFT JOIN meter_summary  m
     ON ad.dt = m.dt
   )
   -- [6] Now fold the metrics by date into weeks as calendar visualization
