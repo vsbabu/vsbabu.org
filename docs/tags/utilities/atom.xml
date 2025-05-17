@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,8 +28,7 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/xsv_cookbook/" type="text/html"/>
         <id>https://vsbabu.org/blog/xsv_cookbook/</id>
-        <summary type="html">XSV is an extremely fast CLI utility to process csv/tsv/psv files. Extremely helpful to automate data extraction, format conversions, filters etc.
-It comes with an extensive man page and website also has great documentation. Still, noting down some of the common ways I use it below…</summary>
+        <summary type="html">Recipes I usually use with XSV - swiss army knife for field separated files</summary>
         </entry><entry xml:lang="en">
         <title>Generate docs - the unix way</title>
         <published>2020-06-22T08:00:00+05:30</published>
@@ -38,11 +38,7 @@ It comes with an extensive man page and website also has great documentation. St
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/gen_docs_unix_way/" type="text/html"/>
         <id>https://vsbabu.org/blog/gen_docs_unix_way/</id>
-        <summary type="html">As programmers, lot of us find it easier to just type content using text based formats
-like markdown. However, we need to often share these as pdf, Word etc to our colleagues.
-Quite often, we may need to create several documents that have same content across the documents. A
-simple example is a copyright footer or even an intro paragraph about your work.
-A short walkthrough using venerable tools like make, m4 and pandoc to get this done follows…</summary>
+        <summary type="html">Or connecting tools with make</summary>
         </entry><entry xml:lang="en">
         <title>Leo + Sphinx = painless documentation</title>
         <published>2020-03-31T08:00:00+05:30</published>
@@ -52,11 +48,7 @@ A short walkthrough using venerable tools like make, m4 and pandoc to get this d
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/leo_rst_sphinx/" type="text/html"/>
         <id>https://vsbabu.org/blog/leo_rst_sphinx/</id>
-        <summary type="html">Writing documentation, be it for your user manual or for design, is a black and white
-task. Either you love it or you hate it!
-If you love it, chances are that you prefer coding it in a distraction free environment
-with simple markup, rather than using Word processing tools. Here is how you can do
-it very easily…</summary>
+        <summary type="html">Awesome combination to make it easier to write documentation.</summary>
         </entry><entry xml:lang="en">
         <title>Gmail : GUI for your backend!</title>
         <published>2020-03-27T08:00:00+05:30</published>
@@ -66,11 +58,6 @@ it very easily…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/gmail_fetchproc/" type="text/html"/>
         <id>https://vsbabu.org/blog/gmail_fetchproc/</id>
-        <summary type="html">Often, we have a need to collect data from customers. Immediate thinking is to
-make an app change, push it up to store, get people to upgrade (doesn’t
-happen!) and then pray. A little more savvy version of this is making a web app
-and then send the links with a uuid based customer identification.
-Why not just ask users to email you the data? People know how to use email! Following snippet shows  how easy
-it is to automate fetching the data and then sending to a script to process…</summary>
+        <summary type="html">Why build an app if you can use GMAIL to get data?</summary>
         </entry>
 </feed>

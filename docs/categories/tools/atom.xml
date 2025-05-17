@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,6 +28,6 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/separate_git_branches_for_inout/" type="text/html"/>
         <id>https://vsbabu.org/blog/separate_git_branches_for_inout/</id>
-        <summary type="html">Github supports static website publishing of gh-pages branch in your repository. It can even support CNAME entries to point your domain to it. This idea is pretty good if you want to maintain content and output in two separate branches. The following note explains the flow of commands to set this up in a local repository. You will need to add a push to remote step for Github repositories…</summary>
+        <summary type="html">Noting down a command snippet for my workflow. I maintain my markdown&#x2F;org files in a main branch and publish the generated ones to gh-pages branch.</summary>
         </entry>
 </feed>

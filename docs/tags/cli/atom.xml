@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,9 +28,7 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/remind/" type="text/html"/>
         <id>https://vsbabu.org/blog/remind/</id>
-        <summary type="html">remind is a classic command line unix utility. A very simple collection of text
-files hold all your reminders in a readable format. Let us make a quick cron job
-using this to send daily notification emails…</summary>
+        <summary type="html">Just don&#x27;t forget anything - use this wonderful little Unix tool that runs on plain text.</summary>
         </entry><entry xml:lang="en">
         <title>SQLite3 CTE tricks for time series analysis</title>
         <published>2018-10-25T06:00:00+05:30</published>
@@ -39,10 +38,7 @@ using this to send daily notification emails…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/" type="text/html"/>
         <id>https://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/</id>
-        <summary type="html">SQL has been there for ages. sqlite3 gives you a
-phenomenal tool to quickly load and analyse data in a  language meant for that.
-While I’ve used it for a long time, only recently did I know about support for
-CTE aka Common Table Expressions…</summary>
+        <summary type="html">Hands on analyze git log data with SQLite3 CTEs!</summary>
         </entry><entry xml:lang="en">
         <title>Quick development envs with Docker</title>
         <published>2018-06-06T06:00:00+05:30</published>

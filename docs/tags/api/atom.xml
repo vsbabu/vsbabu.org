@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,15 +28,7 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/sql_to_json_with_psql/" type="text/html"/>
         <id>https://vsbabu.org/blog/sql_to_json_with_psql/</id>
-        <summary type="html">So, you have a postgresql production database with a
-slave instance being used for reports and ad-hoc queries. Every
-now and then you get the same kind of data requests, but for
-different customers, orders etc. Instead of sharing SQL templates
-to different users and  getting them setup to query, it is very
-easy to make quick shell scripts that output JSON formatted data.  Then, you can easily have your web developers build UI for search and display.
-Read on to install local database using docker, fill it up with sample
-data, script psql, then enhance it to wrap with JSONification and
-finally hooking up script to be an API…</summary>
+        <summary type="html">You can easily format your query output as JSON!</summary>
         </entry><entry xml:lang="en">
         <title>Are we there yet?</title>
         <published>2019-09-09T06:00:00+05:30</published>
@@ -45,7 +38,7 @@ finally hooking up script to be an API…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/are_we_there_yet/" type="text/html"/>
         <id>https://vsbabu.org/blog/are_we_there_yet/</id>
-        <summary type="html">What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations…</summary>
+        <summary type="html">Scaling time triggered checks without crons crawling all over!</summary>
         </entry><entry xml:lang="en">
         <title>Cook your Scripts to APIs in 5 minutes</title>
         <published>2019-08-27T06:00:00+05:30</published>
@@ -55,7 +48,6 @@ finally hooking up script to be an API…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/node_red_api/" type="text/html"/>
         <id>https://vsbabu.org/blog/node_red_api/</id>
-        <summary type="html">node-red can be used to quickly convert your shell scripts
-into functioning APIs…</summary>
+        <summary type="html">node-red is a fantastic tool for various stuff; here a super useful unconventional usecase for it.</summary>
         </entry>
 </feed>

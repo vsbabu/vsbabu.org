@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,6 +28,6 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/eng_leader_checklist/" type="text/html"/>
         <id>https://vsbabu.org/blog/eng_leader_checklist/</id>
-        <summary type="html">This is generally the mindmap I follow when leading a team/org. Sharing, if it helps any others building/leading an engineering team. Depending upon where the team, product are and how my own skills fit into the mix, I used to assign different priorities to these leaf nodes and then track on a weekly basis to reflect and re-assign priorities and identify next actions/goals…</summary>
+        <summary type="html">General mindmap I follow while leading an engineering team or organization.</summary>
         </entry>
 </feed>

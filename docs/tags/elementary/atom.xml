@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,6 +28,6 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/elementary_hera_postinstall/" type="text/html"/>
         <id>https://vsbabu.org/blog/elementary_hera_postinstall/</id>
-        <summary type="html">Quick snippets and utils that I use to get going once OS install is complete…</summary>
+        <summary type="html">My installs after a fresh install of this beautiful OS.</summary>
         </entry>
 </feed>

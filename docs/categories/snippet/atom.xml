@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,8 +28,7 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/xsv_cookbook/" type="text/html"/>
         <id>https://vsbabu.org/blog/xsv_cookbook/</id>
-        <summary type="html">XSV is an extremely fast CLI utility to process csv/tsv/psv files. Extremely helpful to automate data extraction, format conversions, filters etc.
-It comes with an extensive man page and website also has great documentation. Still, noting down some of the common ways I use it below…</summary>
+        <summary type="html">Recipes I usually use with XSV - swiss army knife for field separated files</summary>
         </entry><entry xml:lang="en">
         <title>Generate fake data to test performance</title>
         <published>2020-09-21T08:00:00+05:30</published>
@@ -38,14 +38,7 @@ It comes with an extensive man page and website also has great documentation. St
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/docker_mysql_data/" type="text/html"/>
         <id>https://vsbabu.org/blog/docker_mysql_data/</id>
-        <summary type="html">Often when we develop, we end up testing on our local machines with very few records
-in the database. Performance testing, re-architecting your solution for scale etc needs lot of data
-already present in the db - concurrently adding or updating 1000 records to an empty table is very different
-from doing it when table already has few million records.
-It is actually quite simple to generate fake data and load it into a database. To simulate
-extreme stress, you don’t need to generate obscene loads - you can reduce your available capacity
-to small CPU/RAM and get the same effect with moderate loads.
-Read below to see snippet code on how to do the first part - getting a database up (docker + mariadb), generating data (python), loading it (usql) and then changing database capacity  (docker) to see what you need to tune…</summary>
+        <summary type="html">I can&#x27;t really test for scale because we don&#x27;t have enough data</summary>
         </entry><entry xml:lang="en">
         <title>1to10: doom-emacs and org-roam, gpg</title>
         <published>2020-08-02T08:00:00+05:30</published>
@@ -55,11 +48,7 @@ Read below to see snippet code on how to do the first part - getting a database 
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/doom_emacs_org_1_to_10/" type="text/html"/>
         <id>https://vsbabu.org/blog/doom_emacs_org_1_to_10/</id>
-        <summary type="html">Already setup doom-emacs and started with org-mode? If not, read my
-previous article on 0to1: doom-emacs and org-mode.
-Since then, I’ve also started using org-roam, which is an emacs implementation
-of roamresearch.com’s note taking tool. Following are my notes on how to get this going.
-Also, how to encrypt part of your notes using gpg…</summary>
+        <summary type="html">Note your thoughts with least friction!</summary>
         </entry><entry xml:lang="en">
         <title>Generate docs - the unix way</title>
         <published>2020-06-22T08:00:00+05:30</published>
@@ -69,11 +58,7 @@ Also, how to encrypt part of your notes using gpg…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/gen_docs_unix_way/" type="text/html"/>
         <id>https://vsbabu.org/blog/gen_docs_unix_way/</id>
-        <summary type="html">As programmers, lot of us find it easier to just type content using text based formats
-like markdown. However, we need to often share these as pdf, Word etc to our colleagues.
-Quite often, we may need to create several documents that have same content across the documents. A
-simple example is a copyright footer or even an intro paragraph about your work.
-A short walkthrough using venerable tools like make, m4 and pandoc to get this done follows…</summary>
+        <summary type="html">Or connecting tools with make</summary>
         </entry><entry xml:lang="en">
         <title>0to1: doom-emacs and org-mode</title>
         <published>2020-06-15T08:00:00+05:30</published>
@@ -83,21 +68,7 @@ A short walkthrough using venerable tools like make, m4 and pandoc to get this d
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/doom_emacs_org_0_to_1/" type="text/html"/>
         <id>https://vsbabu.org/blog/doom_emacs_org_0_to_1/</id>
-        <summary type="html">Are you like me?
-
-Know VIM/VI enough
-Heard about emacs and org-mode
-Tried it and got turned off by so many commands
-Read too much documentation
-Spent hours configuring these :)
-Thumb started aching with C and M multi-key combinations
-Tried Spacemacs
-Went back to VIM
-
-If yes, this is how I crossed over to actually using org-mode productively to maintain my notes, projects and todo.
-doom-emacs is the framework I used. It is superfast, has sane keys and UX
-and configuration does not need you to read and practice emacs.
-Following is a 0to1 guide that  ideally should’ve been more interesting with screenshots, but keeping it as copy-pastable text!…</summary>
+        <summary type="html">Heard about org-mode, but afraid of emacs? I was. Here is how to get going!</summary>
         </entry><entry xml:lang="en">
         <title>Customize your Video on Conferencing</title>
         <published>2020-04-12T08:00:00+05:30</published>
@@ -107,14 +78,7 @@ Following is a 0to1 guide that  ideally should’ve been more interesting with s
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/video_conf_port/" type="text/html"/>
         <id>https://vsbabu.org/blog/video_conf_port/</id>
-        <summary type="html">For the last few weeks, whole world has been under various measures of lockdown. WFH (Working from home)
-and VC (Video Calls) have been the norm. One of the pet peeves I had with various VC tools used (Google
-Meet, Zoom etc) is that there is zero customization offered on choosing the output feed from your camera.
-For most video calls, just face is enough - why bother with rest of the image? It also helps you in summer
-to be little more relaxed with informal clothing; plus cute moments like children running into video feed
-can be avoided.
-This is what I got my feed to be - read below on how to set it up.
-…</summary>
+        <summary type="html">World is doing WFH and Video Conferencing. Let us make it a bit more private</summary>
         </entry><entry xml:lang="en">
         <title>Leo + Sphinx = painless documentation</title>
         <published>2020-03-31T08:00:00+05:30</published>
@@ -124,11 +88,7 @@ This is what I got my feed to be - read below on how to set it up.
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/leo_rst_sphinx/" type="text/html"/>
         <id>https://vsbabu.org/blog/leo_rst_sphinx/</id>
-        <summary type="html">Writing documentation, be it for your user manual or for design, is a black and white
-task. Either you love it or you hate it!
-If you love it, chances are that you prefer coding it in a distraction free environment
-with simple markup, rather than using Word processing tools. Here is how you can do
-it very easily…</summary>
+        <summary type="html">Awesome combination to make it easier to write documentation.</summary>
         </entry><entry xml:lang="en">
         <title>Gmail : GUI for your backend!</title>
         <published>2020-03-27T08:00:00+05:30</published>
@@ -138,12 +98,7 @@ it very easily…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/gmail_fetchproc/" type="text/html"/>
         <id>https://vsbabu.org/blog/gmail_fetchproc/</id>
-        <summary type="html">Often, we have a need to collect data from customers. Immediate thinking is to
-make an app change, push it up to store, get people to upgrade (doesn’t
-happen!) and then pray. A little more savvy version of this is making a web app
-and then send the links with a uuid based customer identification.
-Why not just ask users to email you the data? People know how to use email! Following snippet shows  how easy
-it is to automate fetching the data and then sending to a script to process…</summary>
+        <summary type="html">Why build an app if you can use GMAIL to get data?</summary>
         </entry><entry xml:lang="en">
         <title>Calendar Heatmaps from Dataframes</title>
         <published>2020-03-18T08:00:00+05:30</published>
@@ -153,16 +108,7 @@ it is to automate fetching the data and then sending to a script to process…</
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/calmap_vis/" type="text/html"/>
         <id>https://vsbabu.org/blog/calmap_vis/</id>
-        <summary type="html">Github contrib
-map
-is such a great visualization to see the activity over a year. There are several
-javascript versions of this that provide interactive visualizations on the data;
-but when you don’t need interactivity and want to just visualize multiple data
-points over same time axis to see any trends,
-Calmap is a super simple library that can
-generate those.
-Continue to see what we can make with our own data!
-Update May 28, 2020 - code using this is added to my covid 19 tracker repo with actual output…</summary>
+        <summary type="html">GitHub popularized this form contrib heatmaps. Calmap makes it easy to make!</summary>
         </entry><entry xml:lang="en">
         <title>Elementary OS - Hera 5.1 post install</title>
         <published>2020-03-08T08:00:00+05:30</published>
@@ -172,6 +118,6 @@ Update May 28, 2020 - code using this is added to my covid 19 tracker repo with 
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/elementary_hera_postinstall/" type="text/html"/>
         <id>https://vsbabu.org/blog/elementary_hera_postinstall/</id>
-        <summary type="html">Quick snippets and utils that I use to get going once OS install is complete…</summary>
+        <summary type="html">My installs after a fresh install of this beautiful OS.</summary>
         </entry>
 </feed>

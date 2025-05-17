@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,12 +28,6 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/vscode_git/" type="text/html"/>
         <id>https://vsbabu.org/blog/vscode_git/</id>
-        <summary type="html">Though I prefer VIM, I’ve been using Visual Studio Code also a lot for a year. It is quite fast,
-has a great python code/debug environment and has beautiful font rendering on linux. I also use git
-a lot and often look for different UIs to deal with it rather than remember all the commands. gitk, gitg,
-tig, git-cola etc are some of the things I’ve used before. However, VSCode supports a very useful environment
-right out of the box. Add a small extension git-graph, and I am all set.
-Following is a quick screenshot tour that explains various features.
-…</summary>
+        <summary type="html">Why search for that perfect git gui? Use VS Code!</summary>
         </entry>
 </feed>

@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,9 +28,7 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/" type="text/html"/>
         <id>https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/</id>
-        <summary type="html">If you are new to sqlite3 or to CTEs, check the first part, timeseries analysis with CTEs.
-Now, let us assume that you’ve a table that has some metrics. If you don’t have one, you can checkout meterite, my project to log
-metrics into a sqlite3 table :). For this article, we will assume a simple one…</summary>
+        <summary type="html">Data grouped by dates can easily be printed like GitHup contribution maps by weeks.</summary>
         </entry><entry xml:lang="en">
         <title>Generate JSON from PostgreSQL</title>
         <published>2020-05-13T14:00:00+05:30</published>
@@ -39,15 +38,7 @@ metrics into a sqlite3 table :). For this article, we will assume a simple one�
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/sql_to_json_with_psql/" type="text/html"/>
         <id>https://vsbabu.org/blog/sql_to_json_with_psql/</id>
-        <summary type="html">So, you have a postgresql production database with a
-slave instance being used for reports and ad-hoc queries. Every
-now and then you get the same kind of data requests, but for
-different customers, orders etc. Instead of sharing SQL templates
-to different users and  getting them setup to query, it is very
-easy to make quick shell scripts that output JSON formatted data.  Then, you can easily have your web developers build UI for search and display.
-Read on to install local database using docker, fill it up with sample
-data, script psql, then enhance it to wrap with JSONification and
-finally hooking up script to be an API…</summary>
+        <summary type="html">You can easily format your query output as JSON!</summary>
         </entry><entry xml:lang="en">
         <title>Weekwise Anomaly Visualization</title>
         <published>2020-05-04T21:00:00+05:30</published>
@@ -57,16 +48,7 @@ finally hooking up script to be an API…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/weekwise_anomaly_detection/" type="text/html"/>
         <id>https://vsbabu.org/blog/weekwise_anomaly_detection/</id>
-        <summary type="html">Update May 28, 2020 - code using this is added to my covid 19 tracker repo with actual output
-I find looking at daily numbers folded by week (ie. Mon to Sun in one row) for last 8
-weeks a good way to look at the data. Especially if multiple tables are put one below
-the other for the same period, it is easy to identify patterns. Sample tables in a typical
-e-Commerce system could be orders, shipments, payment_failures etc.
-Instead of looking at this manually, why not use ML to automatically highlight anomalies? I tried
-various things with hand coded models first, then ARIMA and finally settled on FBProphet library.
-Read below to see how a simple system can be built with publicly available data. Bonus - if you have
-not used jq and xsv, you can see how cool those are too.
-…</summary>
+        <summary type="html">Many metrics are easier to visualize as a weekly table. Add anomaly highlights to that as well!</summary>
         </entry><entry xml:lang="en">
         <title>VS Code as Git GUI</title>
         <published>2020-04-29T08:00:00+05:30</published>
@@ -76,13 +58,7 @@ not used jq and xsv, you can see how cool those are too.
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/vscode_git/" type="text/html"/>
         <id>https://vsbabu.org/blog/vscode_git/</id>
-        <summary type="html">Though I prefer VIM, I’ve been using Visual Studio Code also a lot for a year. It is quite fast,
-has a great python code/debug environment and has beautiful font rendering on linux. I also use git
-a lot and often look for different UIs to deal with it rather than remember all the commands. gitk, gitg,
-tig, git-cola etc are some of the things I’ve used before. However, VSCode supports a very useful environment
-right out of the box. Add a small extension git-graph, and I am all set.
-Following is a quick screenshot tour that explains various features.
-…</summary>
+        <summary type="html">Why search for that perfect git gui? Use VS Code!</summary>
         </entry><entry xml:lang="en">
         <title>Remind - it does what it&#x27;s name says!</title>
         <published>2020-03-03T06:00:00+05:30</published>
@@ -92,9 +68,7 @@ Following is a quick screenshot tour that explains various features.
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/remind/" type="text/html"/>
         <id>https://vsbabu.org/blog/remind/</id>
-        <summary type="html">remind is a classic command line unix utility. A very simple collection of text
-files hold all your reminders in a readable format. Let us make a quick cron job
-using this to send daily notification emails…</summary>
+        <summary type="html">Just don&#x27;t forget anything - use this wonderful little Unix tool that runs on plain text.</summary>
         </entry><entry xml:lang="en">
         <title>Are we there yet?</title>
         <published>2019-09-09T06:00:00+05:30</published>
@@ -104,7 +78,7 @@ using this to send daily notification emails…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/are_we_there_yet/" type="text/html"/>
         <id>https://vsbabu.org/blog/are_we_there_yet/</id>
-        <summary type="html">What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations…</summary>
+        <summary type="html">Scaling time triggered checks without crons crawling all over!</summary>
         </entry><entry xml:lang="en">
         <title>Cook your Scripts to APIs in 5 minutes</title>
         <published>2019-08-27T06:00:00+05:30</published>
@@ -114,8 +88,7 @@ using this to send daily notification emails…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/node_red_api/" type="text/html"/>
         <id>https://vsbabu.org/blog/node_red_api/</id>
-        <summary type="html">node-red can be used to quickly convert your shell scripts
-into functioning APIs…</summary>
+        <summary type="html">node-red is a fantastic tool for various stuff; here a super useful unconventional usecase for it.</summary>
         </entry><entry xml:lang="en">
         <title>SQLite3 CTE tricks for time series analysis</title>
         <published>2018-10-25T06:00:00+05:30</published>
@@ -125,10 +98,7 @@ into functioning APIs…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/" type="text/html"/>
         <id>https://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/</id>
-        <summary type="html">SQL has been there for ages. sqlite3 gives you a
-phenomenal tool to quickly load and analyse data in a  language meant for that.
-While I’ve used it for a long time, only recently did I know about support for
-CTE aka Common Table Expressions…</summary>
+        <summary type="html">Hands on analyze git log data with SQLite3 CTEs!</summary>
         </entry><entry xml:lang="en">
         <title>Quick development envs with Docker</title>
         <published>2018-06-06T06:00:00+05:30</published>

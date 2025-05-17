@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,9 +28,7 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/" type="text/html"/>
         <id>https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/</id>
-        <summary type="html">If you are new to sqlite3 or to CTEs, check the first part, timeseries analysis with CTEs.
-Now, let us assume that you’ve a table that has some metrics. If you don’t have one, you can checkout meterite, my project to log
-metrics into a sqlite3 table :). For this article, we will assume a simple one…</summary>
+        <summary type="html">Data grouped by dates can easily be printed like GitHup contribution maps by weeks.</summary>
         </entry><entry xml:lang="en">
         <title>Generate JSON from PostgreSQL</title>
         <published>2020-05-13T14:00:00+05:30</published>
@@ -39,15 +38,7 @@ metrics into a sqlite3 table :). For this article, we will assume a simple one�
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/sql_to_json_with_psql/" type="text/html"/>
         <id>https://vsbabu.org/blog/sql_to_json_with_psql/</id>
-        <summary type="html">So, you have a postgresql production database with a
-slave instance being used for reports and ad-hoc queries. Every
-now and then you get the same kind of data requests, but for
-different customers, orders etc. Instead of sharing SQL templates
-to different users and  getting them setup to query, it is very
-easy to make quick shell scripts that output JSON formatted data.  Then, you can easily have your web developers build UI for search and display.
-Read on to install local database using docker, fill it up with sample
-data, script psql, then enhance it to wrap with JSONification and
-finally hooking up script to be an API…</summary>
+        <summary type="html">You can easily format your query output as JSON!</summary>
         </entry><entry xml:lang="en">
         <title>SQLite3 CTE tricks for time series analysis</title>
         <published>2018-10-25T06:00:00+05:30</published>
@@ -57,9 +48,6 @@ finally hooking up script to be an API…</summary>
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/" type="text/html"/>
         <id>https://vsbabu.org/blog/sqlite3-cte-tricks-for-time-series-analysis/</id>
-        <summary type="html">SQL has been there for ages. sqlite3 gives you a
-phenomenal tool to quickly load and analyse data in a  language meant for that.
-While I’ve used it for a long time, only recently did I know about support for
-CTE aka Common Table Expressions…</summary>
+        <summary type="html">Hands on analyze git log data with SQLite3 CTEs!</summary>
         </entry>
 </feed>

@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,13 +28,6 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/docker_mysql_data/" type="text/html"/>
         <id>https://vsbabu.org/blog/docker_mysql_data/</id>
-        <summary type="html">Often when we develop, we end up testing on our local machines with very few records
-in the database. Performance testing, re-architecting your solution for scale etc needs lot of data
-already present in the db - concurrently adding or updating 1000 records to an empty table is very different
-from doing it when table already has few million records.
-It is actually quite simple to generate fake data and load it into a database. To simulate
-extreme stress, you don’t need to generate obscene loads - you can reduce your available capacity
-to small CPU/RAM and get the same effect with moderate loads.
-Read below to see snippet code on how to do the first part - getting a database up (docker + mariadb), generating data (python), loading it (usql) and then changing database capacity  (docker) to see what you need to tune…</summary>
+        <summary type="html">I can&#x27;t really test for scale because we don&#x27;t have enough data</summary>
         </entry>
 </feed>

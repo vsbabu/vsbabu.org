@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,14 +28,7 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/video_conf_port/" type="text/html"/>
         <id>https://vsbabu.org/blog/video_conf_port/</id>
-        <summary type="html">For the last few weeks, whole world has been under various measures of lockdown. WFH (Working from home)
-and VC (Video Calls) have been the norm. One of the pet peeves I had with various VC tools used (Google
-Meet, Zoom etc) is that there is zero customization offered on choosing the output feed from your camera.
-For most video calls, just face is enough - why bother with rest of the image? It also helps you in summer
-to be little more relaxed with informal clothing; plus cute moments like children running into video feed
-can be avoided.
-This is what I got my feed to be - read below on how to set it up.
-…</summary>
+        <summary type="html">World is doing WFH and Video Conferencing. Let us make it a bit more private</summary>
         </entry><entry xml:lang="en">
         <title>Elementary OS - Hera 5.1 post install</title>
         <published>2020-03-08T08:00:00+05:30</published>
@@ -44,6 +38,6 @@ This is what I got my feed to be - read below on how to set it up.
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/elementary_hera_postinstall/" type="text/html"/>
         <id>https://vsbabu.org/blog/elementary_hera_postinstall/</id>
-        <summary type="html">Quick snippets and utils that I use to get going once OS install is complete…</summary>
+        <summary type="html">My installs after a fresh install of this beautiful OS.</summary>
         </entry>
 </feed>

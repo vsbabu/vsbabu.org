@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,9 +28,7 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/" type="text/html"/>
         <id>https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/</id>
-        <summary type="html">If you are new to sqlite3 or to CTEs, check the first part, timeseries analysis with CTEs.
-Now, let us assume that you’ve a table that has some metrics. If you don’t have one, you can checkout meterite, my project to log
-metrics into a sqlite3 table :). For this article, we will assume a simple one…</summary>
+        <summary type="html">Data grouped by dates can easily be printed like GitHup contribution maps by weeks.</summary>
         </entry><entry xml:lang="en">
         <title>Weekwise Anomaly Visualization</title>
         <published>2020-05-04T21:00:00+05:30</published>
@@ -39,16 +38,7 @@ metrics into a sqlite3 table :). For this article, we will assume a simple one�
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/weekwise_anomaly_detection/" type="text/html"/>
         <id>https://vsbabu.org/blog/weekwise_anomaly_detection/</id>
-        <summary type="html">Update May 28, 2020 - code using this is added to my covid 19 tracker repo with actual output
-I find looking at daily numbers folded by week (ie. Mon to Sun in one row) for last 8
-weeks a good way to look at the data. Especially if multiple tables are put one below
-the other for the same period, it is easy to identify patterns. Sample tables in a typical
-e-Commerce system could be orders, shipments, payment_failures etc.
-Instead of looking at this manually, why not use ML to automatically highlight anomalies? I tried
-various things with hand coded models first, then ARIMA and finally settled on FBProphet library.
-Read below to see how a simple system can be built with publicly available data. Bonus - if you have
-not used jq and xsv, you can see how cool those are too.
-…</summary>
+        <summary type="html">Many metrics are easier to visualize as a weekly table. Add anomaly highlights to that as well!</summary>
         </entry><entry xml:lang="en">
         <title>Calendar Heatmaps from Dataframes</title>
         <published>2020-03-18T08:00:00+05:30</published>
@@ -58,15 +48,6 @@ not used jq and xsv, you can see how cool those are too.
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/calmap_vis/" type="text/html"/>
         <id>https://vsbabu.org/blog/calmap_vis/</id>
-        <summary type="html">Github contrib
-map
-is such a great visualization to see the activity over a year. There are several
-javascript versions of this that provide interactive visualizations on the data;
-but when you don’t need interactivity and want to just visualize multiple data
-points over same time axis to see any trends,
-Calmap is a super simple library that can
-generate those.
-Continue to see what we can make with our own data!
-Update May 28, 2020 - code using this is added to my covid 19 tracker repo with actual output…</summary>
+        <summary type="html">GitHub popularized this form contrib heatmaps. Calmap makes it easy to make!</summary>
         </entry>
 </feed>

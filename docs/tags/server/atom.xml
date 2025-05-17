@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,6 +28,6 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/are_we_there_yet/" type="text/html"/>
         <id>https://vsbabu.org/blog/are_we_there_yet/</id>
-        <summary type="html">What often starts as simple databases for simple solutions grow when business is growing. Business requirements also grow over time — after all, there is only so much that can be supported by frequent reports being monitored by people at regular intervals to alert others about possible situations…</summary>
+        <summary type="html">Scaling time triggered checks without crons crawling all over!</summary>
         </entry>
 </feed>

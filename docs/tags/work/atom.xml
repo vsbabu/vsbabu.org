@@ -2,6 +2,7 @@
 <?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
         <tabi:separator>
             •
         </tabi:separator>
@@ -27,13 +28,7 @@
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/vscode_git/" type="text/html"/>
         <id>https://vsbabu.org/blog/vscode_git/</id>
-        <summary type="html">Though I prefer VIM, I’ve been using Visual Studio Code also a lot for a year. It is quite fast,
-has a great python code/debug environment and has beautiful font rendering on linux. I also use git
-a lot and often look for different UIs to deal with it rather than remember all the commands. gitk, gitg,
-tig, git-cola etc are some of the things I’ve used before. However, VSCode supports a very useful environment
-right out of the box. Add a small extension git-graph, and I am all set.
-Following is a quick screenshot tour that explains various features.
-…</summary>
+        <summary type="html">Why search for that perfect git gui? Use VS Code!</summary>
         </entry><entry xml:lang="en">
         <title>Customize your Video on Conferencing</title>
         <published>2020-04-12T08:00:00+05:30</published>
@@ -43,13 +38,6 @@ Following is a quick screenshot tour that explains various features.
         </author>
         <link rel="alternate" href="https://vsbabu.org/blog/video_conf_port/" type="text/html"/>
         <id>https://vsbabu.org/blog/video_conf_port/</id>
-        <summary type="html">For the last few weeks, whole world has been under various measures of lockdown. WFH (Working from home)
-and VC (Video Calls) have been the norm. One of the pet peeves I had with various VC tools used (Google
-Meet, Zoom etc) is that there is zero customization offered on choosing the output feed from your camera.
-For most video calls, just face is enough - why bother with rest of the image? It also helps you in summer
-to be little more relaxed with informal clothing; plus cute moments like children running into video feed
-can be avoided.
-This is what I got my feed to be - read below on how to set it up.
-…</summary>
+        <summary type="html">World is doing WFH and Video Conferencing. Let us make it a bit more private</summary>
         </entry>
 </feed>
