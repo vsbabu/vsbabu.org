@@ -67,3 +67,8 @@ date_format = "%a %b %e, %Y"
 
 favicon = "favicon.ico"
 
+remote_repository_url = "https://github.com/vsbabu/vsbabu.org"
+remote_repository_git_platform = "auto"
+remote_repository_branch = "main"
+show_remote_changes = false
+show_remote_source = true
