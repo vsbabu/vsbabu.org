@@ -54,6 +54,10 @@
         <lastmod>2020-03-27T08:00:00+05:30</lastmod>
     </url>
     <url>
+        <loc>https://vsbabu.org/blog/google_appsheet_journalapp/</loc>
+        <lastmod>2025-11-08T11:30:00+05:30</lastmod>
+    </url>
+    <url>
         <loc>https://vsbabu.org/blog/leo_rst_sphinx/</loc>
         <lastmod>2020-03-31T08:00:00+05:30</lastmod>
     </url>
@@ -141,7 +145,13 @@
         <loc>https://vsbabu.org/tags/api/</loc>
     </url>
     <url>
+        <loc>https://vsbabu.org/tags/app/</loc>
+    </url>
+    <url>
         <loc>https://vsbabu.org/tags/cli/</loc>
+    </url>
+    <url>
+        <loc>https://vsbabu.org/tags/data/</loc>
     </url>
     <url>
         <loc>https://vsbabu.org/tags/database/</loc>
@@ -160,6 +170,9 @@
     </url>
     <url>
         <loc>https://vsbabu.org/tags/git/</loc>
+    </url>
+    <url>
+        <loc>https://vsbabu.org/tags/journal/</loc>
     </url>
     <url>
         <loc>https://vsbabu.org/tags/linux/</loc>

@@ -18,8 +18,18 @@
     <link href="https://vsbabu.org/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://vsbabu.org" rel="alternate" type="text/html"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-02-21T06:00:00+05:30</updated>
+    <updated>2025-11-08T11:30:00+05:30</updated>
     <id>https://vsbabu.org/atom.xml</id><entry xml:lang="en">
+        <title>Google Appsheet to build a quick journal app</title>
+        <published>2025-11-08T11:30:00+05:30</published>
+        <updated>2025-11-08T11:30:00+05:30</updated>
+        <author>
+            <name>Satheesh Vattekkat</name>
+        </author>
+        <link rel="alternate" href="https://vsbabu.org/blog/google_appsheet_journalapp/" type="text/html"/>
+        <id>https://vsbabu.org/blog/google_appsheet_journalapp/</id>
+        <summary type="html">Discovered Google Appsheet and built a super quick app for journalling.</summary>
+        </entry><entry xml:lang="en">
         <title>SQLite3 CTE for Calmap visualization</title>
         <published>2025-02-21T06:00:00+05:30</published>
         <updated>2025-02-21T06:00:00+05:30</updated>
