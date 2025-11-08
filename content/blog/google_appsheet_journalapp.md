@@ -17,7 +17,9 @@ tags = [ "app", "journal", "data"]
    </ul>") }}
 
 
-Only recently I learned about Google [appsheet](https://www.appsheet.com). Very quick, no-code way to build responsive web apps with automatic Google authentication. Perfect for building apps for intranet users. I took about 3 hours to build a personal app that helps me maintain a journal. First 2 hours were spent in reading docs and building the app and one hour to beautify it. Data is backed into a Google sheet. This is a screenshot tour of the app. There are plenty of tutorials, examples and videos on Appsheet site - so not repeating all those here. Only the specific things I ended up doing and things I still need to figure out are going to be here.
+Only recently I learned about Google [appsheet](https://www.appsheet.com). Very quick, no-code way to build responsive web apps with automatic Google authentication. Perfect for building apps for intranet users. I took about 3 hours to build a personal app that helps me maintain a journal. First 2 hours were spent in reading docs and building the app and one hour to beautify it. 
+
+Data is backed into a Google sheet. This is a screenshot tour of the app. There are plenty of tutorials, examples and videos on Appsheet site - so not repeating all those here. Only the specific things I ended up doing and things I still need to figure out are going to be here.
 
 
 <!-- more -->
