@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://vsbabu.org/">
+
+    
+    <title>
+~sv • Google Appsheet to build a quick journal app</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://vsbabu.org/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="https://vsbabu.org/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://vsbabu.org/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://vsbabu.org/main.css?h=6b1dda977391dad0c76e" />
+        <link rel="stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Discovered Google Appsheet and built a super quick app for journalling." />
+        <meta property="og:description" content="Discovered Google Appsheet and built a super quick app for journalling." />
+
+    
+
+    <meta property="og:title" content="Google Appsheet to build a quick journal app" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;vsbabu.org&#x2F;blog&#x2F;google_appsheet_journalapp&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="https://vsbabu.org/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://vsbabu.org/js/initializeTheme.min.js"></script>
+        <script defer src="https://vsbabu.org/js/themeSwitcher.min.js"></script>
+        <script defer src="https://vsbabu.org/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://vsbabu.org">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Google Appsheet to build a quick journal app
+        </h1>
+
+        <ul class="meta">
+
+            
+                <span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;vsbabu.org&#x2F;" class="u-url " title="Satheesh Vattekkat">Satheesh Vattekkat</a>
+</span>
+
+            
+                <li>8th Nov 2025</li><li title="959 words"><span class='separator' aria-hidden='true'>•</span>5 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/app/">app</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/journal/">journal</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/data/">data</a></li>
+        </ul>
+
+        <section class="body"><div class="admonition tip">
+    <div class="admonition-icon admonition-icon-tip"></div>
+    <div class="admonition-content">
+        <strong class="admonition-title">TIP</strong>
+        <ul>
+   <li>Personal Apps</li>
+   <li>Build prototypes than text heavy PRDs</li>
+   <li>Team Apps for quick data entry and view</li>
+   <li>CxO dashboard apps</li>
+   </ul>
+    </div>
+</div>
+<p>Only recently I learned about Google <a href="https://www.appsheet.com">appsheet</a>. Very quick, no-code way to build responsive web apps with automatic Google authentication. Perfect for building apps for intranet users. I took about 3 hours to build a personal app that helps me maintain a journal. First 2 hours were spent in reading docs and building the app and one hour to beautify it. Data is backed into a Google sheet. This is a screenshot tour of the app. There are plenty of tutorials, examples and videos on Appsheet site - so not repeating all those here. Only the specific things I ended up doing and things I still need to figure out are going to be here.</p>
+<span id="continue-reading"></span><h2 id="App_Requirements"><a class="header-anchor no-hover-padding" href="#App_Requirements" aria-label="Anchor link for: App_Requirements"><span class="link-icon" aria-hidden="true"></span></a>
+App Requirements</h2>
+<ol>
+<li>Should be very quick to enter an entry. I needed something that is like a personal twitter log. Just type in stuff with <em>@</em> and <em>#</em> prefixed as tags. Autocomplete would have been nice, but not needed. Google Keyboard with voice entry support is super useful. Quick way to record mood (reg, yellow, green) and optional GPS location.</li>
+<li>Timestamp is auto captured and should be editable on new entry.</li>
+<li>Should be able to select an entry and edit everything except original timestamp.</li>
+<li>Should be able to select an entry and duplicate it with timestamp alone defaulting to new time. Others are copied and editable.</li>
+<li>Should be able to select one or more entries and delete.</li>
+<li>Tags entered should be parsed out and available for filter.</li>
+<li>Visualization by latest 30 days as a list, calendar, mood and location.</li>
+<li>Should be able to edit Google Sheet standalone and data refreshed in the app.</li>
+<li>Offline data entry and sync should be nice</li>
+</ol>
+<p>All of these except one are available with no code in Appsheet. For parsing tags alone, I had to add a Google Sheets formula.</p>
+<h3 id="Landing_Page"><a class="header-anchor no-hover-padding" href="#Landing_Page" aria-label="Anchor link for: Landing_Page"><span class="link-icon" aria-hidden="true"></span></a>
+Landing Page</h3>
+<p><img src="https://vsbabu.org/blog/google_appsheet_journalapp/01_home.png" alt="Home Screen" /></p>
+<h3 id="“+”_Add_Entry"><a class="header-anchor no-hover-padding" href="#“+”_Add_Entry" aria-label="Anchor link for: “+”_Add_Entry"><span class="link-icon" aria-hidden="true"></span></a>
+“+” Add Entry</h3>
+<p><img src="https://vsbabu.org/blog/google_appsheet_journalapp/02_add.png" alt="Add" /></p>
+<p>Edit is similar. It has an additional action to duplicate selected entry.</p>
+<p><img src="https://vsbabu.org/blog/google_appsheet_journalapp/02_edit.png" alt="Edit" /></p>
+<h3 id="Calendar"><a class="header-anchor no-hover-padding" href="#Calendar" aria-label="Anchor link for: Calendar"><span class="link-icon" aria-hidden="true"></span></a>
+Calendar</h3>
+<p><img src="https://vsbabu.org/blog/google_appsheet_journalapp/03_cal.png" alt="Calendar" /></p>
+<p>Mood is a simple doughnut chart.</p>
+<p><img src="https://vsbabu.org/blog/google_appsheet_journalapp/04_mood.png" alt="Mood" /></p>
+<h3 id="Map"><a class="header-anchor no-hover-padding" href="#Map" aria-label="Anchor link for: Map"><span class="link-icon" aria-hidden="true"></span></a>
+Map</h3>
+<p><img src="https://vsbabu.org/blog/google_appsheet_journalapp/04_map.png" alt="Map" /></p>
+<h3 id="Search"><a class="header-anchor no-hover-padding" href="#Search" aria-label="Anchor link for: Search"><span class="link-icon" aria-hidden="true"></span></a>
+Search</h3>
+<p>All views from the bottom bar filters automatically to the search given. Here is the filtered map view.
+<img src="https://vsbabu.org/blog/google_appsheet_journalapp/05_search.png" alt="Search" /></p>
+<h3 id="Tag_list"><a class="header-anchor no-hover-padding" href="#Tag_list" aria-label="Anchor link for: Tag_list"><span class="link-icon" aria-hidden="true"></span></a>
+Tag list</h3>
+<p><img src="https://vsbabu.org/blog/google_appsheet_journalapp/06_menu.png" alt="Menu" /></p>
+<p>Clicking on a tag will take you to filtered tag list.
+<img src="https://vsbabu.org/blog/google_appsheet_journalapp/06_tags.png" alt="Tags" /></p>
+<p>I’d have preferred that it fills the search form at the top and then filters. That is still to be figured out.</p>
+<h2 id="App_Settings"><a class="header-anchor no-hover-padding" href="#App_Settings" aria-label="Anchor link for: App_Settings"><span class="link-icon" aria-hidden="true"></span></a>
+App Settings</h2>
+<p>Appsheet is not free to use. I had to go to app settings and mark category as <em>Personal Solution</em> and choose <em>Personal Use Only</em> checkbox.
+Because of that, I can’t distribute this. However, for Google Workspace users, monthly billing rates are reasonable to distribute to your own users especially considering super fast way to build apps with responsiveness and offline capability.</p>
+<p>Since you can refresh backing data independent of appsheet, your data warehouse jobs can augment the data behind the scenes to provide hybrid functionality apps that support real time, offline and large data summarized.</p>
+<h2 id="Data_Settings"><a class="header-anchor no-hover-padding" href="#Data_Settings" aria-label="Anchor link for: Data_Settings"><span class="link-icon" aria-hidden="true"></span></a>
+Data Settings</h2>
+<h3 id="Filtering"><a class="header-anchor no-hover-padding" href="#Filtering" aria-label="Anchor link for: Filtering"><span class="link-icon" aria-hidden="true"></span></a>
+Filtering</h3>
+<p>Appsheet supports <em>data sources</em> and <em>data slices</em> within those sources. My data source  was a Google Sheet and I created a slice with expression <code>[Date] &gt; (TODAY() - 30)</code> where <em>[Date]</em> is my column name to make a slice of latest 30 days of data.</p>
+<h3 id="Formula"><a class="header-anchor no-hover-padding" href="#Formula" aria-label="Anchor link for: Formula"><span class="link-icon" aria-hidden="true"></span></a>
+Formula</h3>
+<p>For parsing out tags, I had a column named <em>[Tags]</em> for which I added following formula in <em>Auto Compute</em> settings.</p>
+<pre class="z-code"><code><span class="z-text z-plain">trim(regexreplace(regexreplace(lower(RC[-4]),&quot;([#@][a-z0-9_]+)|(.)&quot;,&quot;$1 &quot;),&quot;\s+&quot;,&quot; &quot;))
+</span></code></pre>
+<p>This formula is copied to backing Google Sheet whenever a record is created. The formula is a regular expression that
+removes everything other than words starting with <em>@</em> or <em>#</em>. Inner one replaces other words by spaces and outer one
+squeezes spaces to just one space. So you get a space separated tag list in the <em>[Tag]</em> column.</p>
+<h3 id="Tag_list-1"><a class="header-anchor no-hover-padding" href="#Tag_list-1" aria-label="Anchor link for: Tag_list-1"><span class="link-icon" aria-hidden="true"></span></a>
+Tag list</h3>
+<p>For building the Tag List, a new tab called <em>Tags</em> in the backing Sheet was created. A formula was added to <em>A2</em> to
+get sorted unique list of tags (column F) from the sheet that stores journal entries.</p>
+<pre class="z-code"><code><span class="z-text z-plain">=SORT(UNIQUE(FLATTEN(ARRAYFORMULA(IFERROR(SPLIT(&#39;JournalEntries&#39;!F2:F, &quot; &quot;, TRUE, TRUE),&quot;&quot;)))))
+</span></code></pre>
+<p>In this tab, column B has the count - that is a simpler formula which takes value from tag column and does
+a wildcard count on column F (<em>Tag</em>) on entries sheet to check if tag is contained there. Since I don’t expect to have more than
+100 tags ever, just copied this cell formula to 100 rows.</p>
+<pre class="z-code"><code><span class="z-text z-plain">=IF(A2&lt;&gt;&quot;&quot;, COUNTIF(&#39;JournalEntries&#39;!F:F, &quot;*&quot;&amp;A2&amp;&quot;*&quot;),&quot;&quot;)
+</span></code></pre>
+<h2 id="What_Next"><a class="header-anchor no-hover-padding" href="#What_Next" aria-label="Anchor link for: What_Next"><span class="link-icon" aria-hidden="true"></span></a>
+What Next</h2>
+<ol>
+<li>Adding a mobile desktop icon. Currently I just navigate to this page and leave it open in a tab on the mobile browser. Mobile desktop icon automatically links only to overall appsheet site editor and not to particular app. Also, it somehow seems to loose my Google login, forcing me to login every time.</li>
+<li>The Map entry when you are recording an entry later is a bit difficult to use. Two finger scrolling doesn’t work on the map widget. So one has to zoom out, move the pin around, zoom in, place the pin etc. It seems to be designed specifically for “get current location” only. Workaround is to copy lat/long from Google Maps and  paste it.</li>
+<li>I am using timestamp as primary key - not good taste! Appsheet provides <code>UNIQUEID()</code> function which I should’ve used - too lazy to fix existing data with that.</li>
+<li>To distribute with an ability for people to create their own backing Google Sheet. This is critical for personal apps.</li>
+<li>It supports events and actions. Technically, that should be enough for me to schedule reminders too as a future journal - should be fun to implement.</li>
+</ol>
+<p>Overall, this is a fantastic platform.</p>
+
+        </section>
+
+        
+                
+                
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div></div>
+                <div><a href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">SQLite3 CTE for Calmap visualization</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#App_Requirements">App Requirements</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#Landing_Page">Landing Page</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#“+”_Add_Entry">“+” Add Entry</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#Calendar">Calendar</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#Map">Map</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#Search">Search</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#Tag_list">Tag list</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#App_Settings">App Settings</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#Data_Settings">Data Settings</a>
+                    
+                        <ul>
+                            
+                                
+                                    <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#Filtering">Filtering</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#Formula">Formula</a>
+                                        
+                                    </li>
+                                
+                            
+                                
+                                    <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#Tag_list-1">Tag list</a>
+                                        
+                                    </li>
+                                
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/google_appsheet_journalapp/#What_Next">What Next</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://vsbabu.org/js/copyCodeToClipboard.min.js"></script>
+
+
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="" 
+
+ href="https://vsbabu.org/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://vsbabu.org/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me" 
+
+ href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="https://vsbabu.org/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me" 
+
+ href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://vsbabu.org/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me" 
+
+ href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="https://vsbabu.org/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me" 
+
+ href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="https://vsbabu.org/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me" 
+
+ href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="https://vsbabu.org/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="" 
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="" 
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                •
+                    <a rel="" 
+
+ href="https:&#x2F;&#x2F;github.com&#x2F;vsbabu&#x2F;vsbabu.org">
+                        Site source
+                    </a></small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>

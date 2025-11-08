@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="https://vsbabu.org/feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <tabi:metadata xmlns:tabi="https://github.com/welpo/tabi">
+        <tabi:base_url>https:&#x2F;&#x2F;vsbabu.org&#x2F;</tabi:base_url>
+        <tabi:separator>
+            •
+        </tabi:separator>
+        <tabi:about_feeds>This is a web feed, also known as an Atom feed. Subscribe by copying the URL from the address bar into your newsreader. Visit About Feeds to learn more and get started. It&#x27;s free.</tabi:about_feeds>
+        <tabi:visit_the_site>Visit website</tabi:visit_the_site>
+        <tabi:recent_posts>Recent posts</tabi:recent_posts>
+        <tabi:last_updated_on>Updated on $DATE</tabi:last_updated_on>
+        <tabi:default_theme></tabi:default_theme>
+        <tabi:post_listing_date>date</tabi:post_listing_date>
+        <tabi:current_section>app</tabi:current_section>
+    </tabi:metadata><link rel="extra-stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" /><title>~sv - app</title>
+        <subtitle>before the moss covers the thoughts...</subtitle>
+    <link href="https://vsbabu.org/tags/app/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://vsbabu.org/tags/app/" rel="alternate" type="text/html"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-11-08T11:30:00+05:30</updated>
+    <id>https://vsbabu.org/tags/app/atom.xml</id><entry xml:lang="en">
+        <title>Google Appsheet to build a quick journal app</title>
+        <published>2025-11-08T11:30:00+05:30</published>
+        <updated>2025-11-08T11:30:00+05:30</updated>
+        <author>
+            <name>Satheesh Vattekkat</name>
+        </author>
+        <link rel="alternate" href="https://vsbabu.org/blog/google_appsheet_journalapp/" type="text/html"/>
+        <id>https://vsbabu.org/blog/google_appsheet_journalapp/</id>
+        <summary type="html">Discovered Google Appsheet and built a super quick app for journalling.</summary>
+        </entry>
+</feed>
