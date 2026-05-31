@@ -30,10 +30,12 @@ include_content = true
 index_format = "elasticlunr_json"
 
 [markdown]
-highlight_code = true
 bottom_footnotes = true
-highlight_theme = "css"
 smart_punctuation = true
+
+[markdown.highlighting]
+theme = "catppuccin-frappe"
+style = "class"
 
 [slugify]
 paths = "safe"
