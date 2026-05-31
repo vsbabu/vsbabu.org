@@ -21,21 +21,21 @@ sudo apt update
 sudo apt upgrade
 
 sudo apt install \
-  curl \
-  git \
-  fish \
-  neovim \
-  libreoffice \
-  lazygit \
-  bat \
-  btop \
-  tig \
-  ripgrep \
-  fzf \
-  sqlite3 \
-  fastfetch \
-  yt-dlp \
-  emacs
+  curl \                 # command line url utils
+  git \                  # version control
+  fish \                 # nice shell
+  libreoffice \          # office suite
+  neovim \               # newer vim editor
+  lazygit \              # useful with lazyvim
+  btop \                 # better than htop
+  tig \                  # tui for git
+  ripgrep \              # fast grep
+  fzf \                  # fuzzy file finder
+  sqlite3 \              # sql db
+  fastfetch \            # neofetch, fastfetch etc gives good sysinfo
+  yt-dlp \               # for offline viewing and listening
+  emacs \                # it is also an editor among a lot many other things
+  gnome-tweaks           # for the things that Settings app still can't do
 
 # set fish as my login shell
 chsh -s $(which fish)
@@ -125,6 +125,18 @@ sudo update-grub
 sudo apt autoclean 
 sudo apt autoremove
 ```
+
+## Enable clam shell mode
+
+I keep laptop closed when working with an external monitor. So, when lid is closed, it is undesirable for laptop power management to take it to standby. Fix this by:
+
+```sh
+sudo nano /etc/systemd/login.conf
+# uncomment HandleLidSwitch line and change the value to ignore
+# HandleLidSwitch=ignore
+```
+
+A reboot is needed here to take care of all changes.
 
 ## Editors
 
