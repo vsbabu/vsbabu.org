@@ -167,19 +167,19 @@ it very easily.</p>
 <p>Teaser -&gt; This is the sample output!
 <img src="https://vsbabu.org/blog/leo_rst_sphinx/02.png" alt="Sample generated doc" /></p>
 <p>Often, you might end up using markdown. While that is quite easy and convenient for
-single page documents and blogs, it is a <a href="https://www.ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/">bit limiting when you want to make multipage
+single page documents and blogs, it is a <a rel="external" href="https://www.ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/">bit limiting when you want to make multipage
 documentation</a>.</p>
 <h2 id="Tools"><a class="header-anchor no-hover-padding" href="#Tools" aria-label="Anchor link for: Tools"><span class="link-icon" aria-hidden="true"></span></a>
 Tools</h2>
-<p><a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> is an excellent tool to generate
+<p><a rel="external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> is an excellent tool to generate
 well structured documentation. Nice themes, search, syntax highlighting etc are all there.</p>
-<p><a href="https://docutils.sourceforge.io/rst.html">reStructuredText</a>, aka <em>rst</em>, is a reasonably simple
+<p><a rel="external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a>, aka <em>rst</em>, is a reasonably simple
 format that has enough things over and above markdown for very strong formatting.</p>
 <p>So what is the problem? <strong>Structure</strong>. If you are writing a longish document, you will need
 an outline view to see where what content is and how to reorder these. Either in markdown
 or in rst, this is not very naturally evident. That is a side effect of headers being done
 in simple markup characters.</p>
-<p>Enter <a href="http://leoeditor.com/">leo outliner</a>. It is an IDE, PIM, outliner, literate programming tool etc.
+<p>Enter <a rel="external" href="http://leoeditor.com/">leo outliner</a>. It is an IDE, PIM, outliner, literate programming tool etc.
 Essentially, something that helps you map your brain. It in fact comes with a great module for <em>rst</em>, aptly
 called <code>rst3</code>.</p>
 <h2 id="Setup"><a class="header-anchor no-hover-padding" href="#Setup" aria-label="Anchor link for: Setup"><span class="link-icon" aria-hidden="true"></span></a>
@@ -189,31 +189,27 @@ Setup</h2>
 <li>Install <em>Sphinx</em> with <code>pip install -U Sphinx</code></li>
 <li>I love the <em>readthedocs.org</em> theme, so get that as well with <code>pip install -U sphinx_rtd_theme</code>.
 There are many other themes available, feel free to choose what works for you.</li>
-<li>Installing leo involves little more work. Jump to <a href="http://leoeditor.com/installing.html">installation docs</a></li>
+<li>Installing leo involves little more work. Jump to <a rel="external" href="http://leoeditor.com/installing.html">installation docs</a></li>
 <li>Ensure <code>make</code> command is available</li>
 </ul>
 <h2 id="Starting_a_project"><a class="header-anchor no-hover-padding" href="#Starting_a_project" aria-label="Anchor link for: Starting_a_project"><span class="link-icon" aria-hidden="true"></span></a>
 Starting a project</h2>
-<p>Best starter tutorials I found about Sphinx is from <a href="https://techwritingmatters.com/documenting-with-sphinx-tutorial-intro-overview">Audrey Tavares</a>. She has nice videos also you can see.</p>
+<p>Best starter tutorials I found about Sphinx is from <a rel="external" href="https://techwritingmatters.com/documenting-with-sphinx-tutorial-intro-overview">Audrey Tavares</a>. She has nice videos also you can see.</p>
 <p>My two line quick start is below.</p>
-<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">mkdir</span></span><span class="z-meta z-function-call z-arguments z-shell"> my-sample-doc</span>
-</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sphinx-quicstart</span></span><span class="z-meta z-function-call z-arguments z-shell"> my-sample-doc</span>
-</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> my-sample-doc</span>
-</span></code></pre>
-<h2 id="Configuration"><a class="header-anchor no-hover-padding" href="#Configuration" aria-label="Anchor link for: Configuration"><span class="link-icon" aria-hidden="true"></span></a>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">mkdir</span><span class="z-string"> my-sample-doc</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sphinx-quicstart</span><span class="z-string"> my-sample-doc</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">cd</span><span class="z-string"> my-sample-doc</span></span></code></pre><h2 id="Configuration"><a class="header-anchor no-hover-padding" href="#Configuration" aria-label="Anchor link for: Configuration"><span class="link-icon" aria-hidden="true"></span></a>
 Configuration</h2>
 <p>Let us see the <code>conf.py</code>. Edit the lines that match.</p>
-<pre data-lang="python" class="language-python z-code"><code class="language-python" data-lang="python"><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">source_suffix</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">.txt<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span>
-</span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">html_theme</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">sphinx_rtd_theme<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span>
-</span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> this theme has some customization options.
-</span></span><span class="z-source z-python"><span class="z-comment z-line z-number-sign z-python"><span class="z-punctuation z-definition z-comment z-python">#</span> let us use one to make background orange instead of blue.
-</span></span><span class="z-source z-python"><span class="z-meta z-qualified-name z-python"><span class="z-meta z-generic-name z-python">html_theme_options</span></span> <span class="z-keyword z-operator z-assignment z-python">=</span> <span class="z-meta z-mapping-or-set z-python"><span class="z-punctuation z-section z-mapping-or-set z-begin z-python">{</span>
-</span></span><span class="z-source z-python"><span class="z-meta z-mapping-or-set z-python"></span><span class="z-meta z-mapping z-python">    </span><span class="z-meta z-mapping z-key z-python"><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">style_nav_header_background<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span></span><span class="z-meta z-mapping z-python"><span class="z-punctuation z-separator z-mapping z-key-value z-python">:</span></span><span class="z-meta z-mapping z-python"> </span><span class="z-meta z-mapping z-value z-python"><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python"><span class="z-punctuation z-definition z-string z-begin z-python">&#39;</span></span></span><span class="z-meta z-string z-python"><span class="z-string z-quoted z-single z-python">#de6616<span class="z-punctuation z-definition z-string z-end z-python">&#39;</span></span></span></span><span class="z-meta z-mapping z-python"><span class="z-punctuation z-separator z-mapping z-python">,</span>
-</span></span><span class="z-source z-python"><span class="z-meta z-mapping z-python"><span class="z-punctuation z-section z-mapping z-end z-python">}</span></span>
-</span></code></pre>
-<h2 id="Writing_Content"><a class="header-anchor no-hover-padding" href="#Writing_Content" aria-label="Anchor link for: Writing_Content"><span class="link-icon" aria-hidden="true"></span></a>
+<pre class="giallo z-code"><code data-lang="python"><span class="giallo-l"><span class="z-source">source_suffix</span><span class="z-keyword z-operator"> =</span><span class="z-punctuation z-definition z-string z-string"> &#39;.txt&#39;</span></span>
+<span class="giallo-l"><span class="z-source">html_theme</span><span class="z-keyword z-operator"> =</span><span class="z-punctuation z-definition z-string z-string"> &#39;sphinx_rtd_theme&#39;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># this theme has some customization options.</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># let us use one to make background orange instead of blue.</span></span>
+<span class="giallo-l"><span class="z-source">html_theme_options</span><span class="z-keyword z-operator"> =</span><span class="z-punctuation"> {</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-string z-string">    &#39;style_nav_header_background&#39;</span><span class="z-punctuation">:</span><span class="z-punctuation z-definition z-string z-string"> &#39;#de6616&#39;</span><span class="z-punctuation">,</span></span>
+<span class="giallo-l"><span class="z-punctuation">}</span></span></code></pre><h2 id="Writing_Content"><a class="header-anchor no-hover-padding" href="#Writing_Content" aria-label="Anchor link for: Writing_Content"><span class="link-icon" aria-hidden="true"></span></a>
 Writing Content</h2>
-<p>Let us create a leo outliner. Reading the <a href="http://leoeditor.com/tutorial-basics.html">leo tutorial</a> on
+<p>Let us create a leo outliner. Reading the <a rel="external" href="http://leoeditor.com/tutorial-basics.html">leo tutorial</a> on
 how to edit and navigate is going to be useful.</p>
 <ul>
 <li><strong>Download <a href="https://vsbabu.org/blog/leo_rst_sphinx/leo_rst_sphinx.leo">sample outline - leo_rst_sphinx.leo</a></strong> I created.</li>

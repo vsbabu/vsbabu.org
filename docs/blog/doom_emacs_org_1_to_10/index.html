@@ -182,49 +182,43 @@ Setup</h2>
 <ol>
 <li>
 <p>Let us setup our <code>gpg</code> key for encryption.</p>
-<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gpg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>full-generate-key</span></span>
-</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Follow the prompts; you should give a passphrase you can remember.</span><span class="z-comment z-line z-number-sign z-shell">
-</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> I gave my name as &quot;Satheesh Vattekkat&quot; for key name - use your own name. </span><span class="z-comment z-line z-number-sign z-shell">
-</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> That is what you should put in next step &quot;YOUR KEY NAME HERE&quot;</span><span class="z-comment z-line z-number-sign z-shell">
-</span></span><span class="z-source z-shell z-bash">
-</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Now let us test if key is there. You should see it with the name</span><span class="z-comment z-line z-number-sign z-shell">
-</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gpg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>list-secret-keys</span></span>
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">gpg</span><span class="z-string"> --full-generate-key</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># Follow the prompts; you should give a passphrase you can remember.</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># I gave my name as &quot;Satheesh Vattekkat&quot; for key name - use your own name. </span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># That is what you should put in next step &quot;YOUR KEY NAME HERE&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># Now let us test if key is there. You should see it with the name</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">gpg</span><span class="z-string"> --list-secret-keys</span></span></code></pre>
 <p>Now, I get an output like below.</p>
-<pre class="z-code"><code><span class="z-text z-plain">/home/*****/.gnupg/pubring.kbx
-</span><span class="z-text z-plain">-------------------------------
-</span><span class="z-text z-plain">pub   rsa2048 2020-??-?? [SC]
-</span><span class="z-text z-plain">      ***********************************
-</span><span class="z-text z-plain">uid           [ unknown] Satheesh Vattekkat (SV) &lt;vsbabu@********.***&gt;
-</span><span class="z-text z-plain">sub   rsa2048 2020-??-?? [E]
-</span></code></pre>
-</li>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>/home/*****/.gnupg/pubring.kbx</span></span>
+<span class="giallo-l"><span>-------------------------------</span></span>
+<span class="giallo-l"><span>pub   rsa2048 2020-??-?? [SC]</span></span>
+<span class="giallo-l"><span>      ***********************************</span></span>
+<span class="giallo-l"><span>uid           [ unknown] Satheesh Vattekkat (SV) &lt;vsbabu@********.***&gt;</span></span>
+<span class="giallo-l"><span>sub   rsa2048 2020-??-?? [E]</span></span></code></pre></li>
 <li>
 <p>In <code>~/.doom.d/config.el</code>:</p>
-<pre data-lang="lisp" class="language-lisp z-code"><code class="language-lisp" data-lang="lisp"><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span><span class="z-support z-function z-lisp">setq</span> org<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>crypt<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>key <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>YOUR KEY NAME HERE<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
-</span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span>setenv <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>GPG_AGENT_INFO<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span> <span class="z-constant z-language z-lisp">nil</span><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
-</span><span class="z-source z-lisp">
-</span><span class="z-source z-lisp"><span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; I keep my files under ~/Dropbox/org. Roam files, I will put in 
-</span></span><span class="z-source z-lisp"><span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; a directory under that.
-</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span><span class="z-support z-function z-lisp">setq</span> org<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>roam<span class="z-keyword z-operator z-arithmetic z-lisp">-</span><span class="z-support z-function z-lisp">directory</span> <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>~/Dropbox/org/roam<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
-</span><span class="z-source z-lisp"><span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; Let deft search files under root org directory.
-</span></span><span class="z-source z-lisp"><span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; We could use the org-directory variable instead of duplicating values
-</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span><span class="z-support z-function z-lisp">setq</span> deft<span class="z-keyword z-operator z-arithmetic z-lisp">-</span><span class="z-support z-function z-lisp">directory</span> <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>~/Dropbox/org/<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span>
-</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp">   deft<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>recursive <span class="z-constant z-language z-lisp">t</span>
-</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp">   <span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; I don&#39;t like any summary, hence catch-all regexp. need to see if
-</span></span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp">   <span class="z-comment z-line z-semicolon z-lisp"><span class="z-punctuation z-definition z-comment z-lisp">;</span>; an option to hide summary is there instead of this one.
-</span></span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp">   deft<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>strip<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>summary<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>regexp <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>.*$<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span>
-</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
-</span></code></pre>
-</li>
+<pre class="giallo z-code"><code data-lang="common-lisp"><span class="giallo-l"><span class="z-source">(</span><span class="z-storage z-type">setq</span><span class="z-source"> org-crypt-key </span><span class="z-punctuation z-definition z-string z-string">&quot;YOUR KEY NAME HERE&quot;</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-source">(setenv </span><span class="z-punctuation z-definition z-string z-string">&quot;GPG_AGENT_INFO&quot;</span><span class="z-constant z-language"> nil</span><span class="z-source">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">;; I keep my files under ~/Dropbox/org. Roam files, I will put in </span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">;; a directory under that.</span></span>
+<span class="giallo-l"><span class="z-source">(</span><span class="z-storage z-type">setq</span><span class="z-source"> org-roam-directory </span><span class="z-punctuation z-definition z-string z-string">&quot;~/Dropbox/org/roam&quot;</span><span class="z-source">)</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">;; Let deft search files under root org directory.</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">;; We could use the org-directory variable instead of duplicating values</span></span>
+<span class="giallo-l"><span class="z-source">(</span><span class="z-storage z-type">setq</span><span class="z-source"> deft-directory </span><span class="z-punctuation z-definition z-string z-string">&quot;~/Dropbox/org/&quot;</span></span>
+<span class="giallo-l"><span class="z-source">   deft-recursive </span><span class="z-constant z-language">t</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">   ;; I don&#39;t like any summary, hence catch-all regexp. need to see if</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">   ;; an option to hide summary is there instead of this one.</span></span>
+<span class="giallo-l"><span class="z-source">   deft-strip-summary-regexp </span><span class="z-punctuation z-definition z-string z-string">&quot;.*$&quot;</span></span>
+<span class="giallo-l"><span class="z-source">)</span></span></code></pre></li>
 <li>
 <p>That is it. If you want to take this key and deploy it in other machines, just export it and import it.</p>
-<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gpg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>armor</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>export-secret-keys</span> YOUR KEY NAME HERE <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> /tmp/mykey.asc</span>
-</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">scp</span></span><span class="z-meta z-function-call z-arguments z-shell"> /tmp/mykey.asc someothermachine:/tmp/mykey.asc</span>
-</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ssh</span></span><span class="z-meta z-function-call z-arguments z-shell"> someothermachine</span>
-</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gpg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>import</span> /tmp/mykey.asc</span>
-</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">gpg</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>edit-key</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>YOUR KEY NAME HERE<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">gpg</span><span class="z-string"> --armor --export-secret-keys YOUR KEY NAME HERE</span><span class="z-keyword z-operator"> &gt;</span><span class="z-string"> /tmp/mykey.asc</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">scp</span><span class="z-string"> /tmp/mykey.asc someothermachine:/tmp/mykey.asc</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">ssh</span><span class="z-string"> someothermachine</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">gpg</span><span class="z-string"> --import /tmp/mykey.asc</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">gpg</span><span class="z-string z-punctuation z-definition z-string"> --edit-key &quot;YOUR KEY NAME HERE&quot;</span></span></code></pre>
 <p>Reminder -&gt; You lose the passphrase, you lose the key and stuff encrypted with that.</p>
 </li>
 </ol>
@@ -249,7 +243,7 @@ Interlinking</h2>
 <ul>
 <li>
 <p>Ideally, each note should have self contained info about one topic only.
-<a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten method</a> is a good
+<a rel="external" href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten method</a> is a good
 read about this.</p>
 </li>
 <li>
@@ -278,74 +272,70 @@ Deft - file navigation</h2>
 <p>We also installed <code>deft</code> which can be invoked by <code>SPC n d</code>. Gives a nice list of all org
 files sorted by modified timestamp in descending order. You can navigate using arrow keys
 and open the file.</p>
-<pre class="z-code"><code><span class="z-text z-plain">Deft: 
-</span><span class="z-text z-plain">
-</span><span class="z-text z-plain">Zettelkasten System                                              2020-08-02 07:52
-</span><span class="z-text z-plain">Org Roam                                                         2020-08-02 07:50
-</span><span class="z-text z-plain">SV                                                               2020-06-07 17:29
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Deft: </span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Zettelkasten System                                              2020-08-02 07:52</span></span>
+<span class="giallo-l"><span>Org Roam                                                         2020-08-02 07:50</span></span>
+<span class="giallo-l"><span>SV                                                               2020-06-07 17:29</span></span></code></pre>
 <p>Note that <code>deft</code> is for navigating an file tree; not particularly linked to org-mode and roam. I find
 it very useful to check the recently modified notes.</p>
 <h2 id="Key_Combos_to_Remember"><a class="header-anchor no-hover-padding" href="#Key_Combos_to_Remember" aria-label="Anchor link for: Key_Combos_to_Remember"><span class="link-icon" aria-hidden="true"></span></a>
 Key Combos to Remember</h2>
-<pre class="z-code"><code><span class="z-text z-plain">SPC n r f =&gt; Type a topic name and edit note. Just like Notational Velocity.
-</span><span class="z-text z-plain">SPC n r i =&gt; Inside the note, use this to add links to possibly related topics.
-</span><span class="z-text z-plain">SPC n r r =&gt; Toggle the org-roam buffer. Shows backlinks.
-</span><span class="z-text z-plain">SPC n d   =&gt; Deft
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>SPC n r f =&gt; Type a topic name and edit note. Just like Notational Velocity.</span></span>
+<span class="giallo-l"><span>SPC n r i =&gt; Inside the note, use this to add links to possibly related topics.</span></span>
+<span class="giallo-l"><span>SPC n r r =&gt; Toggle the org-roam buffer. Shows backlinks.</span></span>
+<span class="giallo-l"><span>SPC n d   =&gt; Deft</span></span></code></pre>
 <p>That’s it. You just need to remember first two key combinations. Other two are useful as well.</p>
 <h2 id="Encryption"><a class="header-anchor no-hover-padding" href="#Encryption" aria-label="Anchor link for: Encryption"><span class="link-icon" aria-hidden="true"></span></a>
 Encryption</h2>
 <p>Here is my sample org file.</p>
-<pre class="z-code"><code><span class="z-text z-plain">#+title: Org Roam
-</span><span class="z-text z-plain">
-</span><span class="z-text z-plain">This is my notes about Org Roam.
-</span><span class="z-text z-plain">
-</span><span class="z-text z-plain">* Encrypted Section
-</span><span class="z-text z-plain">
-</span><span class="z-text z-plain">Now, this is a super secret sensitive topic I don&#39;t
-</span><span class="z-text z-plain">want others to see!
-</span><span class="z-text z-plain">
-</span><span class="z-text z-plain">** Subheading As Well
-</span><span class="z-text z-plain">
-</span><span class="z-text z-plain">This is also sensitive
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>#+title: Org Roam</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>This is my notes about Org Roam.</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>* Encrypted Section</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Now, this is a super secret sensitive topic I don&#39;t</span></span>
+<span class="giallo-l"><span>want others to see!</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>** Subheading As Well</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>This is also sensitive</span></span></code></pre>
 <p>Now, let us encrypt the entire section under <em>Encrypted Section</em>. Navigate to that and
 run <code>M-x org-encrypt-entry</code>. That’s it and our document changed to this below!</p>
-<pre class="z-code"><code><span class="z-text z-plain">#+title: Org Roam
-</span><span class="z-text z-plain">
-</span><span class="z-text z-plain">This is my notes about Org Roam.
-</span><span class="z-text z-plain">
-</span><span class="z-text z-plain">* Encrypted Section
-</span><span class="z-text z-plain">-----BEGIN PGP MESSAGE-----
-</span><span class="z-text z-plain">
-</span><span class="z-text z-plain">hQEMA96l+q9aMVDXAQf/dUC28z9qATyfH9zxJJPcM0/3qn7/wCAA4LnpmkPW0nMn
-</span><span class="z-text z-plain">hRNqTQlwOIuKK1ULT7Ls6/zZtPCMS3i97LF0gEB+n9MrcokVnUV5bIeGYzR0rIXX
-</span><span class="z-text z-plain">Fs7BJPaEV63VfLFxGvkXBqnCpjb8bYyX7yrmhfkEehNcY/3yE3LMpMArIeh1vH1/
-</span><span class="z-text z-plain">F6nfdOSXdNgo9tIkGxs/mHpglZswsB/P7+Ygeuv/92ibR8x7v8+6nmVcuO8fJ6HZ
-</span><span class="z-text z-plain">G+isYTJxosADox+nX8RLC8BKIKH3aZjqb+xSpbl3boV6EzItDg8hsJ4Hf/+CUSzf
-</span><span class="z-text z-plain">NzuohJ53HSSD23USjjgdFIY/o4IQLMacECxkPl9u8tKlAcIWt0Fv8WCVsrrtWyLr
-</span><span class="z-text z-plain">KSsc/1fK4y81J5mXxIQ2mqUbiLBnOn1eK8Az0PdCvH8ms1ch78wCZX7ktEgVicDf
-</span><span class="z-text z-plain">ZPc0f+WAHjzjptybnb4aK/unuLkmps6ao1CwcwIbkBJCVLO8ifMvefAkjCznnKOZ
-</span><span class="z-text z-plain">c3j/gzn1Ey0sk1KL2q7F1f3AzCKd+7LXjox4m0mhGBjDnhbkIkX9tKgeG6yaIcyP
-</span><span class="z-text z-plain">Natf9E0L
-</span><span class="z-text z-plain">=ITjw
-</span><span class="z-text z-plain">-----END PGP MESSAGE-----
-</span><span class="z-text z-plain">
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>#+title: Org Roam</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>This is my notes about Org Roam.</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>* Encrypted Section</span></span>
+<span class="giallo-l"><span>-----BEGIN PGP MESSAGE-----</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>hQEMA96l+q9aMVDXAQf/dUC28z9qATyfH9zxJJPcM0/3qn7/wCAA4LnpmkPW0nMn</span></span>
+<span class="giallo-l"><span>hRNqTQlwOIuKK1ULT7Ls6/zZtPCMS3i97LF0gEB+n9MrcokVnUV5bIeGYzR0rIXX</span></span>
+<span class="giallo-l"><span>Fs7BJPaEV63VfLFxGvkXBqnCpjb8bYyX7yrmhfkEehNcY/3yE3LMpMArIeh1vH1/</span></span>
+<span class="giallo-l"><span>F6nfdOSXdNgo9tIkGxs/mHpglZswsB/P7+Ygeuv/92ibR8x7v8+6nmVcuO8fJ6HZ</span></span>
+<span class="giallo-l"><span>G+isYTJxosADox+nX8RLC8BKIKH3aZjqb+xSpbl3boV6EzItDg8hsJ4Hf/+CUSzf</span></span>
+<span class="giallo-l"><span>NzuohJ53HSSD23USjjgdFIY/o4IQLMacECxkPl9u8tKlAcIWt0Fv8WCVsrrtWyLr</span></span>
+<span class="giallo-l"><span>KSsc/1fK4y81J5mXxIQ2mqUbiLBnOn1eK8Az0PdCvH8ms1ch78wCZX7ktEgVicDf</span></span>
+<span class="giallo-l"><span>ZPc0f+WAHjzjptybnb4aK/unuLkmps6ao1CwcwIbkBJCVLO8ifMvefAkjCznnKOZ</span></span>
+<span class="giallo-l"><span>c3j/gzn1Ey0sk1KL2q7F1f3AzCKd+7LXjox4m0mhGBjDnhbkIkX9tKgeG6yaIcyP</span></span>
+<span class="giallo-l"><span>Natf9E0L</span></span>
+<span class="giallo-l"><span>=ITjw</span></span>
+<span class="giallo-l"><span>-----END PGP MESSAGE-----</span></span>
+<span class="giallo-l"></span></code></pre>
 <p>How to decrypt? Couldn’t be simpler. Navigate to the heading and run
 <code>M-x org-decrypt-entry</code>. Now it will ask for the passphrase for your
 key though.</p>
 <p>Note that you’ve to save it (<code>:w</code>) manually. You can do
 tricks like file-save hook to automatically encrypt sections that has
-a particular tag, but I am not an emacs expert to do that. <a href="https://www.gnu.org/software/emacs/manual/html_node/org/org_002dcrypt.html">Org mode documentation</a> explains how to do that,
+a particular tag, but I am not an emacs expert to do that. <a rel="external" href="https://www.gnu.org/software/emacs/manual/html_node/org/org_002dcrypt.html">Org mode documentation</a> explains how to do that,
 but I didn’t try it.</p>
 <h2 id="References"><a class="header-anchor no-hover-padding" href="#References" aria-label="Anchor link for: References"><span class="link-icon" aria-hidden="true"></span></a>
 References</h2>
 <ul>
-<li><a href="https://org-roam.readthedocs.io/en/master/">Org Roam documentation</a></li>
-<li><a href="https://jblevins.org/projects/deft/">Deft Emacs package</a></li>
-<li><a href="https://www.masteringemacs.org/article/keeping-secrets-in-emacs-gnupg-auth-sources">Keeping Secrets in Emacs with GPG</a></li>
+<li><a rel="external" href="https://org-roam.readthedocs.io/en/master/">Org Roam documentation</a></li>
+<li><a rel="external" href="https://jblevins.org/projects/deft/">Deft Emacs package</a></li>
+<li><a rel="external" href="https://www.masteringemacs.org/article/keeping-secrets-in-emacs-gnupg-auth-sources">Keeping Secrets in Emacs with GPG</a></li>
 <li><a href="/blog/doom_emacs_org_0_to_1/">Part 1 of this series</a></li>
 </ul>
 <h2 id="Other_Points"><a class="header-anchor no-hover-padding" href="#Other_Points" aria-label="Anchor link for: Other_Points"><span class="link-icon" aria-hidden="true"></span></a>

@@ -170,7 +170,7 @@ content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#
    </ul>
     </div>
 </div>
-<p>Only recently I learned about Google <a href="https://www.appsheet.com">appsheet</a>. Very quick, no-code way to build responsive web apps with automatic Google authentication. Perfect for building apps for intranet users. I took about 3 hours to build a personal app that helps me maintain a journal. First 2 hours were spent in reading docs and building the app and one hour to beautify it.</p>
+<p>Only recently I learned about Google <a rel="external" href="https://www.appsheet.com">appsheet</a>. Very quick, no-code way to build responsive web apps with automatic Google authentication. Perfect for building apps for intranet users. I took about 3 hours to build a personal app that helps me maintain a journal. First 2 hours were spent in reading docs and building the app and one hour to beautify it.</p>
 <p>Data is backed into a Google sheet. This is a screenshot tour of the app. There are plenty of tutorials, examples and videos on Appsheet site - so not repeating all those here. Only the specific things I ended up doing and things I still need to figure out are going to be here.</p>
 <span id="continue-reading"></span><h2 id="App_Requirements"><a class="header-anchor no-hover-padding" href="#App_Requirements" aria-label="Anchor link for: App_Requirements"><span class="link-icon" aria-hidden="true"></span></a>
 App Requirements</h2>
@@ -225,8 +225,7 @@ Filtering</h3>
 <h3 id="Formula"><a class="header-anchor no-hover-padding" href="#Formula" aria-label="Anchor link for: Formula"><span class="link-icon" aria-hidden="true"></span></a>
 Formula</h3>
 <p>For parsing out tags, I had a column named <em>[Tags]</em> for which I added following formula in <em>Auto Compute</em> settings.</p>
-<pre class="z-code"><code><span class="z-text z-plain">trim(regexreplace(regexreplace(lower(RC[-4]),&quot;([#@][a-z0-9_]+)|(.)&quot;,&quot;$1 &quot;),&quot;\s+&quot;,&quot; &quot;))
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>trim(regexreplace(regexreplace(lower(RC[-4]),&quot;([#@][a-z0-9_]+)|(.)&quot;,&quot;$1 &quot;),&quot;\s+&quot;,&quot; &quot;))</span></span></code></pre>
 <p>This formula is copied to backing Google Sheet whenever a record is created. The formula is a regular expression that
 removes everything other than words starting with <em>@</em> or <em>#</em>. Inner one replaces other words by spaces and outer one
 squeezes spaces to just one space. So you get a space separated tag list in the <em>[Tag]</em> column.</p>
@@ -234,14 +233,11 @@ squeezes spaces to just one space. So you get a space separated tag list in the 
 Tag list</h3>
 <p>For building the Tag List, a new tab called <em>Tags</em> in the backing Sheet was created. A formula was added to <em>A2</em> to
 get sorted unique list of tags (column F) from the sheet that stores journal entries.</p>
-<pre class="z-code"><code><span class="z-text z-plain">=SORT(UNIQUE(FLATTEN(ARRAYFORMULA(IFERROR(SPLIT(&#39;JournalEntries&#39;!F2:F, &quot; &quot;, TRUE, TRUE),&quot;&quot;)))))
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>=SORT(UNIQUE(FLATTEN(ARRAYFORMULA(IFERROR(SPLIT(&#39;JournalEntries&#39;!F2:F, &quot; &quot;, TRUE, TRUE),&quot;&quot;)))))</span></span></code></pre>
 <p>In this tab, column B has the count - that is a simpler formula which takes value from tag column and does
 a wildcard count on column F (<em>Tag</em>) on entries sheet to check if tag is contained there. Since I don’t expect to have more than
 100 tags ever, just copied this cell formula to 100 rows.</p>
-<pre class="z-code"><code><span class="z-text z-plain">=IF(A2&lt;&gt;&quot;&quot;, COUNTIF(&#39;JournalEntries&#39;!F:F, &quot;*&quot;&amp;A2&amp;&quot;*&quot;),&quot;&quot;)
-</span></code></pre>
-<h2 id="What_Next"><a class="header-anchor no-hover-padding" href="#What_Next" aria-label="Anchor link for: What_Next"><span class="link-icon" aria-hidden="true"></span></a>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>=IF(A2&lt;&gt;&quot;&quot;, COUNTIF(&#39;JournalEntries&#39;!F:F, &quot;*&quot;&amp;A2&amp;&quot;*&quot;),&quot;&quot;)</span></span></code></pre><h2 id="What_Next"><a class="header-anchor no-hover-padding" href="#What_Next" aria-label="Anchor link for: What_Next"><span class="link-icon" aria-hidden="true"></span></a>
 What Next</h2>
 <ol>
 <li>Adding a mobile desktop icon. Currently I just navigate to this page and leave it open in a tab on the mobile browser. Mobile desktop icon automatically links only to overall appsheet site editor and not to particular app. Also, it somehow seems to loose my Google login, forcing me to login every time.</li>
@@ -258,6 +254,10 @@ What Next</h2>
                 
                 
                     
+                        
+                        
+                        
+                    
                     
                         
                         
@@ -266,7 +266,8 @@ What Next</h2>
                 
                 
             <nav class="full-width article-navigation">
-                <div></div>
+                <div><a href="https://vsbabu.org/blog/ubuntu_26_04_postinstall/" aria-label="Next" aria-describedby="left_title"><span class="arrow">←</span>&nbsp;Next</a>
+                <p aria-hidden="true" id="left_title">Ubuntu 26.04 - Resolute Raccoon post install</p></div>
                 <div><a href="https://vsbabu.org/blog/sqlite3-cte-tricks-for-calmap/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
                 <p aria-hidden="true" id="right_title">SQLite3 CTE for Calmap visualization</p></div>
             </nav>

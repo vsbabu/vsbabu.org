@@ -99,6 +99,10 @@
         <lastmod>2018-10-25T06:00:00+05:30</lastmod>
     </url>
     <url>
+        <loc>https://vsbabu.org/blog/ubuntu_26_04_postinstall/</loc>
+        <lastmod>2026-05-30T18:00:00+05:30</lastmod>
+    </url>
+    <url>
         <loc>https://vsbabu.org/blog/video_conf_port/</loc>
         <lastmod>2020-04-12T08:00:00+05:30</lastmod>
     </url>
@@ -212,6 +216,9 @@
     </url>
     <url>
         <loc>https://vsbabu.org/tags/tools/</loc>
+    </url>
+    <url>
+        <loc>https://vsbabu.org/tags/ubuntu/</loc>
     </url>
     <url>
         <loc>https://vsbabu.org/tags/unix/</loc>

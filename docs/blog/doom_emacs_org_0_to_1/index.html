@@ -166,49 +166,41 @@ content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#
 <li>Read too much documentation</li>
 <li>Spent hours configuring these :)</li>
 <li>Thumb started aching with C and M multi-key combinations</li>
-<li>Tried <a href="https://www.spacemacs.org/">Spacemacs</a></li>
+<li>Tried <a rel="external" href="https://www.spacemacs.org/">Spacemacs</a></li>
 <li>Went back to VIM</li>
 </ul>
 <p>If yes, this is how I crossed over to actually using org-mode productively to maintain my notes, projects and todo.
-<a href="https://github.com/hlissner/doom-emacs">doom-emacs</a> is the framework I used. It is superfast, has sane keys and UX
+<a rel="external" href="https://github.com/hlissner/doom-emacs">doom-emacs</a> is the framework I used. It is superfast, has sane keys and UX
 and configuration does not need you to read and practice emacs.</p>
 <p>Following is a 0to1 guide that  ideally should’ve been more interesting with screenshots, but keeping it as copy-pastable text!</p>
 <span id="continue-reading"></span>
-<p>Note - I am not going into what all can be done using <a href="https://orgmode.org/">Org Mode</a>!</p>
+<p>Note - I am not going into what all can be done using <a rel="external" href="https://orgmode.org/">Org Mode</a>!</p>
 <h2 id="Installation"><a class="header-anchor no-hover-padding" href="#Installation" aria-label="Anchor link for: Installation"><span class="link-icon" aria-hidden="true"></span></a>
 Installation</h2>
 <ol>
-<li>Get <code>Emacs 26+</code>. For Ubuntu, follow this <a href="http://ubuntuhandbook.org/index.php/2019/02/install-gnu-emacs-26-1-ubuntu-18-04-16-04-18-10/">write up to use kelleyk/emacs</a> repository. <em>Note that there is a good chance that emacs will not start
-under GTK; so make a shortcut to a script that has the following content</em>.<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/usr/bin/env</span></span><span class="z-meta z-function-call z-arguments z-shell">  XLIB_SKIP_ARGB_VISUALS=1 /usr/bin/emacs26 <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-language z-shell">@</span></span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
-</span></code></pre>
-</li>
+<li>Get <code>Emacs 26+</code>. For Ubuntu, follow this <a rel="external" href="http://ubuntuhandbook.org/index.php/2019/02/install-gnu-emacs-26-1-ubuntu-18-04-16-04-18-10/">write up to use kelleyk/emacs</a> repository. <em>Note that there is a good chance that emacs will not start
+under GTK; so make a shortcut to a script that has the following content</em>.<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">/usr/bin/env</span><span class="z-string">  XLIB_SKIP_ARGB_VISUALS=</span><span class="z-constant z-numeric">1</span><span class="z-string z-punctuation z-definition z-string"> /usr/bin/emacs26 &quot;</span><span class="z-variable z-parameter">$@</span><span class="z-punctuation z-definition z-string">&quot;</span></span></code></pre></li>
 <li>Install <code>git</code> command line.</li>
-<li>Follow <a href="https://github.com/hlissner/doom-emacs#prerequisites">instructions to install doom-emacs</a>. This will take some time
-to download and install the packages.<pre class="z-code"><code><span class="z-text z-plain">Say &quot;Y&quot; when it asks to create an ENV file
-</span><span class="z-text z-plain">Say &quot;Y&quot; when it asks to install additional fonts 
-</span><span class="z-text z-plain">  this makes your config quite nice
-</span></code></pre>
-</li>
+<li>Follow <a rel="external" href="https://github.com/hlissner/doom-emacs#prerequisites">instructions to install doom-emacs</a>. This will take some time
+to download and install the packages.<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Say &quot;Y&quot; when it asks to create an ENV file</span></span>
+<span class="giallo-l"><span>Say &quot;Y&quot; when it asks to install additional fonts </span></span>
+<span class="giallo-l"><span>  this makes your config quite nice</span></span></code></pre></li>
 </ol>
 <h2 id="Setup"><a class="header-anchor no-hover-padding" href="#Setup" aria-label="Anchor link for: Setup"><span class="link-icon" aria-hidden="true"></span></a>
 Setup</h2>
 <ol>
 <li>Start <code>emacs</code></li>
 <li>On the first page, you will see some options. Use arrow keys (or j/k like VI) to navigate and Choose <em>Open private configuration</em>. You can see that it says <em>SPC f p</em> next to it. That is the short cut to go to that option later.</li>
-<li>Now you can see that configuration is all in <code>~/.doom.d/</code>. You really need to edit only <em>config.el</em>. Use mouse or arrow keys to select. Or just start typing <em>con</em> followed by <em><strong>TAB</strong> to autocomplete and <strong>ENTER</strong></em>. This is a common pattern in doom-emacs world. This kind of command windows all support autocompletion.<pre class="z-code"><code><span class="z-text z-plain">Find file: ~/.doom.d/
-</span><span class="z-text z-plain">--------------------------------------------------------------
-</span><span class="z-text z-plain">./
-</span><span class="z-text z-plain">../
-</span><span class="z-text z-plain">config.el
-</span><span class="z-text z-plain">init.el
-</span><span class="z-text z-plain">packages.el
-</span></code></pre>
-</li>
+<li>Now you can see that configuration is all in <code>~/.doom.d/</code>. You really need to edit only <em>config.el</em>. Use mouse or arrow keys to select. Or just start typing <em>con</em> followed by <em><strong>TAB</strong> to autocomplete and <strong>ENTER</strong></em>. This is a common pattern in doom-emacs world. This kind of command windows all support autocompletion.<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Find file: ~/.doom.d/</span></span>
+<span class="giallo-l"><span>--------------------------------------------------------------</span></span>
+<span class="giallo-l"><span>./</span></span>
+<span class="giallo-l"><span>../</span></span>
+<span class="giallo-l"><span>config.el</span></span>
+<span class="giallo-l"><span>init.el</span></span>
+<span class="giallo-l"><span>packages.el</span></span></code></pre></li>
 <li>Now that <code>config.el</code> is open, edit it. It is good to update your name and email address at the top.</li>
-<li>Scroll down (arrow keys or j) and edit the value for <em>doom-font</em>. I’ve tried this in 3 different laptops and default size is always too small for me. Increase it. This is how mine looks - I really liked <a href="https://github.com/be5invis/Iosevka">Iosevka fonts</a> and had installed it.<pre data-lang="lisp" class="language-lisp z-code"><code class="language-lisp" data-lang="lisp"><span class="z-source z-lisp"><span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span><span class="z-support z-function z-lisp">setq</span> doom<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>font <span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span>font<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>spec :family <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>Iosevka Term SS04 Extended<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span> :size <span class="z-constant z-numeric z-lisp">18</span> <span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
-</span></span><span class="z-source z-lisp"><span class="z-meta z-group z-lisp">   doom<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>variable<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>pitch<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>font <span class="z-meta z-group z-lisp"><span class="z-punctuation z-definition z-group z-begin z-lisp">(</span>font<span class="z-keyword z-operator z-arithmetic z-lisp">-</span>spec :family <span class="z-string z-quoted z-double z-lisp"><span class="z-punctuation z-definition z-string z-begin z-lisp">&quot;</span>sans<span class="z-punctuation z-definition z-string z-end z-lisp">&quot;</span></span> :size <span class="z-constant z-numeric z-lisp">15</span><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span><span class="z-punctuation z-definition z-group z-end z-lisp">)</span></span>
-</span></code></pre>
-</li>
+<li>Scroll down (arrow keys or j) and edit the value for <em>doom-font</em>. I’ve tried this in 3 different laptops and default size is always too small for me. Increase it. This is how mine looks - I really liked <a rel="external" href="https://github.com/be5invis/Iosevka">Iosevka fonts</a> and had installed it.<pre class="giallo z-code"><code data-lang="common-lisp"><span class="giallo-l"><span class="z-source">(</span><span class="z-storage z-type">setq</span><span class="z-source"> doom-font (font-spec :family</span><span class="z-punctuation z-definition z-string z-string"> &quot;Iosevka Term SS04 Extended&quot;</span><span class="z-source"> :size</span><span class="z-constant z-numeric"> 18</span><span class="z-source"> )</span></span>
+<span class="giallo-l"><span class="z-source">   doom-variable-pitch-font (font-spec :family</span><span class="z-punctuation z-definition z-string z-string"> &quot;sans&quot;</span><span class="z-source"> :size</span><span class="z-constant z-numeric"> 15</span><span class="z-source">))</span></span></code></pre></li>
 <li><code>org-directory</code> is set to <em>~/org/</em>. I changed it to <em>~/Dropbox/org/</em> to not worry about backups. This is where all your default org files will go to. We will get to what is <em>default</em> files later.</li>
 <li>Save it. <code>:w</code> will work just like in VI.</li>
 <li>Let us see if you want to change the default theme from <code>doom-one</code>. Type <strong>M-x (ie., meta-x which is Alt-x in Win/Linux and Opt-x in Mac - <em>Cmd-x works as well in doom-emacs most of the time</em> )</strong>. Whole bunch of commands show up. Type <em>load-theme</em> and you can see that auto-complete is in action. This command has a menu which lists all the themes. <em>doom-one-light</em> is a neat light theme. It will ask you to run that lisp code and mark it as safe for later too - you can answer y.</li>
@@ -223,21 +215,15 @@ Basic org-mode bindings</h2>
 <li>Let us create a <em>/tmp/scratch.org</em> to play with it. Yes, <code>:e /tmp/scratch.org</code> will work like in VI.</li>
 <li>I am not going into org-mode basics here, but suffice it to say that lines prefixed with one asterisk is top level headline; with two is second level and so on.</li>
 <li>Add a line <code>* headline 1</code></li>
-<li>Let us add another top level headline. Just hit <code>Ctrl-Enter</code> and type <code> headline 2</code>. You got it!<pre class="z-code"><code><span class="z-text z-plain">Ctrl-Enter =&gt; Create a sibling below
-</span><span class="z-text z-plain">Ctrl-Shift-Enter =&gt; Create a sibling above
-</span><span class="z-text z-plain">
-</span><span class="z-text z-plain">Ctrl is usually referred to as C only
-</span></code></pre>
-This is a great key to remember. Works for all semantic levels.</li>
+<li>Let us add another top level headline. Just hit <code>Ctrl-Enter</code> and type <code> headline 2</code>. You got it!<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Ctrl-Enter =&gt; Create a sibling below</span></span>
+<span class="giallo-l"><span>Ctrl-Shift-Enter =&gt; Create a sibling above</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>Ctrl is usually referred to as C only</span></span></code></pre>This is a great key to remember. Works for all semantic levels.</li>
 <li>Now let us add some content to <em>headline 1</em>. Navigate to that and do <em>O</em>. Just like VI, <em>O</em>, it adds a new line. Edit away!</li>
-<li>Let us navigate back to the headline.<pre class="z-code"><code><span class="z-text z-plain">TAB - collapses (fold) and expands (unfold) the headline. Try it!
-</span><span class="z-text z-plain">Shift-TAB - will collapse all headlines
-</span></code></pre>
-</li>
-<li>You want to focus on one headline and work on that? Something like workflowy.com navigation? Following commands will toggle the visibility like that. Very useful and it is useful to remember the shortcut for this.<pre class="z-code"><code><span class="z-text z-plain">M-x org-narrow-to-subtree
-</span><span class="z-text z-plain">M-x widen
-</span></code></pre>
-</li>
+<li>Let us navigate back to the headline.<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>TAB - collapses (fold) and expands (unfold) the headline. Try it!</span></span>
+<span class="giallo-l"><span>Shift-TAB - will collapse all headlines</span></span></code></pre></li>
+<li>You want to focus on one headline and work on that? Something like workflowy.com navigation? Following commands will toggle the visibility like that. Very useful and it is useful to remember the shortcut for this.<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>M-x org-narrow-to-subtree</span></span>
+<span class="giallo-l"><span>M-x widen</span></span></code></pre></li>
 <li>By the way, did you notice that <strong><code>M-x</code> remembers your command history</strong> too!</li>
 <li>How do you rearrange headlines with their content? There are commands for that, but what I find easier to do is to fold the headline and then use cut (<em>dd</em>) and paste (<em>p</em>) if I need to move it to some other area; or indent (<em>&gt;</em>) or dedent (<em>&lt;</em>) to promote and demote. VIM keys are more familiar to me!</li>
 <li>Note that if you want to use these VIM commands, you’ve to keep the headline collapsed. If it is not, then those commands work only on that headline line and not on the entire content under that - which is usually what you don’t want.</li>
@@ -245,18 +231,16 @@ This is a great key to remember. Works for all semantic levels.</li>
 </ol>
 <h2 id="Org_capture"><a class="header-anchor no-hover-padding" href="#Org_capture" aria-label="Anchor link for: Org_capture"><span class="link-icon" aria-hidden="true"></span></a>
 Org capture</h2>
-<p>This is similar to <a href="https://gettingthingsdone.com/insights/step-1-capture/">GTD Capture</a>.</p>
+<p>This is similar to <a rel="external" href="https://gettingthingsdone.com/insights/step-1-capture/">GTD Capture</a>.</p>
 <ol>
 <li>
 <p>Hit <code>SPC X</code> (that is Space bar and capital X). You get a menu.</p>
-<pre class="z-code"><code><span class="z-text z-plain">Select a capture template
-</span><span class="z-text z-plain">=========================
-</span><span class="z-text z-plain">[t] Personal todo
-</span><span class="z-text z-plain">[n] Personal note
-</span><span class="z-text z-plain">[j] Journal
-</span><span class="z-text z-plain">...
-</span></code></pre>
-</li>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Select a capture template</span></span>
+<span class="giallo-l"><span>=========================</span></span>
+<span class="giallo-l"><span>[t] Personal todo</span></span>
+<span class="giallo-l"><span>[n] Personal note</span></span>
+<span class="giallo-l"><span>[j] Journal</span></span>
+<span class="giallo-l"><span>...</span></span></code></pre></li>
 <li>
 <p>Let us add a <em>note</em>. Hit <code>n</code>. A split opens up and you can nicely start typing your
 headline and content there. Once done <code>C-c</code> will close it. These go to your <em>org-directory</em> under a file <code>notes.org</code>.</p>
@@ -277,12 +261,10 @@ doing multiple projects, those are all in <code>projects.org</code> with each Pr
 </li>
 <li>
 <p><code>projects.org</code> has a default project called “-”. If you want to add another project so that you can file things under that, create it as a sibling to this one. Sample below.</p>
-<pre class="z-code"><code><span class="z-text z-plain">* -
-</span><span class="z-text z-plain">** Notes
-</span><span class="z-text z-plain">*** [yyyy-mm-dd day hh:mi] what i typed as note headline
-</span><span class="z-text z-plain">* My Project 1
-</span></code></pre>
-</li>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>* -</span></span>
+<span class="giallo-l"><span>** Notes</span></span>
+<span class="giallo-l"><span>*** [yyyy-mm-dd day hh:mi] what i typed as note headline</span></span>
+<span class="giallo-l"><span>* My Project 1</span></span></code></pre></li>
 <li>
 <p><strong>Tagging</strong> is very easy. Navigate to a section/headline and do <code>SPC m q</code>. Type in one tag. If that org file had other tags before you get a picklist to choose from too!</p>
 </li>
@@ -299,14 +281,13 @@ doing multiple projects, those are all in <code>projects.org</code> with each Pr
 Checklists</h2>
 <p>While org-mode has a very elaborate system using <em>TODO</em> prefix’ed headlines for tracking your todos and even build agenda from it,
 I find quick checklists a great way to ensure things are thought through.</p>
-<pre class="z-code"><code><span class="z-text z-plain">- [ ] Write an Article
-</span><span class="z-text z-plain">  - [ ] Make an outline
-</span><span class="z-text z-plain">  - [ ] Add content
-</span><span class="z-text z-plain">  - [ ] Add tags
-</span><span class="z-text z-plain">  - [ ] Preview and edit
-</span><span class="z-text z-plain">  - [ ] Publish
-</span><span class="z-text z-plain">  - [ ] Tweet about it with link
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>- [ ] Write an Article</span></span>
+<span class="giallo-l"><span>  - [ ] Make an outline</span></span>
+<span class="giallo-l"><span>  - [ ] Add content</span></span>
+<span class="giallo-l"><span>  - [ ] Add tags</span></span>
+<span class="giallo-l"><span>  - [ ] Preview and edit</span></span>
+<span class="giallo-l"><span>  - [ ] Publish</span></span>
+<span class="giallo-l"><span>  - [ ] Tweet about it with link</span></span></code></pre>
 <p>That’s it. Checklist items are simply list items with an empty <strong>[ ]</strong> square brackets. Once you add one, to quickly keep adding
 siblings, <em>C-Enter</em> will work too!</p>
 <p>To mark each one as in progress or done, just go to the item and hit <strong>ENTER</strong>. Each hit will cycle through <em>-, X, blank</em>.</p>
@@ -314,17 +295,15 @@ siblings, <em>C-Enter</em> will work too!</p>
 updated to <strong>[n/m]</strong> when you check off each item inside it. If you want to recompute manually, there is a command. Do <code>M-x</code> and type <code>stat</code> and find out the right one :)</p>
 <p>Naturally, if you prefer <code>%</code>, you can add <strong>[%]</strong> instead. Here is how it looks after I did some ENTERs. Again, I didn’t
 type in <em>3/6</em> or <em>0%</em> - org did it automatically; I just had to tell it that I need n/m and % by adding an empty [/] and [%].</p>
-<pre class="z-code"><code><span class="z-text z-plain">- [-] Write an Article [3/6]
-</span><span class="z-text z-plain">   - [X] Make an outline
-</span><span class="z-text z-plain">   - [X] Add content
-</span><span class="z-text z-plain">   - [X] Add tags
-</span><span class="z-text z-plain">   - [-] Preview and edit
-</span><span class="z-text z-plain">   - [ ] Publish
-</span><span class="z-text z-plain">   - [ ] Tweet about it with link
-</span><span class="z-text z-plain">- [-] Viral campaign [0%]
-</span><span class="z-text z-plain">   - [-] Pay million$ during super-bowl
-</span></code></pre>
-<h2 id="Recap"><a class="header-anchor no-hover-padding" href="#Recap" aria-label="Anchor link for: Recap"><span class="link-icon" aria-hidden="true"></span></a>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>- [-] Write an Article [3/6]</span></span>
+<span class="giallo-l"><span>   - [X] Make an outline</span></span>
+<span class="giallo-l"><span>   - [X] Add content</span></span>
+<span class="giallo-l"><span>   - [X] Add tags</span></span>
+<span class="giallo-l"><span>   - [-] Preview and edit</span></span>
+<span class="giallo-l"><span>   - [ ] Publish</span></span>
+<span class="giallo-l"><span>   - [ ] Tweet about it with link</span></span>
+<span class="giallo-l"><span>- [-] Viral campaign [0%]</span></span>
+<span class="giallo-l"><span>   - [-] Pay million$ during super-bowl</span></span></code></pre><h2 id="Recap"><a class="header-anchor no-hover-padding" href="#Recap" aria-label="Anchor link for: Recap"><span class="link-icon" aria-hidden="true"></span></a>
 Recap</h2>
 <h4 id="Keys/Commands"><a class="header-anchor no-hover-padding" href="#Keys&#x2F;Commands" aria-label="Anchor link for: Keys&#x2F;Commands"><span class="link-icon" aria-hidden="true"></span></a>
 Keys/Commands</h4>
@@ -358,28 +337,26 @@ Keys/Commands</h4>
 <h4 id="Default_files"><a class="header-anchor no-hover-padding" href="#Default_files" aria-label="Anchor link for: Default_files"><span class="link-icon" aria-hidden="true"></span></a>
 Default files</h4>
 <p>Under your <code>org-directory</code></p>
-<pre class="z-code"><code><span class="z-text z-plain"> ├── org
-</span><span class="z-text z-plain"> │   ├── journal.org
-</span><span class="z-text z-plain"> │   ├── notes.org
-</span><span class="z-text z-plain"> │   └── projects.org
-</span><span class="z-text z-plain"> │   └── todo.org
-</span></code></pre>
-<h2 id="Closing_thoughts"><a class="header-anchor no-hover-padding" href="#Closing_thoughts" aria-label="Anchor link for: Closing_thoughts"><span class="link-icon" aria-hidden="true"></span></a>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span> ├── org</span></span>
+<span class="giallo-l"><span> │   ├── journal.org</span></span>
+<span class="giallo-l"><span> │   ├── notes.org</span></span>
+<span class="giallo-l"><span> │   └── projects.org</span></span>
+<span class="giallo-l"><span> │   └── todo.org</span></span></code></pre><h2 id="Closing_thoughts"><a class="header-anchor no-hover-padding" href="#Closing_thoughts" aria-label="Anchor link for: Closing_thoughts"><span class="link-icon" aria-hidden="true"></span></a>
 Closing thoughts</h2>
 <ul>
-<li>To extract data from org-mode files, <a href="https://orgparse.readthedocs.io/en/latest/">python orgparse</a> is quite nice.</li>
+<li>To extract data from org-mode files, <a rel="external" href="https://orgparse.readthedocs.io/en/latest/">python orgparse</a> is quite nice.</li>
 <li>Since this is all text, emacs doesn’t even break a sweat to load up 100K lines org files. ie., Really, you don’t
 need to make things like <code>project1.org</code>, <code>project2.org</code> etc (unless you want to keep it in different folders). Another advantage
 in maintaining one large file each is that usual search (<em>/</em>) in VIM works just as well!</li>
-<li>Creating <a href="https://orgmode.org/manual/Built_002din-Table-Editor.html">ascii tables</a> is too good. You get perfect alignment and you can
+<li>Creating <a rel="external" href="https://orgmode.org/manual/Built_002din-Table-Editor.html">ascii tables</a> is too good. You get perfect alignment and you can
 even have formula for computed fields if you must. Of course, there is a command to convert a selected region to tables (paste csv and use it
 to see what I mean. Which command? Try <code>M-x org-table</code> and auto-complete a guess.</li>
 <li><code>M-x doom/reload</code> helps you re-init the environment if you change some config; I usually just exit and restart emacs.</li>
-<li>If you prefer video tutorialss, I found <a href="https://www.youtube.com/playlist?list=PLhXZp00uXBk4np17N39WvB80zgxlZfVwj">Doomcasts</a> by
+<li>If you prefer video tutorialss, I found <a rel="external" href="https://www.youtube.com/playlist?list=PLhXZp00uXBk4np17N39WvB80zgxlZfVwj">Doomcasts</a> by
 <em>Zaiste Programming</em> on youtube.com as the best resource on the topic. E09 to E17 covers org-mode; If you choose to use this,
 my advice is to start from E01. The content and presentation is brilliant and each episode is only 10 minutes long.</li>
 <li>org-agenda is also fantastic; but I found it a bit difficult to focus and learn. Keeping notes, todos and journal in split windows
-is good enough for me. See a sample for <a href="https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html">maintaining an agenda for your life</a>!</li>
+is good enough for me. See a sample for <a rel="external" href="https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html">maintaining an agenda for your life</a>!</li>
 </ul>
 
         </section>

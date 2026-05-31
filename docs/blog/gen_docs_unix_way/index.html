@@ -167,79 +167,74 @@ simple example is a <em>copyright footer</em> or even an <em>intro paragraph abo
 Tools</h2>
 <ul>
 <li>
-<p><a href="https://www.gnu.org/software/m4/manual/m4-1.4.15/html_node/index.html">m4</a> is a macro
+<p><a rel="external" href="https://www.gnu.org/software/m4/manual/m4-1.4.15/html_node/index.html">m4</a> is a macro
 processor. It reads text, parses it for <em>macros</em> and expands macros and outputs the mix. A cheap
 way to think about this is considering this as expanding abbreviations. However, <code>m4</code> is lot more
 than that and gives you lot of flexibilities. What we need really for current problem is only
-one built-in macro called <a href="https://www.gnu.org/software/m4/manual/m4-1.4.15/html_node/Include.html">include</a> which helps us include contents from other files into ours.</p>
-<pre class="z-code"><code><span class="z-text z-plain">include(`header.txt&#39;)
-</span><span class="z-text z-plain">blah blah my content
-</span><span class="z-text z-plain">include(`footer.txt&#39;)
-</span></code></pre>
+one built-in macro called <a rel="external" href="https://www.gnu.org/software/m4/manual/m4-1.4.15/html_node/Include.html">include</a> which helps us include contents from other files into ours.</p>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>include(`header.txt&#39;)</span></span>
+<span class="giallo-l"><span>blah blah my content</span></span>
+<span class="giallo-l"><span>include(`footer.txt&#39;)</span></span></code></pre>
 <p>Will replace the contents of <em>header.txt</em> and <em>footer.txt</em> to the output.</p>
 </li>
 <li>
-<p><a href="https://www.gnu.org/software/make/">make</a> is a classic graph based automator.</p>
+<p><a rel="external" href="https://www.gnu.org/software/make/">make</a> is a classic graph based automator.</p>
 </li>
 <li>
-<p><a href="https://pandoc.org/">pandoc</a> is a swiss-army knife for converting documents from one format to another.</p>
+<p><a rel="external" href="https://pandoc.org/">pandoc</a> is a swiss-army knife for converting documents from one format to another.</p>
 </li>
 </ul>
 <p>All of these packages can be installed using regular package managers or <em>homebrew</em>.</p>
 <h2 id="Project_Structure"><a class="header-anchor no-hover-padding" href="#Project_Structure" aria-label="Anchor link for: Project_Structure"><span class="link-icon" aria-hidden="true"></span></a>
 Project Structure</h2>
-<pre class="z-code"><code><span class="z-text z-plain">.
-</span><span class="z-text z-plain">├── Makefile
-</span><span class="z-text z-plain">└── src
-</span><span class="z-text z-plain">    ├── inc_footer.md
-</span><span class="z-text z-plain">    ├── inc_header.md
-</span><span class="z-text z-plain">    ├── intro_chapter_one.md
-</span><span class="z-text z-plain">    └── intro_chapter_two.md
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>.</span></span>
+<span class="giallo-l"><span>├── Makefile</span></span>
+<span class="giallo-l"><span>└── src</span></span>
+<span class="giallo-l"><span>    ├── inc_footer.md</span></span>
+<span class="giallo-l"><span>    ├── inc_header.md</span></span>
+<span class="giallo-l"><span>    ├── intro_chapter_one.md</span></span>
+<span class="giallo-l"><span>    └── intro_chapter_two.md</span></span></code></pre>
 <p>Let us look at <code>inc_header.md</code>. Just straight forward markdown.</p>
-<pre data-lang="markdown" class="language-markdown z-code"><code class="language-markdown" data-lang="markdown"><span class="z-text z-html z-markdown"><span class="z-meta z-block-level z-markdown"><span class="z-markup z-heading z-2 z-markdown"><span class="z-punctuation z-definition z-heading z-begin z-markdown">##</span> </span><span class="z-markup z-heading z-2 z-markdown"><span class="z-entity z-name z-section z-markdown">About us</span><span class="z-meta z-whitespace z-newline z-markdown">
-</span></span></span></span><span class="z-text z-html z-markdown">
-</span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">We are the kindest souls in the universe!
-</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="markdown"><span class="giallo-l"><span class="z-punctuation z-definition z-heading z-markdown z-heading z-\32  z-markdown">## About us</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-text">We are the kindest souls in the universe!</span></span></code></pre>
 <p>Now, if we look at <code>intro_chapter_one.md</code>:</p>
-<pre data-lang="markdown" class="language-markdown z-code"><code class="language-markdown" data-lang="markdown"><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">changequote(<span class="z-markup z-raw z-inline z-markdown"><span class="z-punctuation z-definition z-raw z-begin z-markdown">`</span>{{&#39;, <span class="z-punctuation z-definition z-raw z-end z-markdown">`</span></span>}}&#39;)
-</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">
-</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">include({{inc_header.md}})
-</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">
-</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-block-level z-markdown"><span class="z-markup z-heading z-1 z-markdown"><span class="z-punctuation z-definition z-heading z-begin z-markdown">#</span> </span><span class="z-markup z-heading z-1 z-markdown"><span class="z-entity z-name z-section z-markdown">Chapter 01 - The Great Story</span><span class="z-meta z-whitespace z-newline z-markdown">
-</span></span></span></span><span class="z-text z-html z-markdown">
-</span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">LA la la..
-</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">
-</span></span><span class="z-text z-html z-markdown"><span class="z-meta z-paragraph z-markdown">include({{inc_footer.md}})
-</span></span></code></pre>
-<p>All it is doing is including the files. Note that I’ve also <a href="https://www.gnu.org/software/m4/manual/m4-1.4.15/html_node/Changequote.html">changed the quoting</a>
+<pre class="giallo z-code"><code data-lang="markdown"><span class="giallo-l"><span class="z-text">changequote(</span><span class="z-punctuation z-definition z-raw z-markdown z-markup z-inline z-raw z-string z-markdown">`{{&#39;, `</span><span class="z-text">}}&#39;)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-text">include({{inc_header.md}})</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-heading z-markdown z-heading z-\31  z-markdown"># Chapter 01 - The Great Story</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-text">LA la la..</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-text">include({{inc_footer.md}})</span></span></code></pre>
+<p>All it is doing is including the files. Note that I’ve also <a rel="external" href="https://www.gnu.org/software/m4/manual/m4-1.4.15/html_node/Changequote.html">changed the quoting</a>
 structure from back-tick and straight-tick to double flowery braces. This helps
 in markdown where back-tick means something when it comes to syntax highlighting
 editors.</p>
 <h2 id="Makefile"><a class="header-anchor no-hover-padding" href="#Makefile" aria-label="Anchor link for: Makefile"><span class="link-icon" aria-hidden="true"></span></a>
 Makefile</h2>
-<pre data-lang="make" class="language-make z-code"><code class="language-make" data-lang="make"><span class="z-source z-makefile"><span class="z-variable z-other z-makefile">SRCDIR</span> <span class="z-keyword z-operator z-assignment z-makefile">=</span></span> <span class="z-source z-makefile"><span class="z-meta z-string z-makefile"><span class="z-string z-unquoted z-makefile">src</span></span>
-</span><span class="z-source z-makefile"><span class="z-variable z-other z-makefile">OUTDIR</span> <span class="z-keyword z-operator z-assignment z-makefile">=</span></span> <span class="z-source z-makefile"><span class="z-meta z-string z-makefile"><span class="z-string z-unquoted z-makefile">share</span></span>
-</span><span class="z-source z-makefile"><span class="z-variable z-other z-makefile">SRCF</span>  <span class="z-keyword z-operator z-assignment z-makefile">=</span></span> <span class="z-source z-makefile"><span class="z-meta z-string z-makefile"><span class="z-string z-unquoted z-makefile"><span class="z-meta z-function-call z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span><span class="z-support z-function z-builtin z-makefile">wildcard</span> </span><span class="z-meta z-function-call z-arguments z-makefile"><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span>/intro_<span class="z-variable z-language z-wildcard z-makefile">*</span>.md</span><span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span>
-</span><span class="z-source z-makefile"><span class="z-variable z-other z-makefile">DEPF</span>  <span class="z-keyword z-operator z-assignment z-makefile">=</span></span> <span class="z-source z-makefile"><span class="z-meta z-string z-makefile"><span class="z-string z-unquoted z-makefile"><span class="z-meta z-function-call z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span><span class="z-support z-function z-builtin z-makefile">wildcard</span> </span><span class="z-meta z-function-call z-arguments z-makefile"><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span>/inc_<span class="z-variable z-language z-wildcard z-makefile">*</span>.md</span><span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span>
-</span><span class="z-source z-makefile"><span class="z-variable z-other z-makefile">DOCX</span> <span class="z-keyword z-operator z-assignment z-makefile">=</span></span> <span class="z-source z-makefile"><span class="z-meta z-string z-makefile"><span class="z-string z-unquoted z-makefile"><span class="z-meta z-function-call z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span><span class="z-support z-function z-builtin z-makefile">subst</span> </span><span class="z-meta z-function-call z-arguments z-makefile"><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span><span class="z-punctuation z-separator z-makefile">,</span><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>OUTDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span><span class="z-punctuation z-separator z-makefile">,</span><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCF<span class="z-punctuation z-definition z-substitution z-makefile">:</span>.md<span class="z-punctuation z-definition z-assignment z-makefile">=</span>.docx<span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span><span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span>
-</span><span class="z-source z-makefile">
-</span><span class="z-source z-makefile"><span class="z-meta z-function z-makefile"><span class="z-entity z-name z-function z-makefile">.PHONY</span></span><span class="z-keyword z-operator z-assignment z-makefile">:</span> <span class="z-meta z-function z-arguments z-makefile"><span class="z-string z-unquoted z-makefile">all clean</span></span><span class="z-meta z-function z-body z-makefile">
-</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span>
-</span><span class="z-source z-makefile"><span class="z-meta z-function z-makefile"><span class="z-entity z-name z-function z-makefile">all</span></span><span class="z-keyword z-operator z-assignment z-makefile">:</span> <span class="z-meta z-function z-arguments z-makefile"><span class="z-string z-unquoted z-makefile">directories <span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>DOCX<span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span></span><span class="z-meta z-function z-body z-makefile">
-</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span>
-</span><span class="z-source z-makefile"><span class="z-meta z-function z-makefile"><span class="z-entity z-name z-function z-makefile">directories</span></span><span class="z-keyword z-operator z-assignment z-makefile">:</span>
-<span class="z-meta z-function z-arguments z-makefile"></span><span class="z-meta z-function z-body z-makefile"></span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-meta z-function z-body z-makefile">	<span class="z-source z-shell"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">mkdir</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>p</span> <span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>OUTDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span></span>
-</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile">
-</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-meta z-function z-makefile"><span class="z-entity z-name z-function z-makefile"><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>OUTDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span>/<span class="z-variable z-language z-makefile">%</span>.docx</span></span><span class="z-keyword z-operator z-assignment z-makefile">:</span> <span class="z-meta z-function z-arguments z-makefile"><span class="z-string z-unquoted z-makefile"><span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span>/<span class="z-variable z-language z-makefile">%</span>.md <span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>DEPF<span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span></span><span class="z-meta z-function z-body z-makefile">
-</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-meta z-function z-body z-makefile">	<span class="z-source z-shell"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span><span class="z-support z-function z-builtin z-makefile">shell</span> <span class="z-source z-shell"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">m4</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>I</span> <span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>SRCDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span> <span class="z-variable z-language z-automatic z-makefile">$&lt;</span></span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">pandoc</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>s</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>quiet</span><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> markdown<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>o</span> <span class="z-variable z-language z-automatic z-makefile">$@</span> -</span></span><span class="z-keyword z-other z-block z-end z-makefile">)</span></span>
-</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile">	<span class="z-constant z-language z-makefile">@</span><span class="z-source z-shell"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span><span class="z-variable z-language z-automatic z-makefile">$&lt;</span> ==&gt; <span class="z-variable z-language z-automatic z-makefile">$@</span><span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span></span>
-</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile">
-</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-meta z-function z-makefile"><span class="z-entity z-name z-function z-makefile">clean</span></span><span class="z-keyword z-operator z-assignment z-makefile">:</span>
-<span class="z-meta z-function z-arguments z-makefile"></span><span class="z-meta z-function z-body z-makefile"></span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-meta z-function z-body z-makefile">	<span class="z-source z-shell"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">rm</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>fR</span> <span class="z-variable z-parameter z-makefile"><span class="z-keyword z-other z-block z-begin z-makefile">$(</span>OUTDIR<span class="z-keyword z-other z-block z-end z-makefile">)</span></span></span></span>
-</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile">
-</span></span><span class="z-source z-makefile"><span class="z-meta z-function z-body z-makefile"></span><span class="z-comment z-line z-number-sign z-makefile"><span class="z-punctuation z-definition z-comment z-makefile">#</span> vim: set noexpandtab:
-</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="make"><span class="giallo-l"><span class="z-source">SRCDIR</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> src</span></span>
+<span class="giallo-l"><span class="z-source">OUTDIR</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-source"> share</span></span>
+<span class="giallo-l"><span class="z-source">SRCF</span><span class="z-punctuation z-separator z-key-value">  =</span><span class="z-punctuation z-definition z-variable"> $(</span><span class="z-support z-function">wildcard</span><span class="z-punctuation z-definition z-variable z-variable"> $(SRCDIR)</span><span class="z-string">/intro_*.md</span><span class="z-punctuation z-definition z-variable">)</span></span>
+<span class="giallo-l"><span class="z-source">DEPF</span><span class="z-punctuation z-separator z-key-value">  =</span><span class="z-punctuation z-definition z-variable"> $(</span><span class="z-support z-function">wildcard</span><span class="z-punctuation z-definition z-variable z-variable"> $(SRCDIR)</span><span class="z-string">/inc_*.md</span><span class="z-punctuation z-definition z-variable">)</span></span>
+<span class="giallo-l"><span class="z-source">DOCX</span><span class="z-punctuation z-separator z-key-value"> =</span><span class="z-punctuation z-definition z-variable"> $(</span><span class="z-support z-function">subst</span><span class="z-punctuation z-definition z-variable z-variable"> $(SRCDIR)</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-variable z-variable">$(OUTDIR)</span><span class="z-punctuation">,</span><span class="z-punctuation z-definition z-variable z-variable">$(SRCF:.md=.docx))</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-support z-function">.PHONY</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source"> all clean</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">all</span><span class="z-punctuation z-separator z-key-value">:</span><span class="z-source z-punctuation z-definition z-variable z-variable"> directories $(DOCX)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">directories</span><span class="z-punctuation z-separator z-key-value">:</span></span>
+<span class="giallo-l"><span class="z-source z-punctuation z-definition z-variable z-variable">	mkdir -p $(OUTDIR)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-variable z-variable z-source">$(OUTDIR)/%.docx: $(SRCDIR)/%.md $(DEPF)</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-variable">	$(</span><span class="z-support z-function">shell</span><span class="z-string"> m4 -I </span><span class="z-punctuation z-definition z-variable z-variable">$(SRCDIR) $&lt;</span><span class="z-string"> | pandoc -s --quiet -f markdown -o </span><span class="z-variable">$@</span><span class="z-string"> -</span><span class="z-punctuation z-definition z-variable">)</span></span>
+<span class="giallo-l"><span class="z-keyword">	@</span><span class="z-source">echo &quot;$&lt; ==&gt; $@&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">clean</span><span class="z-punctuation z-separator z-key-value">:</span></span>
+<span class="giallo-l"><span class="z-source z-punctuation z-definition z-variable z-variable">	rm -fR $(OUTDIR)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># vim: set noexpandtab:</span></span></code></pre>
 <ul>
 <li>First two lines set the source and output directories</li>
 <li><code>SRCF</code> is a list of markdown files we want to convert to MS Word formats. (Wildcard)[https://www.gnu.org/software/make/manual/html_node/Wildcard-Function.html] function helps in getting the list.</li>
@@ -255,26 +250,23 @@ extension from <em>.md</em> to <em>.docx</em> and the <code>subst</code> functio
 file name (<code>$@</code>).</li>
 </ul>
 <p>Go ahead and run <code>make</code>.</p>
-<pre class="z-code"><code><span class="z-text z-plain">mkdir -p share
-</span><span class="z-text z-plain">src/intro_chapter_one.md ==&gt; share/intro_chapter_one.docx
-</span><span class="z-text z-plain">src/intro_chapter_two.md ==&gt; share/intro_chapter_two.docx
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>mkdir -p share</span></span>
+<span class="giallo-l"><span>src/intro_chapter_one.md ==&gt; share/intro_chapter_one.docx</span></span>
+<span class="giallo-l"><span>src/intro_chapter_two.md ==&gt; share/intro_chapter_two.docx</span></span></code></pre>
 <p>Let us also see how <code>make</code> is efficient. If we change only one file, it should
 build only the docx corresponding to that.</p>
-<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">touch</span></span><span class="z-meta z-function-call z-arguments z-shell"> src/intro_chapter_one.md </span>
-</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">make</span></span>
-</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">  mkdir -p share</span><span class="z-comment z-line z-number-sign z-shell">
-</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">  src/intro_chapter_one.md ==&gt; share/intro_chapter_one.docx</span><span class="z-comment z-line z-number-sign z-shell">
-</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">touch</span><span class="z-string"> src/intro_chapter_one.md</span><span class="z-source"> </span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">make</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">#  mkdir -p share</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">#  src/intro_chapter_one.md ==&gt; share/intro_chapter_one.docx</span></span></code></pre>
 <p>Well, if we modify an include file, then all files need to be regenerated.</p>
-<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">touch</span></span><span class="z-meta z-function-call z-arguments z-shell"> src/inc_header.md </span>
-</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">make</span></span>
-</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">  mkdir -p share</span><span class="z-comment z-line z-number-sign z-shell">
-</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">  src/intro_chapter_one.md ==&gt; share/intro_chapter_one.docx</span><span class="z-comment z-line z-number-sign z-shell">
-</span></span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">  src/intro_chapter_two.md ==&gt; share/intro_chapter_two.docx</span><span class="z-comment z-line z-number-sign z-shell">
-</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">touch</span><span class="z-string"> src/inc_header.md</span><span class="z-source"> </span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">make</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">#  mkdir -p share</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">#  src/intro_chapter_one.md ==&gt; share/intro_chapter_one.docx</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">#  src/intro_chapter_two.md ==&gt; share/intro_chapter_two.docx</span></span></code></pre>
 <p>Objective of this short article was to demonstrate how command line tools are
-much easier when we’ve to generate stuff. Things like <a href="https://kislyuk.github.io/yq/">yq</a>
+much easier when we’ve to generate stuff. Things like <a rel="external" href="https://kislyuk.github.io/yq/">yq</a>
 coupled with these kind of tools even give you ability to have a database of
 <code>yml</code> files which can generate say question papers, resume, job descriptions etc!</p>
 <p>And if you keep your layout and common boiler plate text in <code>m4</code> files, it is a

@@ -168,22 +168,20 @@ it is to automate fetching the data and then sending to a script to process.</p>
 How?</h2>
 <p>Two venerable unix utilities.</p>
 <ul>
-<li><a href="https://www.fetchmail.info">fetchmail</a> supports a wide variety of protocols
+<li><a rel="external" href="https://www.fetchmail.info">fetchmail</a> supports a wide variety of protocols
 to get email from a remote email server.</li>
-<li><a href="https://wiki.archlinux.org/index.php/Procmail">procmail</a> do something with
+<li><a rel="external" href="https://wiki.archlinux.org/index.php/Procmail">procmail</a> do something with
 your email. Including routing to specific mailboxes or <em>commands</em>.</li>
 </ul>
 <h2 id="Setup"><a class="header-anchor no-hover-padding" href="#Setup" aria-label="Anchor link for: Setup"><span class="link-icon" aria-hidden="true"></span></a>
 Setup</h2>
 <p>If you are in recent <em>ubuntu</em> or its derivates, just install these two.</p>
-<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> apt-get install fetchmail fetchmailconf procmail</span>
-</span></code></pre>
-<h2 id="Config"><a class="header-anchor no-hover-padding" href="#Config" aria-label="Anchor link for: Config"><span class="link-icon" aria-hidden="true"></span></a>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt-get install fetchmail fetchmailconf procmail</span></span></code></pre><h2 id="Config"><a class="header-anchor no-hover-padding" href="#Config" aria-label="Anchor link for: Config"><span class="link-icon" aria-hidden="true"></span></a>
 Config</h2>
 <p>Let us create a <em>fetchmail</em> config file to get data from gmail.</p>
 <h3 id="Gmail"><a class="header-anchor no-hover-padding" href="#Gmail" aria-label="Anchor link for: Gmail"><span class="link-icon" aria-hidden="true"></span></a>
 Gmail</h3>
-<p>First, <a href="https://support.google.com/a/answer/9003945?hl=en&amp;ref_topic=4456189">Configure gmail to support
+<p>First, <a rel="external" href="https://support.google.com/a/answer/9003945?hl=en&amp;ref_topic=4456189">Configure gmail to support
 imap</a>.</p>
 <p>To make things easier, you should also setup a gmail filter to move
 emails matching your criteria to a label, from inbox. This way, we can
@@ -195,14 +193,13 @@ based on <em>To:</em> field in the incoming mail.</p>
 <h3 id="Fetchmail"><a class="header-anchor no-hover-padding" href="#Fetchmail" aria-label="Anchor link for: Fetchmail"><span class="link-icon" aria-hidden="true"></span></a>
 Fetchmail</h3>
 <p>fetchmail.rc is below.</p>
-<pre class="z-code"><code><span class="z-text z-plain">poll imap.gmail.com protocol IMAP
-</span><span class="z-text z-plain">   user &quot;myemail@mydomain.com&quot; is localuser here
-</span><span class="z-text z-plain">   password &#39;whateveritis&#39;
-</span><span class="z-text z-plain">   folder &#39;mygmaillabel&#39;
-</span><span class="z-text z-plain">   fetchall
-</span><span class="z-text z-plain">   keep
-</span><span class="z-text z-plain">   ssl
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>poll imap.gmail.com protocol IMAP</span></span>
+<span class="giallo-l"><span>   user &quot;myemail@mydomain.com&quot; is localuser here</span></span>
+<span class="giallo-l"><span>   password &#39;whateveritis&#39;</span></span>
+<span class="giallo-l"><span>   folder &#39;mygmaillabel&#39;</span></span>
+<span class="giallo-l"><span>   fetchall</span></span>
+<span class="giallo-l"><span>   keep</span></span>
+<span class="giallo-l"><span>   ssl</span></span></code></pre>
 <ul>
 <li><code>fetchall</code> indicates we should get all unread mails from this folder.</li>
 <li><code>keep</code> ensures mails are left on the server and not deleted. You can
@@ -211,13 +208,12 @@ use <code>nokeep</code> if you want to delete the mails we’ve downloaded.</li>
 <h3 id="Procmail"><a class="header-anchor no-hover-padding" href="#Procmail" aria-label="Anchor link for: Procmail"><span class="link-icon" aria-hidden="true"></span></a>
 Procmail</h3>
 <p>procmail.rc is below.</p>
-<pre class="z-code"><code><span class="z-text z-plain">VERBOSE=0
-</span><span class="z-text z-plain">:0
-</span><span class="z-text z-plain">! `/full/path/to/processemail.py`
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>VERBOSE=0</span></span>
+<span class="giallo-l"><span>:0</span></span>
+<span class="giallo-l"><span>! `/full/path/to/processemail.py`</span></span></code></pre>
 <p>What this is doing is that every email that comes to <em>procmail</em> will be passed
 to this script <em>processemail.py</em> via stdin. There are many samples out there -
-for example, <a href="https://gist.github.com/baali/2633554">download attachments</a>
+for example, <a rel="external" href="https://gist.github.com/baali/2633554">download attachments</a>
 using the cool <em>walk</em> method.</p>
 <p>Most of the examples also have code for reading from gmail directly, but I
 prefer keeping <em>getting data</em> and <em>processing data</em> as separate things.</p>
@@ -227,9 +223,8 @@ marked the mail as read and you would’ve lost the content from local.</p>
 <h2 id="Integration"><a class="header-anchor no-hover-padding" href="#Integration" aria-label="Anchor link for: Integration"><span class="link-icon" aria-hidden="true"></span></a>
 Integration</h2>
 <p>Just execute a command as below.</p>
-<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">fetchmail</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>f</span> fetchmail.rc <span class="z-punctuation z-separator z-continuation z-line z-shell">\
-</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell">  --</span>mda</span> <span class="z-string z-quoted z-double z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&quot;</span>procmail <span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-expansion z-parameter z-begin z-shell">{</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-variable z-other z-readwrite z-shell">PWD</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-section z-expansion z-parameter z-end z-shell">}</span></span>/procmail.rc<span class="z-punctuation z-definition z-string z-end z-shell">&quot;</span></span></span>
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">fetchmail</span><span class="z-string"> -f fetchmail.rc</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string z-punctuation z-definition z-string">  --mda &quot;procmail </span><span class="z-punctuation z-definition z-variable z-variable z-other z-normal z-shell">${PWD}</span><span class="z-string z-punctuation z-definition z-string">/procmail.rc&quot;</span></span></code></pre>
 <p>Straight forward,  isn’t it? Get the mail and send to mail delivery agent,
 which is <em>procmail</em> using your config.</p>
 <p>Add this to a cron and you are done. <em>fetchmail</em> comes with its own daemon mode

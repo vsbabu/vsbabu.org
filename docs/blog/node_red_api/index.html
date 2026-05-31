@@ -158,7 +158,7 @@ content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#
                 <li>27th Aug 2019</li><li title="635 words"><span class='separator' aria-hidden='true'>•</span>4 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/api/">api</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/productivity/">productivity</a></li>
         </ul>
 
-        <section class="body"><p><a href="https://nodered.org/"><code>node-red</code></a> can be used to quickly convert your shell scripts
+        <section class="body"><p><a rel="external" href="https://nodered.org/"><code>node-red</code></a> can be used to quickly convert your shell scripts
 into functioning APIs.</p>
 <span id="continue-reading"></span>
 <p>We all have those scripts that grow over time and does incredibly useful things
@@ -172,18 +172,16 @@ intranet, node-red makes it very easy to build APIs. What started as fun project
 has been proving incredibly powerful and useful for various use cases.</p>
 <p>Following is a screenshot tour on how to make a simple bash script that adds n
 days to current date and gives the new date; to a JSON API.</p>
-<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell"><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">cat</span></span></span></span><span class="z-meta z-function-call z-arguments z-shell"> /tmp/responder.sh</span>
-</span><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell">!/bin/bash</span><span class="z-comment z-line z-number-sign z-shell">
-</span></span><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">n</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell"><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-expansion z-parameter z-begin z-shell">{</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-variable z-other z-readwrite z-shell">1</span></span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-keyword z-operator z-assignment z-shell">:-</span></span><span class="z-meta z-group z-expansion z-parameter z-shell">0</span><span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-section z-expansion z-parameter z-end z-shell">}</span></span></span>
-</span><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">d</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-meta z-function-call z-shell"></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-meta z-group z-expansion z-command z-backticks z-shell"><span class="z-punctuation z-section z-group z-begin z-shell">`</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">date</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>d</span> “+<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">n</span></span> days”</span><span class="z-punctuation z-section z-group z-end z-shell">`</span></span></span>
-</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-echo z-shell">echo</span></span><span class="z-meta z-function-call z-arguments z-shell"> “<span class="z-meta z-group z-expansion z-brace z-shell"><span class="z-punctuation z-section z-expansion z-brace z-begin z-shell">{</span>‘n’:<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">n</span></span><span class="z-punctuation z-separator z-shell">,</span>’date’:’<span class="z-meta z-group z-expansion z-parameter z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-variable z-other z-readwrite z-shell">d</span></span>’<span class="z-punctuation z-section z-expansion z-brace z-end z-shell">}</span></span>”</span>
-</span></code></pre>
-<h2 id="Getting_setup_-_2_min"><a class="header-anchor no-hover-padding" href="#Getting_setup_-_2_min" aria-label="Anchor link for: Getting_setup_-_2_min"><span class="link-icon" aria-hidden="true"></span></a>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-punctuation z-definition z-variable z-source">$cat /tmp/responder.sh</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-shebang z-shell z-meta z-shebang z-shell">#!/bin/bash</span></span>
+<span class="giallo-l"><span class="z-source">n</span><span class="z-keyword z-operator">=</span><span class="z-variable z-parameter">${1</span><span class="z-keyword z-operator">:-</span><span class="z-variable z-parameter">0}</span></span>
+<span class="giallo-l"><span class="z-source">d</span><span class="z-keyword z-operator z-punctuation z-definition z-evaluation z-backticks z-shell">=`</span><span class="z-entity z-name z-function">date</span><span class="z-string"> -d “+</span><span class="z-variable">$n</span><span class="z-string"> days”</span><span class="z-punctuation z-definition z-evaluation z-backticks z-shell">`</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">echo</span><span class="z-string"> “{‘n’:</span><span class="z-punctuation z-definition z-variable z-source">$n</span><span class="z-string">,’date’:’</span><span class="z-punctuation z-definition z-variable z-source">$d</span><span class="z-string">’}”</span></span></code></pre><h2 id="Getting_setup_-_2_min"><a class="header-anchor no-hover-padding" href="#Getting_setup_-_2_min" aria-label="Anchor link for: Getting_setup_-_2_min"><span class="link-icon" aria-hidden="true"></span></a>
 Getting setup - 2 min</h2>
 <ol>
-<li>Install <a href="https://nodered.org/">node-red</a></li>
+<li>Install <a rel="external" href="https://nodered.org/">node-red</a></li>
 <li>Start node-red server and login to http://localhost:1880/admin/</li>
-<li>Read up a bit about <a href="https://cookbook.nodered.org/http/create-an-http-endpoint">creating http end point from cookbook</a>.</li>
+<li>Read up a bit about <a rel="external" href="https://cookbook.nodered.org/http/create-an-http-endpoint">creating http end point from cookbook</a>.</li>
 </ol>
 <h2 id="Building_your_flow_—_2_min"><a class="header-anchor no-hover-padding" href="#Building_your_flow_—_2_min" aria-label="Anchor link for: Building_your_flow_—_2_min"><span class="link-icon" aria-hidden="true"></span></a>
 Building your flow — 2 min</h2>
@@ -200,11 +198,10 @@ Building your flow — 2 min</h2>
 <p>Just hit that red button on top right called <em>“Deploy”</em> and you are done! You don’t need to configure <em>http-out</em> node at all.</p>
 <h2 id="Let_us_test_drive_—_1_min"><a class="header-anchor no-hover-padding" href="#Let_us_test_drive_—_1_min" aria-label="Anchor link for: Let_us_test_drive_—_1_min"><span class="link-icon" aria-hidden="true"></span></a>
 Let us test drive — 1 min</h2>
-<pre data-lang="sh" class="language-sh z-code"><code class="language-sh" data-lang="sh"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">$</span></span><span class="z-meta z-function-call z-arguments z-shell"> curl http://127.0.0.1:1880/dateafter/6</span>
-</span><span class="z-source z-shell z-bash">  <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">{‘n’:6,’date’:’Mon</span></span><span class="z-meta z-function-call z-arguments z-shell"> Sep 2 07:27:36 IST 2019<span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>}
-</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-quoted z-single z-shell">$ curl http://127.0.0.1:1880/dateafter/-1
-</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-string z-quoted z-single z-shell">  {‘n’:-1,’date’:’Mon Aug 26 07:27:39 IST 2019<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span><span class="z-meta z-function-call z-shell"></span>}
-</span></code></pre>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">$</span><span class="z-string"> curl http://127.0.0.1:1880/dateafter/6</span></span>
+<span class="giallo-l"><span class="z-punctuation">  {</span><span class="z-entity z-name z-function">‘n’:6,’date’:’Mon</span><span class="z-string"> Sep</span><span class="z-constant z-numeric"> 2</span><span class="z-string"> 07:27:36 IST</span><span class="z-constant z-numeric"> 2019</span><span class="z-punctuation z-definition z-string z-string">&#39;}</span></span>
+<span class="giallo-l"><span class="z-string">$ curl http://127.0.0.1:1880/dateafter/-1</span></span>
+<span class="giallo-l"><span class="z-string z-punctuation z-definition z-string">  {‘n’:-1,’date’:’Mon Aug 26 07:27:39 IST 2019&#39;}</span></span></code></pre>
 <p>Isn’t it easy? Easier than cooking instant noodles :)</p>
 <h2 id="Ok_so_what,_we_don’t_need_to_have_a_service_to_compute_dates!"><a class="header-anchor no-hover-padding" href="#Ok_so_what,_we_don’t_need_to_have_a_service_to_compute_dates!" aria-label="Anchor link for: Ok_so_what,_we_don’t_need_to_have_a_service_to_compute_dates!"><span class="link-icon" aria-hidden="true"></span></a>
 Ok so what, we don’t need to have a service to compute dates!</h2>
@@ -230,7 +227,7 @@ that appends to the analytics db.</li>
 <p>If you go through various components available on default palette on the left;
 or node-red site, I am sure you can come up with many different use cases for
 helping your customers and colleagues.</p>
-<p>PS: This article was <a href="https://medium.com/@vsbabu/cook-your-scripts-to-apis-in-5-minutes-26844957193b">posted in medium.com</a> as well.</p>
+<p>PS: This article was <a rel="external" href="https://medium.com/@vsbabu/cook-your-scripts-to-apis-in-5-minutes-26844957193b">posted in medium.com</a> as well.</p>
 
         </section>
 
