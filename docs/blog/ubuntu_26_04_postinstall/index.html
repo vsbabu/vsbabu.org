@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Security-Policy"
+content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#x27; https:&#x2F;&#x2F;* data:;media-src &#x27;self&#x27;;style-src &#x27;self&#x27;;frame-src player.vimeo.com https:&#x2F;&#x2F;www.youtube-nocookie.com;connect-src 'self';script-src 'self' 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="base" content="https://vsbabu.org/">
+
+    
+    <title>
+~sv • Ubuntu 26.04 - Resolute Raccoon post install</title>
+
+    
+    
+        <link rel="icon" type="image/png" href="https://vsbabu.org/favicon.ico"/>
+    
+    
+
+    
+    
+        
+            
+            
+                
+                    <link rel="alternate" type="application/atom+xml" title="~sv - Atom Feed" href="https://vsbabu.org/atom.xml">
+                
+            
+        
+    
+
+    
+    
+    
+        
+            <link rel="stylesheet" href="https://vsbabu.org/custom_subset.css?h=0b9535a28bc3d5bf2321">
+        
+    
+
+    
+        <link rel="stylesheet" href="https://vsbabu.org/main.css?h=6b1dda977391dad0c76e" />
+        <link rel="stylesheet" href="https://vsbabu.org/skins/zen.css?h=b7d5c5f092e6a9687c0e" />
+
+    <meta name="color-scheme" content="light dark" />
+        <meta name="description" content="Things to do after fresh install of 26.04 desktop" />
+        <meta property="og:description" content="Things to do after fresh install of 26.04 desktop" />
+
+    
+
+    <meta property="og:title" content="Ubuntu 26.04 - Resolute Raccoon post install" />
+    <meta property="og:type" content="article" />
+
+    
+<meta property="og:locale" content="en_GB" />
+
+    <meta property="og:url" content="https:&#x2F;&#x2F;vsbabu.org&#x2F;blog&#x2F;ubuntu_26_04_postinstall&#x2F;" /><meta property="og:site_name" content="~sv">
+        <noscript><link rel="stylesheet" href="https://vsbabu.org/no_js.css"/></noscript>
+        <script type="text/javascript" src="https://vsbabu.org/js/initializeTheme.min.js"></script>
+        <script defer src="https://vsbabu.org/js/themeSwitcher.min.js"></script>
+        <script defer src="https://vsbabu.org/js/searchElasticlunr.min.js?h=3626c0ef99daa745b31e"></script>
+
+        </head>
+
+
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="nav-title">
+            <a class="home-title" href="https://vsbabu.org">~sv</a>
+        </div>
+            <div class="nav-navs">
+                <ul>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/../">home
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/blog/">blog
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/archive/">archive
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/tags/">tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding" href="https://vsbabu.org/about/">about
+                                </a>
+                            </li>
+                        <li class="menu-icons-container">
+                        <ul class="menu-icons-group">
+                            <li class="js menu-icon">
+                                <div role="button" tabindex="0" id="search-button" class="search-icon interactive-icon" title="Click or press $SHORTCUT to open search" aria-label="Click or press $SHORTCUT to open search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                        <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                                    </svg>
+                                </div>
+                            </li>
+
+                            
+                            
+
+                            <li class="theme-switcher-wrapper js"><div
+        title="Toggle dark&#x2F;light mode"
+        class="theme-switcher"
+        tabindex="0"
+        role="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false">
+    </div><div
+        title="Reset mode to default"
+        class="theme-resetter arrow"
+        tabindex="0"
+        role="button"
+        aria-hidden="true"
+        aria-label="Reset mode to default">
+    </div>
+
+</li>
+</ul>
+                    </li>
+                </ul>
+            </div>
+        
+    </nav>
+</header>
+
+    <div class="content">
+
+        
+        
+
+
+
+
+<main>
+    <article>
+        <h1 class="article-title">
+            Ubuntu 26.04 - Resolute Raccoon post install
+        </h1>
+
+        <ul class="meta">
+
+            
+                <span class="hidden p-author h-card">
+<a rel="author" href="https:&#x2F;&#x2F;vsbabu.org&#x2F;" class="u-url " title="Satheesh Vattekkat">Satheesh Vattekkat</a>
+</span>
+
+            
+                <li>30th May 2026</li><li title="367 words"><span class='separator' aria-hidden='true'>•</span>2 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/linux/">linux</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/ubuntu/">ubuntu</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/snippet/">snippet</a></li>
+        </ul>
+
+        <section class="body"><p>Quick snippets and utils that I use to get going once OS install is complete. My laptop is a dual-boot with Windows 11.</p>
+<span id="continue-reading"></span><h2 id="Basics"><a class="header-anchor no-hover-padding" href="#Basics" aria-label="Anchor link for: Basics"><span class="link-icon" aria-hidden="true"></span></a>
+Basics</h2>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># install pending updates</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt update</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt upgrade</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt install</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  curl</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  git</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  fish</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  neovim</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  libreoffice</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  lazygit</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  bat</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  btop</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  tig</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  ripgrep</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  fzf</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  sqlite3</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  fastfetch</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  yt-dlp</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">  emacs</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># set fish as my login shell</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">chsh</span><span class="z-string"> -s</span><span class="z-punctuation"> $(</span><span class="z-support z-function z-builtin">which</span><span class="z-string"> fish</span><span class="z-punctuation">)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># start a new terminal</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">mkdir</span><span class="z-string"> -p ~/.local/bin</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">fish_add_path</span><span class="z-string"> ~/.local/bin</span></span>
+<span class="giallo-l"></span></code></pre>
+<p>I use <a rel="external" href="https://syncthing.net/downloads/">Syncthing</a> to sync my folders across other machines in my local network. Since the version in official repos is quite old, download from the site and extract only <code>syncthing</code> binary to <code>~/.local/bin/</code>.</p>
+<h2 id="Firewall"><a class="header-anchor no-hover-padding" href="#Firewall" aria-label="Anchor link for: Firewall"><span class="link-icon" aria-hidden="true"></span></a>
+Firewall</h2>
+<p>By default, block all incoming.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> ufw deny default incoming</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> ufw allow syncthing</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> ufw enable</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> ufw status verbose</span></span></code></pre><h2 id="Copy_bluetooth_devices_from_Windows_11_partition"><a class="header-anchor no-hover-padding" href="#Copy_bluetooth_devices_from_Windows_11_partition" aria-label="Anchor link for: Copy_bluetooth_devices_from_Windows_11_partition"><span class="link-icon" aria-hidden="true"></span></a>
+Copy bluetooth devices from Windows 11 partition</h2>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt install chntpw</span></span>
+<span class="giallo-l"><span class="z-support z-function z-builtin">cd</span><span class="z-string"> /tmp</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">wget</span><span class="z-string"> https://gist.githubusercontent.com/Mygod/f390aabf53cf1406fc71166a47236ebf/raw/8514b2bd949c1f56a8d922ac284345b489dee871/export-ble-infos.py</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># mount Windows partition - check the location and adjust path below</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">python3</span><span class="z-string"> export-ble-infos.py -s /run/media/</span><span class="z-punctuation z-definition z-variable z-source">$USER</span><span class="z-string">/Windows/Windows/System32/config/SYSTEM</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string z-punctuation z-definition z-string"> bash -c &#39;cp -r ./bluetooth /var/lib &amp;&amp; service bluetooth force-reload&#39;</span></span></code></pre><h2 id="Linux_Brew"><a class="header-anchor no-hover-padding" href="#Linux_Brew" aria-label="Anchor link for: Linux_Brew"><span class="link-icon" aria-hidden="true"></span></a>
+Linux Brew</h2>
+<p><a rel="external" href="https://brew.sh/">Homebrew</a> has a good collection of software and is usually updated faster. Install following
+instructions on the site.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">brew</span><span class="z-string"> doctor</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">brew</span><span class="z-string"> install</span><span class="z-constant z-character z-escape">    \</span></span>
+<span class="giallo-l"><span class="z-string">    bat</span><span class="z-constant z-character z-escape">         \ </span><span class="z-string"># much better cat</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    tree-sitter</span><span class="z-constant z-character z-escape"> \</span></span>
+<span class="giallo-l"><span class="z-string">    tree-sitter-cli</span><span class="z-constant z-character z-escape"> \ </span><span class="z-string"># for neovim</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    uv</span><span class="z-constant z-character z-escape">          \ </span><span class="z-string"># cannot do python dev without this now!</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    xsv</span><span class="z-constant z-character z-escape">         \ </span><span class="z-string"># deprecated now, but still very useful to manipulate csv files</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">    zola</span><span class="z-punctuation z-definition z-comment z-comment">          # static site generator</span></span></code></pre><h2 id="Other_.deb_packages"><a class="header-anchor no-hover-padding" href="#Other_.deb_packages" aria-label="Anchor link for: Other_.deb_packages"><span class="link-icon" aria-hidden="true"></span></a>
+Other <code>.deb</code> packages</h2>
+<p>Download the following as <code>.deb</code> packages. Mine are all <code>amd64</code> versions.</p>
+<ul>
+<li>Browsers:  Download <a rel="external" href="https://vivaldi.com/download/">Vivaldi</a> and <a rel="external" href="https://github.com/imputnet/helium-linux/releases">Helium</a> as <code>.deb</code> packages.</li>
+<li><a rel="external" href="https://github.com/shiftkey/desktop/releases">Github Desktop</a></li>
+<li><a rel="external" href="https://github.com/pwsafe/pwsafe/releases?q=non-windows&amp;expanded=true">Password Safe</a> for managing passwords</li>
+</ul>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> dpkg -i downloaded_file.deb</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># install missing dependencies </span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt -f install</span></span></code></pre>
+<p>Ubuntu 26.04 does not have a GUI for managing software sources. Install one though it is not as good as one provided by Linux Mint. After installation, you can find it by searching for <code>Software &amp; Updates</code>.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt install software-properties-gtk</span></span></code></pre><h2 id="Fix_GRUB_boot_menu"><a class="header-anchor no-hover-padding" href="#Fix_GRUB_boot_menu" aria-label="Anchor link for: Fix_GRUB_boot_menu"><span class="link-icon" aria-hidden="true"></span></a>
+Fix GRUB boot menu</h2>
+<p>Edit <code>/etc/defaults/grub</code> to have following lines. This will automatically boot in last selected boot option in 3 seconds.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-source">GRUB_DEFAULT</span><span class="z-keyword z-operator">=</span><span class="z-string">saved</span></span>
+<span class="giallo-l"><span class="z-source">GRUB_SAVEDEFAULT</span><span class="z-keyword z-operator">=</span><span class="z-string">true</span></span>
+<span class="giallo-l"><span class="z-source">GRUB_TIMEOUT_STYLE</span><span class="z-keyword z-operator">=</span><span class="z-string">hidden</span></span>
+<span class="giallo-l"><span class="z-source">GRUB_TIMEOUT</span><span class="z-keyword z-operator">=</span><span class="z-string">3</span></span></code></pre>
+<p>Once edited and saved, run the folling to take effect.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> update-grub</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># these below will clean out cached old packages</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt autoclean</span><span class="z-source"> </span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt autoremove</span></span></code></pre><h2 id="Editors"><a class="header-anchor no-hover-padding" href="#Editors" aria-label="Anchor link for: Editors"><span class="link-icon" aria-hidden="true"></span></a>
+Editors</h2>
+<ul>
+<li><a rel="external" href="https://github.com/doomemacs/doomemacs">Doom Emacs</a> is my preferred emacs environment. Follow instructions on the site to install.</li>
+</ul>
+<p>After installation, start <code>emacs</code> and install nerd fonts using this editor command.</p>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">M-x</span><span class="z-string"> nerd-icons-install-fonts</span></span></code></pre>
+<ul>
+<li><a rel="external" href="https://zed.dev/download">Zed</a> is my preferred GUI editor. The <code>install.sh</code> command given on their site works.</li>
+</ul>
+<h2 id="Other_notable_things"><a class="header-anchor no-hover-padding" href="#Other_notable_things" aria-label="Anchor link for: Other_notable_things"><span class="link-icon" aria-hidden="true"></span></a>
+Other notable things</h2>
+<ul>
+<li>Ubuntu’s new terminal seems to be good, so trying  out that for some time. I don’t like <code>Ctrl+Alt+T</code> for that, so changed it to <code>Super+Return</code>. May be will go back to <a rel="external" href="https://wezterm.org/">Wezterm</a> later.</li>
+<li><code>Super+1/2/3</code> etc maps to apps on the dock instead of switching to numbered workspaces. Since I use only 2-3 workspaces, it isn’t hard to use <code>ctrl+alt+-&gt;</code> to move around workspaces.</li>
+<li>Installed Iosevka and ComicShannsMono <a rel="external" href="https://www.nerdfonts.org/">Nerdfonts</a>. Download and extract to <code>~/.local/share/fonts</code> and then run <code>fc-cache -f -v</code>.</li>
+</ul>
+
+        </section>
+
+        
+                
+                
+                    
+                    
+                        
+                        
+                        
+                    
+                
+                
+            <nav class="full-width article-navigation">
+                <div></div>
+                <div><a href="https://vsbabu.org/blog/google_appsheet_journalapp/" aria-label="Prev" aria-describedby="right_title">Prev&nbsp;<span class="arrow">→</span></a>
+                <p aria-hidden="true" id="right_title">Google Appsheet to build a quick journal app</p></div>
+            </nav>
+        
+        
+
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+            
+            
+            
+
+            
+        
+        
+
+    </article>
+</main>
+
+    <div id="button-container">
+        
+        
+            <div id="toc-floating-container">
+                <input type="checkbox" id="toc-toggle" class="toggle"/>
+                <label for="toc-toggle" class="overlay"></label>
+                <label for="toc-toggle" id="toc-button" class="button" title="Toggle Table of Contents">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M414.82-193.094q-18.044 0-30.497-12.32-12.453-12.319-12.453-30.036t12.453-30.086q12.453-12.37 30.497-12.37h392.767q17.237 0 29.927 12.487 12.69 12.486 12.69 30.203 0 17.716-12.69 29.919t-29.927 12.203H414.82Zm0-244.833q-18.044 0-30.497-12.487Q371.87-462.9 371.87-480.45t12.453-29.92q12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.511 12.69 12.512 12.69 29.845 0 17.716-12.69 30.086-12.69 12.37-29.927 12.37H414.82Zm0-245.167q-18.044 0-30.497-12.32t-12.453-30.037q0-17.716 12.453-30.086 12.453-12.369 30.497-12.369h392.767q17.237 0 29.927 12.486 12.69 12.487 12.69 30.203 0 17.717-12.69 29.92-12.69 12.203-29.927 12.203H414.82ZM189.379-156.681q-32.652 0-55.878-22.829t-23.226-55.731q0-32.549 23.15-55.647 23.151-23.097 55.95-23.097 32.799 0 55.313 23.484 22.515 23.484 22.515 56.246 0 32.212-22.861 54.893-22.861 22.681-54.963 22.681Zm0-245.167q-32.652 0-55.878-23.134-23.226-23.135-23.226-55.623 0-32.487 23.467-55.517t56.12-23.03q32.102 0 54.721 23.288 22.62 23.288 22.62 55.775 0 32.488-22.861 55.364-22.861 22.877-54.963 22.877Zm-.82-244.833q-32.224 0-55.254-23.288-23.03-23.289-23.03-55.623 0-32.333 23.271-55.364 23.272-23.03 55.495-23.03 32.224 0 55.193 23.288 22.969 23.289 22.969 55.622 0 32.334-23.21 55.364-23.21 23.031-55.434 23.031Z"/></svg>
+                </label>
+                <div class="toc-content">
+                    
+
+<div class="toc-container">
+    
+
+    <ul>
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/ubuntu_26_04_postinstall/#Basics">Basics</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/ubuntu_26_04_postinstall/#Firewall">Firewall</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/ubuntu_26_04_postinstall/#Copy_bluetooth_devices_from_Windows_11_partition">Copy bluetooth devices from Windows 11 partition</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/ubuntu_26_04_postinstall/#Linux_Brew">Linux Brew</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/ubuntu_26_04_postinstall/#Other_.deb_packages">Other .deb packages</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/ubuntu_26_04_postinstall/#Fix_GRUB_boot_menu">Fix GRUB boot menu</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/ubuntu_26_04_postinstall/#Editors">Editors</a>
+                    
+                </li>
+            
+        
+            
+            
+                <li><a href="https://vsbabu.org/blog/ubuntu_26_04_postinstall/#Other_notable_things">Other notable things</a>
+                    
+                </li>
+            
+        
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+        
+
+        
+        
+
+        
+        <a href="#" id="top-button" class="no-hover-padding" title="Go to the top of the page">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"/></svg>
+        </a>
+    </div>
+
+
+<span id="copy-success" class="hidden">
+        Copied!
+    </span>
+    <span id="copy-init" class="hidden">
+        Copy code to clipboard
+    </span>
+    <script defer src="https://vsbabu.org/js/copyCodeToClipboard.min.js"></script>
+
+
+    </div>
+    <footer>
+    <section>
+        <nav class="socials nav-navs"><ul><li>
+                        <a class="nav-links no-hover-padding social" rel="" 
+
+ href="https://vsbabu.org/atom.xml">
+                        <img loading="lazy" alt="feed" title="feed" src="https://vsbabu.org/social_icons/rss.svg">
+                        </a>
+                    </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me" 
+
+ href="https://github.com/vsbabu/">
+                                    <img loading="lazy" alt="github" title="github" src="https://vsbabu.org/social_icons/github.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me" 
+
+ href="https://www.linkedin.com/in/vsbabu">
+                                    <img loading="lazy" alt="linkedin" title="linkedin" src="https://vsbabu.org/social_icons/linkedin.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me" 
+
+ href="https://www.medium.com/@vsbabu">
+                                    <img loading="lazy" alt="medium" title="medium" src="https://vsbabu.org/social_icons/matrix.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me" 
+
+ href="https://x.com/vsbabu">
+                                    <img loading="lazy" alt="x" title="x" src="https://vsbabu.org/social_icons/x.svg">
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a class="nav-links no-hover-padding social" rel=" me" 
+
+ href="https://reddit.com/u/vsbabu">
+                                    <img loading="lazy" alt="reddit" title="reddit" src="https://vsbabu.org/social_icons/reddit.svg">
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            
+        </nav>
+
+        
+        <nav class="nav-navs">
+        </nav>
+
+        <div class="credits">
+            <small>
+                
+
+                
+                Powered by
+                <a rel="" 
+
+ href="https://www.getzola.org">Zola</a>
+                &amp;
+                <a rel="" 
+
+ href="https://github.com/welpo/tabi">tabi</a>
+
+                •
+                    <a rel="" 
+
+ href="https:&#x2F;&#x2F;github.com&#x2F;vsbabu&#x2F;vsbabu.org">
+                        Site source
+                    </a></small>
+        </div>
+    </section>
+
+    <div id="searchModal" class="search-modal js" role="dialog" aria-labelledby="modalTitle">
+    <h1 id="modalTitle" class="visually-hidden">Search</h1>
+    <div id="modal-content">
+        <div id="searchBar">
+            <div class="search-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/>
+                </svg>
+            </div>
+            <input id="searchInput" role="combobox" autocomplete="off" spellcheck="false" aria-expanded="false" aria-controls="results-container" placeholder="Search…"/>
+            <div id="clear-search" class="close-icon interactive-icon" tabindex="0" role="button" title="Clear search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="results-container">
+            <div id="results-info"><span id="zero_results"> No results</span>
+                <span id="one_results"> $NUMBER result</span>
+                <span id="many_results"> $NUMBER results</span><span id="two_results"> $NUMBER results</span>
+                <span id="few_results"> $NUMBER results</span>
+            </div>
+            <div id="results" role="listbox"></div>
+        </div>
+    </div>
+</div>
+</footer>
+
+</body>
+
+</html>
