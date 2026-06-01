@@ -154,3 +154,14 @@ M-x nerd-icons-install-fonts
 -  Ubuntu's new terminal seems to be good, so trying  out that for some time. I don't like `Ctrl+Alt+T` for that, so changed it to `Super+Return`. May be will go back to [Wezterm](https://wezterm.org/) later.
 - `Super+1/2/3` etc maps to apps on the dock instead of switching to numbered workspaces. Since I use only 2-3 workspaces, it isn't hard to use `ctrl+alt+->` to move around workspaces.
 - Installed Iosevka and ComicShannsMono [Nerdfonts](https://www.nerdfonts.org/). Download and extract to `~/.local/share/fonts` and then run `fc-cache -f -v`.
+
+## Wayland Tiling WM - Sway
+
+Instead of `i3`, I installed [Sway](https://www.swaywm.org/) for auto-tiling and distraction free environment when that is needed. 
+
+```sh
+sudo apt install sway foot-themes sway-backgrounds swayidle swaylock xdg-desktop-portal-wlr fuzzel wlr-randr waybar
+```
+
+Configs are available on Github as follows [sway](https://github.com/vsbabu/configs/tree/master/sway), [foot terminal](https://github.com/vsbabu/configs/tree/master/foot), [fuzzel launcher](https://github.com/vsbabu/configs/tree/master/fuzzel),
+[waybar](https://github.com/vsbabu/configs/tree/master/waybar)
