@@ -90,7 +90,8 @@ brew install    \
 
 Download the following as `.deb` packages. Mine are all `amd64` versions.
 
-- Browsers:  Download [Vivaldi](https://vivaldi.com/download/) and [Helium](https://github.com/imputnet/helium-linux/releases) as `.deb` packages. 
+- Browsers:  [Vivaldi](https://vivaldi.com/download/) and [Helium](https://github.com/imputnet/helium-linux/releases).
+    -  [Zen](https://zen-browser.app/) is my default and locally installed.
 - [Github Desktop](https://github.com/shiftkey/desktop/releases)
 - [Password Safe](https://github.com/pwsafe/pwsafe/releases?q=non-windows&expanded=true) for managing passwords
 
@@ -160,8 +161,20 @@ M-x nerd-icons-install-fonts
 Instead of `i3`, I installed [Sway](https://www.swaywm.org/) for auto-tiling and distraction free environment when that is needed. 
 
 ```sh
-sudo apt install sway foot-themes sway-backgrounds swayidle swaylock xdg-desktop-portal-wlr fuzzel wlr-randr waybar
+sudo apt install 
+   sway sway-backgrounds  swayidle swaylock  \   # main packages
+   foot foot-themes                          \   # nice light terminal
+   fuzzel                                    \   # Super+space launcher
+   wlr-randr xdg-desktop-portal-wlr          \   # qrandr for wayland
+   waybar                                    \   # top bar utility
+   playerctl                                 \   # media control for waybar
+   libplayerctl-dev gir1.2-playerctl-2.0     \   #  with dependencies
+   python3-gi                                \
+   pavucontrol                               \   # volume control utility
+   network-manager-applet                    \   # without firing up gnome/unity
 ```
 
 Configs are available on Github as follows [sway](https://github.com/vsbabu/configs/tree/master/sway), [foot terminal](https://github.com/vsbabu/configs/tree/master/foot), [fuzzel launcher](https://github.com/vsbabu/configs/tree/master/fuzzel),
 [waybar](https://github.com/vsbabu/configs/tree/master/waybar)
+
+To uninstall, just run the same command changing `install` with `purge` followed by `sudo apt autoremove`.
