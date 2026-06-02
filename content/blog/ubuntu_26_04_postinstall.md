@@ -10,7 +10,6 @@ categories = ["snippet"]
 tags = [ "linux", "ubuntu", "snippet"]
 +++
 Quick snippets and utils that I use to get going once OS install is complete. My laptop is a dual-boot with Windows 11.
-
 <!-- more -->
 
 ## Basics
@@ -35,7 +34,8 @@ sudo apt install \
   fastfetch \            # neofetch, fastfetch etc gives good sysinfo
   yt-dlp \               # for offline viewing and listening
   emacs \                # it is also an editor among a lot many other things
-  gnome-tweaks           # for the things that Settings app still can't do
+  gnome-tweaks \         # for the things that Settings app still can't do
+  gimp gimp-data-extras  # image  editing
 
 # set fish as my login shell
 chsh -s $(which fish)
@@ -158,7 +158,9 @@ M-x nerd-icons-install-fonts
 
 ## Wayland Tiling WM - Sway
 
-Instead of `i3`, I installed [Sway](https://www.swaywm.org/) for auto-tiling and distraction free environment when that is needed. 
+Instead of `i3`, I installed [Sway](https://www.swaywm.org/) for auto-tiling and distraction free environment when that is needed.  Looks nice and superfast.
+
+![Sway WM](sway_waybar.png)
 
 ```sh
 sudo apt install 
