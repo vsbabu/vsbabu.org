@@ -155,7 +155,7 @@ content="default-src 'self';font-src &#x27;self&#x27; data:;img-src &#x27;self&#
 </span>
 
             
-                <li>30th May 2026</li><li title="476 words"><span class='separator' aria-hidden='true'>•</span>3 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/linux/">linux</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/ubuntu/">ubuntu</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/snippet/">snippet</a></li>
+                <li>30th May 2026</li><li title="498 words"><span class='separator' aria-hidden='true'>•</span>3 min read</li><li class="tag"><span class='separator' aria-hidden='true'>•</span>Tags:&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/linux/">linux</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/ubuntu/">ubuntu</a>,&nbsp;</li><li class="tag"><a href="https://vsbabu.org/tags/snippet/">snippet</a></li>
         </ul>
 
         <section class="body"><p>Quick snippets and utils that I use to get going once OS install is complete. My laptop is a dual-boot with Windows 11.</p>
@@ -219,7 +219,11 @@ instructions on the site.</p>
 Other <code>.deb</code> packages</h2>
 <p>Download the following as <code>.deb</code> packages. Mine are all <code>amd64</code> versions.</p>
 <ul>
-<li>Browsers:  Download <a rel="external" href="https://vivaldi.com/download/">Vivaldi</a> and <a rel="external" href="https://github.com/imputnet/helium-linux/releases">Helium</a> as <code>.deb</code> packages.</li>
+<li>Browsers:  <a rel="external" href="https://vivaldi.com/download/">Vivaldi</a> and <a rel="external" href="https://github.com/imputnet/helium-linux/releases">Helium</a>.
+<ul>
+<li><a rel="external" href="https://zen-browser.app/">Zen</a> is my default and locally installed.</li>
+</ul>
+</li>
 <li><a rel="external" href="https://github.com/shiftkey/desktop/releases">Github Desktop</a></li>
 <li><a rel="external" href="https://github.com/pwsafe/pwsafe/releases?q=non-windows&amp;expanded=true">Password Safe</a> for managing passwords</li>
 </ul>
@@ -266,9 +270,20 @@ Other notable things</h2>
 <h2 id="Wayland_Tiling_WM_-_Sway"><a class="header-anchor no-hover-padding" href="#Wayland_Tiling_WM_-_Sway" aria-label="Anchor link for: Wayland_Tiling_WM_-_Sway"><span class="link-icon" aria-hidden="true"></span></a>
 Wayland Tiling WM - Sway</h2>
 <p>Instead of <code>i3</code>, I installed <a rel="external" href="https://www.swaywm.org/">Sway</a> for auto-tiling and distraction free environment when that is needed.</p>
-<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt install sway foot-themes sway-backgrounds swayidle swaylock xdg-desktop-portal-wlr fuzzel wlr-randr waybar</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="shellscript"><span class="giallo-l"><span class="z-entity z-name z-function">sudo</span><span class="z-string"> apt install</span><span class="z-source"> </span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">   sway</span><span class="z-string"> sway-backgrounds  swayidle swaylock</span><span class="z-constant z-character z-escape">  \ </span><span class="z-punctuation z-definition z-comment z-comment">  # main packages</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">   foot</span><span class="z-string"> foot-themes</span><span class="z-constant z-character z-escape">                          \ </span><span class="z-punctuation z-definition z-comment z-comment">  # nice light terminal</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">   fuzzel</span><span class="z-constant z-character z-escape">                                    \ </span><span class="z-punctuation z-definition z-comment z-comment">  # Super+space launcher</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">   wlr-randr</span><span class="z-string"> xdg-desktop-portal-wlr</span><span class="z-constant z-character z-escape">          \ </span><span class="z-punctuation z-definition z-comment z-comment">  # qrandr for wayland</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">   waybar</span><span class="z-constant z-character z-escape">                                    \ </span><span class="z-punctuation z-definition z-comment z-comment">  # top bar utility</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">   playerctl</span><span class="z-constant z-character z-escape">                                 \ </span><span class="z-punctuation z-definition z-comment z-comment">  # media control for waybar</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">   libplayerctl-dev</span><span class="z-string"> gir1.2-playerctl-2.0</span><span class="z-constant z-character z-escape">     \ </span><span class="z-punctuation z-definition z-comment z-comment">  #  with dependencies</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">   python3-gi</span><span class="z-constant z-character z-escape">                                \</span></span>
+<span class="giallo-l"><span class="z-string">   pavucontrol</span><span class="z-constant z-character z-escape">                               \ </span><span class="z-punctuation z-definition z-comment z-comment">  # volume control utility</span></span>
+<span class="giallo-l"><span class="z-entity z-name z-function">   network-manager-applet</span><span class="z-constant z-character z-escape">                    \ </span><span class="z-punctuation z-definition z-comment z-comment">  # without firing up gnome/unity</span></span></code></pre>
 <p>Configs are available on Github as follows <a rel="external" href="https://github.com/vsbabu/configs/tree/master/sway">sway</a>, <a rel="external" href="https://github.com/vsbabu/configs/tree/master/foot">foot terminal</a>, <a rel="external" href="https://github.com/vsbabu/configs/tree/master/fuzzel">fuzzel launcher</a>,
 <a rel="external" href="https://github.com/vsbabu/configs/tree/master/waybar">waybar</a></p>
+<p>To uninstall, just run the same command changing <code>install</code> with <code>purge</code> followed by <code>sudo apt autoremove</code>.</p>
 
         </section>
 
