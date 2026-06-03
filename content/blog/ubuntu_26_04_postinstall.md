@@ -35,7 +35,12 @@ sudo apt install \
   yt-dlp \               # for offline viewing and listening
   emacs \                # it is also an editor among a lot many other things
   gnome-tweaks \         # for the things that Settings app still can't do
-  gimp gimp-data-extras  # image  editing
+  gimp \                 # image editing
+  gimp-data-extras \
+  graphicsmagick \
+  exiftool  \
+  rhythmbox \            # music player
+  showtime               # video player - vlc has more features
 
 # set fish as my login shell
 chsh -s $(which fish)
@@ -174,6 +179,7 @@ sudo apt install
    python3-gi                                \
    pavucontrol                               \   # volume control utility
    network-manager-applet                    \   # without firing up gnome/unity
+   grim                                          # screenshot cli
 ```
 
 Configs are available on Github as follows [sway](https://github.com/vsbabu/configs/tree/master/sway), [foot terminal](https://github.com/vsbabu/configs/tree/master/foot), [fuzzel launcher](https://github.com/vsbabu/configs/tree/master/fuzzel),
