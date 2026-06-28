@@ -84,6 +84,7 @@ instructions on the site.
 brew doctor
 brew install    \
     bat         \ # much better cat
+    sk          \ # rust based fuzzy finder
     tree-sitter \
     tree-sitter-cli \ # for neovim
     uv          \ # cannot do python dev without this now!
@@ -160,6 +161,7 @@ M-x nerd-icons-install-fonts
 -  Ubuntu's new terminal seems to be good, so trying  out that for some time. I don't like `Ctrl+Alt+T` for that, so changed it to `Super+Return`. May be will go back to [Wezterm](https://wezterm.org/) later.
 - `Super+1/2/3` etc maps to apps on the dock instead of switching to numbered workspaces. Since I use only 2-3 workspaces, it isn't hard to use `ctrl+alt+->` to move around workspaces.
 - Installed Iosevka and ComicShannsMono [Nerdfonts](https://www.nerdfonts.org/). Download and extract to `~/.local/share/fonts` and then run `fc-cache -f -v`.
+- Download [Zellij](https://zellij.dev/) binary (without web) as `tmux` alternative into `~/.local/bin/`
 
 ## Wayland Tiling WM - Sway
 
